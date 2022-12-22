@@ -1,0 +1,158 @@
+---
+output:
+  bookdown::html_document2: default
+  bookdown::pdf_document2:
+    template: templates/template.tex
+  bookdown::word_document2: default
+documentclass: book
+bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
+---
+
+
+```{r Importing Data, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+
+required_packages <- c("rmarkdown", "bookdown", "knitr", "kableExtra", "tidyverse", "here", "readxl", "ggplot2", "lubridate", "plotly", "dplyr", "wesanderson", "viridis","leaflet")
+
+for (package in required_packages) {
+  print(paste0("checking for install of ", package))
+  if (!requireNamespace(package)) install.packages(package, repos = "http://cran.rstudio.com")
+}
+
+library(readxl)
+library(ggplot2)
+library(lubridate)
+library(plotly)
+library(dplyr)
+#color pallets
+library(wesanderson)
+library(viridis)
+library(knitr)
+library(tidyverse)
+library(leaflet)
+
+try(data <- read_excel("C:/Users/MattP/Desktop/HELM data final.xlsx"))
+
+year <- data$Year
+year <- data.frame(year)
+disc <- subset(data, select = "Discover RLO")
+disc <- na.omit(disc)
+colnames(disc)[1] = "dRLO"
+df<-data
+```
+
+
+# Method
+
+\minitoc <!-- this will include a mini table of contents-->
+
+## Participants
+
+```{r Participants, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+
+
+```
+
+This data set had `r count(data)` participants 
+
+
+
+## Procedure
+
+```{r Procedure, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+
+
+```
+
+## Design
+```{r Design, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+
+
+```
+
+
+## Materials
+
+```{r Materials, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+```
+
+
+### System Usability Scale
+
+The System Usability Scale (SUS) was used [10] and is a widely used and adopted usability questionnaire. It is popular due to its unbiased and agnostic properties, a non proprietary, and quick scale of 10 questions.
+
+
+1.	I think that I would like to use this system frequently.
+2.	I found the system unnecessarily complex.
+3.	I thought the system was easy to use.
+4.	I think that I would need the support of a technical person to be able to use this system.
+5.	I found the various functions in this system were well integrated.
+6.	I thought there was too much inconsistency in this system.
+7.	I would imagine that most people would learn to use this system very quickly.
+8.	I found the system very cumbersome to use.
+9.	I felt very confident using the system.
+10.	I needed to learn a lot of things before I could get going with this system.
+
+
+The SUS was developed with a scoring system, in which the following should be performed: For each of the odd numbered questions, subtract 1 from the score. For each of the even numbered questions, subtract their value from 5. Add up these numbers to find the total score, then multiply this by 2.5. The result is a score out of 100 and can be compared against a determined average score of 68. Further, 80.3 or higher is excellent, and 51 or under suggests significant usability problems.
+
+
+### Computer Self-Efficacy Scale Tool
+
+The 10 question CSEST was based on the 32-item questionnaire by Murphy, Coover, and Owen (1989). Participants were provided with the facilitator stating ‘Imagine you have found a new technology product that you have previously not used. You believe this product will make your life better. It doesn’t matter specifically what this technology product does, only that it is intended to make your life easier and that you have never used it before. I could use the new technology... 
+
+
+1. If there was no one around to tell me what to do as I go 
+2. If I had never used a product like it before 
+3. If I had only the product manuals for reference 
+4. If I had seen someone else using it before trying it myself 
+5. If I could call someone for help if I got stuck 
+6. If someone else had helped me get started 
+7. If I had a lot of time to complete the job for which the product was provided 
+8. If I had just the built-in help facility for assistance 
+9. If someone showed me how to do it first 
+10. If I had used similar products before this one to do the same job
+
+
+
+### Unified Theory of Acceptance and Use of Technology
+
+### Technology Acceptance Model (TAM)
+
+The Technology Acceptance Model (TAM) [1]  was specifically developed with the primary aim of identifying the determinants involved in computer acceptance in general; secondly, to examine a variety of information technology usage behaviours; and thirdly, to provide a parsimonious theoretical explanatory model.  TAM suggests that attitude would be a direct predictor of the intention to use technology, which in turn would predict the actual usage of the technology. The only modification to the nine sub-scales of the questionnaire consists of applying the items to the context of chatbots. All the items, except those measuring attitudes, utilize a seven-point Likert scale ranging from “strongly agree” to “strongly disagree” with a middle neutral point [2]. 
+
+
+The nine sub-scales of the questionnaire:
+
+•	Ease of use of chatbots
+•	Perceived usefulness of chatbots
+•	Intention of use. 
+•	Attitude toward usage of chatbots.
+•	Perception of personal efficacy to use a chatbot resource. 
+•	Perception of external control toward chatbots.
+•	Anxiety toward chatbot use.
+•	Intrinsic motivation to use chatbot resources. 
+•	Perceived costs of chatbots.
+
+
+### Qualitative Measure- Focus Group Discussions 
+
+Focus groups are a pervasive means of market research and provides credible acceptance evaluators regarding the penetration that a product or service will have on a target demographic. Focus groups are a form of qualitative research consisting of interviews or structured discussions, in which a group of people are asked about their perceptions, opinions, beliefs, and attitudes towards a product, service, concept, advertisement, idea, or packaging. Questions are asked in an interactive group setting where participants are free to talk with other group members. During this process, the researcher either takes notes or records the vital points he or she is getting from the group. Researchers select members of the focus group carefully for effective and authoritative responses. Relevant stakeholders, then, can use the information collected through focus groups to receive insights on a specific product, issue, or topic focus [7]. 
+
+A series of short focus group sessions identified the feasibility of CEPEH resources for formal curricular integration. These sessions, spanning no more than 1-1.5 hours and consisting of no more than 5-7 persons each explored all axes of curricular integration such as accessibility in the classroom, use case scenarios, technology requirements for curricular integration etc. These axes were formalized by the research team, in each evaluation site, to consider the curricular details of each institution.  
+
+
+
+
+## Analysis
+
+
+

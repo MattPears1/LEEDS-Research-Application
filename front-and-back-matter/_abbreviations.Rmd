@@ -1,0 +1,9 @@
+\item[CEPEH] Chatbot Enhance Personalised European Healthcare curricula
+
+\item[RLO] Reusable Learning Object 
+
+\item[NLP] Natural Language Processing
+
+\item[NLU] Natural Language Understanding
+
+\item[A.I] Artificial Intelligence
