@@ -35,14 +35,22 @@ library(knitr)
 library(tidyverse)
 library(leaflet)
 
-try(data <- read_excel("C:/Users/MattP/Desktop/HELM data final.xlsx"))
+try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH.xlsx"))
 
-year <- data$Year
-year <- data.frame(year)
-disc <- subset(data, select = "Discover RLO")
+SexLoc <-data %>%
+  select(Sex, Location)%>%
+  filter (Sex %in% c("Male", "Female"))%>%
+  drop_na(Location)
+  
+
+
+Sex <- data$Sex
+Sex <- data.frame(Sex)
+
+disc <- subset(data, select = "Location")
 disc <- na.omit(disc)
-colnames(disc)[1] = "dRLO"
-df<-data
+colnames(disc)[1] = "Location"
+
 ```
 
 
@@ -58,7 +66,7 @@ df<-data
 
 ```
 
-This data set had `r count(data)` participants 
+This data set had `r count(data)` participants. 
 
 
 
