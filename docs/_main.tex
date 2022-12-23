@@ -1777,199 +1777,272 @@ Volvo 142E1 & 21.4 & 4 & 121.0 & 109 & 4.11 & 2.780 & 18.60 & 1 & 1 & 4 & 2\\*
 \hypertarget{text-mining-natural-language-processing-and-sentiment-analysis}{%
 \chapter{Text Mining, Natural Language Processing, and Sentiment Analysis}\label{text-mining-natural-language-processing-and-sentiment-analysis}}
 
-\minitoc 
+\hypertarget{reading-in-texts}{%
+\section{1 Reading in texts}\label{reading-in-texts}}
 
-\noindent This chapter describes a number of additional tips and tricks as well as possible customizations to the \texttt{oxforddown} thesis.
+\hypertarget{txt-files}{%
+\subsection{1.1 txt files}\label{txt-files}}
 
-\hypertarget{chunk-caching-and-the-_bookdown_files-folder}{%
-\section{\texorpdfstring{Chunk caching and the \textbf{\_bookdown\_files} folder}{Chunk caching and the \_bookdown\_files folder}}\label{chunk-caching-and-the-_bookdown_files-folder}}
+Here's how you can read in one .txt file that is saved in the same location as this script (i.e.~in the same folder on your computer):
 
-If you set \texttt{cache=TRUE} in a code chunk, in order to cache its results if it's time-consuming to run see \href{https://bookdown.org/yihui/rmarkdown-cookbook/cache.html}{the R Markdown documentation}, then the files for the caching are stored in the **\_bookdown\_files** folder.
+If you want to read all files from a sub-folder, type the name of the folder followed by / and * to ask R to read in all files in that folder:
 
-If you don't use caching and you would like to just have the **\_bookdown\_files** folder deleted after the build process is complete, then set \texttt{allow\_cache\ =\ FALSE} in \textbf{index.Rmd}'s call to \texttt{knit\_thesis}.
-
-That is, your YAML should then look like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{knit}\KeywordTok{:}\AttributeTok{ (function(input, ...) \{}
-\AttributeTok{    thesis\_formats \textless{}{-} "pdf";}
-\AttributeTok{    }
-\AttributeTok{    source("scripts\_and\_filters/knit{-}functions.R");}
-\AttributeTok{    knit\_thesis(input, thesis\_formats, allow\_cache = FALSE, ...)}
-\AttributeTok{  \})}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{front-matter}{%
-\section{Front matter}\label{front-matter}}
-
-\hypertarget{shorten-captions-shown-in-the-list-of-figures-pdf}{%
-\subsection{Shorten captions shown in the list of figures (PDF)}\label{shorten-captions-shown-in-the-list-of-figures-pdf}}
-
-You might want your list of figures (which follows the table of contents) to have shorter (or just different) figure descriptions than the actual figure captions.
-
-Do this using the chunk option \texttt{fig.scap} (`short caption'), for example \texttt{\{r\ captain-image,\ fig.cap="A\ very\ long\ and\ descriptive\ (and\ potentially\ boring)\ caption\ that\ doesn\textquotesingle{}t\ fit\ in\ the\ list\ of\ figures,\ but\ helps\ the\ reader\ understand\ what\ the\ figure\ communicates.",\ fig.scap="A\ concise\ description\ for\ the\ list\ of\ figures"}
-
-\hypertarget{shorten-captions-shown-in-the-list-of-tables-pdf}{%
-\subsection{Shorten captions shown in the list of tables (PDF)}\label{shorten-captions-shown-in-the-list-of-tables-pdf}}
-
-You might want your list of tables (which follows the list of figures in your thesis front matter) to have shorter (or just different) table descriptions than the actual table captions.
-
-If you are using \texttt{knitr::kable} to generate a table, you can do this with the argument \texttt{caption.short}, e.g.:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(mtcars,}
-              \AttributeTok{caption =} \StringTok{"A very long and descriptive (and potentially}
-\StringTok{              boring) caption that doesn\textquotesingle{}t fit in the list of figures,}
-\StringTok{              but helps the reader understand what the figure }
-\StringTok{              communicates."}\NormalTok{,}
-              \AttributeTok{caption.short =} \StringTok{"A concise description for the list of tables"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{shorten-running-header-pdf}{%
-\section{Shorten running header (PDF)}\label{shorten-running-header-pdf}}
-
-You might want a chapter's running header (i.e.~the header showing the title of the current chapter at the top of page) to be shorter (or just different) to the actual chapter title.
-
-Do this by adding the latex command \texttt{\textbackslash{}chaptermark\{My\ shorter\ version\}} after your chapter title.
-
-For example, chapter \ref{cites-and-refs}`s running header is simply 'Cites and cross-refs', because it begins like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{\# Citations, cross{-}references, and collaboration \{\#cites{-}and{-}refs\} }
-\NormalTok{\textbackslash{}chaptermark\{Cites and cross{-}refs\}}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{unnumbered-chapters}{%
-\section{Unnumbered chapters}\label{unnumbered-chapters}}
-
-To make chapters unnumbered (normally only relevant to the Introduction and/or the Conclusion), follow the chapter header with \texttt{\{-\}}, e.g.~\texttt{\#\ Introduction\ \{-\}}.
-
-When you do this, you must also follow the heading with these two latex commands:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{\textbackslash{}adjustmtc}
-\FunctionTok{\textbackslash{}markboth}\NormalTok{\{The Name of Your Unnumbered Chapter\}\{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Otherwise the chapter's mini table of contents and the running header will show the previous chapter.
-
-\hypertarget{beginning-chapters-with-quotes-pdf}{%
-\section{Beginning chapters with quotes (PDF)}\label{beginning-chapters-with-quotes-pdf}}
-
-The OxThesis LaTeX template lets you inject some wittiness into your thesis by including a block of type \texttt{savequote} at the beginning of chapters.
-To do this, use the syntax \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{block\ type=\textquotesingle{}savequote\textquotesingle{}\}}.\footnote{For more on custom block types, see the relevant section in \href{https://bookdown.org/yihui/bookdown/custom-blocks.html}{\emph{Authoring Books with R Markdown}}.}
-
-Add the reference for the quote with the chunk option \texttt{quote\_author="my\ author\ name"}.
-You will also want to add the chunk option \texttt{include=knitr::is\_latex\_output()} so that quotes are only included in PDF output.
-
-It's not possible to use markdown syntax inside chunk options, so if you want to e.g.~italicise a book name in the reference use a \href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#text-references}{`text reference'}: Create a named piece of text with `(ref:label-name) My text', then point to this in the chunk option with \texttt{quote\_author=\textquotesingle{}(ref:label-name)\textquotesingle{}}.
-
-\hypertarget{highlighting-corrections-html-pdf}{%
-\section{Highlighting corrections (HTML \& PDF)}\label{highlighting-corrections-html-pdf}}
-
-For when it comes time to do corrections, you may want to highlight changes made when you submit a post-viva, corrected copy to your examiners so they can quickly verify you've completed the task.
-You can do so like this:
-
-\hypertarget{short-inline-corrections}{%
-\subsection{Short, inline corrections}\label{short-inline-corrections}}
-
-Highlight \textbf{short, inline corrections} by doing \texttt{{[}like\ this{]}\{.correction\}} --- the text between the square brackets will then \hl{be highlighted in blue} in the output.
-
-Note that pandoc might get confused by citations and cross-references inside inline corrections.
-In particular, it might get confused by \texttt{"{[}what\ @Shea2014\ said{]}\{.correction\}"} which becomes \hl{what Shea et al. (\protect\hyperlink{ref-Shea2014}{2014}) said}
-In such cases, you can use LaTeX syntax directly.
-The correction highlighting uses the \href{https://ctan.org/pkg/soul}{soul} package, so you can do like this:
+\hypertarget{preparing-data}{%
+\subsection{1.3 Preparing data}\label{preparing-data}}
 
 \begin{itemize}
 \tightlist
 \item
-  If using biblatex for references, use \texttt{"\textbackslash{}hl\{what\ \textbackslash{}textcite\{Shea2014\}\ said\}}
-\item
-  If using natbib for references, use \texttt{"\textbackslash{}hl\{what\ \textbackslash{}cite\{Shea2014\}\ said\}}
+  convert name to ID numbers with more descriptive labels
 \end{itemize}
 
-Using raw LaTeX has the drawback of corrections then not showing up in HTML output at all, but you might only care about correction highlighting in the PDF for your examiners anyway!
-
-\hypertarget{blocks-of-added-or-changed-material}{%
-\subsection{Blocks of added or changed material}\label{blocks-of-added-or-changed-material}}
-
-Highlight entire \textbf{blocks of added or changed material} by putting them in a block of type \texttt{correction}, using the syntax \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{block\ type=\textquotesingle{}correction\textquotesingle{}\}}.\footnote{In the \textbf{.tex} file for PDF output, this will put the content between \texttt{\textbackslash{}begin\{correction\}} and \texttt{\textbackslash{}end\{correction\}}; in gitbook output it will be put between \texttt{\textless{}div\ class="correction"\textgreater{}} and \texttt{\textless{}/div\textgreater{}}.}
-Like so:
-
-\emph{Note that correction blocks cannot be included in word output.}
-
-\hypertarget{stopping-corrections-from-being-highlighted}{%
-\subsection{Stopping corrections from being highlighted}\label{stopping-corrections-from-being-highlighted}}
-
-To turn off correction highlighting, go to the YAML header of \textbf{index.Rmd}, then:
+\hypertarget{tidy-text}{%
+\section{2 Tidy text}\label{tidy-text}}
 
 \begin{itemize}
 \tightlist
 \item
-  PDF output: set \texttt{corrections:\ false}\\
+  One word per row, facilitates analysis
 \item
-  HTML output: remove or comment out \texttt{-\ templates/corrections.css}
+  Token: ``a meaningful unit of text, most often a word, that we are interested in using for further analysis''
 \end{itemize}
 
-\hypertarget{apply-custom-font-color-and-highlighting-to-text-html-pdf}{%
-\section{Apply custom font color and highlighting to text (HTML \& PDF)}\label{apply-custom-font-color-and-highlighting-to-text-html-pdf}}
+\hypertarget{the-unnest_tokens-function}{%
+\subsection{2.1 the unnest\_tokens function}\label{the-unnest_tokens-function}}
 
-The lua filter that adds the functionality to highlight corrections adds two more tricks:
-you can apply your own choice of colour to highlight text, or change the font color.
-The syntax is as follows:
+\begin{itemize}
+\tightlist
+\item
+  Easy to convert from full text to token per row with unnest\_tokens()
+  Syntax: unnest\_tokens(df, newcol, oldcol)
+\item
+  unnest\_tokens() automatically removes punctuation and converts to lowercase (unless you set to\_lower = FALSE)
+\item
+  by default, tokens are set to words, but you can also use token = ``characters'', ``ngrams'', ``sentences'', ``lines'', ``regex'', ``paragraphs'', and even ``tweets'' (which will retain usernames, hashtags, and URLs)
+\end{itemize}
 
-\begin{quote}
-Here's \texttt{{[}some\ text\ in\ pink\ highlighting{]}\{highlight="pink"\}}\\
-Becomes: Here's \sethlcolor{pink}\hl{some text in pink highlighting}\sethlcolor{correctioncolor}.
-\end{quote}
+\begin{verbatim}
+## readtext object consisting of 2888 documents and 0 docvars.
+## # Description: df [2,888 x 3]
+##   doc_id word       text     
+##   <fct>  <chr>      <chr>    
+## 1 1      p1         "\"\"..."
+## 2 1      for        "\"\"..."
+## 3 1      me         "\"\"..."
+## 4 1      personally "\"\"..."
+## 5 1      it         "\"\"..."
+## 6 1      was        "\"\"..."
+## # ... with 2,882 more rows
+\end{verbatim}
 
-\begin{quote}
-\texttt{{[}Here\textquotesingle{}s\ some\ text\ with\ blue\ font{]}\{color="blue"\}}\strut \\
-Becomes: \textcolor{blue}{Here's some text with blue font}
-\end{quote}
+\hypertarget{removing-non-alphanumeric-characters}{%
+\subsection{2.2 Removing non-alphanumeric characters}\label{removing-non-alphanumeric-characters}}
 
-\begin{quote}
-Finally --- never, ever actually do this -- \texttt{{[}here\textquotesingle{}s\ some\ text\ with\ black\ highlighting\ and\ yellow\ font{]}\{highlight="black"\ color="yellow"\}}\\
-Becomes: \textcolor{yellow}{\sethlcolor{black}\hl{here's some text with black highlighting and yellow font}\sethlcolor{correctioncolor}}
-\end{quote}
+\begin{itemize}
+\tightlist
+\item
+  str\_extract is used to get rid of non-alphanumeric characters (because we don't want to count \emph{word} separately from word)
+\end{itemize}
 
-The file \textbf{scripts\_and\_filters/colour\_and\_highlight.lua} implements this, if you want to fiddle around with it.
-It works with both PDF and HTML output.
+\hypertarget{stop-words}{%
+\subsection{2.3 Stop words}\label{stop-words}}
 
-\hypertarget{adding-a-second-abstract-pdf}{%
-\section{Adding a second abstract (PDF)}\label{adding-a-second-abstract-pdf}}
+\begin{itemize}
+\tightlist
+\item
+  Stop words: very common, ``meaningless'' function words like ``the'', ``of'' and ``to'' -- not usually important in an analysis (i.e.~to find out that the most common word in two books you are comparing is ``the'')
+\item
+  tidytext has a built-in df called stop\_words for English
+\item
+  remove these from your dataset with anti\_join
+\end{itemize}
 
-You may need two abstracts in your thesis, if you e.g.~need both an abstract in English and some other language.
+We can take a look:
 
-You can add a second abstract in \textbf{index.Rmd} like so:
+\begin{verbatim}
+## # A tibble: 1,149 x 2
+##    word        lexicon
+##    <chr>       <chr>  
+##  1 a           SMART  
+##  2 a's         SMART  
+##  3 able        SMART  
+##  4 about       SMART  
+##  5 above       SMART  
+##  6 according   SMART  
+##  7 accordingly SMART  
+##  8 across      SMART  
+##  9 actually    SMART  
+## 10 after       SMART  
+## # ... with 1,139 more rows
+\end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{abstract{-}second{-}heading}\KeywordTok{:}\AttributeTok{ }\StringTok{"Resumé"}
-\FunctionTok{abstract{-}second}\KeywordTok{:}\AttributeTok{ }\StringTok{"This is the second abstract, for example in beautiful French."}\AttributeTok{ }
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## readtext object consisting of 816 documents and 0 docvars.
+## # Description: df [816 x 3]
+##   doc_id word       text     
+##   <fct>  <chr>      <chr>    
+## 1 1      personally "\"\"..."
+## 2 1      nice       "\"\"..."
+## 3 1      week       "\"\"..."
+## 4 1      ve         "\"\"..."
+## 5 1      feeling    "\"\"..."
+## 6 1      chatbots   "\"\"..."
+## # ... with 810 more rows
+\end{verbatim}
 
-\hypertarget{embed-pdf}{%
-\section{Including another paper in your thesis - embed a PDF document}\label{embed-pdf}}
+Define other stop words:
 
-You may want to embed existing PDF documents into the thesis, for example if your department allows a `portfolio' style thesis and you need to include an existing typeset publication as a chapter.
+Break: Prepare your data with the steps above. 1) Unnest tokens, 2) Remove alpha-numeric characters, 3) Remove stopwords
 
-In gitbook output, you can simply use \texttt{knitr::include\_graphics} and it should include a scrollable (and downloadable) PDF.
-You will probably want to set the chunk options \texttt{out.width=\textquotesingle{}100\%\textquotesingle{}} and \texttt{out.height=\textquotesingle{}1000px\textquotesingle{}}:
+\hypertarget{analysing-frequencies}{%
+\section{3 Analysing frequencies}\label{analysing-frequencies}}
 
-In LaTeX output, however, this approach can cause odd behaviour.
-Therefore, when you build your thesis to PDF, split the PDF into an alphanumerically sorted sequence of \textbf{single-page} PDF files (you can do this automatically with the package \texttt{pdftools}). You can then use the appropriate LaTeX command to insert them, as shown below (for brevity, in the \texttt{oxforddown} PDF sample content we're only including two pages).
-\emph{Note that the chunk option \texttt{results=\textquotesingle{}asis\textquotesingle{}} must be set.}
-You may also want to remove margins from the PDF files, which you can do with Adobe Acrobat (paid version) and likely other software.
+\hypertarget{find-most-frequent-words}{%
+\subsection{3.1 Find most frequent words}\label{find-most-frequent-words}}
+
+\begin{itemize}
+\tightlist
+\item
+  Easily find frequent words using count()
+\item
+  Data must be in tidy format (one token per line)
+\item
+  sort = TRUE to show the most frequent words first
+\end{itemize}
+
+tidy\_books \%\textgreater\%
+count(word, sort = TRUE)
+
+\begin{verbatim}
+## # A tibble: 385 x 3
+## # Groups:   doc_id [1]
+##    doc_id word             n
+##    <fct>  <chr>        <int>
+##  1 1      vr              15
+##  2 1      information     11
+##  3 1      presentation     9
+##  4 1      security         9
+##  5 1      cyber            8
+##  6 1      understand       8
+##  7 1      idea             7
+##  8 1      ideas            7
+##  9 1      lot              7
+## 10 1      workshop         7
+## # ... with 375 more rows
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 386 x 3
+## # Groups:   doc_id [1]
+##    doc_id word             n
+##    <fct>  <chr>        <int>
+##  1 1      vr              15
+##  2 1      information     11
+##  3 1      presentation     9
+##  4 1      security         9
+##  5 1      cyber            8
+##  6 1      helpful          8
+##  7 1      understand       8
+##  8 1      idea             7
+##  9 1      ideas            7
+## 10 1      lot              7
+## # ... with 376 more rows
+\end{verbatim}
+
+\hypertarget{plotting-word-frequencies---bar-graphs}{%
+\subsubsection{Plotting word frequencies - bar graphs}\label{plotting-word-frequencies---bar-graphs}}
+
+Bar graph of top words in CEPEHQ.
+
+Basic graph:
+\includegraphics{_main_files/figure-latex/unnamed-chunk-24-1.pdf}
+
+Readable labels:
+\includegraphics{_main_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+Descending order:
+\includegraphics{_main_files/figure-latex/unnamed-chunk-26-1.pdf}
+
+Axis names and colors:
+\includegraphics{_main_files/figure-latex/unnamed-chunk-27-1.pdf}
+
+Or: flip coordinate system to make more space for words
+\includegraphics{_main_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+\hypertarget{normalised-frequency}{%
+\subsection{3.2 Normalised frequency}\label{normalised-frequency}}
+
+\begin{itemize}
+\tightlist
+\item
+  when comparing the frequencies of words from different texts, they are commonly normalised
+\item
+  convention in corpus linguistics: report the frequency per 1 million words
+\item
+  for shorter texts: per 10,000 or per 100,000 words
+\item
+  calculation: raw frequency * 1,000,000 / total numbers in text
+\end{itemize}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+## # Groups:   doc_id [1]
+##   doc_id `sum(n)`
+##   <fct>     <int>
+## 1 1           694
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 384 x 2
+##    word            pmw
+##    <chr>         <dbl>
+##  1 vr           21802.
+##  2 information  15988.
+##  3 presentation 13081.
+##  4 security     13081.
+##  5 cyber        11628.
+##  6 understand   11628.
+##  7 idea         10174.
+##  8 ideas        10174.
+##  9 lot          10174.
+## 10 workshop     10174.
+## # ... with 374 more rows
+\end{verbatim}
+
+\hypertarget{plotting-normalised-frequency}{%
+\subsubsection{Plotting normalised frequency}\label{plotting-normalised-frequency}}
+
+Now we can plot, for example, the 20 most frequent words (by pmw).
+\includegraphics{_main_files/figure-latex/unnamed-chunk-30-1.pdf}
+
+\hypertarget{word-clouds}{%
+\subsection{3.3 Word clouds}\label{word-clouds}}
+
+Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g.~normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
+\includegraphics{_main_files/figure-latex/unnamed-chunk-31-1.pdf}
+
+\hypertarget{comparing-the-vocabulary-of-texts}{%
+\section{4 Comparing the vocabulary of texts}\label{comparing-the-vocabulary-of-texts}}
+
+Next, we'll create two graphs to compare the vocabulary of our texts. First, we focus on Alice's Adventures and Anderson's CEPEHQ. The newly created comp\_2 data frame contains only the words and their frequencies in the two texts in two separate columns.
+
+\hypertarget{comparing-two-texts}{%
+\subsection{Comparing two texts}\label{comparing-two-texts}}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   word            pmw     `1`
+##   <chr>         <dbl>   <dbl>
+## 1 access        4360. 0.00436
+## 2 acquired      1453. 0.00145
+## 3 add           1453. 0.00145
+## 4 administrator 1453. 0.00145
+## 5 advance       1453. 0.00145
+## 6 advanced      1453. 0.00145
+\end{verbatim}
+
+Now, we can plot the words. Their placement depends on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other. We'll discuss the interpretation in more detail once we've created the threeway comparison.
+\includegraphics{_main_files/figure-latex/unnamed-chunk-33-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1993,326 +2066,6 @@ You may also want to remove margins from the PDF files, which you can do with Ad
 \end{Shaded}
 
 \newpage \begin{center} \makebox[\linewidth][c]{\includegraphics[width=1.2\linewidth]{figures/sample-content/pdf_embed_example/split/_000000000000001.pdf}} \end{center} \newpage \begin{center} \makebox[\linewidth][c]{\includegraphics[width=1.2\linewidth]{figures/sample-content/pdf_embed_example/split/_000000000000011.pdf}} \end{center}
-
-\hypertarget{embed-rmd}{%
-\section{Including another paper in your thesis - R Markdown child document}\label{embed-rmd}}
-
-Sometimes you want to include another paper you are currently writing as a chapter in your thesis.
-Above \ref{embed-pdf}, we described the simplest way to do this: include the other paper as a pdf.
-However, in some cases you instead want to include the R Markdown source from this paper, and have it compiled within your thesis.
-This is a little bit more tricky, because you need to keep careful track of your file paths, but it is possible by \href{https://bookdown.org/yihui/rmarkdown-cookbook/child-document.html}{including the paper as a child document}.
-There are four main steps:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Include the paper as a child document
-\item
-  Make file paths compatible with knitting the article on its own, as well as when it's include in your thesis
-\item
-  Make header levels correct
-\item
-  Make figure widths correct
-\end{enumerate}
-
-\hypertarget{an-example-paper-in-another-folder}{%
-\subsection{An example paper in another folder}\label{an-example-paper-in-another-folder}}
-
-Take this simple example (files for this are in \href{https://github.com/ulyngs/oxforddown-external-article}{this GitHub repository}):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{|{-}{-}paper\_to\_include}
-\NormalTok{|  |{-}{-}my\_paper.Rmd}
-\NormalTok{|  |{-}{-}data}
-\NormalTok{|  |  |{-}{-}cat\_salt.csv}
-\NormalTok{|  |{-}{-}figures}
-\NormalTok{|  |  |{-}{-}cat.jpg}
-\NormalTok{|}
-\NormalTok{|{-}{-}thesis}
-\end{Highlighting}
-\end{Shaded}
-
-As the chart suggests, you have another folder, \textbf{paper\_to\_include/} living in the same containing folder as your thesis folder.
-In the \textbf{paper\_to\_include} folder, the file \textbf{my\_paper.Rmd} is where you write the paper.
-In \textbf{my\_paper.Rmd}, you read in a CSV file found in the subfolder \textbf{data/cats.csv}, and also an image from the subfolder \textbf{figures/cat.jpg}.
-
-\hypertarget{step-1-include-paper-as-a-child-document}{%
-\subsection{Step 1: Include paper as a child document}\label{step-1-include-paper-as-a-child-document}}
-
-In your thesis folder, create an Rmd file for the chapter where you want to include another paper.
-Add one or more code chunks that include R Markdown files from that paper as child documents:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{\# Including an external chapter }
-
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r child = "../paper\_to\_include/my\_paper.Rmd"\}}
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{step-2-make-file-paths-compatible}{%
-\subsection{Step 2: Make file paths compatible}\label{step-2-make-file-paths-compatible}}
-
-Use \href{https://rmarkdown.rstudio.com/lesson-6.html}{parameters} to adjust the file path of images based on values you set in the YAML header of an R Markdown file.
-In \textbf{my\_paper.Rmd}, create a parameter called \texttt{other\_path} and set it to an empty string:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{{-}{-}{-}}
-\FunctionTok{title}\KeywordTok{:}\AttributeTok{ }\StringTok{"A fabulous article in a different folder"}
-\FunctionTok{params}\KeywordTok{:}
-\AttributeTok{  }\FunctionTok{other\_path}\KeywordTok{:}\AttributeTok{ }\StringTok{""}
-\PreprocessorTok{{-}{-}{-}}
-\end{Highlighting}
-\end{Shaded}
-
-In \textbf{my\_paper.Rmd}, put this at the start of the filepath when you read in data or include images:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(knitr)}
-
-\NormalTok{cat\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\FunctionTok{str\_c}\NormalTok{(params}\SpecialCharTok{$}\NormalTok{other\_path, }\StringTok{"data/cats.csv"}\NormalTok{))}
-\FunctionTok{include\_graphics}\NormalTok{(}\FunctionTok{str\_c}\NormalTok{(params}\SpecialCharTok{$}\NormalTok{other\_path, }\StringTok{"figures/cat.jpg"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-Finally, in your thesis folder's \textbf{index.Rmd} file, also create the parameter \texttt{other\_path}.
-But here, set it to where the \textbf{paper\_to\_include/} folder is relative to your thesis folder:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{params}\KeywordTok{:}
-\AttributeTok{  }\FunctionTok{other\_path}\KeywordTok{:}\AttributeTok{ }\StringTok{"../paper\_to\_include/"}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{note-on-html-output}{%
-\subsubsection{Note on HTML output}\label{note-on-html-output}}
-
-Note that if you want to host an HTML version on your thesis online, you will need to include graphics in the content that you host online - the internet obviously won't be able to see filepaths that are just referring to stuff in another folder on your computer!
-
-\hypertarget{step-3-make-sure-header-levels-are-correct}{%
-\subsection{Step 3: Make sure header levels are correct}\label{step-3-make-sure-header-levels-are-correct}}
-
-Unless the paper you want to include is also written as a book, your header levels are probably going to be off.
-That is, the level 1 headers (\# Some header) you use for main sections in the other paper turns into chaper titles when included in your thesis.
-
-To avoid this, first \emph{increment all heading levels by one in \textbf{paper\_to\_include/my\_paper.Rmd}} (\# Some header -\textgreater{} \#\# Some header).
-Then in \textbf{paper\_to\_include/} create a \href{https://bookdown.org/yihui/rmarkdown-cookbook/lua-filters.html\#lua-filters}{lua filter} that decrements header levels by one: Create a text file, save it as \textbf{reduce\_header\_level.lua}, and give it the content below.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{function}\NormalTok{ Header}\OperatorTok{(}\NormalTok{el}\OperatorTok{)}
-  \ControlFlowTok{if} \OperatorTok{(}\NormalTok{el}\OperatorTok{.}\NormalTok{level }\OperatorTok{\textless{}=} \DecValTok{1}\OperatorTok{)} \ControlFlowTok{then}
-    \FunctionTok{error}\OperatorTok{(}\StringTok{"I don\textquotesingle{}t know how to decrease the level of h1"}\OperatorTok{)}
-  \ControlFlowTok{end}
-\NormalTok{  el}\OperatorTok{.}\NormalTok{level }\OperatorTok{=}\NormalTok{ el}\OperatorTok{.}\NormalTok{level }\OperatorTok{{-}} \DecValTok{1}
-  \ControlFlowTok{return}\NormalTok{ el}
-\KeywordTok{end}
-\end{Highlighting}
-\end{Shaded}
-
-In the YAML header of \textbf{paper\_to\_include/my\_paper.Rmd}, use this filter:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{{-}{-}{-}}
-\FunctionTok{title}\KeywordTok{:}\AttributeTok{ }\StringTok{"A fabulous article in a different folder"}
-\FunctionTok{params}\KeywordTok{:}
-\AttributeTok{  }\FunctionTok{other\_path}\KeywordTok{:}\AttributeTok{ }\StringTok{""}
-\FunctionTok{output}\KeywordTok{:}
-\AttributeTok{  }\FunctionTok{pdf\_document}\KeywordTok{:}\AttributeTok{ }
-\AttributeTok{    }\FunctionTok{pandoc\_args}\KeywordTok{:}\AttributeTok{ }\KeywordTok{[}\StringTok{"{-}{-}lua{-}filter=reduce\_header\_level.lua"}\KeywordTok{]}
-\PreprocessorTok{{-}{-}{-}}
-\end{Highlighting}
-\end{Shaded}
-
-Now, your header levels will be correct both when you knit the paper on its own and when its included in your thesis.
-
-NOTE: There might be no need to use a lua filter to shift heading - it seems you could simply use \texttt{pandoc\_args:\ {[}"-\/-shift-heading-level-by=-1"{]}} (see \url{https://pandoc.org/MANUAL.html\#reader-options})
-
-\hypertarget{step-4.-make-sure-figure-widths-are-correct}{%
-\subsection{Step 4. Make sure figure widths are correct}\label{step-4.-make-sure-figure-widths-are-correct}}
-
-It might be that your figure widths when knitting your paper on its own, and when including it in your thesis, need to be different.
-You can again use parameters to set figure widths.
-
-Imagine you want figure width to be 80\% of the page width when knitting your paper on its own, but 100\% in your thesis.
-In \textbf{paper\_to\_include/my\_paper.Rmd}, first add a parameter we could call \texttt{out\_width} and set it to the string ``80\%'':
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{{-}{-}{-}}
-\FunctionTok{title}\KeywordTok{:}\AttributeTok{ }\StringTok{"A fabulous article in a different folder"}
-\FunctionTok{params}\KeywordTok{:}
-\AttributeTok{  }\FunctionTok{other\_path}\KeywordTok{:}\AttributeTok{ }\StringTok{""}
-\AttributeTok{  }\FunctionTok{out\_width}\KeywordTok{:}\AttributeTok{ }\StringTok{"80\%"}
-\FunctionTok{output}\KeywordTok{:}
-\AttributeTok{  }\FunctionTok{pdf\_document}\KeywordTok{:}\AttributeTok{ }
-\AttributeTok{    }\FunctionTok{pandoc\_args}\KeywordTok{:}\AttributeTok{ }\KeywordTok{[}\StringTok{"{-}{-}lua{-}filter=reduce\_header\_level.lua"}\KeywordTok{]}
-\PreprocessorTok{{-}{-}{-}}
-\end{Highlighting}
-\end{Shaded}
-
-Then, make sure use that parameter to set the output width when you include figures in \textbf{paper\_to\_include/my\_paper.Rmd}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r, out.width=params$out\_width, fig.cap="A very funny cat"\}}
-\InformationTok{include\_graphics(str\_c(params$other\_path, "figures/cat.jpg"))}
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
-\end{Highlighting}
-\end{Shaded}
-
-Finally, create the parameter \texttt{out\_width} in your thesis' \textbf{index.Rmd} file:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{params}\KeywordTok{:}
-\AttributeTok{  }\FunctionTok{other\_path}\KeywordTok{:}\AttributeTok{ }\StringTok{"../paper\_to\_include/"}
-\AttributeTok{  }\FunctionTok{out\_width}\KeywordTok{:}\AttributeTok{ }\StringTok{"80\%"}
-\end{Highlighting}
-\end{Shaded}
-
-Now, the output width of your figure will be 80\% when knitting your paper on its own, and 100\% when knitting it as child document of your thesis.
-
-\hypertarget{customising-citations}{%
-\section{Customizing citations and referencing}\label{customising-citations}}
-
-\hypertarget{using-a-.csl-file-with-pandoc}{%
-\subsection{Using a .csl file with pandoc}\label{using-a-.csl-file-with-pandoc}}
-
-See section \ref{citation-appearance}.
-
-The only drawbacks to letting pandoc handle citations is that (i) it does not support chapter bibliographies, (ii) if you're a LaTeX veteran, you might be more comfortable with \texttt{biblatex} or \texttt{natbib}.
-
-\hypertarget{biblatex-custom}{%
-\subsection{\texorpdfstring{Using \texttt{biblatex}}{Using biblatex}}\label{biblatex-custom}}
-
-To use \href{https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex}{biblatex} to handle citations, first uncomment this in \textbf{index.Rmd}, YAML header:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\AnnotationTok{use{-}biblatex:}\CommentTok{ true}
-\AnnotationTok{bib{-}latex{-}options:}\CommentTok{ "style=authoryear, sorting=nyt, backend=biber, maxcitenames=2, useprefix, doi=true, isbn=false, uniquename=false"}
-\end{Highlighting}
-\end{Shaded}
-
-Then tell R Markdown to use \texttt{biblatex} when inserting citations, by setting \texttt{citation\_package:\ biblatex}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\AnnotationTok{output:}
-\NormalTok{  bookdown::pdf\_book:}
-\NormalTok{    citation\_package: biblatex}
-\end{Highlighting}
-\end{Shaded}
-
-To customise the appearance of citations, change \texttt{bib-latex-options}. For example, to get \textbf{numerical citations}, with references in order of their appearance in the text, set it to
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\AnnotationTok{bib{-}latex{-}options:}\CommentTok{ "style=numeric{-}comp, sorting=none, backend=biber, maxcitenames=2, useprefix, doi=true, isbn=false, uniquename=false"}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{adding-chapter-bibliographies}{%
-\subsubsection{Adding chapter bibliographies}\label{adding-chapter-bibliographies}}
-
-If you would like chapter bibliographies, first add ``refsection=chapter'' to the biblatex options, for example like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\AnnotationTok{bib{-}latex{-}options:}\CommentTok{ "refsection=chapter, style=authoryear, sorting=nyt, backend=biber, maxcitenames=2, useprefix, doi=true, isbn=false, uniquename=false"}
-\end{Highlighting}
-\end{Shaded}
-
-Second, set the parameter \texttt{insertHeadingInPDF:\ false} in \textbf{index.Rmd}, to suppress the inclusion of a `References' heading at the end of the thesis.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\AnnotationTok{params:}
-\NormalTok{  insertHeadingInPDF: false}
-\end{Highlighting}
-\end{Shaded}
-
-Finally insert this line at the end of each chapter, to print the bibliographies there:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{\textbackslash{}printbibliography}\NormalTok{[segment=}\FunctionTok{\textbackslash{}therefsection}\NormalTok{,heading=subbibliography]}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{natbib-custom}{%
-\subsection{\texorpdfstring{Using \texttt{natbib}}{Using natbib}}\label{natbib-custom}}
-
-To use \href{https://www.overleaf.com/learn/latex/Bibliography_management_with_natbib}{natbib} to handle citations, first uncomment this in \textbf{index.Rmd}, YAML header:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\AnnotationTok{use{-}natbib:}\CommentTok{ true}
-\AnnotationTok{natbib{-}citation{-}style:}\CommentTok{ authoryear \#for science, you might want numbers,square}
-\AnnotationTok{natbib{-}bibliography{-}style:}\CommentTok{ templates/ACM{-}Reference{-}Format.bst \#e.g. "plainnat", unsrtnat, or path to a .bst file}
-\end{Highlighting}
-\end{Shaded}
-
-Then tell R Markdown to use \texttt{natbib} when inserting citations, by setting \texttt{citation\_package:\ natbib}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\AnnotationTok{output:}
-\NormalTok{  bookdown::pdf\_book:}
-\NormalTok{    citation\_package: natbib}
-\end{Highlighting}
-\end{Shaded}
-
-To customise the appearance of citations, change what \textbf{.bst} file you point to in \texttt{natbib-bibliography-style}.
-
-\hypertarget{customizing-the-page-headers-and-footers-pdf}{%
-\section{Customizing the page headers and footers (PDF)}\label{customizing-the-page-headers-and-footers-pdf}}
-
-This can now be done directly in \textbf{index.Rmd}'s YAML header.
-If you are a LaTeX expert and need further customisation that what's currently provided, you can tweak the relevant sections of \textbf{templates/template.tex} - the relevant code is beneath the line that begins \texttt{\textbackslash{}usepackage\{fancyhdr\}}.
-
-\hypertarget{diving-in-to-the-oxthesis-latex-template-pdf}{%
-\section{Diving in to the OxThesis LaTeX template (PDF)}\label{diving-in-to-the-oxthesis-latex-template-pdf}}
-
-For LaTeX minded people, you can read through \textbf{templates/template.tex} to see which additional customisation options are available as well as \textbf{templates/ociamthesis.cls} which supplies the base class.
-For example, \textbf{template.tex} provides an option for master's degree submissions, which changes identifying information to candidate number and includes a word count.
-At the time of writing, you must set this directly in \textbf{template.tex} rather than from the YAML header in \textbf{index.Rmd}.
-
-\hypertarget{customising-to-a-different-university}{%
-\section{Customising to a different university}\label{customising-to-a-different-university}}
-
-\hypertarget{the-minimal-route}{%
-\subsection{The minimal route}\label{the-minimal-route}}
-
-If the front matter in the OxThesis LaTeX template is suitable to your university, customising \texttt{oxforddown} to your needs could be as simple as putting the name of your institution and the path to your university's logo in \textbf{index.Rmd}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{university}\KeywordTok{:}\AttributeTok{ University of You}
-\FunctionTok{university{-}logo}\KeywordTok{:}\AttributeTok{ figures/your{-}logo{-}here.pdf}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{replacing-the-entire-title-page-with-your-required-content}{%
-\subsection{Replacing the entire title page with your required content}\label{replacing-the-entire-title-page-with-your-required-content}}
-
-If you have a \textbf{.tex} file with some required front matter from your university that you want to replace the OxThesis template's title page altogether, you can provide a filepath to this file in \textbf{index.Rmd}.
-\texttt{oxforddown}'s sample content includes and example of this --- if you use the YAML below, your front matter will look like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{alternative{-}title{-}page}\KeywordTok{:}\AttributeTok{ front{-}and{-}back{-}matter/alt{-}title{-}page{-}example.tex}
-\end{Highlighting}
-\end{Shaded}
 
 \noindent
 \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000001.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000002.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000003.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000004.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000005.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000006.pdf}}
