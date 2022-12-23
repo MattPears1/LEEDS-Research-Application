@@ -51,40 +51,69 @@ colnames(disc)[1] = "Location"
 
 \minitoc <!-- this will include a mini table of contents-->
 
+
 ## Participants
 
 ```{r Participants, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
-Males <-data %>%
-  select(Sex, Location)%>%
-  filter (Sex %in% c("Male"))%>%
-  drop_na(Location)
 
+
+# Sexes split
+Males <-data %>%
+  select(Sex)%>%
+  filter (Sex %in% c("Male"))%>%
+  drop_na(Sex)
 
 Females <-data %>%
+  select(Sex)%>%
+  filter (Sex %in% c("Female"))%>%
+  drop_na(Sex)
+
+# sexes split by location
+Femalesgreece <-data %>%
   select(Sex, Location)%>%
   filter (Sex %in% c("Female"))%>%
-  drop_na(Location)
+  filter (Location %in% c("Greece"))%>%
+  drop_na(Sex, Location)
 
+Femalescyprus <-data %>%
+  select(Sex, Location)%>%
+  filter (Sex %in% c("Female"))%>%
+  filter (Location %in% c("Cyprus"))%>%
+  drop_na(Sex, Location)
 
+Femalessweden <-data %>%
+  select(Sex, Location)%>%
+  filter (Sex %in% c("Female"))%>%
+  filter (Location %in% c("Sweden"))%>%
+  drop_na(Sex, Location)
 
+# males location
+malesgreece <-data %>%
+  select(Sex, Location)%>%
+  filter (Sex %in% c("Male"))%>%
+  filter (Location %in% c("Greece"))%>%
+  drop_na(Sex, Location)
+
+malescyprus <-data %>%
+  select(Sex, Location)%>%
+  filter (Sex %in% c("Male"))%>%
+  filter (Location %in% c("Cyprus"))%>%
+  drop_na(Sex, Location)
+
+malessweden <-data %>%
+  select(Sex, Location)%>%
+  filter (Sex %in% c("Male"))%>%
+  filter (Location %in% c("Sweden"))%>%
+  drop_na(Sex, Location)
 ```
 
-This data set had `r count(Males)` males and `r count(Females)` females.
+This dataset had `r count(Males)` males and `r count(Females)` females, for a total of `r count(data)`
+
+There were `r count(Femalesgreece)` females from Greece, `r count(Femalescyprus)` from Cyprus, `r count(Femalessweden)` from Sweden.  
+There were `r count(malesgreece)` males from Greece, `r count(malescyprus)` from Cyprus, `r count(malessweden)` from Sweden. 
 
 
 
-
-
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-disc <- na.omit(disc)
-colnames(disc)[1] = "Location"
-
-
-
-
-```
 
 
 
