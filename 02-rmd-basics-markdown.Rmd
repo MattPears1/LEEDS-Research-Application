@@ -101,6 +101,7 @@ We hope there are few NO responses, and many YES responses.
 
 rec <- subset(data, select = c("Recommend","Identity"))
 rec <- na.omit(rec)
+
 knitr::kable(rec <-rec %>% filter(Identity == c("HE student","Healthcare professional", "Other", "Student","Tutor/Teacher/Lecturer","Patient/Service-user/Carer",format('html'))) %>% group_by(Identity, Recommend) %>% count(Recommend), "pipe")
 
 

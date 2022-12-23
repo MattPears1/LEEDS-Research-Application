@@ -37,13 +37,6 @@ library(leaflet)
 
 try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH.xlsx"))
 
-SexLoc <-data %>%
-  select(Sex, Location)%>%
-  filter (Sex %in% c("Male", "Female"))%>%
-  drop_na(Location)
-  
-
-
 Sex <- data$Sex
 Sex <- data.frame(Sex)
 
@@ -60,26 +53,51 @@ colnames(disc)[1] = "Location"
 
 ## Participants
 
-```{r Participants, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r Participants, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+Males <-data %>%
+  select(Sex, Location)%>%
+  filter (Sex %in% c("Male"))%>%
+  drop_na(Location)
+
+
+Females <-data %>%
+  select(Sex, Location)%>%
+  filter (Sex %in% c("Female"))%>%
+  drop_na(Location)
 
 
 
 ```
 
-This data set had `r count(data)` participants. 
+This data set had `r count(Males)` males and `r count(Females)` females.
+
+
+
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+disc <- na.omit(disc)
+colnames(disc)[1] = "Location"
+
+
+
+
+```
 
 
 
 ## Procedure
 
-```{r Procedure, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r Procedure, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 
 
 
 ```
 
 ## Design
-```{r Design, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r Design, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 
 
 
@@ -88,7 +106,7 @@ This data set had `r count(data)` participants.
 
 ## Materials
 
-```{r Materials, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r Materials, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 
 ```
 
