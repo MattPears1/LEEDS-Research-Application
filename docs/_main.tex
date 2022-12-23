@@ -592,73 +592,86 @@ Well, we have so much data we haven't looked through it all yet.
 
 We are through about 10\% of this data and will update weekly.
 
+\hypertarget{pre-usage-results}{%
+\section{Pre Usage Results}\label{pre-usage-results}}
+
+\begin{verbatim}
+# A tibble: 31 x 2
+   profession                     hours    
+   <chr>                          <chr>    
+ 1 College student                1-4 hours
+ 2 College student                1-4 hours
+ 3 Doctor                         5-9 hours
+ 4 Learning Technologist          Never    
+ 5 Lecturer                       Never    
+ 6 Mature Student                 Never    
+ 7 Medical doctor                 1-4 hours
+ 8 Postgraduate student           1-4 hours
+ 9 Postgraduate student           1-4 hours
+10 Student on a Healthcare course 1-4 hours
+# ... with 21 more rows
+\end{verbatim}
+
+\begin{tabular}{ll}
+\toprule
+profession & hours\\
+\midrule
+College student & 1-4 hours\\
+College student & 1-4 hours\\
+Doctor & 5-9 hours\\
+Learning Technologist & Never\\
+Lecturer & Never\\
+\addlinespace
+Mature Student & Never\\
+Medical doctor & 1-4 hours\\
+Postgraduate student & 1-4 hours\\
+Postgraduate student & 1-4 hours\\
+Student on a Healthcare course & 1-4 hours\\
+\addlinespace
+Student on a Healthcare course & 1-4 hours\\
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & 1-4 hours\\
+Student on a Healthcare course & Never\\
+\addlinespace
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & 1-4 hours\\
+Student on a Healthcare course & 1-4 hours\\
+\addlinespace
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & 1-4 hours\\
+Student on a Healthcare course & 1-4 hours\\
+Student on a Healthcare course & Never\\
+\addlinespace
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & 1-4 hours\\
+Student on a Healthcare course & 1-4 hours\\
+Student on a Healthcare course & Never\\
+Student on a Healthcare course & Never\\
+\addlinespace
+Student on a Healthcare course & Never\\
+\bottomrule
+\end{tabular}
+
 \hypertarget{system-usability-scale-sus-scores}{%
 \section{System Usability Scale (SUS) Scores}\label{system-usability-scale-sus-scores}}
 
-\includegraphics{_main_files/figure-latex/graphs2-1.pdf}
+\emph{Note= The amount of `agreement' is defined as the addition of `Agree' and `Strongly agree' responses.}
 
-To keep it short, here is a summary table showing if Stakeholders found the RLO(s) they used to be \emph{worth recommending to others}.
-We hope there are few NO responses, and many YES responses.
+The SUS score for all data was XXX. This is within, and above the median of, 68 -- which is in the range of `average' usability. This is good as the resources were early demonstrations and had reduced beta alpha testing due to time constraints- future updates can improve this metric.
 
-\begin{longtable}[]{@{}llr@{}}
-\toprule()
-Identity & Recommend & n \\
-\midrule()
-\endhead
-HE student & No & 30 \\
-HE student & Yes & 786 \\
-Healthcare professional & No & 55 \\
-Healthcare professional & Yes & 1311 \\
-Other & No & 34 \\
-Other & Yes & 767 \\
-Patient/Service-user/Carer & No & 2 \\
-Patient/Service-user/Carer & Yes & 49 \\
-Student & No & 152 \\
-Student & Yes & 3164 \\
-Tutor/Teacher/Lecturer & No & 5 \\
-Tutor/Teacher/Lecturer & Yes & 329 \\
-\bottomrule()
-\end{longtable}
-
-\begin{longtable}[]{@{}llr@{}}
-\toprule()
-Identity & RLO & n \\
-\midrule()
-\endhead
-HE student & Helpful & 303 \\
-HE student & Not Helpful & 8 \\
-HE student & Very Helpful & 474 \\
-HE student & Very unhelpful & 10 \\
-Healthcare professional & Helpful & 501 \\
-Healthcare professional & Not Helpful & 28 \\
-Healthcare professional & Very Helpful & 817 \\
-Healthcare professional & Very unhelpful & 13 \\
-Healthcare professional & Very Unhelpful & 13 \\
-Other & Helpful & 322 \\
-Other & Not Helpful & 24 \\
-Other & Very Helpful & 451 \\
-Other & Very unhelpful & 5 \\
-Patient/Service-user/Carer & Helpful & 16 \\
-Patient/Service-user/Carer & Not Helpful & 1 \\
-Patient/Service-user/Carer & Very Helpful & 42 \\
-Patient/Service-user/Carer & Very Unhelpful & 2 \\
-Student & Helpful & 1392 \\
-Student & Not Helpful & 77 \\
-Student & Very Helpful & 1863 \\
-Student & Very Unhelpful & 9 \\
-Tutor/Teacher/Lecturer & Helpful & 97 \\
-Tutor/Teacher/Lecturer & Not Helpful & 3 \\
-Tutor/Teacher/Lecturer & Very Helpful & 229 \\
-Tutor/Teacher/Lecturer & Very unhelpful & 1 \\
-\bottomrule()
-\end{longtable}
+After reversing the scores of the negatively worded questions (odd numbered questions), participants strongly agreed the system was not complex (XX\% agreements), and they did not need assistance before use (XX\% agreements). All remaining questions has the most frequently observed response as `agree'- the lowest amount of agreement (agree and strongly agree) was XX\% for question X, which was explored further in the individual Partners' analyses.
 
 if you don't like boring tables, here is the same data in a graph!
 
-\includegraphics{_main_files/figure-latex/barplot-1.pdf}
+\hypertarget{technology-acceptance-model}{%
+\section{Technology Acceptance Model}\label{technology-acceptance-model}}
 
-\hypertarget{discovering-the-helm-open-rlos}{%
-\section{Discovering the HELM Open RLOs}\label{discovering-the-helm-open-rlos}}
+The TAM had 3 sections (Ease of Use, Perceived Usefulness, and Intention of Use). Ease of Use results showed significant increases in Users' usage with each Chatbot. Perceived Usefulness: There were not significant findings for the Perceived usefulness. The justification for this may be due to being early versions of applications with limited functionality and functions which can be difficult for user to experience the intended further range of features and learning exercises.
+Intention of Use: For users' intentions to use within their course, the result of the Mann-Whitney U test was not significant, U = , z = , p = . in their intentions before use (m=xx, mode=xx) compared to after (m=xx, mode=x), however there was improvement therefore the chatbots may have more benefit than expected by students.
 
 \hypertarget{course-learning-recommendations-and-more}{%
 \subsection{Course Learning, Recommendations, and more}\label{course-learning-recommendations-and-more}}
@@ -731,145 +744,6 @@ UP TO HERE1
   \textbf{\emph{Bold and italics}} is done like ***this***, \_\_\_this\_\_\_, or (the most transparent solution, in my opinion) **\_this\_**
 \end{itemize}
 
-\hypertarget{inline-code}{%
-\subsection{Inline code}\label{inline-code}}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{Inline\ code} is created with backticks like \texttt{\textasciigrave{}this\textasciigrave{}}
-\end{itemize}
-
-\hypertarget{sub-and-superscript}{%
-\subsection{Sub and superscript}\label{sub-and-superscript}}
-
-Sub\textsubscript{2} and super\textsuperscript{2} script is created like this\textasciitilde2\textasciitilde{} and this\^{}2\^{}
-
-\hypertarget{strikethrough}{%
-\subsection{Strikethrough}\label{strikethrough}}
-
-\begin{itemize}
-\tightlist
-\item
-  \sout{Strikethrough} is done \textasciitilde\textasciitilde like this\textasciitilde\textasciitilde{}
-\end{itemize}
-
-\hypertarget{escaping-aka-what-if-i-need-an-actual-asterisk}{%
-\subsection{`Escaping' (aka ``What if I need an actual asterisk?'')}\label{escaping-aka-what-if-i-need-an-actual-asterisk}}
-
-\begin{itemize}
-\tightlist
-\item
-  To include an actual *, \_ or \textbackslash, add another \textbackslash{} in front of them: \textbackslash*, \textbackslash\_, \textbackslash\textbackslash{}
-\end{itemize}
-
-\hypertarget{endash-emdash}{%
-\subsection{Endash (--), emdash (---)}\label{endash-emdash}}
-
-\begin{itemize}
-\tightlist
-\item
-  -- and --- with -\/- and -\/-\/-
-\end{itemize}
-
-\hypertarget{blockquotes}{%
-\subsection{Blockquotes}\label{blockquotes}}
-
-Do like this:
-
-\begin{quote}
-Put a \textgreater{} in front of the line.
-\end{quote}
-
-\hypertarget{headings}{%
-\subsection{Headings}\label{headings}}
-
-Section headers are created with \#'s of increasing number, i.e.
-
-\begin{itemize}
-\tightlist
-\item
-  \# First-level heading
-\item
-  \#\# Second-level heading
-\item
-  \#\#\# Etc.
-\end{itemize}
-
-In PDF output, a level-five heading will turn into a paragraph heading, i.e.~\texttt{\textbackslash{}paragraph\{My\ level-five\ heading\}}, which appears as bold text on the same line as the subsequent paragraph.
-
-\hypertarget{lists}{%
-\subsection{Lists}\label{lists}}
-
-Unordered list by starting a line with an * or a -:
-
-\begin{itemize}
-\tightlist
-\item
-  Item 1
-\item
-  Item 2
-\end{itemize}
-
-Ordered lists by starting a line with a number.
-Notice that you can mislabel the numbers and \emph{Markdown} will still make the order right in the output:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Item 1
-\item
-  Item 2
-\end{enumerate}
-
-To create a sublist, indent the values a bit (at least four spaces or a tab):
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Item 1
-\item
-  Item 2
-\item
-  Item 3
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Item 3a
-  \item
-    Item 3b
-  \end{itemize}
-\end{enumerate}
-
-\hypertarget{line-breaks}{%
-\subsection{Line breaks}\label{line-breaks}}
-
-The official \emph{Markdown} way to create line breaks is by ending a line with more than two spaces.
-
-Roses are red.
-Violets are blue.
-
-This appears on the same line in the output, because we didn't add spaces after red.
-
-Roses are red.\\
-
-Violets are blue.
-
-This appears with a line break because I added spaces after red.
-
-I find this is confusing, so I recommend the alternative way: Ending a line with a backslash will also create a linebreak:
-
-Roses are red.\\
-
-Violets are blue.
-
-To create a new paragraph, you put a blank line.
-
-Therefore, this line starts its own paragraph.
-
 \hypertarget{hyperlinks}{%
 \subsection{Hyperlinks}\label{hyperlinks}}
 
@@ -896,92 +770,15 @@ Therefore, this line starts its own paragraph.
 To write comments within your text that won't actually be included in the output, use the same syntax as for writing comments in HTML.
 That is, .
 
-\hypertarget{math}{%
-\subsection{Math}\label{math}}
-
-The syntax for writing math is stolen from LaTeX.
-To write a math expression that will be shown \textbf{inline}, enclose it in dollar signs.
-- This: \$A = \textbackslash pi*r\^{}\{2\}\$ Becomes: \(A = \pi*r^{2}\)
-
-To write a math expression that will be shown in a block, enclose it in two dollar signs.\\
-
-This: \$\$A = \textbackslash pi*r\^{}\{2\}\$\$
-
-Becomes: \[A = \pi*r^{2}\]
-
-To create numbered equations, put them in an `equation' environment and give them a label with the syntax \texttt{(\textbackslash{}\#eq:label)}, like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}\SpecialStringTok{ }
-\SpecialStringTok{  f}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(k}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{) = }\SpecialCharTok{\textbackslash{}binom}\SpecialStringTok{\{n\}\{k\} p\^{}k}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(1{-}p}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{)\^{}\{n{-}k\}}
-\SpecialStringTok{  (}\SpecialCharTok{\textbackslash{}\#}\SpecialStringTok{eq:binom)}
-\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-Becomes: \begin{equation}
-f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}
-\label{eq:binom}
-\end{equation}
-
-For more (e.g.~how to theorems), see e.g.~the documentation on \href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#equations}{bookdown.org}
-
-\hypertarget{code}{%
-\section{Executable code chunks}\label{code}}
-
-The magic of R Markdown is that we can add executable code within our document to make it dynamic.
-
-We do this either as \emph{code chunks} (generally used for loading libraries and data, performing calculations, and adding images, plots, and tables), or \emph{inline code} (generally used for dynamically reporting results within our text).
-
-The syntax of a code chunk is shown in Figure \ref{fig:chunk-parts}.
-
 \begin{figure}[H]
 \includegraphics[width=1\linewidth]{figures/sample-content/chunk-parts} \caption{Code chunk syntax}\label{fig:chunk-parts}
 \end{figure}
-
-Common chunk options include (see e.g.~\href{https://bookdown.org/yihui/rmarkdown/r-code.html}{bookdown.org}):
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{echo}: whether or not to display code in knitted output
-\item
-  \texttt{eval}: whether or to to run the code in the chunk when knitting
-\item
-  \texttt{include}: whether to include anything from the from a code chunk in the output document
-\item
-  \texttt{fig.cap}: figure caption
-\item
-  \texttt{fig.scap}: short figure caption, which will be used in the `List of Figures' in the PDF front matter
-\end{itemize}
-
-\textbf{IMPORTANT}: Do \emph{not} use underscoores in your chunk labels - if you do, you are likely to get an error in PDF output saying something like ``! Package caption Error: \textbackslash caption outside float''.
-
-\hypertarget{setup-chunks---setup-images-plots}{%
-\subsection{Setup chunks - setup, images, plots}\label{setup-chunks---setup-images-plots}}
-
-An R Markdown document usually begins with a chunk that is used to \textbf{load libraries}, and to \textbf{set default chunk options} with \texttt{knitr::opts\_chunk\$set}.
-
-In your thesis, this will probably happen in \textbf{index.Rmd} and/or as opening chunks in each of your chapters.
-
-\begin{verbatim}
-```{r setup, include=FALSE}
-# don't show code unless we explicitly set echo = TRUE
-knitr::opts_chunk$set(echo = FALSE)
-
-library(tidyverse)
-```
-\end{verbatim}
-
-\hypertarget{including-images}{%
-\subsection{Including images}\label{including-images}}
 
 Code chunks are also used for including images, with \texttt{include\_graphics} from the \texttt{knitr} package, as in Figure \ref{fig:oxford-logo}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth]{figures/sample-content/beltcrest} 
+{\centering \includegraphics[width=0.5\linewidth]{templates/download} 
 
 }
 
@@ -1010,7 +807,7 @@ Then you can reference that variable as the value of \texttt{out.extra} to rotat
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth,angle=180]{figures/sample-content/beltcrest} 
+{\centering \includegraphics[width=0.5\linewidth,angle=180]{templates/download} 
 
 }
 
@@ -1111,11 +908,53 @@ Which would output:\\
 If you want to use other languages than R, such as Python, Julia C++, or SQL, see \href{https://bookdown.org/yihui/rmarkdown-cookbook/other-languages.html}{the relevant section of the \emph{R Markdown Cookbook}}
 
 \hypertarget{cites-and-refs}{%
-\chapter{Discussion}\label{cites-and-refs}}
+\chapter{Training Event Results}\label{cites-and-refs}}
 
 \chaptermark{Citations and cross-refs}
 
 \minitoc 
+
+\hypertarget{cepeh-training-event-c1}{%
+\section{CEPEH Training Event C1}\label{cepeh-training-event-c1}}
+
+The CEPEH training event C1 held at the premises of University of Nottingham aiming to prepare participants for the practical elements of co-creation and implementation of chatbots as an educational resource. It combined both theoretical and hands-on training.
+15 participants were from RISE, AUTH, UoN.
+
+Project managers of partners signposted the person involved, and relevant announcements were made though social media channels to the wider public. External to the project speakers were from University of Leeds, and Computer Science Department of University of Nottingham. It included academics, medical doctors, and researchers with focus both on clinical research and digital innovations in healthcare education and IT specialist/learning technologists 11.18 years of experiences (SD=7.2). A balance between male and female participants achieved.
+
+\hypertarget{overall-training-events-evalaution}{%
+\chapter{Overall Training Events Evalaution}\label{overall-training-events-evalaution}}
+
+Participants were asked to highlight what they liked for each day and how each day can be improved. Findings are described below per day of the training event
+
+Day 1\\
+The participants comment that they liked the design method for educational resources presented using a co-creation approach, they liked the interactions with other groups, and they liked the overview of existing chatbot resources of the partners. On the areas that can be improved, more media material were requested.
+
+Day 2
+Participants enjoyed the presentation from the invited speaker from another faculty of the University of Nottingham, the CEPEH recources presented and the storyboarding process. Participants highlighted that the participation of more clinicians in the event would be an added value in regards with the storyboarding process.
+
+Day3
+Participants liked the hands-on activities of the day also enjoyed the creativity of the groups on the online chatbot development tool. As an area of improvement, participants wanted more time on hands on sections.
+
+\hypertarget{cepeh-training-event-2}{%
+\section{CEPEH Training Event 2}\label{cepeh-training-event-2}}
+
+\textbf{Pre-Training Event survey May 9th-13th 2022 Thessaloniki, Greece}
+
+Twenty-six participants attended the Training Event, along with approximately 10 staff members. There were 21 undergraduate students and 5 postgraduate students, who completed the survey for a total of 26 responses. There were 86\% of participants who stated they had not been to a similar event like the training event CEPEH facilitated. There were 90\% of students who found the event schedule very organised, and 70\% agreed most of the planned sessions were relevant to that interest with the remaining 30\% not having enough experience to understand the context to determine if they are interested in the training event. There were 95\% of students agreeing or strongly agreeing the training event location is great, the remaining person did not leave additional comments.
+
+Table 1 suggested attendees had minimal intention to share their own ideas due to lack of previous experience of attending such events, or due to lack of knowledge on the area. However, most were interested in listening to other groups and hearing contextual cases in healthcare.
+
+There were 77\% of participants stated they were novices in experience with chatbots in healthcare and were attending to learn more. The remaining 23\% (7 students) stated they were competent and had limited experience with chatbots in healthcare.
+
+One day had several events regarding cybersecurity in healthcare. When asked before these events, 83\% stated they were neutral or disagreed that they felt confident about their cybersecurity knowledge in healthcare. In addition, 80\% stated they when neutral or disagreed that they felt they had strong cybersecurity safety in healthcare. Table 2 shows the main pre and post results suggesting a positive experience for more than 75\% of attendees on all measures.
+
+There were 90\% (23) of students who heard about the event through a lecturer or a professor, the CEPEH newsletter (2), and 1 person was informed through the anatomy tutoring system at Karolinska Institute. Additionally, 60\% suggested the training event to somebody else before the course started.
+
+There were six individuals who stated neutral or disagree when asked if having issues on registration or finding the information for the event. This may have been due to being dependent on emails to receive the information, instead of a dedicated website where the information is available anytime.
+
+As this was face-to-face, participants were asked about sufficient Covid-19 precautions in place at the facility, 94\% agreed with sufficient precautions, two individuals stated no but did not give further information in the additional input box provided.
+In summary, most participants were undergraduate students with novice experience, happy with the training event location, felt the sessions were relevant to them, and most shared the event with their colleagues. The values of co-creation, chatbots in healthcare, and taking patient history were bestowed to students in an engaging and well-received manner. Notably, the highest ratings were for staff friendliness which is key to engagement and consistent interaction throughout the intense and long 5-day duration. The sessions were recorded there for the online recordings may be viewed with higher numbers over the subsequent weeks.
 
 The usual way to include citations in an \emph{R Markdown} document is to put references in a plain text file with the extension \textbf{.bib}, in \textbf{BibTex} format.\footnote{The bibliography can be in other formats as well, including EndNote (\textbf{.enl}) and RIS (\textbf{.ris}), see \href{https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html}{rmarkdown.rstudio.com/authoring\_bibliographies\_and\_citations}.}
 Then reference the path to this file in \textbf{index.Rmd}'s YAML header with \texttt{bibliography:\ example.bib}.
@@ -1351,8 +1190,8 @@ I suspect some great solution will be developed in the not-to-distant future, pr
   \emph{R for Data Science} - \url{https://r4ds.had.co.nz}
 \end{itemize}
 
-\hypertarget{tables}{%
-\chapter{Reusable Learning Objects- Exploring Uptake}\label{tables}}
+\hypertarget{Discussion}{%
+\chapter{Discussion}\label{Discussion}}
 
 \minitoc 
 
@@ -1371,6 +1210,8 @@ RLO Name & Location & Start Date & SubmissionDate & Year & Identity & Identity\_
 01NCTLR Probability and inferential Statistics & NA & 05/01/2010 & 05/01/2010 & 2010 & NA & NA & Helpful & NA & It was a course learning resource & NA & NA & NA & NA & Yes & I loved  the interactive element and the eclarity of the explanations & NA & NA & NA & NA & NA & Evidence based practice & NA & 2104178426 & B & 78.144.64.158 & 52.184460 & -0.687590 & Warrington\\
 \bottomrule
 \end{tabular}
+
+Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement. As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants. However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
 
 \hypertarget{reach-impact-and-qualatative-analysis}{%
 \section{Reach, Impact, and Qualatative analysis}\label{reach-impact-and-qualatative-analysis}}
@@ -2478,11 +2319,9 @@ If you have a \textbf{.tex} file with some required front matter from your unive
 
 
 
-\hypertarget{conclusion}{%
-\chapter*{Conclusion}\label{conclusion}}
-\addcontentsline{toc}{chapter}{Conclusion}
-
-If we don't want Conclusion to have a chapter number next to it, we can add the \texttt{\{-\}} attribute.
+\hypertarget{appendix}{%
+\chapter*{Appendix}\label{appendix}}
+\addcontentsline{toc}{chapter}{Appendix}
 
 \hypertarget{more-info}{%
 \section*{More info}\label{more-info}}
@@ -2515,7 +2354,7 @@ This first appendix includes an R chunk that was hidden in the document (using \
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"figures/sample{-}content/beltcrest.png"}\NormalTok{)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"templates/download.png"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 

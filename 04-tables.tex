@@ -334,24 +334,12 @@
 \flushbottom
 
 % all your chapters and appendices will appear here
-\hypertarget{tables}{%
-\chapter{Tables}\label{tables}}
+\hypertarget{Discussion}{%
+\chapter{Discussion}\label{Discussion}}
 
 \minitoc 
 
-\hypertarget{making-latex-tables-play-nice}{%
-\section{Making LaTeX tables play nice}\label{making-latex-tables-play-nice}}
-
-Dealing with tables in LaTeX can be painful.
-This section explains the main tricks you need to make the pain go away.
-
-(Note: if you are looking at the ebook version, you will not see much difference in this section, as it is only relevant for PDF output!)
-
-\hypertarget{making-your-table-pretty}{%
-\subsection{Making your table pretty}\label{making-your-table-pretty}}
-
-When you use \texttt{kable} to create tables, you will almost certainly want to set the option \texttt{booktabs\ =\ TRUE}.
-This makes your table look a million times better:
+Here is a (very large) table with all of the currently active RLOS.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -359,6 +347,10 @@ This makes your table look a million times better:
 \FunctionTok{library}\NormalTok{(tidyverse)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.2.2
+\end{verbatim}
 
 \begin{verbatim}
 ## Warning: package 'ggplot2' was built under R version 4.2.2
@@ -389,7 +381,21 @@ ans <- sub(".*\textbackslash{}\textbackslash{}.", "", x)\\
 \bottomrule
 \end{tabular}
 
-\vspace{4mm}
+Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement. As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants. However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
+
+\hypertarget{reach-impact-and-qualatative-analysis}{%
+\section{Reach, Impact, and Qualatative analysis}\label{reach-impact-and-qualatative-analysis}}
+
+Dealing with tables in LaTeX can be painful.
+This section explains the main tricks you need to make the pain go away.
+
+(Note: if you are looking at the eBook version, you will not see much difference in this section, as it is only relevant for PDF output!)
+
+\hypertarget{making-your-table-pretty}{%
+\subsection{Making your table pretty}\label{making-your-table-pretty}}
+
+When you use \texttt{kable} to create tables, you will almost certainly want to set the option \texttt{booktabs\ =\ TRUE}.
+This makes your table look a million times better:
 
 Compare this to the default style, which looks terrible:
 

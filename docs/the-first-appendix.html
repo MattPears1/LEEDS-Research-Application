@@ -70,10 +70,11 @@
 <li><a class="" href="introduction.html">Introduction</a></li>
 <li><a class="" href="method.html"><span class="header-section-number">1</span> Method</a></li>
 <li><a class="" href="rmd-basics.html"><span class="header-section-number">2</span> Results</a></li>
-<li><a class="" href="cites-and-refs.html"><span class="header-section-number">3</span> Discussion</a></li>
-<li><a class="" href="tables.html"><span class="header-section-number">4</span> Reusable Learning Objects- Exploring Uptake</a></li>
-<li><a class="" href="text-mining-natural-language-processing-and-sentiment-analysis.html"><span class="header-section-number">5</span> Text Mining, Natural Language Processing, and Sentiment Analysis</a></li>
-<li><a class="" href="conclusion.html">Conclusion</a></li>
+<li><a class="" href="cites-and-refs.html"><span class="header-section-number">3</span> Training Event Results</a></li>
+<li><a class="" href="overall-training-events-evalaution.html"><span class="header-section-number">4</span> Overall Training Events Evalaution</a></li>
+<li><a class="" href="Discussion.html"><span class="header-section-number">5</span> Discussion</a></li>
+<li><a class="" href="text-mining-natural-language-processing-and-sentiment-analysis.html"><span class="header-section-number">6</span> Text Mining, Natural Language Processing, and Sentiment Analysis</a></li>
+<li><a class="" href="appendix.html">Appendix</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="active" href="the-first-appendix.html"><span class="header-section-number">A</span> The First Appendix</a></li>
 <li><a class="" href="the-second-appendix-for-fun.html"><span class="header-section-number">B</span> The Second Appendix, for Fun</a></li>
@@ -85,21 +86,21 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="the-first-appendix" class="section level1" number="6">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="the-first-appendix" class="section level1" number="7">
 <h1>
 <span class="header-section-number">A</span> The First Appendix<a class="anchor" aria-label="anchor" href="#the-first-appendix"><i class="fas fa-link"></i></a>
 </h1>
 <p>This first appendix includes an R chunk that was hidden in the document (using <code>echo = FALSE</code>) to help with readibility:</p>
 <p><strong>In 02-rmd-basics-code.Rmd</strong></p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"figures/sample-content/chunk-parts.png"</span><span class="op">)</span></span></code></pre></div>
-<p><strong>And here’s another one from the same chapter, i.e. Chapter <a href="rmd-basics.html#code">2.3</a>:</strong></p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"figures/sample-content/beltcrest.png"</span><span class="op">)</span></span></code></pre></div>
+<p><strong>And here’s another one from the same chapter, i.e. Chapter <a href="#code"><strong>??</strong></a>:</strong></p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"templates/download.png"</span><span class="op">)</span></span></code></pre></div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="conclusion.html">Conclusion</a></div>
+<div class="prev"><a href="appendix.html">Appendix</a></div>
 <div class="next"><a href="the-second-appendix-for-fun.html"><span class="header-section-number">B</span> The Second Appendix, for Fun</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -128,34 +129,6 @@
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>
