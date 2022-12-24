@@ -36,10 +36,7 @@ iii) You can't use markdown syntax inside chunk options, so if you want to e.g. 
 <!-- LaTeX normally does not indent the first line after a heading - however, it does so after the mini table of contents. You can manually tell it not to with \noindent -->
 
 \noindent 
-
-
 ## Chatbot Usabilty Questionanire (CUQ)
-
 
 ### CUQ Calcuation tool
 
@@ -48,7 +45,7 @@ The CUQ was developed by researchers at Ulster University (see)
 
 Please download the CEPEH CUQ calculation tool which has all of the data entered, so you can see the CEPEH CUQ scoring. 
 
-[click here](CUQ-Calculation-Tool.xlsx)
+[click here to download CUQ calc tool](CUQ-Calculation-Tool.xlsx)
 
 
 The results are as followed:
@@ -63,7 +60,7 @@ This scoring system was designed to be comparable to SUS and may be freely used 
 
 
 
-```{r Importing Data 2, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+```{r Importing Data 2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 knitr::opts_chunk$set(
 	echo = FALSE,
 	message = FALSE,
@@ -91,7 +88,7 @@ library(leaflet)
 library(excelR)
 
 
-try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH.xlsx"))
+try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH moh.xlsx"))
 
 
 Sex <- data$Sex
@@ -113,19 +110,16 @@ colnames(disc)[1] = "Location"
 
 The SUS score for all data was XXX. This is within, and above the median of, 68 – which is in the range of ‘average’ usability. This is good as the resources were early demonstrations and had reduced beta alpha testing due to time constraints- future updates can improve this metric.
 
-
 After reversing the scores of the negatively worded questions (odd numbered questions), participants strongly agreed the system was not complex (XX% agreements), and they did not need assistance before use (XX% agreements). All remaining questions has the most frequently observed response as ‘agree’- the lowest amount of agreement (agree and strongly agree) was XX% for question X, which was explored further in the individual Partners’ analyses. 
-
-
 
 
 
 ```{r SUS table 1, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=TRUE}
 
-sus <- subset(data, select = c("Recommend","Identity"))
-sus <- na.omit(rec)
+sus <- subset(data, select = c("Profession"))
+sus <- na.omit(sus)
 
-knitr::kable(rec <-rec %>% filter(Identity == c("HE student","Healthcare professional", "Other", "Student","Tutor/Teacher/Lecturer","Patient/Service-user/Carer",format('html'))) %>% group_by(Identity, Recommend) %>% count(Recommend), "pipe")
+knitr::kable(sus <-sus %>% filter(Profession %in% c("Student on a Healthcare course","College student", "Medical doctor","Learning Technologist", "Mature Student", "Lecturer", format('html'))) %>% group_by(Profession) %>% count(Profession),"pipe")
 
 ```
 

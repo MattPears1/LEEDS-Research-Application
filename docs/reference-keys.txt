@@ -12,7 +12,6 @@ computer-self-efficacy-scale-tool
 technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
-chatbot-usabilty-questionanire-cuq
 cuq-calcuation-tool
 system-usability-scale-sus-scores
 technology-acceptance-model
