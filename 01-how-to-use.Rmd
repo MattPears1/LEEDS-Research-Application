@@ -34,7 +34,7 @@ library(knitr)
 library(tidyverse)
 library(leaflet)
 
-try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH.xlsx"))
+try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))
 
 Sex <- data$Sex
 Sex <- data.frame(Sex)
@@ -104,11 +104,14 @@ malessweden <-data %>%
   drop_na(Sex, Location)
 ```
 
-This dataset had `r count(Males)` males and `r count(Females)` females, for a total of `r count(data)`. It was a repeated measure design therefore`
+This dataset had `r count(Males)` males and `r count(Females)` females therefore a total of 42 participants.
 
-There were `r count(Femalesgreece)` females from Greece, `r count(Femalescyprus)` from Cyprus, `r count(Femalessweden)` from Sweden.\
+It was a repeated measure design whereby each participant used the 3 chatbots developed by the CEPEH team.
+Therefore, there are 42 points of data in the condition before testing, and 126 data points after testing the 3 chatbots- for a total of `r count(data)` points of data.
 
-There were `r count(malesgreece)` males from Greece, `r count(malescyprus)` from Cyprus, `r count(malessweden)` from Sweden.
+There were `r count(Femalesgreece)` females and `r count(malesgreece)` males from Greece.
+There were `r count(Femalescyprus)` females and `r count(malescyprus)` males from Cyprus.
+There were `r count(Femalessweden)` females and `r count(malessweden)` males from Sweden.
 
 ## Procedure
 
@@ -116,7 +119,21 @@ There were `r count(malesgreece)` males from Greece, `r count(malescyprus)` from
 
 
 
+
 ```
+
+For each resource created by the Partners, the same experimental methodology was followed.
+For each resource created by partners, students performed a study within an online or face to face workshop or course.
+Student participants joined from Greece, Cyprus, Sweden, and the United Kingdom.
+A repeated measures design was used as the same group measures were taken before and after usage of the chatbots.
+They were recruited via staff members in the CEPEH group.
+
+Participants were asked prior to the study if they agree to participate, providing them with a PIS form.
+Participants had the opportunity to discuss with the research team prior to the study and before consent is given.
+Then, participants used the chatbot resources independently and technical support was provided.
+Finally, post-intervention measures were recorded.
+Some of the participants were invited to participate in Focus Group Discussions (FGD), and each FGD lasted between 15 to 25 minutes, with 5-10 participants.
+Participants were asked if they would like to be informed of the findings of the study.
 
 ## Design
 
@@ -126,11 +143,41 @@ There were `r count(malesgreece)` males from Greece, `r count(malescyprus)` from
 
 ```
 
-## Materials
+The data captured from the participants were their initials and numerical day of birth, used as anonymous identifier for pre-post analysis.
+Their institution was captured (Aristotle University of Thessaloniki, CYENS Centre of Excellent, Karolinska Institute, and The University of Nottingham), and Sex (Male/Female/Other).
+
+Before any interaction with the learning resources, various perceptions of chatbot such as confidence and easy of use, usefulness, Influence from others, and current learning resources (videos, textbooks, Google, friends etc), were captured.
+
+Descriptive data was produced alongside repeated measures t-tests. Repeated measures t-test was the appropriate test to use as this explores differences between groups, there were no covariates and we did not have several dependant variables.
+There was one Independent factor being Chatbot use having 2 levels (pre/post).
+There were 3 chatbots therefore there was option for ANOVA to determine where differences lie if statistical differences were found however this was not wholly appropriate for the data type and not necessary for pre-post comparison.
+
+## Materials and Measures
+
+The measures used fit within a newly developed Chatbot Evaluation Framework- which takes the best measures of 5 previous frameworks. Denecke and Warren ​[2]​ derived several quality dimensions and attributes from previous chatbot literature.
+They formed six perspectives from their review of articles and mobile health applications.
+
+These six perspectives were: 1) Task-oriented, 2) Artificial intelligence, 3) System quality perspective, 4) Linguistic perspective, 5) UX Perspective, 6) Healthcare quality perspective.
+
+To capture these perspectives, we used several validated materials that can distinguish these elements of the CEPEH chatbots.  
 
 ```{r Materials, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 
 ```
+
+### Chatbot Usability Questionnaire (CUQ)  
+
+The Chatbot Usability Questionnaire (CUQ) ​[4]​ is a new questionnaire specifically designed for measuring the usability of chatbots by an interdisciplinary team from the Ulster University. CUQ can be used alongside the prevalent System Usability Scale Score (SUS) ​[5]​. Multiple metrics are more appropriate when measuring usability of chatbots ​[6]​ therefore a combination of two scores can provide an all-inclusive overview.  
+
+
+
+### UTAUT2 (Unified Theory of Acceptance and Use of Technology) 
+
+The underpinning theory of the UTAUT2 is that there are four key constructs to the intentions of using technology based resources: 1) performance expectancy, 2) effort expectancy, 3) social influence, and 4) enabling conditions.
+
+The TAM and the UTAUT2 have cross over in measuring technology acceptance, however the UTAUT2 has more applied probing questions. Few studies exist that use technology acceptance theories for the intention to use products that explicitly incorporate AI. A recent extension of the UTAUT2 model added five (health, convenience comfort, sustainability, safety, security, and personal innovativeness) additional influencing factors to accommodate for AI [7]. This can be used for products in either health, household use, or mobility and can help to explain behavioural intention and use behaviour of chatbots. 
+
+
 
 ### System Usability Scale
 
@@ -154,6 +201,8 @@ Add up these numbers to find the total score, then multiply this by 2.5.
 The result is a score out of 100 and can be compared against a determined average score of 68.
 Further, 80.3 or higher is excellent, and 51 or under suggests significant usability problems.
 
+
+
 ### Computer Self-Efficacy Scale Tool
 
 The 10 question CSEST was based on the 32-item questionnaire by Murphy, Coover, and Owen (1989).
@@ -173,7 +222,6 @@ I could use the new technology...
 9.  If someone showed me how to do it first
 10. If I had used similar products before this one to do the same job
 
-### Unified Theory of Acceptance and Use of Technology
 
 ### Technology Acceptance Model (TAM)
 
@@ -192,6 +240,8 @@ The nine sub-scales of the questionnaire:
 • Intrinsic motivation to use chatbot resources.
 • Perceived costs of chatbots.
 
+
+
 ### Qualitative Measure- Focus Group Discussions
 
 Focus groups are a pervasive means of market research and provides credible acceptance evaluators regarding the penetration that a product or service will have on a target demographic.
@@ -205,4 +255,14 @@ A series of short focus group sessions identified the feasibility of CEPEH resou
 These sessions, spanning no more than 1-1.5 hours and consisting of no more than 5-7 persons each explored all axes of curricular integration such as accessibility in the classroom, use case scenarios, technology requirements for curricular integration etc.
 These axes were formalized by the research team, in each evaluation site, to consider the curricular details of each institution.
 
-## Analysis
+
+```{r}
+
+knitr::include_graphics("untitled-1.png")
+
+```
+### Figure 1: Flow diagram of the recruitment process 
+
+
+
+

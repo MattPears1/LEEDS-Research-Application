@@ -49,12 +49,8 @@ Participants liked the hands-on activities of the day also enjoyed the creativit
 
 
 
-
-
-
-
 ```{r map Importing Data, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
-museum <- read_csv("HELM data final.csv")
+museum <- read_csv("CEPEH.csv")
 museum %>%
 leaflet() %>%
 addProviderTiles(providers$Esri.WorldImagery, group = "World Imagery") %>%
@@ -68,7 +64,7 @@ addMarkers(label = museum$museum,
 ```
 
 
-```{r MOHAMMED please make FREQ bar chart of top 15 Cities- sorted, echo=FALSE, message=FALSE, warning=FALSE}
+```{r MOHAMMED please make FREQ bar chart of top 15 Cities- sorted, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 
 city <- subset(data, select = "City")
 city <- na.omit(city)

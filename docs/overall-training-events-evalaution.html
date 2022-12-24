@@ -111,20 +111,20 @@ Participants liked the hands-on activities of the day also enjoyed the creativit
 <p>There were six individuals who stated neutral or disagree when asked if having issues on registration or finding the information for the event. This may have been due to being dependent on emails to receive the information, instead of a dedicated website where the information is available anytime.</p>
 <p>As this was face-to-face, participants were asked about sufficient Covid-19 precautions in place at the facility, 94% agreed with sufficient precautions, two individuals stated no but did not give further information in the additional input box provided.
 In summary, most participants were undergraduate students with novice experience, happy with the training event location, felt the sessions were relevant to them, and most shared the event with their colleagues. The values of co-creation, chatbots in healthcare, and taking patient history were bestowed to students in an engaging and well-received manner. Notably, the highest ratings were for staff friendliness which is key to engagement and consistent interaction throughout the intense and long 5-day duration. The sessions were recorded there for the online recordings may be viewed with higher numbers over the subsequent weeks.</p>
-<p>The usual way to include citations in an <em>R Markdown</em> document is to put references in a plain text file with the extension <strong>.bib</strong>, in <strong>BibTex</strong> format.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The bibliography can be in other formats as well, including EndNote (&lt;strong&gt;.enl&lt;/strong&gt;) and RIS (&lt;strong&gt;.ris&lt;/strong&gt;), see &lt;a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html"&gt;rmarkdown.rstudio.com/authoring_bibliographies_and_citations&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>
+<p>The usual way to include citations in an <em>R Markdown</em> document is to put references in a plain text file with the extension <strong>.bib</strong>, in <strong>BibTex</strong> format.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The bibliography can be in other formats as well, including EndNote (&lt;strong&gt;.enl&lt;/strong&gt;) and RIS (&lt;strong&gt;.ris&lt;/strong&gt;), see &lt;a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html"&gt;rmarkdown.rstudio.com/authoring_bibliographies_and_citations&lt;/a&gt;.&lt;/p&gt;'><sup>1</sup></a>
 Then reference the path to this file in <strong>index.Rmd</strong>’s YAML header with <code>bibliography: example.bib</code>.</p>
 <p>Most reference managers can create a .bib file with you references automatically.
 However, the <strong>by far</strong> best reference manager to use with <em>R Markdown</em> is <a href="https://www.zotero.org">Zotero</a> with the <a href="https://retorque.re/zotero-better-bibtex/">Better BibTex plug-in</a>, because the <code>citr</code> plugin for RStudio (see below) can read references directly from your Zotero library!</p>
 <p>Here is an example of an entry in a <strong>.bib</strong> file:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb4-1"><a href="overall-training-events-evalaution.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">Shea2014</span>,</span>
-<span id="cb4-2"><a href="overall-training-events-evalaution.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> =        {Shea, Nicholas and Boldt, Annika},</span>
-<span id="cb4-3"><a href="overall-training-events-evalaution.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span> =       {Trends in Cognitive Sciences},</span>
-<span id="cb4-4"><a href="overall-training-events-evalaution.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span> =         {186--193},</span>
-<span id="cb4-5"><a href="overall-training-events-evalaution.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> =         {{Supra-personal cognitive control}},</span>
-<span id="cb4-6"><a href="overall-training-events-evalaution.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span> =        {18},</span>
-<span id="cb4-7"><a href="overall-training-events-evalaution.html#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span> =          {2014},</span>
-<span id="cb4-8"><a href="overall-training-events-evalaution.html#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span> =           {10.1016/j.tics.2014.01.006},</span>
-<span id="cb4-9"><a href="overall-training-events-evalaution.html#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb1-1"><a href="overall-training-events-evalaution.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">Shea2014</span>,</span>
+<span id="cb1-2"><a href="overall-training-events-evalaution.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> =        {Shea, Nicholas and Boldt, Annika},</span>
+<span id="cb1-3"><a href="overall-training-events-evalaution.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span> =       {Trends in Cognitive Sciences},</span>
+<span id="cb1-4"><a href="overall-training-events-evalaution.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span> =         {186--193},</span>
+<span id="cb1-5"><a href="overall-training-events-evalaution.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> =         {{Supra-personal cognitive control}},</span>
+<span id="cb1-6"><a href="overall-training-events-evalaution.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span> =        {18},</span>
+<span id="cb1-7"><a href="overall-training-events-evalaution.html#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span> =          {2014},</span>
+<span id="cb1-8"><a href="overall-training-events-evalaution.html#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span> =           {10.1016/j.tics.2014.01.006},</span>
+<span id="cb1-9"><a href="overall-training-events-evalaution.html#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>In this entry highlighted section, ‘Shea2014’ is the <strong>citation identifier</strong>.
 To default way to cite an entry in your text is with this syntax: <code>[@citation-identifier]</code>.</p>
 <p>So I might cite some things <span class="citation">(<a href="references.html#ref-Lottridge2012" role="doc-biblioref">Lottridge et al., 2012</a>; <a href="references.html#ref-Mill1965" role="doc-biblioref">Mill, 1965 [1843]</a>; <a href="references.html#ref-Shea2014" role="doc-biblioref">Shea et al., 2014</a>)</span>.</p>
@@ -220,7 +220,7 @@ Figure 4.1: A marvel-lous meme
 </div>
 <p>We refer to this image with <code>\@ref(fig:captain)</code>.
 So Figure <a href="overall-training-events-evalaution.html#fig:captain">4.1</a> is <a href="overall-training-events-evalaution.html#fig:captain">this image</a>.</p>
-<p>And in Figure <a href="rmd-basics.html#fig:cars-plot">2.4</a> we saw a <a href="rmd-basics.html#fig:cars-plot">cars plot</a>.</p>
+<p>And in Figure <a href="#fig:cars-plot"><strong>??</strong></a> we saw a <a href="#fig:cars-plot">cars plot</a>.</p>
 </div>
 <div id="table-references" class="section level3" number="4.2.3">
 <h3>
@@ -245,13 +245,13 @@ LaTeX has a command for this, which looks like this: <code>\pageref{fig/tab:labe
 <ul>
 <li>This: <code>Figure \@ref(fig:cars-plot) on page \pageref(fig:cars-plot)</code>
 </li>
-<li>Becomes: Figure <a href="rmd-basics.html#fig:cars-plot">2.4</a> on page </li>
+<li>Becomes: Figure <a href="#fig:cars-plot"><strong>??</strong></a> on page </li>
 </ul>
 <div id="include-page-numbers-only-in-pdf-output" class="section level4" number="4.2.4.1">
 <h4>
 <span class="header-section-number">4.2.4.1</span> Include page numbers only in PDF output<a class="anchor" aria-label="anchor" href="#include-page-numbers-only-in-pdf-output"><i class="fas fa-link"></i></a>
 </h4>
-<p>A problem here is that LaTeX commands don’t display in HTML output, so in the gitbook output we’d see simply “Figure <a href="rmd-basics.html#fig:cars-plot">2.4</a> on page”.</p>
+<p>A problem here is that LaTeX commands don’t display in HTML output, so in the gitbook output we’d see simply “Figure <a href="#fig:cars-plot"><strong>??</strong></a> on page”.</p>
 <p>One way to get around this is to use inline R code to insert the text, and use an <code>ifelse</code> statement to check the output format and then insert the appropriate text.</p>
 <ul>
 <li>So this: <code>`r ifelse(knitr::is_latex_output(), "Figure \\@ref(fig:cars-plot) on page \\pageref{fig:cars-plot}", "")`</code>
