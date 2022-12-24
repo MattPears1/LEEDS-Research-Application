@@ -114,7 +114,7 @@ After reversing the scores of the negatively worded questions (odd numbered ques
 
 
 
-```{r SUS table 1, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=TRUE}
+```{r SUS table 1, echo=FALSE, message=FALSE, warning=FALSE, comment=NA, paged.print=FALSE}
 
 sus <- subset(data, select = c("Profession"))
 sus <- na.omit(sus)
