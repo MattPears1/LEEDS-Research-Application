@@ -67,5 +67,6 @@ plotting-normalised-frequency
 word-clouds
 comparing-the-vocabulary-of-texts
 comparing-two-texts
+sentiment-analysis
 the-first-appendix
 the-second-appendix-for-fun

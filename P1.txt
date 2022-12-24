@@ -1,165 +1,165 @@
-P1: For me personally it was really nice all of this week I’ve had a feeling of what chatbots were mostly because of my technical background but I really understood that there is a lot more to it and a lot more technical things a lot of applications of how you can use them not only chatbots but chatbots as well. Also getting the more technical look of how they work with help from the staff. it was really invaluable. 
-P2: I barely knew what chatbots were before I had been using them once, with phone provide type. during the week I had been recognising lots of scenarios and similarities and examples of the chatbots,  in that what would advance and facilitate by the work for teaching. I'm providing information so for example for each course we have a canvas page, and that page has 20 different modules so sometimes it can be difficult to find the information you want, the benefits of the chatbot means each course can have chatbots so it's easier to check for information that is relevant to their course. 
-And also, the VR glasses, we have eight at the university and only few projects to use them with, but we discussed some ideas of how we can use the glasses and now also this exercise of giving bad news to someone. that is something that we would like to use and practise, and for some people that's difficult to interact especially with medical students they've only seen books in their lives, so it would be a great way to exercise and practise social skills to work with patients as well.
-P3: I can only agree, I did not know much about chatbots and VR and I'm not a non-technical person and I also think the schedule was very generous and we have a lot of spare time, and we did not get too tired. you really took our interests at heart, at Karolinska we bought a pair of VR glasses and had them over a year now and no one has come up with a plan of what to do with them. we have inspiration of what we can do.
-P4: I don't have much to add concerning chatbots, but something I appreciate is the way to array of different information so despite chatbots we went through lots of topics for example bed sores, so we have covered lots of information I appreciate. 
-P5: The chatbots are helpful, for the medical records, the medical history I found very helpful as we learn about it in the curriculum, but we don't practise and when the time comes it's difficult. we would not know what to do so I found this very practical. and VR practise it is very nice and very helpful to us.
-P6: I'm not a technical person at all and it is something new for me I never knew technology would be so helpful, I think, it will promote another kind of education which is more effective and practical. so yes I like it. 
-P7: I agree with Maria I could think dentistry could be combined with informatics can you make us a clinical skills course; we do more theory than practise. I was not that familiar with chatbots, but I gained lots of information and it was great that we have shared ideas. 
+p1 for me personally it was really nice all of this week ive had a feeling of what chatbots were mostly because of my technical background but i really understood that there is a lot more to it and a lot more technical things a lot of applications of how you can use them not only chatbots but chatbots as well also getting the more technical look of how they work with help from the staff it was really invaluable 
+p2 i barely knew what chatbots were before i had been using them once with phone provide type during the week i had been recognising lots of scenarios and similarities and examples of the chatbots  in that what would advance and facilitate by the work for teaching im providing information so for example for each course we have a canvas page and that page has 20 different modules so sometimes it can be difficult to find the information you want the benefits of the chatbot means each course can have chatbots so its easier to check for information that is relevant to their course 
+and also the vr glasses we have eight at the university and only few projects to use them with but we discussed some ideas of how we can use the glasses and now also this exercise of giving bad news to someone that is something that we would like to use and practise and for some people thats difficult to interact especially with medical students theyve only seen books in their lives so it would be a great way to exercise and practise social skills to work with patients as well
+p3 i can only agree i did not know much about chatbots and vr and im not a nontechnical person and i also think the schedule was very generous and we have a lot of spare time and we did not get too tired you really took our interests at heart at karolinska we bought a pair of vr glasses and had them over a year now and no one has come up with a plan of what to do with them we have inspiration of what we can do
+p4 i dont have much to add concerning chatbots but something i appreciate is the way to array of different information so despite chatbots we went through lots of topics for example bed sores so we have covered lots of information i appreciate 
+p5 the chatbots are helpful for the medical records the medical history i found very helpful as we learn about it in the curriculum but we dont practise and when the time comes its difficult we would not know what to do so i found this very practical and vr practise it is very nice and very helpful to us
+p6 im not a technical person at all and it is something new for me i never knew technology would be so helpful i think it will promote another kind of education which is more effective and practical so yes i like it 
+p7 i agree with maria i could think dentistry could be combined with informatics can you make us a clinical skills course; we do more theory than practise i was not that familiar with chatbots but i gained lots of information and it was great that we have shared ideas 
 
-P8:  it’s interesting I never thought it can be combined with dentistry and everything . I knew the technology has developed but the VR has physical movements. all of the presentations also mental health, cyber security everything was interesting, I would come every year.  thank you for teaching me how interesting this technology is and how many different fields you can explore.
-P9: I didn't know much about chat bots, so I have learned a lot, and I found it interesting.
-P10: I had no idea about anything, and now I think I understand the main ideas also I understand how important it is for emergencies, so I am glad to be here and participate. 
-P11: For the seminar I had no idea about chat bots work now I know it's very useful and even more popular in the future and it was really nice to have a chance to create one ourselves, and have a better idea. it wasn't that hard for us to create the chatbot,  and we have an image of what is behind the chatbot. 
-P12: I think after this week I've understood that chatbots can be useful for a lot of things, some small things or big things, so maybe if I found something in my daily life, maybe I would try to do it to myself. on a wider scale project collaboration is something that can be applied especially after seeing the solutions. 
-P13: It would be hard to find chatbots but it's good to make them as they are simple and easy to create and very useful.
-P14: it's useful for us as the problems we have now is we have to learn everything so it would be helpful, for example in first year we had medical history so it would be useful for more practical stuff, the thing that stresses me out is we need to learn so many things. And in other places the course is shortened as they use more simulations so , for us it may also be useful. 
-P15: I came up with a mental health chatbot just because I think you should help people and it would be great to help people out. 
-P16: can I ask a question would you make this into a short course?
-A: yes perhaps it should be part of the curriculum, of the computer science degrees definitely.  but yes maybe a short course introducing new technologies. 
-P17: we have informatics, but they don't teach us some of these things. I work a lot with patient, and this would be good to be on the smartphone to use it, and if you learn how to use it you gain the learning objectives.  
-P18: when I first joined the lab they were talking about mixed reality, so I asked to test it and I used it two or three times and I learned some basics and it’s good to use for medicine and use it as many times as you like.
-P19: and the beginning of the programme there were many different lectures that I definitely benefit from, we can benefit from chat box into teaching. and as you say students being able to recognise areas where they can benefit and if we're going to have chatbots in the future then it's good for everyone to know and how much time it takes to make and use them
+p8  its interesting i never thought it can be combined with dentistry and everything  i knew the technology has developed but the vr has physical movements all of the presentations also mental health cyber security everything was interesting i would come every year  thank you for teaching me how interesting this technology is and how many different fields you can explore
+p9 i didnt know much about chat bots so i have learned a lot and i found it interesting
+p10 i had no idea about anything and now i think i understand the main ideas also i understand how important it is for emergencies so i am glad to be here and participate 
+p11 for the seminar i had no idea about chat bots work now i know its very useful and even more popular in the future and it was really nice to have a chance to create one ourselves and have a better idea it wasnt that hard for us to create the chatbot  and we have an image of what is behind the chatbot 
+p12 i think after this week ive understood that chatbots can be useful for a lot of things some small things or big things so maybe if i found something in my daily life maybe i would try to do it to myself on a wider scale project collaboration is something that can be applied especially after seeing the solutions 
+p13 it would be hard to find chatbots but its good to make them as they are simple and easy to create and very useful
+p14 its useful for us as the problems we have now is we have to learn everything so it would be helpful for example in first year we had medical history so it would be useful for more practical stuff the thing that stresses me out is we need to learn so many things and in other places the course is shortened as they use more simulations so  for us it may also be useful 
+p15 i came up with a mental health chatbot just because i think you should help people and it would be great to help people out 
+p16 can i ask a question would you make this into a short course
+a yes perhaps it should be part of the curriculum of the computer science degrees definitely  but yes maybe a short course introducing new technologies 
+p17 we have informatics but they dont teach us some of these things i work a lot with patient and this would be good to be on the smartphone to use it and if you learn how to use it you gain the learning objectives  
+p18 when i first joined the lab they were talking about mixed reality so i asked to test it and i used it two or three times and i learned some basics and its good to use for medicine and use it as many times as you like
+p19 and the beginning of the programme there were many different lectures that i definitely benefit from we can benefit from chat box into teaching and as you say students being able to recognise areas where they can benefit and if were going to have chatbots in the future then its good for everyone to know and how much time it takes to make and use them
 
-
- 
-Daily feedback from C2 conference
-What did you like about Day 3, Wednesday?
-I enjoyed the presentation of our chatbot idea and the way we received feedback from the students via the platform.
-Presentation at the theatre
-Assignment of presenting a chatbot and listening to others’ ideas at the theatre
-The presentation of our chatbot idea
-I like the presentations that we showed in the afternoon session	
-Learning about virtual patients
-We got more practical
-The presentations of the different ideas on chatbots from our colleagues
-The creation of the chatbot
- Chatbot presentations
-I liked the presentations that we did on our potential chatbots.
- Show to the amphitheatre our idea
-How interactive and interesting it was
-I liked the fact we decided about our own chatbot and thought about the ideas
-The VR parts
- We tried to think about a central idea for the chatbot
 
  
-What did you like about Day 4, Thursday?
--I particularly enjoyed the practical session where we provided our chatbot with inputs.
--Cybersecurity lecture was very interesting
--I liked the workshop for making the chatbot
--Finding data for our chatbots		
--Cybersecurity presentation		
--I liked that we tried the chatbots and we made one of our own
--I love it because we design our chatbot
--Designing our chatbots
--We did presentations, represented our ideas, interesting presentations about cybersecurity and crocks
--I found the chatbots we used during the course really entertaining
--I found interesting the presentation for the crooks and safety
--The training of the chatbot
--Creating the chatbot, cybersecurity lecture
--Cyber security
--I liked the cybersecurity lecture and the programming and the training of the chatbots
--Organize our chatbot
--Making the chatbot was a great experience
--I liked the cybersecurity
--The cyber-security presentation
--At first we learnt some things about cyber security. We managed to build a chatbot as a team and overcome the difficulties from the lack of experience and the different opinions of the team members
+daily feedback from c2 conference
+what did you like about day 3 wednesday
+i enjoyed the presentation of our chatbot idea and the way we received feedback from the students via the platform
+presentation at the theatre
+assignment of presenting a chatbot and listening to others ideas at the theatre
+the presentation of our chatbot idea
+i like the presentations that we showed in the afternoon session	
+learning about virtual patients
+we got more practical
+the presentations of the different ideas on chatbots from our colleagues
+the creation of the chatbot
+ chatbot presentations
+i liked the presentations that we did on our potential chatbots
+ show to the amphitheatre our idea
+how interactive and interesting it was
+i liked the fact we decided about our own chatbot and thought about the ideas
+the vr parts
+ we tried to think about a central idea for the chatbot
+
  
-What did you like about Day 5, Friday?
--I enjoyed the interactive session where we discussed about our impressions of the whole week.
--Interesting aspects and inspiration within VR
-- I loved the presentations about vr glasses
--Testing our chatbots together
--I liked the discussion
--The presentations about our chatbots and we share our impressions
--Learning how to use vr in medicine
--Used our own chatbots, loved the fact that we could discuss and give our comments about the course
--The chance we had to present our work and try it
--I really enjoyed the experience with our chatbots ,our discussion and the presentation about VR
--The conference
--Presenting the chatbot
-- I liked playing with the chatbots and the compassion presentation
--Trying out the teams chatbots
--The test and presentation of my teams chatbot
--I liked when we played with the chatbot that we created
--I liked the interactive conversation part	
--At first we saw some very interesting info about VR in healthcare and not only. Then we discussed about the whole event experience.	
-P1: My only experience with chatbots up to now was as a customer reaching the support of a company. That chatbot was very annoying but this was the fault of the company. In total, chatbots are interesting and useful, fast, they work 24/7 and you can call them any time. Of course, they cannot substitute humans but still, it’s a useful tool for all companies customer services. 
+what did you like about day 4 thursday
+i particularly enjoyed the practical session where we provided our chatbot with inputs
+cybersecurity lecture was very interesting
+i liked the workshop for making the chatbot
+finding data for our chatbots		
+cybersecurity presentation		
+i liked that we tried the chatbots and we made one of our own
+i love it because we design our chatbot
+designing our chatbots
+we did presentations represented our ideas interesting presentations about cybersecurity and crocks
+i found the chatbots we used during the course really entertaining
+i found interesting the presentation for the crooks and safety
+the training of the chatbot
+creating the chatbot cybersecurity lecture
+cyber security
+i liked the cybersecurity lecture and the programming and the training of the chatbots
+organize our chatbot
+making the chatbot was a great experience
+i liked the cybersecurity
+the cybersecurity presentation
+at first we learnt some things about cyber security we managed to build a chatbot as a team and overcome the difficulties from the lack of experience and the different opinions of the team members
+ 
+what did you like about day 5 friday
+i enjoyed the interactive session where we discussed about our impressions of the whole week
+interesting aspects and inspiration within vr
+ i loved the presentations about vr glasses
+testing our chatbots together
+i liked the discussion
+the presentations about our chatbots and we share our impressions
+learning how to use vr in medicine
+used our own chatbots loved the fact that we could discuss and give our comments about the course
+the chance we had to present our work and try it
+i really enjoyed the experience with our chatbots our discussion and the presentation about vr
+the conference
+presenting the chatbot
+ i liked playing with the chatbots and the compassion presentation
+trying out the teams chatbots
+the test and presentation of my teams chatbot
+i liked when we played with the chatbot that we created
+i liked the interactive conversation part	
+at first we saw some very interesting info about vr in healthcare and not only then we discussed about the whole event experience	
+p1 my only experience with chatbots up to now was as a customer reaching the support of a company that chatbot was very annoying but this was the fault of the company in total chatbots are interesting and useful fast they work 24/7 and you can call them any time of course they cannot substitute humans but still its a useful tool for all companies customer services 
 
-P2: I also know chatbots from customer services only, I used them a couple of times and find them also annoying. Only now, after this workshop, I know that this was the fault of the companies and the developers who didn’t do good work and that chatbots can be helpful and useful if you program them well. This was another interesting aspect of this workshop, the developing training, that showed us how we could build our own chatbot in an easy way. Also, all the other aspects of technology that were presented here during the workshop like the neuroscience presentations or the cyber-security ones. And it was really nice that we could see and compare chatbots from different partners/universities. 
+p2 i also know chatbots from customer services only i used them a couple of times and find them also annoying only now after this workshop i know that this was the fault of the companies and the developers who didnt do good work and that chatbots can be helpful and useful if you program them well this was another interesting aspect of this workshop the developing training that showed us how we could build our own chatbot in an easy way also all the other aspects of technology that were presented here during the workshop like the neuroscience presentations or the cybersecurity ones and it was really nice that we could see and compare chatbots from different partners/universities 
 
-P3: For me, it was really interesting as a 1st-year student, an awakening process, the fact that we understood how technology is included in current medical practice and that you should be aware of it. It’s not possible to be a medical professional and don’t know about AI, VR, and cyber-security, aspects that are useful in modern medicine. 
+p3 for me it was really interesting as a 1styear student an awakening process the fact that we understood how technology is included in current medical practice and that you should be aware of it its not possible to be a medical professional and dont know about ai vr and cybersecurity aspects that are useful in modern medicine 
 
-P4: We tried to understand how the chatbots function, not from the developing aspect, this sounds highly advanced, but from the way, we can use them; what kind of possibilities they offer to each one of us. During the process, we tried to “play” with them and “confuse” them and this helped us to understand more about how chatbots really work. 
+p4 we tried to understand how the chatbots function not from the developing aspect this sounds highly advanced but from the way we can use them; what kind of possibilities they offer to each one of us during the process we tried to “play” with them and “confuse” them and this helped us to understand more about how chatbots really work 
 
-P5: I think, that the workshop provided access to all the information about chatbots. We could have more training in using RASA but I understand that this needs more time. In general, this workshop was very helpful.  
+p5 i think that the workshop provided access to all the information about chatbots we could have more training in using rasa but i understand that this needs more time in general this workshop was very helpful  
 
-P6: We really liked knowing about chatbots. We tried to “play” with your chatbots, asking difficult questions and test them hard but when we started to develop our own ones we understand how complicated they can be as we could only apply simple characteristics on them. We couldn’t apply friendliness etc 
+p6 we really liked knowing about chatbots we tried to “play” with your chatbots asking difficult questions and test them hard but when we started to develop our own ones we understand how complicated they can be as we could only apply simple characteristics on them we couldnt apply friendliness etc 
 
-Coordinator: It’s really interesting that when you refer to chatbots you don’t say that they don’t function well for example but rather they need more training. It’s interesting how fast you acquired and start to use the terminology. 
+coordinator its really interesting that when you refer to chatbots you dont say that they dont function well for example but rather they need more training its interesting how fast you acquired and start to use the terminology 
 
-P7: We learned how to use the chatbot links, QR codes, etc. It was not easy to understand well at the beginning, we expected to just press a button and everything to work but gradually we understood how to use them. 
+p7 we learned how to use the chatbot links qr codes etc it was not easy to understand well at the beginning we expected to just press a button and everything to work but gradually we understood how to use them 
 
-P8: I used the cyber-security chatbot and at the beginning, I think it was not responding well, skipped questions or so, but after using it for a while I think it was trained better and worked better…. 
+p8 i used the cybersecurity chatbot and at the beginning i think it was not responding well skipped questions or so but after using it for a while i think it was trained better and worked better… 
 
-P9: I used one of the chatbots and asked for help but it wasn’t very helpful. Maybe I asked too many things. 
+p9 i used one of the chatbots and asked for help but it wasnt very helpful maybe i asked too many things 
 
-P10: I liked the developing aspect of the chatbots, the fact that this I a “brain” that can be trained. A brain that you can input questions and answers and make it work. 
+p10 i liked the developing aspect of the chatbots the fact that this i a “brain” that can be trained a brain that you can input questions and answers and make it work 
 
-P11: I liked the fact that chatbots can be both a transmitter and receiver, you can get information but you can also give information through interaction. I liked how you explained to us how we can train a chatbot. 
+p11 i liked the fact that chatbots can be both a transmitter and receiver you can get information but you can also give information through interaction i liked how you explained to us how we can train a chatbot 
 
-P12: Most of the chatbots were not “robotic”, they seemed more sentimental, more human…I think that chatbots should be able to interact well with humans. To prove how technology can really support us. 
+p12 most of the chatbots were not “robotic” they seemed more sentimental more human…i think that chatbots should be able to interact well with humans to prove how technology can really support us 
 
-P13: I once saw a video about chatbots, mentioning that if they are super friendly, people can misuse them for their own benefit. 
+p13 i once saw a video about chatbots mentioning that if they are super friendly people can misuse them for their own benefit 
 
-P14: The workshop in total was very interesting and I liked all the presentations, not only for chatbots but for VR and Neurosciences and cyber-security. 
+p14 the workshop in total was very interesting and i liked all the presentations not only for chatbots but for vr and neurosciences and cybersecurity 
 
-P15: I would like to have more developing training, but this is a personal view and interest. I would like to learn more about the development or to develop a more complicated chatbot. 
+p15 i would like to have more developing training but this is a personal view and interest i would like to learn more about the development or to develop a more complicated chatbot 
 
-P16: I had some issues with the terminology at the beginning. I didn’t know what some words meant like the storyboard for example. I still have this question… (an explanation about storyboard followed) 
+p16 i had some issues with the terminology at the beginning i didnt know what some words meant like the storyboard for example i still have this question… (an explanation about storyboard followed) 
 
- Coordination team: we should explain terminology at workshops, you are right. 
+ coordination team we should explain terminology at workshops you are right 
 
-P17: During the development of our own chatbot we needed to have access on the platform to correct some features, but this was not possible. We would like to have access and try it ourselves instead of asking the administrator. 
+p17 during the development of our own chatbot we needed to have access on the platform to correct some features but this was not possible we would like to have access and try it ourselves instead of asking the administrator 
 
-P18: I would like to use a chatbot to review my reading and for the repetition of my studying. For example, if the chatbot could make some questions per chapter to evaluate my reading and understanding of the topic. 
+p18 i would like to use a chatbot to review my reading and for the repetition of my studying for example if the chatbot could make some questions per chapter to evaluate my reading and understanding of the topic 
 
-P19: I would like to interact with the chatbots in the form of an illustrated test (testing my knowledge). I wouldn’t like to type much. I would prefer it if there was a speech-to-text tool. 
+p19 i would like to interact with the chatbots in the form of an illustrated test (testing my knowledge) i wouldnt like to type much i would prefer it if there was a speech to text tool 
 
-P20: If there was a possibility to combine different information to be supported let’s say for diagnosing someone, this could help. But just having a recapitulation at the end of the course, no, it’s not useful. I can do it myself using the book. 
+p20 if there was a possibility to combine different information to be supported lets say for diagnosing someone this could help but just having a recapitulation at the end of the course no its not useful i can do it myself using the book 
 
-P21: I would like if the chatbot could ask questions to test my understanding of the course and advise me on whether I should study more. 
+p21 i would like if the chatbot could ask questions to test my understanding of the course and advise me on whether i should study more 
 
-P22: I would stop using a chatbot if it doesn’t understand me. 
+p22 i would stop using a chatbot if it doesnt understand me 
 
-P23: I would prefer a speech-to-text function or uploading a photo and getting feedback and information. 
+p23 i would prefer a speech to text function or uploading a photo and getting feedback and information 
 
-P24: I wouldn’t like to receive links as an answer that should lead me to other pages and search for answers there. 
+p24 i wouldnt like to receive links as an answer that should lead me to other pages and search for answers there 
 
-P25: I would like the chatbot to support me in studying by showing for example images and asking me if they are correct and then giving me links to study more. 
+p25 i would like the chatbot to support me in studying by showing for example images and asking me if they are correct and then giving me links to study more 
 
-P26: I wouldn’t like anthropomorphism and sentiments for the chatbot. It’s creepy and not needed for my studying. I wouldn’t like the chatbot to suggest me what to do.  
+p26 i wouldnt like anthropomorphism and sentiments for the chatbot its creepy and not needed for my studying i wouldnt like the chatbot to suggest me what to do  
 
-Coordination: for ethical reasons would you like the chatbot to declare its nature from the beginning of the interaction? 
+coordination for ethical reasons would you like the chatbot to declare its nature from the beginning of the interaction 
 
-P27: I would like the chatbot to state from the beginning of our conversation that it is a chatbot. 
+p27 i would like the chatbot to state from the beginning of our conversation that it is a chatbot 
 
-P28: I would also like to know if it’s a chatbot because you communicate in a different way with a chatbot or with a person. 
+p28 i would also like to know if its a chatbot because you communicate in a different way with a chatbot or with a person 
 
-P29: I feel that it is a security valve for the human-chatbot interaction that an ethical rule would apply and the chatbot declares its nature. To avoid deception. 
+p29 i feel that it is a security valve for the human chatbot interaction that an ethical rule would apply and the chatbot declares its nature to avoid deception 
 
-P30: I see the chatbot as a supportive tool only to my studying. 
+p30 i see the chatbot as a supportive tool only to my studying 
 
-P31: Between a chatbot and a VR tool I would choose VR. But if the chatbot could give a second opinion for a diagnosis, for example, I would prefer the chatbot. 
+p31 between a chatbot and a vr tool i would choose vr but if the chatbot could give a second opinion for a diagnosis for example i would prefer the chatbot 
 
-P32: Chatbot can give you feedback, and this is why is better for me. 
+p32 chatbot can give you feedback and this is why is better for me 
 
-Coordination: what would you choose between a chatbot and a book? 
+coordination what would you choose between a chatbot and a book 
 
-P33: the book 
+p33 the book 
 
-P34: the book 
+p34 the book 
 
-P35: the book and some ppts 
+p35 the book and some ppts 
 
-P36: and some videos 
+p36 and some videos

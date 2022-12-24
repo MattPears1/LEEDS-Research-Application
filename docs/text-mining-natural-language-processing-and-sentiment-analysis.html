@@ -66,7 +66,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to HELM Open Data Analysis Tool</a></li>
+<li><a class="" href="index.html">Welcome to the CEPEH Data Analysis Site</a></li>
 <li><a class="" href="introduction.html">Introduction</a></li>
 <li><a class="" href="method.html"><span class="header-section-number">1</span> Method</a></li>
 <li><a class="" href="rmd-basics.html"><span class="header-section-number">2</span> Results</a></li>
@@ -74,6 +74,7 @@
 <li><a class="" href="overall-training-events-evalaution.html"><span class="header-section-number">4</span> Overall Training Events Evalaution</a></li>
 <li><a class="" href="Discussion.html"><span class="header-section-number">5</span> Discussion</a></li>
 <li><a class="active" href="text-mining-natural-language-processing-and-sentiment-analysis.html"><span class="header-section-number">6</span> Text Mining, Natural Language Processing, and Sentiment Analysis</a></li>
+<li><a class="" href="sentiment-analysis.html"><span class="header-section-number">7</span> Sentiment analysis</a></li>
 <li><a class="" href="appendix.html">Appendix</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="the-first-appendix.html"><span class="header-section-number">A</span> The First Appendix</a></li>
@@ -128,8 +129,8 @@ Syntax: unnest_tokens(df, newcol, oldcol)</li>
 <li>unnest_tokens() automatically removes punctuation and converts to lowercase (unless you set to_lower = FALSE)</li>
 <li>by default, tokens are set to words, but you can also use token = “characters”, “ngrams”, “sentences”, “lines”, “regex”, “paragraphs”, and even “tweets” (which will retain usernames, hashtags, and URLs)</li>
 </ul>
-<pre><code>## readtext object consisting of 2888 documents and 0 docvars.
-## # Description: df [2,888 × 3]
+<pre><code>## readtext object consisting of 2858 documents and 0 docvars.
+## # Description: df [2,858 × 3]
 ##   doc_id word       text     
 ##   &lt;fct&gt;  &lt;chr&gt;      &lt;chr&gt;    
 ## 1 1      p1         "\"\"..."
@@ -138,7 +139,7 @@ Syntax: unnest_tokens(df, newcol, oldcol)</li>
 ## 4 1      personally "\"\"..."
 ## 5 1      it         "\"\"..."
 ## 6 1      was        "\"\"..."
-## # … with 2,882 more rows</code></pre>
+## # … with 2,852 more rows</code></pre>
 </div>
 <div id="removing-non-alphanumeric-characters" class="section level3" number="6.2.2">
 <h3>
@@ -172,17 +173,17 @@ Syntax: unnest_tokens(df, newcol, oldcol)</li>
 ##  9 actually    SMART  
 ## 10 after       SMART  
 ## # … with 1,139 more rows</code></pre>
-<pre><code>## readtext object consisting of 816 documents and 0 docvars.
-## # Description: df [816 × 3]
+<pre><code>## readtext object consisting of 821 documents and 0 docvars.
+## # Description: df [821 × 3]
 ##   doc_id word       text     
 ##   &lt;fct&gt;  &lt;chr&gt;      &lt;chr&gt;    
 ## 1 1      personally "\"\"..."
 ## 2 1      nice       "\"\"..."
 ## 3 1      week       "\"\"..."
-## 4 1      ve         "\"\"..."
+## 4 1      ive        "\"\"..."
 ## 5 1      feeling    "\"\"..."
 ## 6 1      chatbots   "\"\"..."
-## # … with 810 more rows</code></pre>
+## # … with 815 more rows</code></pre>
 <p>Define other stop words:</p>
 <p>Break: Prepare your data with the steps above. 1) Unnest tokens, 2) Remove alpha-numeric characters, 3) Remove stopwords</p>
 </div>
@@ -202,55 +203,55 @@ Syntax: unnest_tokens(df, newcol, oldcol)</li>
 </ul>
 <p>tidy_books %&gt;%
 count(word, sort = TRUE)</p>
-<pre><code>## # A tibble: 385 × 3
+<pre><code>## # A tibble: 387 × 3
 ## # Groups:   doc_id [1]
-##    doc_id word             n
-##    &lt;fct&gt;  &lt;chr&gt;        &lt;int&gt;
-##  1 1      vr              15
-##  2 1      information     11
-##  3 1      presentation     9
-##  4 1      security         9
-##  5 1      cyber            8
-##  6 1      understand       8
-##  7 1      idea             7
-##  8 1      ideas            7
-##  9 1      lot              7
-## 10 1      workshop         7
-## # … with 375 more rows</code></pre>
-<pre><code>## # A tibble: 386 × 3
+##    doc_id word              n
+##    &lt;fct&gt;  &lt;chr&gt;         &lt;int&gt;
+##  1 1      vr               15
+##  2 1      cybersecurity    11
+##  3 1      information      11
+##  4 1      presentation      9
+##  5 1      helpful           8
+##  6 1      idea              7
+##  7 1      ideas             7
+##  8 1      lot               7
+##  9 1      workshop          7
+## 10 1      beginning         6
+## # … with 377 more rows</code></pre>
+<pre><code>## # A tibble: 388 × 3
 ## # Groups:   doc_id [1]
-##    doc_id word             n
-##    &lt;fct&gt;  &lt;chr&gt;        &lt;int&gt;
-##  1 1      vr              15
-##  2 1      information     11
-##  3 1      presentation     9
-##  4 1      security         9
-##  5 1      cyber            8
-##  6 1      helpful          8
-##  7 1      understand       8
-##  8 1      idea             7
-##  9 1      ideas            7
-## 10 1      lot              7
-## # … with 376 more rows</code></pre>
+##    doc_id word              n
+##    &lt;fct&gt;  &lt;chr&gt;         &lt;int&gt;
+##  1 1      vr               15
+##  2 1      cybersecurity    11
+##  3 1      information      11
+##  4 1      presentation      9
+##  5 1      helpful           8
+##  6 1      understand        8
+##  7 1      idea              7
+##  8 1      ideas             7
+##  9 1      lot               7
+## 10 1      workshop          7
+## # … with 378 more rows</code></pre>
 <div id="plotting-word-frequencies---bar-graphs" class="section level4" number="6.3.1.1">
 <h4>
 <span class="header-section-number">6.3.1.1</span> Plotting word frequencies - bar graphs<a class="anchor" aria-label="anchor" href="#plotting-word-frequencies---bar-graphs"><i class="fas fa-link"></i></a>
 </h4>
 <p>Bar graph of top words in CEPEHQ.</p>
 <div class="inline-figure">Basic graph:
-<img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672">
 </div>
 <div class="inline-figure">Readable labels:
-<img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672">
 </div>
 <div class="inline-figure">Descending order:
-<img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672">
 </div>
 <div class="inline-figure">Axis names and colors:
-<img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672">
 </div>
 <div class="inline-figure">Or: flip coordinate system to make more space for words
-<img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672">
 </div>
 </div>
 </div>
@@ -268,27 +269,27 @@ count(word, sort = TRUE)</p>
 ## # Groups:   doc_id [1]
 ##   doc_id `sum(n)`
 ##   &lt;fct&gt;     &lt;int&gt;
-## 1 1           694</code></pre>
-<pre><code>## # A tibble: 384 × 2
+## 1 1           696</code></pre>
+<pre><code>## # A tibble: 386 × 2
 ##    word            pmw
 ##    &lt;chr&gt;         &lt;dbl&gt;
-##  1 vr           21802.
-##  2 information  15988.
-##  3 presentation 13081.
-##  4 security     13081.
-##  5 cyber        11628.
-##  6 understand   11628.
-##  7 idea         10174.
-##  8 ideas        10174.
-##  9 lot          10174.
-## 10 workshop     10174.
-## # … with 374 more rows</code></pre>
+##  1 vr            217. 
+##  2 cybersecurity 159. 
+##  3 information   159. 
+##  4 presentation  130. 
+##  5 helpful       116. 
+##  6 idea          101. 
+##  7 ideas         101. 
+##  8 lot           101. 
+##  9 workshop      101. 
+## 10 beginning      87.0
+## # … with 376 more rows</code></pre>
 <div id="plotting-normalised-frequency" class="section level4" number="6.3.2.1">
 <h4>
 <span class="header-section-number">6.3.2.1</span> Plotting normalised frequency<a class="anchor" aria-label="anchor" href="#plotting-normalised-frequency"><i class="fas fa-link"></i></a>
 </h4>
 <div class="inline-figure">Now we can plot, for example, the 20 most frequent words (by pmw).
-<img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672">
 </div>
 </div>
 </div>
@@ -297,7 +298,7 @@ count(word, sort = TRUE)</p>
 <span class="header-section-number">6.3.3</span> 3.3 Word clouds<a class="anchor" aria-label="anchor" href="#word-clouds"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure">Let’s visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g. normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
-<img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672">
 </div>
 </div>
 </div>
@@ -313,43 +314,21 @@ count(word, sort = TRUE)</p>
 <pre><code>## # A tibble: 6 × 3
 ##   word            pmw     `1`
 ##   &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;
-## 1 access        4360. 0.00436
-## 2 acquired      1453. 0.00145
-## 3 add           1453. 0.00145
-## 4 administrator 1453. 0.00145
-## 5 advance       1453. 0.00145
-## 6 advanced      1453. 0.00145</code></pre>
+## 1 access         43.5 0.00435
+## 2 acquired       14.5 0.00145
+## 3 add            14.5 0.00145
+## 4 administrator  14.5 0.00145
+## 5 advance        14.5 0.00145
+## 6 advanced       14.5 0.00145</code></pre>
 <div class="inline-figure">Now, we can plot the words. Their placement depends on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other. We’ll discuss the interpretation in more detail once we’ve created the threeway comparison.
-<img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672">
 </div>
-<embed src="figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf" width="100%" height="1000px" type="application/pdf"></embed><p><br></p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages(pdftools)</span></span>
-<span><span class="co"># split PDF into pages stored in figures/sample-content/pdf_embed_example/split/</span></span>
-<span><span class="co"># pdftools::pdf_split("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf",</span></span>
-<span><span class="co">#        output = "figures/sample-content/pdf_embed_example/split/")</span></span>
-<span></span>
-<span><span class="co"># grab the pages</span></span>
-<span><span class="va">pages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="st">"figures/sample-content/pdf_embed_example/split"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># set how wide you want the inserted PDFs to be: </span></span>
-<span><span class="co"># 1.0 is 100 per cent of the oxforddown PDF page width;</span></span>
-<span><span class="co"># you may want to make it a bit bigger</span></span>
-<span><span class="va">pdf_width</span> <span class="op">&lt;-</span> <span class="fl">1.2</span></span>
-<span></span>
-<span><span class="co"># for each PDF page, insert it nicely and</span></span>
-<span><span class="co"># end with a page break</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"\\newpage \\begin{center} \\makebox[\\linewidth][c]{\\includegraphics[width="</span>, <span class="va">pdf_width</span>, <span class="st">"\\linewidth]{"</span>, <span class="va">pages</span>, <span class="st">"}} \\end{center}"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<embed src="figures/sample-content/alt_frontmatter_example/alt-frontmatter-example.pdf" width="100%" height="1000px" type="application/pdf"></embed><p>
-</p>
-
-
 </div>
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="Discussion.html"><span class="header-section-number">5</span> Discussion</a></div>
-<div class="next"><a href="appendix.html">Appendix</a></div>
+<div class="next"><a href="sentiment-analysis.html"><span class="header-section-number">7</span> Sentiment analysis</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">

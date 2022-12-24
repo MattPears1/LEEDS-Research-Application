@@ -46,7 +46,7 @@ However, through various limitations, we believed there was further research to 
 These have financial, stakeholder, time, and efficacy benefits.
 The creation process of CEPEH resources was significantly different to most in the literature, and this report highlights the approach of the CEPEH team towards enhancing personalised healthcare education can be achieved.
 
-## Background {.unnumbered}
+## Background {#sec-background .unnumbered}
 
 The working practices of CEPEH are aimed at maximizing efficacy of these chatbots as learning resources, and provided a sense of shared development and ownership from all stakeholders.
 The process normally begins with workshops in which the project is scoped and team building occurs.

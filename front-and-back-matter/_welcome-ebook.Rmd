@@ -1,13 +1,13 @@
-# Welcome to HELM Open Data Analysis Tool {-}
+# Welcome to the CEPEH Data Analysis Site {-}
 
 ::: {.row}
 :::::: {.col-sm-6}
-Welcome to the HELM Open data analysis tool. 
+This site presents the CEPEH data analysis and PDF version. 
 
-The data is from the [](){<a href="https://www.nottingham.ac.uk/helmopen/" target="_blank">HELM Open</a>} website.
+The data is from the [](){<a href="https://cepeh.eu/" target="_blank">CEPEH.eu</a>} website.
 
 
-To view/download the PDF output, [click here](_main.pdf) or the Word version [click here and accept 'update contents'](_main.docx) take a look as this tool, its pages, and other interactive features
+To view/download the PDF output, [click here](_main.pdf) or a not-as-good Word version [click here and accept 'update contents'](_main.docx) take a look as this tool, its pages, and other interactive features
 Enjoy!
 
 ::::::::: {.byline}
