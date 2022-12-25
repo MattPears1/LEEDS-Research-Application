@@ -13,7 +13,7 @@ technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
 chatbot-usabilty-questionanire-cuq
-cuq-calcuation-tool
+cuq-calcuation-tool-the-cuq-was-developed-by-researchers-at-ulster-university-see-cuq-and-as-the-calculation-can-be-complex-a-dedicated-calculation-tool-has-been-created.
 system-usability-scale-sus-scores
 technology-acceptance-model
 other-findings
