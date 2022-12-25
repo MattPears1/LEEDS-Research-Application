@@ -29,47 +29,45 @@ library(syuzhet)
 ```
 
 
-## 1 Reading in texts
+## CEPEH Qualatative Feedback
 
-### 1.1 txt files
-Here's how you can read in one .txt file that is saved in the same location as this script (i.e. in the same folder on your computer):
+The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing. 
+
+One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.
+
+Therefore, we have created such tools to allow efficient and intelligent analysis of this open/free focus group data.
+
 ```{r read text and name it}
 CEPEHQ_raw <- readtext("P1.txt")
 
 CEPEHQ_raw $doc_id <- sub(".txt", "", CEPEHQ_raw $doc_id) # this gets rid of .txt in the play titles
 ```
 
-If you want to read all files from a sub-folder, type the name of the folder followed by / and * to ask R to read in all files in that folder:
 ```{r batch read files, eval=FALSE, include=FALSE}
 CEPEHQ_raw <- readtext("Shakespeare txts/*")
 
 ```
 
-
-### 1.3 Preparing data
-- convert name to ID numbers with more descriptive labels 
 ```{r rename file, echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_raw$doc_id <- as.factor(CEPEHQ_raw$doc_id)
 CEPEHQ_raw$doc_id <- plyr::revalue(CEPEHQ_raw$doc_id,
                                               c("P1" = "1"))
 ```
 
+## Tokenising
 
-## 2 Tidy text
-* One word per row, facilitates analysis
-* Token: "a meaningful unit of text, most often a word, that we are interested in using for further analysis"
+A Token is "a meaningful unit of text, most often a word, that we are interested in using for further analysis"
+Meaning, for each word we give it a property that we can call upon later. 
 
-### 2.1 the unnest_tokens function
-* Easy to convert from full text to token per row with unnest_tokens()
-Syntax: unnest_tokens(df, newcol, oldcol)
-* unnest_tokens() automatically removes punctuation and converts to lowercase (unless you set to_lower = FALSE)
-* by default, tokens are set to words, but you can also use token = "characters", "ngrams", "sentences", "lines", "regex", "paragraphs", and even "tweets" (which will retain usernames, hashtags, and URLs)
+The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as "characters", "ngrams", "sentences", "lines", "regex", "paragraphs")
+
 
 ```{r give text tokens, echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_tidy <- CEPEHQ_raw%>% 
   unnest_tokens(word, text)
 
-CEPEHQ_tidy
+
+head(CEPEHQ_tidy)
 
 ```
 
@@ -131,6 +129,9 @@ CEPEHQ_freq <- CEPEHQ_freq[-6,]
 
 CEPEHQ_freq
 ```
+The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word *'helpful'* which has a positive connotation, however there are 386 words, with many having several occurrences. 
+
+What is the sentiment of all participants? What is types of emotional words are being used?
 
 
 ```{r group by word and filter for true, message=FALSE, warning=FALSE}
@@ -145,15 +146,15 @@ CEPEHQ_tidy %>%
 Bar graph of top words in CEPEHQ.
 
 Basic graph:
-```{r}
+```{r eval=FALSE, include=FALSE}
 CEPEHQ_freq %>% 
   filter(n>7& doc_id == "1") %>% 
   ggplot(aes(x=word, y=n)) +
   geom_col()
 ```
 
-Readable labels:
-```{r}
+
+```{r Readable labels}
 CEPEHQ_freq %>% 
   filter(n>7 & doc_id == "1") %>% 
   ggplot(aes(x=word, y=n)) +
@@ -161,8 +162,8 @@ CEPEHQ_freq %>%
   theme(axis.text.x = element_text(angle = 45))
 ```
 
-Descending order:
-```{r}
+
+```{r Descending order, include=FALSE}
 CEPEHQ_freq %>% 
   filter(n>7 & doc_id == "1") %>% 
   ggplot(aes(x=reorder(word, -n), y=n)) +
@@ -170,10 +171,10 @@ CEPEHQ_freq %>%
   theme(axis.text.x = element_text(angle = 45))
 ```
 
-Axis names and colors:
-```{r}
+
+```{r include=FALSE}
 CEPEHQ_freq %>% 
-  filter(n>7 & doc_id == "1") %>% 
+  filter(n>4 & doc_id == "1") %>% 
   ggplot(aes(x=reorder(word, -n), y=n, fill=n)) +
   geom_col(show.legend=FALSE) +
   theme(axis.text.x = element_text(angle = 45)) +
@@ -182,10 +183,14 @@ CEPEHQ_freq %>%
   ggtitle("Most frequent words in all CEPEH qualatative data")
 ```
 
-Or: flip coordinate system to make more space for words
+
+The words can be grouped and plotted onto a bar chart, and to show more words this chart is presented with horizontal bars. 
+The most frequent words present in the various focus group discussions after using the 4 CEPEH chatbots are in the Figure below.
+
+
 ```{r}
 CEPEHQ_freq %>% 
-  filter(n>7,doc_id == "1") %>% 
+  filter(n>3,doc_id == "1") %>% 
   ggplot(aes(x=reorder(word, n), y=n, fill=n)) +
   geom_col(show.legend=FALSE) +
   xlab("Word") +
@@ -193,6 +198,12 @@ CEPEHQ_freq %>%
   ggtitle("Most frequent words in all CEPEH qualatative data") +
   coord_flip()
 ```
+
+
+Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted. 
+
+
+
 
 ### 3.2 Normalised frequency
 * when comparing the frequencies of words from different texts, they are commonly normalised
@@ -209,7 +220,7 @@ CEPEHQ_freq %>%
 CEPEHQ_freq <- CEPEHQ_freq %>% 
   na.omit() %>% 
   group_by(doc_id) %>% 
-  mutate(pmw = n*10000/sum(n)) %>% # creates a new column called pmw
+  mutate(pmw = n*1000/sum(n)) %>% # creates a new column called pmw
   ungroup() %>% 
   anti_join(stop_words) # removing stopwords afterwards
 
@@ -226,7 +237,7 @@ CEPEHQ_freq %>%
   geom_col(show.legend=FALSE) +
   theme(axis.text.x = element_text(angle = 45)) +
   xlab("Word") +
-  ylab("Frequency per 1 million words") +
+  ylab("Frequency per 1000 words") +
   ggtitle("Most frequent words in HELM")
 ```
 
@@ -236,17 +247,14 @@ CEPEHQ_freq %>%
 Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g. normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
 ```{r}
 wordcloud(words = CEPEHQ_freq$word, freq = CEPEHQ_freq$n, 
-          min.freq = 5, max.words=2000, random.order=FALSE, rot.per=0.35, 
+          min.freq = 4, max.words=2000, random.order=FALSE, rot.per=0.35, 
           colors=brewer.pal(8, "Dark2"))
 ```
 
 
-## 4 Comparing the vocabulary of texts
+## The vocabulary of Texts
 
-Next, we'll create two graphs to compare the vocabulary of our texts. First, we focus on Alice's Adventures and Anderson's CEPEHQ. The newly created comp_2 data frame contains only the words and their frequencies in the two texts in two separate columns.
-
-### Comparing two texts
-```{r}
+```{r include=FALSE}
 comp_2 <- CEPEHQ_freq %>% 
   filter(doc_id == "1"|doc_id == "1") %>% 
   group_by(doc_id) %>% 
@@ -254,16 +262,16 @@ comp_2 <- CEPEHQ_freq %>%
   select(-n) %>%
   spread(doc_id, proportion)
 
-head(comp_2)
+summary(comp_2)
 ```
 
-Now, we can plot the words. Their placement depends on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other. We'll discuss the interpretation in more detail once we've created the threeway comparison.
+Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
 ```{r}
 ggplot(comp_2, 
        aes(x = `1`, y = `1`, 
            color = abs(`1` - `1`))) +
-  geom_abline(color = "gray40", lty = 2) +
-  geom_jitter(alpha = 0.1, size = 2.5, width = 0.3, height = 0.3) +
+  geom_abline(color = "blue1", lty = 2) +
+  geom_jitter(alpha = 0.1, size = 4.5, width = 0.5, height = 0.8) +
   geom_text(aes(label = word), check_overlap = TRUE, vjust = 1.5) +
   scale_x_log10(labels = percent_format()) +
   scale_y_log10(labels = percent_format()) +
@@ -275,26 +283,54 @@ ggplot(comp_2,
 
 # Sentiment analysis
 
-```{r sentiment, message=FALSE, warning=FALSE}
+```{r sentiment, echo=FALSE, message=FALSE, warning=FALSE}
+
+head(get_sentiments("bing"))
+
+CEPEHQ_tidy %>% 
+  inner_join(get_sentiments("bing")) %>% 
+  head()
+
+CEPEHQ_tidy %>% 
+  inner_join(get_sentiments("bing"))%>% 
+  count(sentiment)
+
+CEPEHQ_tidy %>% 
+  inner_join(get_sentiments("bing")) %>% 
+  count(word, sentiment, sort = TRUE) %>% 
+  head()
+
+CEPEHQ_tidy %>% 
+  inner_join(get_sentiments("bing")) %>% 
+  count(doc_id,sentiment) %>% 
+  head()
 
 
+CEPEHQ_tidy  %>% 
+  inner_join(get_sentiments("bing"))%>% 
+  count(sentiment)
 
+CEPEHQ_tidy  %>% 
+  inner_join(get_sentiments("bing")) %>% 
+  count(word, sentiment, sort = TRUE) %>% 
+  head()
 
+CEPEHQ_tidy_bing <-  CEPEHQ_tidy%>% 
+  inner_join(get_sentiments("bing")) %>% 
+  count(doc_id, sentiment) %>% 
+  spread(sentiment, n, fill=0) %>% 
+  mutate(total_score = positive - negative)
 
+CEPEHQ_tidy_bing %>% 
+  summarize(max(total_score), min(total_score)) 
 
-
-
-
-
-
+ggplot(aes(x=total_score, y=total_score, group=total_score), data=CEPEHQ_tidy_bing) +
+    geom_violin(aes(color=total_score), show.legend=FALSE)
 ```
 
 
 
-
-
-
-
+```
 
 
 

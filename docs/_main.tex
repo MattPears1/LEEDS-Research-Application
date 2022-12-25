@@ -1639,53 +1639,26 @@ Volvo 142E1 & 21.4 & 4 & 121.0 & 109 & 4.11 & 2.780 & 18.60 & 1 & 1 & 4 & 2\\*
 \hypertarget{text-mining-natural-language-processing-and-sentiment-analysis}{%
 \chapter{Text Mining, Natural Language Processing, and Sentiment Analysis}\label{text-mining-natural-language-processing-and-sentiment-analysis}}
 
-\hypertarget{reading-in-texts}{%
-\section{1 Reading in texts}\label{reading-in-texts}}
+\hypertarget{cepeh-qualatative-feedback}{%
+\section{CEPEH Qualatative Feedback}\label{cepeh-qualatative-feedback}}
 
-\hypertarget{txt-files}{%
-\subsection{1.1 txt files}\label{txt-files}}
+The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing.
 
-Here's how you can read in one .txt file that is saved in the same location as this script (i.e.~in the same folder on your computer):
+One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.
 
-If you want to read all files from a sub-folder, type the name of the folder followed by / and * to ask R to read in all files in that folder:
+Therefore, we have created such tools to allow efficient and intelligent analysis of this open/free focus group data.
 
-\hypertarget{preparing-data}{%
-\subsection{1.3 Preparing data}\label{preparing-data}}
+\hypertarget{tokenising}{%
+\section{Tokenising}\label{tokenising}}
 
-\begin{itemize}
-\tightlist
-\item
-  convert name to ID numbers with more descriptive labels
-\end{itemize}
+A Token is ``a meaningful unit of text, most often a word, that we are interested in using for further analysis''
+Meaning, for each word we give it a property that we can call upon later.
 
-\hypertarget{tidy-text}{%
-\section{2 Tidy text}\label{tidy-text}}
-
-\begin{itemize}
-\tightlist
-\item
-  One word per row, facilitates analysis
-\item
-  Token: ``a meaningful unit of text, most often a word, that we are interested in using for further analysis''
-\end{itemize}
-
-\hypertarget{the-unnest_tokens-function}{%
-\subsection{2.1 the unnest\_tokens function}\label{the-unnest_tokens-function}}
-
-\begin{itemize}
-\tightlist
-\item
-  Easy to convert from full text to token per row with unnest\_tokens()
-  Syntax: unnest\_tokens(df, newcol, oldcol)
-\item
-  unnest\_tokens() automatically removes punctuation and converts to lowercase (unless you set to\_lower = FALSE)
-\item
-  by default, tokens are set to words, but you can also use token = ``characters'', ``ngrams'', ``sentences'', ``lines'', ``regex'', ``paragraphs'', and even ``tweets'' (which will retain usernames, hashtags, and URLs)
-\end{itemize}
+The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as ``characters'', ``ngrams'', ``sentences'', ``lines'', ``regex'', ``paragraphs'')
 
 \begin{verbatim}
-## readtext object consisting of 2858 documents and 0 docvars.
-## # Description: df [2,858 x 3]
+## readtext object consisting of 6 documents and 0 docvars.
+## # Description: df [6 x 3]
 ##   doc_id word       text     
 ##   <fct>  <chr>      <chr>    
 ## 1 1      p1         "\"\"..."
@@ -1694,7 +1667,6 @@ If you want to read all files from a sub-folder, type the name of the folder fol
 ## 4 1      personally "\"\"..."
 ## 5 1      it         "\"\"..."
 ## 6 1      was        "\"\"..."
-## # ... with 2,852 more rows
 \end{verbatim}
 
 \hypertarget{removing-non-alphanumeric-characters}{%
@@ -1739,8 +1711,8 @@ We can take a look:
 \end{verbatim}
 
 \begin{verbatim}
-## readtext object consisting of 821 documents and 0 docvars.
-## # Description: df [821 x 3]
+## readtext object consisting of 806 documents and 0 docvars.
+## # Description: df [806 x 3]
 ##   doc_id word       text     
 ##   <fct>  <chr>      <chr>    
 ## 1 1      personally "\"\"..."
@@ -1749,7 +1721,7 @@ We can take a look:
 ## 4 1      ive        "\"\"..."
 ## 5 1      feeling    "\"\"..."
 ## 6 1      chatbots   "\"\"..."
-## # ... with 815 more rows
+## # ... with 800 more rows
 \end{verbatim}
 
 Define other stop words:
@@ -1776,15 +1748,37 @@ tidy\_books \%\textgreater\%
 count(word, sort = TRUE)
 
 \begin{verbatim}
+## # A tibble: 386 x 3
+## # Groups:   doc_id [1]
+##    doc_id word              n
+##    <fct>  <chr>         <int>
+##  1 1      cybersecurity    11
+##  2 1      information      11
+##  3 1      presentation      9
+##  4 1      helpful           8
+##  5 1      understand        8
+##  6 1      ideas             7
+##  7 1      lot               7
+##  8 1      workshop          7
+##  9 1      beginning         6
+## 10 1      dont              6
+## # ... with 376 more rows
+\end{verbatim}
+
+The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word \emph{`helpful'} which has a positive connotation, however there are 386 words, with many having several occurrences.
+
+What is the sentiment of all participants? What is types of emotional words are being used?
+
+\begin{verbatim}
 ## # A tibble: 387 x 3
 ## # Groups:   doc_id [1]
 ##    doc_id word              n
 ##    <fct>  <chr>         <int>
-##  1 1      vr               15
-##  2 1      cybersecurity    11
-##  3 1      information      11
-##  4 1      presentation      9
-##  5 1      helpful           8
+##  1 1      cybersecurity    11
+##  2 1      information      11
+##  3 1      presentation      9
+##  4 1      helpful           8
+##  5 1      understand        8
 ##  6 1      idea              7
 ##  7 1      ideas             7
 ##  8 1      lot               7
@@ -1793,43 +1787,21 @@ count(word, sort = TRUE)
 ## # ... with 377 more rows
 \end{verbatim}
 
-\begin{verbatim}
-## # A tibble: 388 x 3
-## # Groups:   doc_id [1]
-##    doc_id word              n
-##    <fct>  <chr>         <int>
-##  1 1      vr               15
-##  2 1      cybersecurity    11
-##  3 1      information      11
-##  4 1      presentation      9
-##  5 1      helpful           8
-##  6 1      understand        8
-##  7 1      idea              7
-##  8 1      ideas             7
-##  9 1      lot               7
-## 10 1      workshop          7
-## # ... with 378 more rows
-\end{verbatim}
-
 \hypertarget{plotting-word-frequencies---bar-graphs}{%
 \subsubsection{Plotting word frequencies - bar graphs}\label{plotting-word-frequencies---bar-graphs}}
 
 Bar graph of top words in CEPEHQ.
 
 Basic graph:
-\includegraphics{_main_files/figure-latex/unnamed-chunk-16-1.pdf}
 
-Readable labels:
-\includegraphics{_main_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{_main_files/figure-latex/Readable labels-1.pdf}
 
-Descending order:
+The words can be grouped and plotted onto a bar chart, and to show more words this chart is presented with horizontal bars.
+The most frequent words present in the various focus group discussions after using the 4 CEPEH chatbots are in the Figure below.
+
 \includegraphics{_main_files/figure-latex/unnamed-chunk-18-1.pdf}
 
-Axis names and colors:
-\includegraphics{_main_files/figure-latex/unnamed-chunk-19-1.pdf}
-
-Or: flip coordinate system to make more space for words
-\includegraphics{_main_files/figure-latex/unnamed-chunk-20-1.pdf}
+Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted.
 
 \hypertarget{normalised-frequency}{%
 \subsection{3.2 Normalised frequency}\label{normalised-frequency}}
@@ -1851,84 +1823,159 @@ Or: flip coordinate system to make more space for words
 ## # Groups:   doc_id [1]
 ##   doc_id `sum(n)`
 ##   <fct>     <int>
-## 1 1           696
+## 1 1           682
 \end{verbatim}
 
 \begin{verbatim}
-## # A tibble: 386 x 2
+## # A tibble: 385 x 2
 ##    word            pmw
 ##    <chr>         <dbl>
-##  1 vr            217. 
-##  2 cybersecurity 159. 
-##  3 information   159. 
-##  4 presentation  130. 
-##  5 helpful       116. 
-##  6 idea          101. 
-##  7 ideas         101. 
-##  8 lot           101. 
-##  9 workshop      101. 
-## 10 beginning      87.0
-## # ... with 376 more rows
+##  1 cybersecurity 16.3 
+##  2 information   16.3 
+##  3 presentation  13.3 
+##  4 helpful       11.8 
+##  5 understand    11.8 
+##  6 ideas         10.4 
+##  7 lot           10.4 
+##  8 workshop      10.4 
+##  9 beginning      8.88
+## 10 dont           8.88
+## # ... with 375 more rows
 \end{verbatim}
 
 \hypertarget{plotting-normalised-frequency}{%
 \subsubsection{Plotting normalised frequency}\label{plotting-normalised-frequency}}
 
 Now we can plot, for example, the 20 most frequent words (by pmw).
-\includegraphics{_main_files/figure-latex/unnamed-chunk-22-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-20-1.pdf}
 
 \hypertarget{word-clouds}{%
 \subsection{3.3 Word clouds}\label{word-clouds}}
 
 Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g.~normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
+\includegraphics{_main_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\hypertarget{the-vocabulary-of-texts}{%
+\section{The vocabulary of Texts}\label{the-vocabulary-of-texts}}
+
+Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
 \includegraphics{_main_files/figure-latex/unnamed-chunk-23-1.pdf}
-
-\hypertarget{comparing-the-vocabulary-of-texts}{%
-\section{4 Comparing the vocabulary of texts}\label{comparing-the-vocabulary-of-texts}}
-
-Next, we'll create two graphs to compare the vocabulary of our texts. First, we focus on Alice's Adventures and Anderson's CEPEHQ. The newly created comp\_2 data frame contains only the words and their frequencies in the two texts in two separate columns.
-
-\hypertarget{comparing-two-texts}{%
-\subsection{Comparing two texts}\label{comparing-two-texts}}
-
-\begin{verbatim}
-## # A tibble: 6 x 3
-##   word            pmw     `1`
-##   <chr>         <dbl>   <dbl>
-## 1 access         43.5 0.00435
-## 2 acquired       14.5 0.00145
-## 3 add            14.5 0.00145
-## 4 administrator  14.5 0.00145
-## 5 advance        14.5 0.00145
-## 6 advanced       14.5 0.00145
-\end{verbatim}
-
-Now, we can plot the words. Their placement depends on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other. We'll discuss the interpretation in more detail once we've created the threeway comparison.
-\includegraphics{_main_files/figure-latex/unnamed-chunk-25-1.pdf}
 
 \hypertarget{sentiment-analysis}{%
 \chapter{Sentiment analysis}\label{sentiment-analysis}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages(pdftools)}
-\CommentTok{\# split PDF into pages stored in figures/sample{-}content/pdf\_embed\_example/split/}
-\CommentTok{\# pdftools::pdf\_split("figures/sample{-}content/pdf\_embed\_example/Lyngs2020\_FB.pdf",}
-\CommentTok{\#        output = "figures/sample{-}content/pdf\_embed\_example/split/")}
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   word       sentiment
+##   <chr>      <chr>    
+## 1 2-faces    negative 
+## 2 abnormal   negative 
+## 3 abolish    negative 
+## 4 abominable negative 
+## 5 abominably negative 
+## 6 abominate  negative
+\end{verbatim}
 
-\CommentTok{\# grab the pages}
-\NormalTok{pages }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\StringTok{"figures/sample{-}content/pdf\_embed\_example/split"}\NormalTok{, }\AttributeTok{full.names =} \ConstantTok{TRUE}\NormalTok{)}
+\begin{verbatim}
+## readtext object consisting of 6 documents and 1 docvar.
+## # Description: df [6 x 4]
+##   doc_id word       sentiment text     
+##   <fct>  <chr>      <chr>     <chr>    
+## 1 1      nice       positive  "\"\"..."
+## 2 1      invaluable positive  "\"\"..."
+## 3 1      facilitate positive  "\"\"..."
+## 4 1      difficult  negative  "\"\"..."
+## 5 1      benefits   positive  "\"\"..."
+## 6 1      easier     positive  "\"\"..."
+\end{verbatim}
 
-\CommentTok{\# set how wide you want the inserted PDFs to be: }
-\CommentTok{\# 1.0 is 100 per cent of the oxforddown PDF page width;}
-\CommentTok{\# you may want to make it a bit bigger}
-\NormalTok{pdf\_width }\OtherTok{\textless{}{-}} \FloatTok{1.2}
+\begin{verbatim}
+## readtext object consisting of 2 documents and 0 docvars.
+## # Description: df [2 x 3]
+##   sentiment     n text     
+##   <chr>     <int> <chr>    
+## 1 negative     24 "\"\"..."
+## 2 positive     62 "\"\"..."
+\end{verbatim}
 
-\CommentTok{\# for each PDF page, insert it nicely and}
-\CommentTok{\# end with a page break}
-\FunctionTok{cat}\NormalTok{(stringr}\SpecialCharTok{::}\FunctionTok{str\_c}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{newpage }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{begin\{center\} }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{makebox[}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{linewidth][c]\{}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{includegraphics[width="}\NormalTok{, pdf\_width, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{linewidth]\{"}\NormalTok{, pages, }\StringTok{"\}\} }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{end\{center\}"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## readtext object consisting of 6 documents and 1 docvar.
+## # Description: df [6 x 4]
+##   word      sentiment     n text     
+##   <chr>     <chr>     <int> <chr>    
+## 1 helpful   positive      8 "\"\"..."
+## 2 benefit   positive      4 "\"\"..."
+## 3 difficult negative      4 "\"\"..."
+## 4 enjoyed   positive      4 "\"\"..."
+## 5 nice      positive      4 "\"\"..."
+## 6 easy      positive      3 "\"\"..."
+\end{verbatim}
+
+\begin{verbatim}
+## readtext object consisting of 2 documents and 1 docvar.
+## # Description: df [2 x 4]
+##   doc_id sentiment     n text     
+## * <fct>  <chr>     <int> <chr>    
+## 1 1      negative     24 "\"\"..."
+## 2 1      positive     62 "\"\"..."
+\end{verbatim}
+
+\begin{verbatim}
+## readtext object consisting of 2 documents and 0 docvars.
+## # Description: df [2 x 3]
+##   sentiment     n text     
+##   <chr>     <int> <chr>    
+## 1 negative     24 "\"\"..."
+## 2 positive     62 "\"\"..."
+\end{verbatim}
+
+\begin{verbatim}
+## readtext object consisting of 6 documents and 1 docvar.
+## # Description: df [6 x 4]
+##   word      sentiment     n text     
+##   <chr>     <chr>     <int> <chr>    
+## 1 helpful   positive      8 "\"\"..."
+## 2 benefit   positive      4 "\"\"..."
+## 3 difficult negative      4 "\"\"..."
+## 4 enjoyed   positive      4 "\"\"..."
+## 5 nice      positive      4 "\"\"..."
+## 6 easy      positive      3 "\"\"..."
+\end{verbatim}
+
+\begin{verbatim}
+##   max(total_score) min(total_score)
+## 1               38               38
+\end{verbatim}
+
+\includegraphics{_main_files/figure-latex/sentiment-1.pdf}
+
+\begin{verbatim}
+
+
+
+
+<br>
+
+
+
+```r
+# install.packages(pdftools)
+# split PDF into pages stored in figures/sample-content/pdf_embed_example/split/
+# pdftools::pdf_split("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf",
+#        output = "figures/sample-content/pdf_embed_example/split/")
+
+# grab the pages
+pages <- list.files("figures/sample-content/pdf_embed_example/split", full.names = TRUE)
+
+# set how wide you want the inserted PDFs to be: 
+# 1.0 is 100 per cent of the oxforddown PDF page width;
+# you may want to make it a bit bigger
+pdf_width <- 1.2
+
+# for each PDF page, insert it nicely and
+# end with a page break
+cat(stringr::str_c("\\newpage \\begin{center} \\makebox[\\linewidth][c]{\\includegraphics[width=", pdf_width, "\\linewidth]{", pages, "}} \\end{center}"))
+\end{verbatim}
 
 \newpage \begin{center} \makebox[\linewidth][c]{\includegraphics[width=1.2\linewidth]{figures/sample-content/pdf_embed_example/split/_000000000000001.pdf}} \end{center} \newpage \begin{center} \makebox[\linewidth][c]{\includegraphics[width=1.2\linewidth]{figures/sample-content/pdf_embed_example/split/_000000000000011.pdf}} \end{center}
 
@@ -1940,17 +1987,6 @@ Now, we can plot the words. Their placement depends on the word frequencies. Add
 \hypertarget{appendix}{%
 \chapter*{Appendix}\label{appendix}}
 \addcontentsline{toc}{chapter}{Appendix}
-
-\hypertarget{more-info}{%
-\section*{More info}\label{more-info}}
-\addcontentsline{toc}{section}{More info}
-
-And here's some other random info:
-the first paragraph after a chapter title or section head \emph{shouldn't be} indented, because indents are to tell the reader that you're starting a new paragraph.
-Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there.
-
-This paragraph, by contrast, \emph{will} be indented as it should because it is not the first one after the `More info' heading.
-All hail LaTeX. (If you're reading the HTML version, you won't see any indentation - have a look at the PDF version to understand what in the earth this section is babbling on about).
 
 \startappendices
 

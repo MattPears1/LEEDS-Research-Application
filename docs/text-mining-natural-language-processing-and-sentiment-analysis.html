@@ -42,9 +42,9 @@
   </style>
 <link rel="stylesheet" href="templates/bs4_style.css">
 <link rel="stylesheet" href="templates/corrections.css">
-<meta name="description" content="6.1 1 Reading in texts  6.1.1 1.1 txt files Here’s how you can read in one .txt file that is saved in the same location as this script (i.e. in the same folder on your computer): If you want to...">
-<meta property="og:description" content="6.1 1 Reading in texts  6.1.1 1.1 txt files Here’s how you can read in one .txt file that is saved in the same location as this script (i.e. in the same folder on your computer): If you want to...">
-<meta name="twitter:description" content="6.1 1 Reading in texts  6.1.1 1.1 txt files Here’s how you can read in one .txt file that is saved in the same location as this script (i.e. in the same folder on your computer): If you want to...">
+<meta name="description" content="6.1 CEPEH Qualatative Feedback The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve...">
+<meta property="og:description" content="6.1 CEPEH Qualatative Feedback The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve...">
+<meta name="twitter:description" content="6.1 CEPEH Qualatative Feedback The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve...">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -91,46 +91,23 @@
 <h1>
 <span class="header-section-number">6</span> Text Mining, Natural Language Processing, and Sentiment Analysis<a class="anchor" aria-label="anchor" href="#text-mining-natural-language-processing-and-sentiment-analysis"><i class="fas fa-link"></i></a>
 </h1>
-<div id="reading-in-texts" class="section level2" number="6.1">
+<div id="cepeh-qualatative-feedback" class="section level2" number="6.1">
 <h2>
-<span class="header-section-number">6.1</span> 1 Reading in texts<a class="anchor" aria-label="anchor" href="#reading-in-texts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.1</span> CEPEH Qualatative Feedback<a class="anchor" aria-label="anchor" href="#cepeh-qualatative-feedback"><i class="fas fa-link"></i></a>
 </h2>
-<div id="txt-files" class="section level3" number="6.1.1">
-<h3>
-<span class="header-section-number">6.1.1</span> 1.1 txt files<a class="anchor" aria-label="anchor" href="#txt-files"><i class="fas fa-link"></i></a>
-</h3>
-<p>Here’s how you can read in one .txt file that is saved in the same location as this script (i.e. in the same folder on your computer):</p>
-<p>If you want to read all files from a sub-folder, type the name of the folder followed by / and * to ask R to read in all files in that folder:</p>
+<p>The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing.</p>
+<p>One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.</p>
+<p>Therefore, we have created such tools to allow efficient and intelligent analysis of this open/free focus group data.</p>
 </div>
-<div id="preparing-data" class="section level3" number="6.1.2">
-<h3>
-<span class="header-section-number">6.1.2</span> 1.3 Preparing data<a class="anchor" aria-label="anchor" href="#preparing-data"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>convert name to ID numbers with more descriptive labels</li>
-</ul>
-</div>
-</div>
-<div id="tidy-text" class="section level2" number="6.2">
+<div id="tokenising" class="section level2" number="6.2">
 <h2>
-<span class="header-section-number">6.2</span> 2 Tidy text<a class="anchor" aria-label="anchor" href="#tidy-text"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2</span> Tokenising<a class="anchor" aria-label="anchor" href="#tokenising"><i class="fas fa-link"></i></a>
 </h2>
-<ul>
-<li>One word per row, facilitates analysis</li>
-<li>Token: “a meaningful unit of text, most often a word, that we are interested in using for further analysis”</li>
-</ul>
-<div id="the-unnest_tokens-function" class="section level3" number="6.2.1">
-<h3>
-<span class="header-section-number">6.2.1</span> 2.1 the unnest_tokens function<a class="anchor" aria-label="anchor" href="#the-unnest_tokens-function"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Easy to convert from full text to token per row with unnest_tokens()
-Syntax: unnest_tokens(df, newcol, oldcol)</li>
-<li>unnest_tokens() automatically removes punctuation and converts to lowercase (unless you set to_lower = FALSE)</li>
-<li>by default, tokens are set to words, but you can also use token = “characters”, “ngrams”, “sentences”, “lines”, “regex”, “paragraphs”, and even “tweets” (which will retain usernames, hashtags, and URLs)</li>
-</ul>
-<pre><code>## readtext object consisting of 2858 documents and 0 docvars.
-## # Description: df [2,858 × 3]
+<p>A Token is “a meaningful unit of text, most often a word, that we are interested in using for further analysis”
+Meaning, for each word we give it a property that we can call upon later.</p>
+<p>The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as “characters”, “ngrams”, “sentences”, “lines”, “regex”, “paragraphs”)</p>
+<pre><code>## readtext object consisting of 6 documents and 0 docvars.
+## # Description: df [6 × 3]
 ##   doc_id word       text     
 ##   &lt;fct&gt;  &lt;chr&gt;      &lt;chr&gt;    
 ## 1 1      p1         "\"\"..."
@@ -138,20 +115,18 @@ Syntax: unnest_tokens(df, newcol, oldcol)</li>
 ## 3 1      me         "\"\"..."
 ## 4 1      personally "\"\"..."
 ## 5 1      it         "\"\"..."
-## 6 1      was        "\"\"..."
-## # … with 2,852 more rows</code></pre>
-</div>
-<div id="removing-non-alphanumeric-characters" class="section level3" number="6.2.2">
+## 6 1      was        "\"\"..."</code></pre>
+<div id="removing-non-alphanumeric-characters" class="section level3" number="6.2.1">
 <h3>
-<span class="header-section-number">6.2.2</span> 2.2 Removing non-alphanumeric characters<a class="anchor" aria-label="anchor" href="#removing-non-alphanumeric-characters"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2.1</span> 2.2 Removing non-alphanumeric characters<a class="anchor" aria-label="anchor" href="#removing-non-alphanumeric-characters"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>str_extract is used to get rid of non-alphanumeric characters (because we don’t want to count <em>word</em> separately from word)</li>
 </ul>
 </div>
-<div id="stop-words" class="section level3" number="6.2.3">
+<div id="stop-words" class="section level3" number="6.2.2">
 <h3>
-<span class="header-section-number">6.2.3</span> 2.3 Stop words<a class="anchor" aria-label="anchor" href="#stop-words"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2.2</span> 2.3 Stop words<a class="anchor" aria-label="anchor" href="#stop-words"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>Stop words: very common, “meaningless” function words like “the”, “of” and “to” – not usually important in an analysis (i.e. to find out that the most common word in two books you are comparing is “the”)</li>
@@ -173,8 +148,8 @@ Syntax: unnest_tokens(df, newcol, oldcol)</li>
 ##  9 actually    SMART  
 ## 10 after       SMART  
 ## # … with 1,139 more rows</code></pre>
-<pre><code>## readtext object consisting of 821 documents and 0 docvars.
-## # Description: df [821 × 3]
+<pre><code>## readtext object consisting of 806 documents and 0 docvars.
+## # Description: df [806 × 3]
 ##   doc_id word       text     
 ##   &lt;fct&gt;  &lt;chr&gt;      &lt;chr&gt;    
 ## 1 1      personally "\"\"..."
@@ -183,7 +158,7 @@ Syntax: unnest_tokens(df, newcol, oldcol)</li>
 ## 4 1      ive        "\"\"..."
 ## 5 1      feeling    "\"\"..."
 ## 6 1      chatbots   "\"\"..."
-## # … with 815 more rows</code></pre>
+## # … with 800 more rows</code></pre>
 <p>Define other stop words:</p>
 <p>Break: Prepare your data with the steps above. 1) Unnest tokens, 2) Remove alpha-numeric characters, 3) Remove stopwords</p>
 </div>
@@ -203,56 +178,49 @@ Syntax: unnest_tokens(df, newcol, oldcol)</li>
 </ul>
 <p>tidy_books %&gt;%
 count(word, sort = TRUE)</p>
+<pre><code>## # A tibble: 386 × 3
+## # Groups:   doc_id [1]
+##    doc_id word              n
+##    &lt;fct&gt;  &lt;chr&gt;         &lt;int&gt;
+##  1 1      cybersecurity    11
+##  2 1      information      11
+##  3 1      presentation      9
+##  4 1      helpful           8
+##  5 1      understand        8
+##  6 1      ideas             7
+##  7 1      lot               7
+##  8 1      workshop          7
+##  9 1      beginning         6
+## 10 1      dont              6
+## # … with 376 more rows</code></pre>
+<p>The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word <em>‘helpful’</em> which has a positive connotation, however there are 386 words, with many having several occurrences.</p>
+<p>What is the sentiment of all participants? What is types of emotional words are being used?</p>
 <pre><code>## # A tibble: 387 × 3
 ## # Groups:   doc_id [1]
 ##    doc_id word              n
 ##    &lt;fct&gt;  &lt;chr&gt;         &lt;int&gt;
-##  1 1      vr               15
-##  2 1      cybersecurity    11
-##  3 1      information      11
-##  4 1      presentation      9
-##  5 1      helpful           8
+##  1 1      cybersecurity    11
+##  2 1      information      11
+##  3 1      presentation      9
+##  4 1      helpful           8
+##  5 1      understand        8
 ##  6 1      idea              7
 ##  7 1      ideas             7
 ##  8 1      lot               7
 ##  9 1      workshop          7
 ## 10 1      beginning         6
 ## # … with 377 more rows</code></pre>
-<pre><code>## # A tibble: 388 × 3
-## # Groups:   doc_id [1]
-##    doc_id word              n
-##    &lt;fct&gt;  &lt;chr&gt;         &lt;int&gt;
-##  1 1      vr               15
-##  2 1      cybersecurity    11
-##  3 1      information      11
-##  4 1      presentation      9
-##  5 1      helpful           8
-##  6 1      understand        8
-##  7 1      idea              7
-##  8 1      ideas             7
-##  9 1      lot               7
-## 10 1      workshop          7
-## # … with 378 more rows</code></pre>
 <div id="plotting-word-frequencies---bar-graphs" class="section level4" number="6.3.1.1">
 <h4>
 <span class="header-section-number">6.3.1.1</span> Plotting word frequencies - bar graphs<a class="anchor" aria-label="anchor" href="#plotting-word-frequencies---bar-graphs"><i class="fas fa-link"></i></a>
 </h4>
 <p>Bar graph of top words in CEPEHQ.</p>
-<div class="inline-figure">Basic graph:
-<img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672">
-</div>
-<div class="inline-figure">Readable labels:
-<img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672">
-</div>
-<div class="inline-figure">Descending order:
-<img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672">
-</div>
-<div class="inline-figure">Axis names and colors:
-<img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672">
-</div>
-<div class="inline-figure">Or: flip coordinate system to make more space for words
-<img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672">
-</div>
+<p>Basic graph:</p>
+<div class="inline-figure"><img src="_main_files/figure-html/Readable%20labels-1.png" width="672"></div>
+<p>The words can be grouped and plotted onto a bar chart, and to show more words this chart is presented with horizontal bars.
+The most frequent words present in the various focus group discussions after using the 4 CEPEH chatbots are in the Figure below.</p>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
+<p>Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted.</p>
 </div>
 </div>
 <div id="normalised-frequency" class="section level3" number="6.3.2">
@@ -269,27 +237,27 @@ count(word, sort = TRUE)</p>
 ## # Groups:   doc_id [1]
 ##   doc_id `sum(n)`
 ##   &lt;fct&gt;     &lt;int&gt;
-## 1 1           696</code></pre>
-<pre><code>## # A tibble: 386 × 2
+## 1 1           682</code></pre>
+<pre><code>## # A tibble: 385 × 2
 ##    word            pmw
 ##    &lt;chr&gt;         &lt;dbl&gt;
-##  1 vr            217. 
-##  2 cybersecurity 159. 
-##  3 information   159. 
-##  4 presentation  130. 
-##  5 helpful       116. 
-##  6 idea          101. 
-##  7 ideas         101. 
-##  8 lot           101. 
-##  9 workshop      101. 
-## 10 beginning      87.0
-## # … with 376 more rows</code></pre>
+##  1 cybersecurity 16.3 
+##  2 information   16.3 
+##  3 presentation  13.3 
+##  4 helpful       11.8 
+##  5 understand    11.8 
+##  6 ideas         10.4 
+##  7 lot           10.4 
+##  8 workshop      10.4 
+##  9 beginning      8.88
+## 10 dont           8.88
+## # … with 375 more rows</code></pre>
 <div id="plotting-normalised-frequency" class="section level4" number="6.3.2.1">
 <h4>
 <span class="header-section-number">6.3.2.1</span> Plotting normalised frequency<a class="anchor" aria-label="anchor" href="#plotting-normalised-frequency"><i class="fas fa-link"></i></a>
 </h4>
 <div class="inline-figure">Now we can plot, for example, the 20 most frequent words (by pmw).
-<img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672">
 </div>
 </div>
 </div>
@@ -298,31 +266,16 @@ count(word, sort = TRUE)</p>
 <span class="header-section-number">6.3.3</span> 3.3 Word clouds<a class="anchor" aria-label="anchor" href="#word-clouds"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure">Let’s visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g. normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
-<img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672">
+<img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672">
 </div>
 </div>
 </div>
-<div id="comparing-the-vocabulary-of-texts" class="section level2" number="6.4">
+<div id="the-vocabulary-of-texts" class="section level2" number="6.4">
 <h2>
-<span class="header-section-number">6.4</span> 4 Comparing the vocabulary of texts<a class="anchor" aria-label="anchor" href="#comparing-the-vocabulary-of-texts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4</span> The vocabulary of Texts<a class="anchor" aria-label="anchor" href="#the-vocabulary-of-texts"><i class="fas fa-link"></i></a>
 </h2>
-<p>Next, we’ll create two graphs to compare the vocabulary of our texts. First, we focus on Alice’s Adventures and Anderson’s CEPEHQ. The newly created comp_2 data frame contains only the words and their frequencies in the two texts in two separate columns.</p>
-<div id="comparing-two-texts" class="section level3" number="6.4.1">
-<h3>
-<span class="header-section-number">6.4.1</span> Comparing two texts<a class="anchor" aria-label="anchor" href="#comparing-two-texts"><i class="fas fa-link"></i></a>
-</h3>
-<pre><code>## # A tibble: 6 × 3
-##   word            pmw     `1`
-##   &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;
-## 1 access         43.5 0.00435
-## 2 acquired       14.5 0.00145
-## 3 add            14.5 0.00145
-## 4 administrator  14.5 0.00145
-## 5 advance        14.5 0.00145
-## 6 advanced       14.5 0.00145</code></pre>
-<div class="inline-figure">Now, we can plot the words. Their placement depends on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other. We’ll discuss the interpretation in more detail once we’ve created the threeway comparison.
-<img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672">
-</div>
+<div class="inline-figure">Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
+<img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672">
 </div>
 </div>
 </div>
@@ -333,17 +286,11 @@ count(word, sort = TRUE)</p>
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#text-mining-natural-language-processing-and-sentiment-analysis"><span class="header-section-number">6</span> Text Mining, Natural Language Processing, and Sentiment Analysis</a></li>
+<li><a class="nav-link" href="#cepeh-qualatative-feedback"><span class="header-section-number">6.1</span> CEPEH Qualatative Feedback</a></li>
 <li>
-<a class="nav-link" href="#reading-in-texts"><span class="header-section-number">6.1</span> 1 Reading in texts</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#txt-files"><span class="header-section-number">6.1.1</span> 1.1 txt files</a></li>
-<li><a class="nav-link" href="#preparing-data"><span class="header-section-number">6.1.2</span> 1.3 Preparing data</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#tidy-text"><span class="header-section-number">6.2</span> 2 Tidy text</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#the-unnest_tokens-function"><span class="header-section-number">6.2.1</span> 2.1 the unnest_tokens function</a></li>
-<li><a class="nav-link" href="#removing-non-alphanumeric-characters"><span class="header-section-number">6.2.2</span> 2.2 Removing non-alphanumeric characters</a></li>
-<li><a class="nav-link" href="#stop-words"><span class="header-section-number">6.2.3</span> 2.3 Stop words</a></li>
+<a class="nav-link" href="#tokenising"><span class="header-section-number">6.2</span> Tokenising</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#removing-non-alphanumeric-characters"><span class="header-section-number">6.2.1</span> 2.2 Removing non-alphanumeric characters</a></li>
+<li><a class="nav-link" href="#stop-words"><span class="header-section-number">6.2.2</span> 2.3 Stop words</a></li>
 </ul>
 </li>
 <li>
@@ -353,9 +300,7 @@ count(word, sort = TRUE)</p>
 <li><a class="nav-link" href="#word-clouds"><span class="header-section-number">6.3.3</span> 3.3 Word clouds</a></li>
 </ul>
 </li>
-<li>
-<a class="nav-link" href="#comparing-the-vocabulary-of-texts"><span class="header-section-number">6.4</span> 4 Comparing the vocabulary of texts</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#comparing-two-texts"><span class="header-section-number">6.4.1</span> Comparing two texts</a></li></ul>
-</li>
+<li><a class="nav-link" href="#the-vocabulary-of-texts"><span class="header-section-number">6.4</span> The vocabulary of Texts</a></li>
 </ul>
 
       <div class="book-extra">
