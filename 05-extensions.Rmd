@@ -120,11 +120,16 @@ Break: Prepare your data with the steps above. 1) Unnest tokens, 2) Remove alpha
 tidy_books %>%
   count(word, sort = TRUE) 
 
-```{r this half worked but keep, message=FALSE, warning=FALSE}
+```{r this half worked but keep, echo=TRUE, message=FALSE, warning=FALSE}
 
-CEPEHQ_freq <- CEPEHQ_tidy %>% 
-  group_by(doc_id) %>% #including this ensures that the counts are by book and the id column is retained
-  count(word, sort=TRUE)
+library(tidytext)
+library(tidyverse)
+library(tm)
+library(tigerstats)
+library(tidyselect)
+
+CEPEHQ_freq <- CEPEHQ_tidy %>% group_by(doc_id) %>% count(word, sort=TRUE)
+
 CEPEHQ_freq <- CEPEHQ_freq[-6,]
 
 CEPEHQ_freq

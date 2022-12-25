@@ -625,19 +625,14 @@ The nine sub-scales of the questionnaire:
 \subsection{Qualitative Measure- Focus Group Discussions}\label{qualitative-measure--focus-group-discussions}}
 
 Focus groups are a pervasive means of market research and provides credible acceptance evaluators regarding
-the penetration that a product or service will have on a target demographic.Focus groups are a form of
-qualitative research consisting of interviews or structured discussions, in which a group of people are asked
+the penetration that a product or service will have on a target demographic.Focus groups are a form of qualitative research consisting of interviews or structured discussions, in which a group of people are asked
 about their perceptions, opinions, beliefs, and attitudes towards a product, service, concept, advertisement,
-idea, or packaging.Questions are asked in an interactive group setting where participants are free to talk
-with other group members.During this process, the researcher either takes notes or records the vital points he
-or she is getting from the group. Researchers select members of the focus group carefully for effective and
-authoritative responses.Relevant stakeholders, then, can use the information collected through focus groups to
-receive insights on a specific product, issue, or topic focus {[}7{]}.A series of short focus group sessions
-identified the feasibility of CEPEH resources for formal curricular integration.These sessions, spanning no
-more than 1-1.5 hours and consisting of no more than 5-7 persons each explored all axes of curricular
-integration such as accessibility in the classroom, use case scenarios, technology requirements for curricular
-integration etc.These axes were formalized by the research team, in each evaluation site, to consider the
-curricular details of each institution.
+idea, or packaging.
+
+Questions are asked in an interactive group setting where participants are free to talk with other group members.During this process, the researcher either takes notes or records the vital points he or she is getting from the group. Researchers select members of the focus group carefully for effective and authoritative responses.Relevant stakeholders, then, can use the information collected through focus groups to
+receive insights on a specific product, issue, or topic focus {[}7{]}.
+
+A series of short focus group sessions identified the feasibility of CEPEH resources for formal curricular integration.These sessions, spanning no more than 1-1.5 hours and consisting of no more than 5-7 persons each explored all axes of curricular integration such as accessibility in the classroom, use case scenarios, technology requirements for curricular integration etc.These axes were formalized by the research team, in each evaluation site, to consider the curricular details of each institution.
 
 \includegraphics[width=5.76in]{untitled-1}
 Figure 1: Flow diagram of the recruitment process
@@ -651,11 +646,11 @@ Figure 1: Flow diagram of the recruitment process
 
 \noindent 
 
-Most learners use books or online books as resources. Of course they may use multiple sources however they were asked to note the primary source. Only 6 stated their primary sources were \emph{Online videos/interactive materials} which includes such tools as chatbots.
+Most learners use books or online books as resources. Of course, they may use multiple sources however they were asked to note the primary source. Only 6 stated their primary sources were \emph{Online videos/interactive materials} which includes such tools as chatbots.
 
 \begin{longtable}[]{@{}lr@{}}
 \toprule()
-Current\_Materials & n \\
+CurrentMaterials & n \\
 \midrule()
 \endhead
 1 to 1 workshops or lectures & 2 \\
@@ -687,17 +682,21 @@ Never & 23 \\
 \subsection{CUQ Calcuation tool}\label{cuq-calcuation-tool}}
 
 The CUQ was developed by researchers at Ulster University (see)
-\href{}{}\{CUQ\}) and as the calculation can be complex a dedicated calculation tool has been created.
+\href{}{}\{CUQ\}) and as the calculation can be complex a dedicated calculation tool has
+been created.
 
-Please download the CEPEH CUQ calculation tool which has all of the data entered, so you can see the CEPEH CUQ scoring.
+Please download the CEPEH CUQ calculation tool which has all of the data entered, so you can see the
+CEPEH CUQ scoring.
 
 \href{CUQ-Calculation-Tool.xlsx}{click here to download CUQ calc tool}
 
 The results are as followed:
+\includegraphics[width=4.16667in,height=\textheight]{cuq.png}
 
-\includegraphics[width=14.24in]{cuq}
-
-This scoring system was designed to be comparable to SUS and may be freely used alongside it, or in combination with other usability metrics. There has been evidence of correlation of 76\% between the CUQ and SUS therefore we expect the SUS scored to be between 48.75 and 81\%. We believe the CUQ has more validity towards measuring the concepts of interest on this study.
+This scoring system was designed to be comparable to SUS and may be freely used alongside it, or in
+combination with other usability metrics. There has been evidence of correlation of 76\% between the CUQ
+and SUS therefore we expect the SUS scored to be between 48.75 and 81\%. We believe the CUQ has more
+validity towards measuring the concepts of interest on this study.
 
 \begin{verbatim}
 ## [1] "checking for install of rmarkdown"
@@ -721,9 +720,38 @@ This scoring system was designed to be comparable to SUS and may be freely used 
 
 \emph{Note= The amount of `agreement' is defined as the addition of `Agree' and `Strongly agree' responses.}
 
-The SUS score for all data was XXX. This is within, and above the median of, 68 -- which is in the range of `average' usability. This is good as the resources were early demonstrations and had reduced beta alpha testing due to time constraints- future updates can improve this metric.
+The SUS score should consist of 10 items. However, some SUS questions were improved upon by 1 or more CUQ questions, specifically to this Chatbot study. The SUS results would be overshadowed by the CUQ scores, expect 2 that did not have cross-over.
+The two questions were:
 
-After reversing the scores of the negatively worded questions (odd numbered questions), participants strongly agreed the system was not complex (XX\% agreements), and they did not need assistance before use (XX\% agreements). All remaining questions has the most frequently observed response as `agree'- the lowest amount of agreement (agree and strongly agree) was XX\% for question X, which was explored further in the individual Partners' analyses.
+\begin{itemize}
+\tightlist
+\item
+  I would like to use the CEPEH chatbot I tested, more frequently (SUS1)(post)
+\item
+  I felt confident using the CEPEH chatbot (SUS2)(post)
+\end{itemize}
+
+This meant the score of the SUS was not created, however the CUQ score better represented the Learners' perceptions of the CEPEH chatbot in terms of feasibility of reuse and acceptability in healthcare curricula.
+
+\begin{verbatim}
+##            KeepUsing      Confident V1
+## 1              Agree          Agree 44
+## 2              Agree       Disagree  5
+## 3              Agree        Neutral 11
+## 4              Agree Strongly Agree  6
+## 5           Disagree          Agree  6
+## 6           Disagree       Disagree  5
+## 7           Disagree        Neutral  4
+## 8            Neutral          Agree 10
+## 9            Neutral       Disagree  1
+## 10           Neutral        Neutral  6
+## 11    Not Applicable Not Applicable  3
+## 12    Strongly Agree          Agree 10
+## 13    Strongly Agree Not Applicable  1
+## 14    Strongly Agree Strongly Agree 12
+## 15 Strongly Disagree          Agree  1
+## 16 Strongly Disagree Strongly Agree  1
+\end{verbatim}
 
 if you don't like boring tables, here is the same data in a graph!
 
@@ -1067,7 +1095,7 @@ Here is a (very large) table with all of the currently active RLOS.
 
 \begin{tabular}{llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllr}
 \toprule
-Sex & Time & Code & Location & Profession & Current\_Materials & Previous\_Chatbot\_Usage & Use chatbots frequently (pre) & I feel very confident using mobile apps (pre) & I find chatbots can be useful in my daily life (PE1)(pre) & Using chatbots increases my chances of achieving things that are important to me (PE2)(pre) & Using chatbots can help me accomplish things more quickly (PE3)(pre) & Using chatbots increases my productivity (PE4)(pre) & Learning how to use chatbots is, or would be, for me (EE1)(pre) & My interactions with chatbots are clear and understandable (EE2)(pre) & I find chatbots easy to use (EE3)(pre) & It is easy for me to become skilful at using chatbots (EE4)(pre) & People who are important to me think that I should use chatbots (SI1)(pre) & People who influence my behaviour think that I should use chatbots (SI2)(pre) & People whose opinions that I value prefer that I use chatbots (SI3)(pre) & I have the resources necessary to use chatbots (FC1)(pre) & I have the knowledge necessary to use chatbots (FC2)(pre) & Chatbots are compatible with other technologies I use (FC3)(pre) & I can get help from others when I have difficulties using chatbots (FC3)(pre) & Using chatbots is enjoyable (HM2)(pre) & Using chatbots is very entertaining (HM3)(pre) & I intend to continue using chatbots in the future (BI1)(pre) & ChatbotUsed & The chatbot provided the information I needed with minimal commands(post) & My knowledge of the topic improved after i had used the Chatbot(post) & My confidence in understanding the topic improved after I had used the Chatbot(post) & The chatbot provided me with the type of response i expected from asking a tutor/lecturer(post) & The information provided was reliable (post) & The chatbot’s personality was realistic and engaging (CUQ1)(post) & The chatbot seemed too robotic (CUQ2)(post) & The chatbot was welcoming during initial setup (CUQ3)(post) & The chatbot seemed very unfriendly (CUQ4)(post) & The chatbot explained its scope and purpose well (CUQ5)(post) & The chatbot gave no indication as to its purpose (CUQ6)(post) & The chatbot was easy to navigate (CUQ7)(post) & It would be easy to get confused when using the chatbot (CUQ8)(post) & The chatbot understood me well (CUQ9)(post) & The chatbot failed to recognise a lot of my inputs (CUQ10)(post) & Chatbot responses were useful, appropriate and informative (CUQ11)(post) & Chatbot responses were irrelevant (CUQ12)(post) & The chatbot coped well with any errors or mistakes (CUQ13)(post) & The chatbot seemed unable to handle any errors (CUQ14)(post) & The chatbot was very easy to use (CUQ15)(post) & The chatbot was very complex (CUQ16)(post) & I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post) & I felt confident using the CEPEH chatbot (SUS2)(post) & The chatbot has a high level of trustworthiness(post) & The duration of conversations to find my answer was too long(post) & I found the CEPEH chatbots useful in my daily life (PE1)(post) & Using CEPEH chatbots increases my chances of achieving things important to me (PE2)(post) & Using CEPEH chatbots can help me accomplish things more quickly (PE3)(post) & Using CEPEH chatbots increases my productivity (PE4)(post) & Learning how to use CEPEH chatbots is easy for me (EE1)(post) & My interaction with CEPEH chatbots is clear and understandable (EE2)(post) & I find CEPEH chatbots easy to use (EE3)(post) & It is easy for me to become skilful at using CEPEH chatbots (EE4)(post) & People who are important to me think that I should use CEPEH chatbots (SI1)(post) & People who influence my behaviour think that I should use CEPEH chatbots (SI2)(post) & People whose opinions that I value prefer that I use CEPEH chatbots (SI3)(post) & I have the resources necessary to use CEPEH chatbots (FC1)(post) & I have the knowledge necessary to use CEPEH chatbots (FC2)(post) & CEPEH Chatbots are compatible with other technologies I use (FC3)(post) & I can get help from others when I have difficulties using CEPEH chatbots (FC4)(post) & Using CEPEH chatbots is enjoyable (HM2)(post) & Intend & The videos/images provided were useful to my questions(post) & The chatbot exceeded my expectation of how it could help me(post) & The chatbot exceeded my expectation of how it could engage with me(post) & The chatbot exceeded my expectation of how entertaining it was to use(post) & I think this learning method could help me to acquire knowledge(post) & Reuse & I think i will actively use this learning method(post) & I believe i had some choice about learning during chatbot use(post) & I would trust the chatbot to provide me with information for my course(post) & One piece of knowledge i learned from the chatbot was..(post) & Informed of results(post) & Date (post) & CUQ\\
+Sex & Time & Code & Location & Profession & CurrentMaterials & Previous\_Chatbot\_Usage & Use chatbots frequently (pre) & I feel very confident using mobile apps (pre) & I find chatbots can be useful in my daily life (PE1)(pre) & Using chatbots increases my chances of achieving things that are important to me (PE2)(pre) & Using chatbots can help me accomplish things more quickly (PE3)(pre) & Using chatbots increases my productivity (PE4)(pre) & Learning how to use chatbots is, or would be, for me (EE1)(pre) & My interactions with chatbots are clear and understandable (EE2)(pre) & I find chatbots easy to use (EE3)(pre) & It is easy for me to become skilful at using chatbots (EE4)(pre) & People who are important to me think that I should use chatbots (SI1)(pre) & People who influence my behaviour think that I should use chatbots (SI2)(pre) & People whose opinions that I value prefer that I use chatbots (SI3)(pre) & I have the resources necessary to use chatbots (FC1)(pre) & I have the knowledge necessary to use chatbots (FC2)(pre) & Chatbots are compatible with other technologies I use (FC3)(pre) & I can get help from others when I have difficulties using chatbots (FC3)(pre) & Using chatbots is enjoyable (HM2)(pre) & Using chatbots is very entertaining (HM3)(pre) & I intend to continue using chatbots in the future (BI1)(pre) & ChatbotUsed & The chatbot provided the information I needed with minimal commands(post) & My knowledge of the topic improved after i had used the Chatbot(post) & My confidence in understanding the topic improved after I had used the Chatbot(post) & The chatbot provided me with the type of response i expected from asking a tutor/lecturer(post) & The information provided was reliable (post) & The chatbot’s personality was realistic and engaging (CUQ1)(post) & The chatbot seemed too robotic (CUQ2)(post) & The chatbot was welcoming during initial setup (CUQ3)(post) & The chatbot seemed very unfriendly (CUQ4)(post) & The chatbot explained its scope and purpose well (CUQ5)(post) & The chatbot gave no indication as to its purpose (CUQ6)(post) & The chatbot was easy to navigate (CUQ7)(post) & It would be easy to get confused when using the chatbot (CUQ8)(post) & The chatbot understood me well (CUQ9)(post) & The chatbot failed to recognise a lot of my inputs (CUQ10)(post) & Chatbot responses were useful, appropriate and informative (CUQ11)(post) & Chatbot responses were irrelevant (CUQ12)(post) & The chatbot coped well with any errors or mistakes (CUQ13)(post) & The chatbot seemed unable to handle any errors (CUQ14)(post) & The chatbot was very easy to use (CUQ15)(post) & The chatbot was very complex (CUQ16)(post) & I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post) & I felt confident using the CEPEH chatbot (SUS2)(post) & The chatbot has a high level of trustworthiness(post) & The duration of conversations to find my answer was too long(post) & I found the CEPEH chatbots useful in my daily life (PE1)(post) & Using CEPEH chatbots increases my chances of achieving things important to me (PE2)(post) & Using CEPEH chatbots can help me accomplish things more quickly (PE3)(post) & Using CEPEH chatbots increases my productivity (PE4)(post) & Learning how to use CEPEH chatbots is easy for me (EE1)(post) & My interaction with CEPEH chatbots is clear and understandable (EE2)(post) & I find CEPEH chatbots easy to use (EE3)(post) & It is easy for me to become skilful at using CEPEH chatbots (EE4)(post) & People who are important to me think that I should use CEPEH chatbots (SI1)(post) & People who influence my behaviour think that I should use CEPEH chatbots (SI2)(post) & People whose opinions that I value prefer that I use CEPEH chatbots (SI3)(post) & I have the resources necessary to use CEPEH chatbots (FC1)(post) & I have the knowledge necessary to use CEPEH chatbots (FC2)(post) & CEPEH Chatbots are compatible with other technologies I use (FC3)(post) & I can get help from others when I have difficulties using CEPEH chatbots (FC4)(post) & Using CEPEH chatbots is enjoyable (HM2)(post) & Intend & The videos/images provided were useful to my questions(post) & The chatbot exceeded my expectation of how it could help me(post) & The chatbot exceeded my expectation of how it could engage with me(post) & The chatbot exceeded my expectation of how entertaining it was to use(post) & I think this learning method could help me to acquire knowledge(post) & Reuse & I think i will actively use this learning method(post) & I believe i had some choice about learning during chatbot use(post) & I would trust the chatbot to provide me with information for my course(post) & One piece of knowledge i learned from the chatbot was..(post) & Informed of results(post) & Date (post) & CUQ\\
 \midrule
 NA & Post & bb4 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & KI Neuroanatomy chatbot & Neutral & Agree & Neutral & Disagree & Strongly Agree & Not Applicable & Strongly Disagree & Agree & Disagree & Disagree & Neutral & Disagree & Not Applicable & Not Applicable & Not Applicable & Agree & Disagree & Not Applicable & Not Applicable & Not Applicable & Not Applicable & Agree & Strongly Agree & Strongly Agree & Disagree & Not Applicable & Agree & Agree & Neutral & Strongly Agree & Agree & Not Applicable & Strongly Agree & Neutral & Neutral & Neutral & Neutral & Strongly Agree & Agree & Not Applicable & Disagree & Agree & Not Applicable & Neutral & Neutral & Neutral & Strongly Agree & Strongly Agree & Agree & Agree & Strongly Agree & It got stuck I’m afraid & NO & 2022-11-14 12:49:40 UTC & 64.0625\\
 Female & Pre & E. P.  03/03/2003 & Greece & Student on a Healthcare course & Books & 1-4 hours & Agree & Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Agree & Agree & Neutral & Neutral & Neutral & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & AUTH- Medical History Chatbot & Agree & Strongly Agree & Agree & Disagree & Agree & Agree & Agree & Agree & Disagree & Neutral & Neutral & Agree & Agree & Neutral & Disagree & Neutral & Neutral & Neutral & Agree & Agree & Disagree & Strongly Agree & Agree & Agree & Agree & Strongly Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & Agree & Neutral & Agree & Strongly Agree & Strongly Agree & Agree & Strongly Agree & Agree & Agree & Neutral & Agree & Agree & Agree & Strongly Agree & Agree & Agree & Agree & NA & YES & 2022-05-11 12:21:32 UTC & 45.3125\\
@@ -1752,6 +1780,22 @@ Break: Prepare your data with the steps above. 1) Unnest tokens, 2) Remove alpha
 
 tidy\_books \%\textgreater\%
 count(word, sort = TRUE)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidytext)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(tm)}
+\FunctionTok{library}\NormalTok{(tigerstats)}
+\FunctionTok{library}\NormalTok{(tidyselect)}
+
+\NormalTok{CEPEHQ\_freq }\OtherTok{\textless{}{-}}\NormalTok{ CEPEHQ\_tidy }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(doc\_id) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(word, }\AttributeTok{sort=}\ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{CEPEHQ\_freq }\OtherTok{\textless{}{-}}\NormalTok{ CEPEHQ\_freq[}\SpecialCharTok{{-}}\DecValTok{6}\NormalTok{,]}
+
+\NormalTok{CEPEHQ\_freq}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 386 x 3
