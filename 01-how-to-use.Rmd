@@ -258,6 +258,7 @@ These sessions, spanning no more than 1-1.5 hours and consisting of no more than
 These axes were formalized by the research team, in each evaluation site, to consider the curricular details of each institution.
 
 
+
 ```{r echo=FALSE, paged.print=TRUE}
 
 knitr::include_graphics("untitled-1.png")
