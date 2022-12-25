@@ -114,16 +114,6 @@ After reversing the scores of the negatively worded questions (odd numbered ques
 
 
 
-```{r SUS table 1, echo=FALSE, message=FALSE, warning=FALSE, comment=NA, paged.print=FALSE}
-
-sus <- subset(data, select = c("Profession"))
-sus <- na.omit(sus)
-
-knitr::kable(sus <-sus %>% filter(Profession %in% c("Student on a Healthcare course","College student", "Medical doctor","Learning Technologist", "Mature Student", "Lecturer", format('html'))) %>% group_by(Profession) %>% count(Profession),"pipe")
-
-```
-
-
 ```{r graphs2, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 
 ggplot(year, aes(year)) + geom_bar(color="purple", fill=rgb(0.2,0.3,0.9,0.7) ) + scale_x_continuous(breaks = seq(2006, 2022,1)) + theme(plot.title = element_text(face="bold.italic"))
