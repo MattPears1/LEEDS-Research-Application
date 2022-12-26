@@ -121,7 +121,7 @@ Although there could be a difference in these groups, the design was within- gro
 sus <- subset(data, select = c("Profession"))
 sus <- na.omit(sus)
 
-knitr::kable(sus <-sus %>% filter(Profession %in% c("Student on a Healthcare course","College student", "Medical doctor","Learning Technologist", "Mature Student", "Lecturer", format('html'))) %>% group_by(Profession) %>% count(Profession),"pipe")
+knitr::kable(sus<-sus %>% filter(Profession %in% c("Student on a Healthcare course","College student", "Medical doctor","Learning Technologist", "Mature Student", "Lecturer", format('html'))) %>% group_by(Profession) %>% count(Profession),"pipe")
 
 ```
 

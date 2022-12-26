@@ -37,7 +37,17 @@ chatbot, being educational or not. 2 individuals had spent what would be
 extensive time with usage- these were the Learning Technologist and
 Mature Student.
 
+```{r pre measures other, echo=FALSE, message=FALSE, warning=FALSE}
 
+## table for currently used learning resources
+preother <- subset(data, select = c("UseChatbotsFrequently","ChatbotsUsefulDailyPE1PRE","IncreaseAchievingPE2PRE", "AccomplishThingsQuicklyPE3PRE","IncreasesProductivityPE4PRE"))
+preother <- na.omit(preother)
+
+
+
+
+
+```
 
 
 
@@ -51,6 +61,8 @@ colnames(disc)[1] = "Previous_Chatbot_Usage"
 
 knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never","1-4 hours", "5-9 hours","20+ hours","10-19 hours",format('html'))) %>% group_by(Previous_Chatbot_Usage) %>% count(Previous_Chatbot_Usage),"pipe", decreasing = TRUE)
 ```
+
+
 ## Chatbot Usabilty Questionanire (CUQ)
 
 ### CUQ Calcuation tool
@@ -70,6 +82,7 @@ Please download the CEPEH CUQ calculation tool which has all of the data entered
 ```{r cuq image, echo=FALSE, fig.align='center', fig.cap="A marvel-lous meme", message=FALSE, warning=FALSE, out.width="65%"}
 knitr::include_graphics("cuq.png")
 ```
+
 We refer to this image with `\@ref(fig:cuq image)`.
 So Figure \@ref(fig:cuq image) is [this image](#fig:cuq image).
 
@@ -82,6 +95,7 @@ We believe the CUQ has more validity towards measuring the concepts of
 interest on this study.
 
 [Read the CUQ development paper, see page 3 for correlation](a<href="https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T)
+
 
 ```{r Importing Data 2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 knitr::opts_chunk$set(
