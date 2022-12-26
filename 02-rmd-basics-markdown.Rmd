@@ -17,6 +17,9 @@ editor_options:
 
 <!-- LaTeX normally does not indent the first line after a heading - however, it does so after the mini table of contents. You can manually tell it not to with \noindent -->
 \noindent
+
+## Learner Background
+
 Most learners use books or online books as resources. Of course, they
 may use multiple sources however they were asked to note the primary
 source. Only 6 stated their primary sources were *Online
@@ -40,12 +43,8 @@ Mature Student.
 ```{r pre measures other, echo=FALSE, message=FALSE, warning=FALSE}
 
 ## table for currently used learning resources
-preother <- subset(data, select = c("UseChatbotsFrequently","ChatbotsUsefulDailyPE1PRE","IncreaseAchievingPE2PRE", "AccomplishThingsQuicklyPE3PRE","IncreasesProductivityPE4PRE"))
-preother <- na.omit(preother)
 
-
-
-
+library(scales)
 
 ```
 
@@ -79,7 +78,7 @@ Please download the CEPEH CUQ calculation tool which has all of the data entered
 [click here to download CUQ score image](cuq.png)
 
 
-```{r cuq image, echo=FALSE, fig.align='center', fig.cap="A marvel-lous meme", message=FALSE, warning=FALSE, out.width="65%"}
+```{r cuq image, echo=FALSE, fig.align='center', fig.cap="A marvel-lous meme", message=FALSE, warning=FALSE, out.width="75%"}
 knitr::include_graphics("cuq.png")
 ```
 
@@ -153,7 +152,7 @@ This meant the score of the SUS was not created, however the CUQ score
 better represented the Learners' perceptions of the CEPEH chatbot in
 terms of feasibility of reuse and acceptability in healthcare curricula.
 
-```{r SUS table 2 questions, message=FALSE, warning=FALSE}
+```{r SUS table 2 questions, echo=FALSE, message=FALSE, warning=FALSE}
 
 # table for sus results
 
@@ -261,7 +260,7 @@ I would use this tool again as it has some value to me
 
 I think i will actively use this learning method
 
-I believe i had some choice about learning during chatbot use
+I believe I had some choice about learning during chatbot use
 
 I would trust the chatbot to provide me with information for my course
 
