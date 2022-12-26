@@ -1,4 +1,3 @@
-fig:captain
 fig:latex-font-sizing
 method
 participants

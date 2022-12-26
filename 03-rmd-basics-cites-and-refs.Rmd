@@ -50,7 +50,7 @@ Participants liked the hands-on activities of the day also enjoyed the creativit
 
 
 ```{r map Importing Data, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
-museum <- read_csv("CEPEH.csv")
+try(museum <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))
 museum %>%
 leaflet() %>%
 addProviderTiles(providers$Esri.WorldImagery, group = "World Imagery") %>%
@@ -210,7 +210,7 @@ See [our chapter title](#cites-and-refs) for an example. That was section \@ref(
 - **GOTCHA**: Figures and tables must have captions if you wish to cross-reference them.
 
 Let's add an image:
-```{r captain, fig.align='center', fig.cap="A marvel-lous meme", out.width="65%"}
+```{r captain, eval=FALSE, fig.align='center', fig.cap="A marvel-lous meme", include=FALSE, out.width="65%"}
 knitr::include_graphics("figures/sample-content/captain.jpeg")
 ```
 
