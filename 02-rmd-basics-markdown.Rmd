@@ -37,6 +37,10 @@ chatbot, being educational or not. 2 individuals had spent what would be
 extensive time with usage- these were the Learning Technologist and
 Mature Student.
 
+
+
+
+
 ```{r previous chatbot use, message=FALSE, warning=FALSE}
 
 # table for previous chatbot usage
@@ -63,7 +67,7 @@ Please download the CEPEH CUQ calculation tool which has all of the data entered
 [click here to download CUQ score image](cuq.png)
 
 
-```{r cuq image, fig.align='center', fig.cap="A marvel-lous meme", out.width="65%"}
+```{r cuq image, echo=FALSE, fig.align='center', fig.cap="A marvel-lous meme", message=FALSE, warning=FALSE, out.width="65%"}
 knitr::include_graphics("cuq.png")
 ```
 We refer to this image with `\@ref(fig:cuq image)`.
@@ -77,8 +81,7 @@ and SUS therefore we expect the SUS scored to be between 48.75 and 81%.
 We believe the CUQ has more validity towards measuring the concepts of
 interest on this study.
 
-[Read the CUQ development paper, see page 3 for correlation](a< href="https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T)
-
+[Read the CUQ development paper, see page 3 for correlation](a<href="https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T)
 
 ```{r Importing Data 2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 knitr::opts_chunk$set(
@@ -116,6 +119,7 @@ disc <- subset(data, select = "Location")
 disc <- na.omit(disc)
 colnames(disc)[1] = "Location"
 ```
+
 
 ## System Usability Scale (SUS) Scores
 
@@ -182,10 +186,7 @@ knitr::kable(RLO <- RLO %>% filter(Identity == c("HE student","Healthcare profes
 
 ```
 
-
-
-
-```{r barplot, eval=FALSE, include=FALSE}
+```{r barplot, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # stacked horizontal bar plot of RLO X identity 
 ##dataset RLOk 
 RLOk <- na.omit(RLO) 
@@ -281,7 +282,7 @@ ggplot(disc2, aes(dRLO)) + geom_bar(width = 0.5, fill = "darkblue") + theme_mini
 
 Repeated Measures t-test, aka paired t-test (before and after measurements)
 
-```{r T-test}
+```{r T-test, message=FALSE, warning=FALSE}
 
 library(readr)
 
@@ -306,7 +307,7 @@ t.test(before, after, mu=0, alt="two.sided", paired=T, conf.level=0.095)
 
 
 ```
-This t-test compares confident using mobile chabots before and after CEPEH chatbot usage. 
+This t-test compares confident using mobile chatbots before and after CEPEH chatbot usage. 
 
 
 
