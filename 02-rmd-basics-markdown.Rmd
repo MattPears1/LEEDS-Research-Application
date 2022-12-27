@@ -40,7 +40,7 @@ chatbot, being educational or not. 2 individuals had spent what would be
 extensive time with usage- these were the Learning Technologist and
 Mature Student.
 
-```{r Boxplotsplits1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r BTEST oxplotsplits1, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -84,15 +84,15 @@ Boxplotsplits3 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh -
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits3 %>%
   
-  filter(CEPEH_chatbots_easy_use_EE3POST %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+  filter(Information_with_minimal_command_post %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
            
-           drop_na(CEPEH_chatbots_easy_use_EE3POST) %>%
-  drop_na(CEPEH_chatbots_easy_use_EE3POST)%>%
+           drop_na(Information_with_minimal_command_post) %>%
+  drop_na(Information_with_minimal_command_post)%>%
 #------then pipe into ggplot
   #the first aesthetic label is always the x axis
   ggplot(aes(ChatbotUsed))+
   geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
-  facet_wrap(~CEPEH_chatbots_easy_use_EE3POST)+
+  facet_wrap(~Information_with_minimal_command_post)+
   theme_get()+
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
@@ -103,13 +103,74 @@ Boxplotsplits3 %>%
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
 ```
+There was only 1 'Strongly Disagree' response.
+The agreement options counted for the majority of the data. 
 
 
 
 
+```{r Boxplotsplits4, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits4 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits4 %>%
+  
+  filter(Intend %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(Intend) %>%
+  drop_na(Intend)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(ChatbotUsed))+
+  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
+  facet_wrap(~Intend)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="I Intend to again use the CEPEH Chatbots",
+                      x= "",
+                      y= "Frequency")
+```
+For CYENS, even though the knowledge of the topic was not perceived to improve by some participants, this box plot shows how 34/42 stated they would reuse the chatbot developed by CYENS.
 
 
+```{r Boxplotsplits5, echo=FALSE, message=FALSE, warning=FALSE}
 
+library(tidyverse)
+library(readr)
+
+Boxplotsplits5 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits5 %>%
+  
+  filter(knowledge_improved_after_use%in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(knowledge_improved_after_use) %>%
+  drop_na(knowledge_improved_after_use)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(ChatbotUsed))+
+  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
+  facet_wrap(~knowledge_improved_after_use)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="My Knowledge of the Topic Improved after Use",
+                      x= "",
+                      y= "Frequency")
+```
+CYENS chatbot had around 10 more participants stating that they were neutral on gaining knowledge oo the topic
 
 
 ```{r previous chatbot use, message=FALSE, warning=FALSE}
