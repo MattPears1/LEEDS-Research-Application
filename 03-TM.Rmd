@@ -27,16 +27,15 @@ library(wordcloud) # for creating wordclouds
 library(syuzhet)
 ```
 
-
 ## CEPEH Qualatative Feedback
 
 The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing. 
 
 One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.
 
-Therefore, we have created such tools to allow efficient and intelligent analysis of this open/free focus group data.
+Therefore, we have created a model to allow efficient and intelligent analysis of this open/free focus group data.
 
-```{r read text and name it}
+```{r read text and name it, echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_raw <- readtext("P1.txt")
 
 CEPEHQ_raw $doc_id <- sub(".txt", "", CEPEHQ_raw $doc_id) # this gets rid of .txt in the play titles
@@ -47,7 +46,7 @@ CEPEHQ_raw <- readtext("Shakespeare txts/*")
 
 ```
 
-```{r rename file, echo=FALSE, message=FALSE, warning=FALSE}
+```{r rename file, message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_raw$doc_id <- as.factor(CEPEHQ_raw$doc_id)
 CEPEHQ_raw$doc_id <- plyr::revalue(CEPEHQ_raw$doc_id,
                                               c("P1" = "1"))
@@ -72,7 +71,7 @@ head(CEPEHQ_tidy)
 
 ### 2.2 Removing non-alphanumeric characters
 * str_extract is used to get rid of non-alphanumeric characters (because we don't want to count _word_ separately from word)
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_tidy <- CEPEHQ_tidy %>% 
   mutate(word = str_extract(word, "[a-z']+"))
 ``` 
