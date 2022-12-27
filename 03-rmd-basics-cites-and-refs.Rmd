@@ -291,7 +291,6 @@ ggplot(comp_2,
 # Sentiment analysis
 
 ```{r sentiment, echo=FALSE, message=FALSE, warning=FALSE}
-
 head(get_sentiments("bing"))
 
 CEPEHQ_tidy %>% 
@@ -322,16 +321,23 @@ CEPEHQ_tidy  %>%
   count(word, sentiment, sort = TRUE) %>% 
   head()
 
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+
 CEPEHQ_tidy_bing <-  CEPEHQ_tidy%>% 
   inner_join(get_sentiments("bing")) %>% 
   count(sentiment) %>% 
   spread(sentiment, n, fill=0) %>% 
   mutate(total_score = positive - negative)
+```
 
+```{r sentiment2, echo=TRUE, message=FALSE, warning=FALSE}
 CEPEHQ_tidy_bing %>% 
   summarize(max(total_score), min(total_score)) 
 
 
+knitr::kable(CEPEHQ_tidy_bing) 
 
 ```
 

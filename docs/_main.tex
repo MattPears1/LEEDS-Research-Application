@@ -1276,10 +1276,41 @@ Here is a graph that has plotted the words in places depending on the word frequ
 ## 6 easy      positive      3 "\"\"..."
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CEPEHQ\_tidy\_bing }\OtherTok{\textless{}{-}}\NormalTok{  CEPEHQ\_tidy}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{inner\_join}\NormalTok{(}\FunctionTok{get\_sentiments}\NormalTok{(}\StringTok{"bing"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{count}\NormalTok{(sentiment) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{spread}\NormalTok{(sentiment, n, }\AttributeTok{fill=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{total\_score =}\NormalTok{ positive }\SpecialCharTok{{-}}\NormalTok{ negative)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CEPEHQ\_tidy\_bing }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarize}\NormalTok{(}\FunctionTok{max}\NormalTok{(total\_score), }\FunctionTok{min}\NormalTok{(total\_score)) }
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ##   max(total_score) min(total_score)
 ## 1               38               38
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(CEPEHQ\_tidy\_bing) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{r|r|r}
+\hline
+negative & positive & total\_score\\
+\hline
+24 & 62 & 38\\
+\hline
+\end{tabular}
 
 \begin{Shaded}
 \begin{Highlighting}[]
