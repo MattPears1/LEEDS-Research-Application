@@ -20,7 +20,7 @@ Learners have lots of other choices such as YouTube, but there is a certain need
 
 This was one reason why they were rated positive as they are able to streamline data finding for learners in a format that is understandable and easy to them. 
 
-```{r, message=FALSE}
+```{r eval=FALSE, message=FALSE, include=FALSE}
 library(knitr)
 library(tidyverse)
 
