@@ -292,7 +292,7 @@ Boxplotsplits9 %>%
         axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+
-                 labs(title="Change in Ease of Use Perception after CEPEH Chatbot Usage",
+                 labs(title="Change in Ease of Use Perception, after CEPEH Chatbot Usage",
                       x= "",
                       y= "Frequency")
 ```
