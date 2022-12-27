@@ -18,7 +18,15 @@ documentclass: book
 # Discussion {#Discussion } 
 \minitoc <!-- this will include a mini table of contents-->
 
-Here is a (very large) table with all of the currently active RLOS.
+The Chatbots were beneficial. 
+
+Learners have lots of other choices such as YouTube, but there is a certain need for personalised information gathering , this can save time and prevent learning incorrect information. 
+
+This was one reason why they were rated positive as they are able to streamline data finding for learners in a format that is understandable and easy to them. 
+
+
+
+
 
 ```{r, message=FALSE}
 library(knitr)
