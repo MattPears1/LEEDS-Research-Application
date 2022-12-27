@@ -113,11 +113,6 @@ There were `r count(Femalescyprus)` females and `r count(malescyprus)` males fro
 There were `r count(Femalessweden)` females and `r count(malessweden)` males from Sweden,
 and there were 2 participants from the United Kingdom.
 
-The majority 36 participants, were student, with 3 being learning technologists, 2 were lecturers, and 1 was a doctor.
-Although there could be a difference in these groups, the design was within- groups therefore each participants pre-usage metrics were the comparative control data, and participant differences did not affect the evaluation.
-
-
-
 
 ```{r location Boxplotsplits1, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -149,6 +144,11 @@ Boxplotsplits1 %>%
                       y= "Frequency")
 
 ```
+
+The majority 36 participants, were student, with 3 being learning technologists, 2 were lecturers, and 1 was a doctor.
+Although there could be a difference in these groups, the design was within- groups therefore each participants pre-usage metrics were the comparative control data, and participant differences did not affect the evaluation.
+
+
 ## Procedure
 
 ```{r Procedure, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
