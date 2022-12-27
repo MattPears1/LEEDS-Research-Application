@@ -1,7 +1,6 @@
 fig:latex-font-sizing
 method
 participants
-procedure
 design
 materials-and-measures
 chatbot-usability-questionnaire-cuq
@@ -11,7 +10,7 @@ computer-self-efficacy-scale-tool
 technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
-learner-background
+learner-characteristics
 chatbot-usabilty-questionanire-cuq
 cuq-calcuation-tool
 system-usability-scale-sus-scores

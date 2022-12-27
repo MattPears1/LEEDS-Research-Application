@@ -18,7 +18,7 @@ editor_options:
 <!-- LaTeX normally does not indent the first line after a heading - however, it does so after the mini table of contents. You can manually tell it not to with \noindent -->
 \noindent
 
-## Learner Background
+## Learner Characteristics
 
 Most learners use books or online books as resources. Of course, they
 may use multiple sources however they were asked to note the primary
@@ -29,11 +29,11 @@ videos/interactive materials* which includes such tools as chatbots.
 
 ## table for currently used learning resources
 
-curr<- subset(data, select = c(CurrentMaterials))
+curr<- subset(data, select = c("CurrentMaterials"))
 curr<- na.omit(curr)
-colnames(disc)[1] = "CurrentMaterials"
+colnames(curr)[1] = "CurrentMaterials"
 
-knitr::kable(curr<-curr%>% filter(CurrentMaterials %in% c("Books","Online videosinteractive material", "Online journalsbooks","1 to 1 workshops or lectures", format('html'))) %>% group_by(CurrentMaterials) %>% count(CurrentMaterials),"pipe")
+knitr::kable(curr<-curr%>% filter(CurrentMaterials %in% c("Books","Online videosinteractive material", "Online journals","books","One to one workshops or lectures", format('html'))) %>% group_by(CurrentMaterials) %>% count(CurrentMaterials),"pipe")
 
 ```
 This can be supported when asked the amount of time participants have
@@ -42,7 +42,8 @@ chatbot, being educational or not. 2 individuals had spent what would be
 extensive time with usage- these were the Learning Technologist and
 Mature Student.
 
-```{r TEST Boxplotsplits1, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+Therefore, we can state that the sample used did not regularly use chatbots for their course learning, with 18/42 having used a chatbot at least once for between 0-4 hours of ue in total.
+```{r TEST Boxplotsplits1, echo=TRUE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -52,27 +53,28 @@ Boxplotsplits1 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh -
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits1 %>%
   
-  filter(UseChatbotsFrequently %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+  filter(Location %in% c("Cyprus","Greece","Sweden","United Kingdom")) %>%
            
-           drop_na(UseChatbotsFrequently) %>%
-  drop_na(sex)%>%
+           drop_na(Location) %>%
+  drop_na(Profession)%>%
 #------then pipe into ggplot
   #the first aesthetic label is always the x axis
-  ggplot(aes(sex))+
-  geom_bar(aes(fill = sex), alpha = 0.8)+
-  facet_wrap(~UseChatbotsFrequently)+
+  ggplot(aes(Profession))+
+  geom_bar(aes(fill = Profession), alpha = 0.8)+
+  facet_wrap(~Location)+
   theme_get()+
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+
-                 labs(title="I would like to use chatbots frequently",
+                 labs(title="Location and Profession of Participants",
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
+
 ```
 
-
+The first boxplot here shows 
 ```{r Boxplotsplits3, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
@@ -326,7 +328,9 @@ Boxplotsplits10 %>%
                       x= "",
                       y= "Frequency")
 ```
-Those who disagreed or were neutral in the pre usage measure, improved their understanding that help was available with the CEPEH chatbots. After usage, 40 participants agreed they could get help if they had difficulty using the resources.
+Those who disagreed or were neutral in the pre usage measure, improved their understanding that help was available 
+with the CEPEH chatbots. After usage, 40 participants agreed they could get help if they had difficulty using the 
+resources.
 
 
 ```{r previous chatbot use, message=FALSE, warning=FALSE}
@@ -481,7 +485,6 @@ rec <- subset(data, select = c("Recommend","Identity"))
 rec <- na.omit(rec)
 
 knitr::kable(rec <-rec %>% filter(Identity == c("HE student","Healthcare professional", "Other", "Student","Tutor/Teacher/Lecturer","Patient/Service-user/Carer",format('html'))) %>% group_by(Identity, Recommend) %>% count(Recommend), "pipe")
-
 
 ```
 

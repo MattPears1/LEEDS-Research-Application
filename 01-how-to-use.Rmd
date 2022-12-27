@@ -121,10 +121,41 @@ Although there could be a difference in these groups, the design was within- gro
 sus <- subset(data, select = c("Profession"))
 sus <- na.omit(sus)
 
-knitr::kable(sus<-sus %>% filter(Profession %in% c("Student on a Healthcare course","College student", "Medical doctor","Learning Technologist", "Mature Student", "Lecturer", format('html'))) %>% group_by(Profession) %>% count(Profession),"pipe")
+knitr::kable(sus<-sus %>% filter(Profession %in% c("Student on a Healthcare course","College student","Medical doctor","Learning Technologist","Mature Student","Lecturer",format('html'))) %>%group_by(Profession) %>% count(Profession),"pipe")
 
 ```
 
+
+```{r location Boxplotsplits1, echo=TRUE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits1 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits1 %>%
+  
+  filter(Location %in% c("Cyprus","Greece","Sweden","United Kingdom")) %>%
+           
+           drop_na(Location) %>%
+  drop_na(Profession)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(Profession))+
+  geom_bar(aes(fill = Profession), alpha = 0.8)+
+  facet_wrap(~Location)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="Location and Profession of Participants",
+                      x= "Like to use chatbots frequently (Pre)",
+                      y= "Frequency")
+
+```
 ## Procedure
 
 ```{r Procedure, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}

@@ -474,7 +474,7 @@ It was a repeated measure design whereby each participant used the 4 chatbots de
 Therefore, there are 42 points of data in the condition before testing, and 126 data points after testing the chatbots- for a total of 168 row of data, 5 per participant.
 There were 78 questions asked in total, therefore the full dataset has over 4000 cells recorded.
 
-There were 22 females and 6 males from Greece.
+There were 22 females and 7 males from Greece.
 There were 3 females and 4 males from Cyprus.
 There were 2 females and 2 males from Sweden.
 
@@ -489,14 +489,45 @@ Profession & n \\
 College student & 3 \\
 Learning Technologist & 3 \\
 Lecturer & 2 \\
-Mature Student & 2 \\
+Mature Student & 1 \\
 Medical doctor & 1 \\
 Student on a Healthcare course & 28 \\
 \bottomrule()
 \end{longtable}
 
-\hypertarget{procedure}{%
-\section{Procedure}\label{procedure}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(readr)}
+
+\NormalTok{Boxplotsplits1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh {-} Copy.csv"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{na.strings=}\FunctionTok{c}\NormalTok{(}\StringTok{""}\NormalTok{, }\StringTok{"NA"}\NormalTok{))}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps}
+\NormalTok{Boxplotsplits1 }\SpecialCharTok{\%\textgreater{}\%}
+  
+  \FunctionTok{filter}\NormalTok{(Location }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Cyprus"}\NormalTok{,}\StringTok{"Greece"}\NormalTok{,}\StringTok{"Sweden"}\NormalTok{,}\StringTok{"United Kingdom"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+           
+           \FunctionTok{drop\_na}\NormalTok{(Location) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{drop\_na}\NormalTok{(Profession)}\SpecialCharTok{\%\textgreater{}\%}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}then pipe into ggplot}
+  \CommentTok{\#the first aesthetic label is always the x axis}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(Profession))}\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ Profession), }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Location)}\SpecialCharTok{+}
+  \FunctionTok{theme\_get}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{panel.grid.major =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{panel.grid.minor =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.title.x=}\FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.text.x=}\FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.ticks.x=}\FunctionTok{element\_blank}\NormalTok{())}\SpecialCharTok{+}
+                 \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"Location and Profession of Participants"}\NormalTok{,}
+                      \AttributeTok{x=} \StringTok{"Like to use chatbots frequently (Pre)"}\NormalTok{,}
+                      \AttributeTok{y=} \StringTok{"Frequency"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/location Boxplotsplits1-1.pdf}
+\#\# Procedure
 
 For each resource created by the Partners, the same experimental methodology was followed.
 For each resource created by partners, students performed a study within an online or face to face workshop or course.
@@ -662,8 +693,8 @@ Figure 1: Flow diagram of the recruitment process
 
 \noindent
 
-\hypertarget{learner-background}{%
-\section{Learner Background}\label{learner-background}}
+\hypertarget{learner-characteristics}{%
+\section{Learner Characteristics}\label{learner-characteristics}}
 
 Most learners use books or online books as resources. Of course, they
 may use multiple sources however they were asked to note the primary
@@ -675,7 +706,6 @@ videos/interactive materials} which includes such tools as chatbots.
 CurrentMaterials & n \\
 \midrule()
 \endhead
-1 to 1 workshops or lectures & 2 \\
 Books & 21 \\
 \bottomrule()
 \end{longtable}
@@ -686,6 +716,42 @@ chatbot, being educational or not. 2 individuals had spent what would be
 extensive time with usage- these were the Learning Technologist and
 Mature Student.
 
+Therefore, we can state that the sample used did not regularly use chatbots for their course learning, with 18/42 having used a chatbot at least once for between 0-4 hours of ue in total.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(readr)}
+
+\NormalTok{Boxplotsplits1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh {-} Copy.csv"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{na.strings=}\FunctionTok{c}\NormalTok{(}\StringTok{""}\NormalTok{, }\StringTok{"NA"}\NormalTok{))}
+
+\CommentTok{\#{-}{-}{-}{-}{-}{-}make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps}
+\NormalTok{Boxplotsplits1 }\SpecialCharTok{\%\textgreater{}\%}
+  
+  \FunctionTok{filter}\NormalTok{(Location }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Cyprus"}\NormalTok{,}\StringTok{"Greece"}\NormalTok{,}\StringTok{"Sweden"}\NormalTok{,}\StringTok{"United Kingdom"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+           
+           \FunctionTok{drop\_na}\NormalTok{(Location) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{drop\_na}\NormalTok{(Profession)}\SpecialCharTok{\%\textgreater{}\%}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}then pipe into ggplot}
+  \CommentTok{\#the first aesthetic label is always the x axis}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(Profession))}\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ Profession), }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Location)}\SpecialCharTok{+}
+  \FunctionTok{theme\_get}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{panel.grid.major =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{panel.grid.minor =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.title.x=}\FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.text.x=}\FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.ticks.x=}\FunctionTok{element\_blank}\NormalTok{())}\SpecialCharTok{+}
+                 \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"Location and Profession of Participants"}\NormalTok{,}
+                      \AttributeTok{x=} \StringTok{"Like to use chatbots frequently (Pre)"}\NormalTok{,}
+                      \AttributeTok{y=} \StringTok{"Frequency"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/TEST Boxplotsplits1-1.pdf}
+
+The first boxplot here shows
 \includegraphics{_main_files/figure-latex/Boxplotsplits3-1.pdf}
 There was only 1 `Strongly Disagree' response.
 The agreement options counted for the majority of the data.
@@ -706,7 +772,9 @@ There was mixed results for the chatbot used being realistic and engaging. This 
 \includegraphics{_main_files/figure-latex/Boxplotsplits9-1.pdf}
 
 \includegraphics{_main_files/figure-latex/Boxplotsplits10-1.pdf}
-Those who disagreed or were neutral in the pre usage measure, improved their understanding that help was available with the CEPEH chatbots. After usage, 40 participants agreed they could get help if they had difficulty using the resources.
+Those who disagreed or were neutral in the pre usage measure, improved their understanding that help was available
+with the CEPEH chatbots. After usage, 40 participants agreed they could get help if they had difficulty using the
+resources.
 
 \begin{longtable}[]{@{}lr@{}}
 \toprule()
@@ -1280,11 +1348,11 @@ sex & time & Code & Location & Profession & CurrentMaterials & Previous\_Chatbot
 \midrule
 Female & Pre & 666 & Cyprus & Student on a Healthcare course & Books & Never & Agree & Strongly Agree & Agree & Agree & Agree & Agree & Agree & Neutral & Agree & Agree & Neutral & Neutral & Neutral & Neutral & Neutral & Agree & Agree & Agree & Agree & Agree & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & 56.2500\\
 NA & Post & 666 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & CYENS - Patient Chatbot & Disagree & Neutral & Neutral & Neutral & Agree & Neutral & Agree & Agree & Neutral & Disagree & Agree & Neutral & Neutral & Disagree & Agree & Neutral & Neutral & Disagree & Neutral & Disagree & Neutral & Neutral & Neutral & Neutral & Agree & Neutral & Disagree & Neutral & Neutral & Neutral & Neutral & Neutral & Neutral & Agree & Agree & Agree & Agree & Neutral & Disagree & Agree & Neutral & Neutral & Neutral & Disagree & Neutral & Neutral & Neutral & Neutral & Neutral & Agree & Agree & Medical scenarios & YES & 2022-05-11 08:14:34 UTC & 68.7500\\
-Female & Pre & A.N. 31082003 & Greece & Student on a Healthcare course & Online videos\_interactive material & 1-4 hours & Agree & Strongly Agree & Agree & Neutral & Neutral & Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Neutral & Neutral & Agree & Agree & Agree & Strongly Agree & Strongly Agree & Agree & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & 70.3125\\
+Male & Pre & A.S.1507 & Greece & Student on a Healthcare course & Online journals\_books & Never & Neutral & Agree & Neutral & Neutral & Agree & Neutral & Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Agree & Disagree & Agree & Disagree & Agree & Agree & Agree & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & 64.0625\\
 NA & Post & A.N. 31082003 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & 51.5625\\
 NA & Post & A.N. 31082003 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & 84.3750\\
 \addlinespace
-Male & Pre & A.S.1507 & Greece & Student on a Healthcare course & Online journals\_books & Never & Neutral & Agree & Neutral & Neutral & Agree & Neutral & Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Agree & Disagree & Agree & Disagree & Agree & Agree & Agree & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & 64.0625\\
+Female & Pre & AG 26062002 & Greece & Student on a Healthcare course & Books & Never & Agree & Neutral & Agree & Neutral & Neutral & Agree & Agree & Neutral & Neutral & Neutral & Neutral & Neutral & Neutral & Agree & Neutral & Agree & Agree & Agree & Agree & Agree & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & 76.5625\\
 \bottomrule
 \end{tabular}
 
