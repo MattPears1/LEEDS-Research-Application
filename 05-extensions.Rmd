@@ -1,4 +1,3 @@
----
 output:
   #bookdown::html_document2: default
   #bookdown::word_document2: default
@@ -14,368 +13,249 @@ There is grandeur in this view of life, with its several powers, having been ori
 (ref:darwin-quote) --- Charles Darwin [@Darwin1859]
 <!-- note that the quote author won't show up when you knit just a single chapter -->
   
-# Text Mining, Natural Language Processing, and Sentiment Analysis
 
-```{r setup packages, message=FALSE, warning=FALSE}
-library(tidyverse) #for various data manipulation tasks
-library(tidytext) #for text mining specifically, main package in book
-library(stringr) #for various text operations
-library(gutenbergr) #to access full-text books that are in the public domain
-library(scales) # for visualising percentages
-library(readtext) # for reading in txt files
-library(wordcloud) # for creating wordclouds
+# Training Event Results {#cites-and-refs}
 
-library(syuzhet)
+\chaptermark{Citations and cross-refs}
+\minitoc <!-- this will include a mini table of contents-->
+
+
+## CEPEH Training Event C1
+
+
+The CEPEH training event C1 held at the premises of University of Nottingham aiming to prepare participants for the practical elements of co-creation and implementation of chatbots as an educational resource. It combined both theoretical and hands-on training.
+15 participants were from RISE, AUTH, UoN.
+
+Project managers of partners signposted the person involved, and relevant announcements were made though social media channels to the wider public. External to the project speakers were from University of Leeds, and Computer Science Department of University of Nottingham. It included academics, medical doctors, and researchers with focus both on clinical research and digital innovations in healthcare education and IT specialist/learning technologists 11.18 years of experiences (SD=7.2). A balance between male and female participants achieved.
+
+
+
+ 
+# Overall Training Events Evalaution
+
+
+Participants were asked to highlight what they liked for each day and how each day can be improved. Findings are described below per day of the training event
+
+
+Day 1  
+The participants comment that they liked the design method for educational resources presented using a co-creation approach, they liked the interactions with other groups, and they liked the overview of existing chatbot resources of the partners. On the areas that can be improved, more media material were requested.
+
+
+Day 2
+Participants enjoyed the presentation from the invited speaker from another faculty of the University of Nottingham, the CEPEH recources presented and the storyboarding process. Participants highlighted that the participation of more clinicians in the event would be an added value in regards with the storyboarding process.
+
+
+Day3
+Participants liked the hands-on activities of the day also enjoyed the creativity of the groups on the online chatbot development tool. As an area of improvement, participants wanted more time on hands on sections.
+
+
+
+
+```{r map Importing Data, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+try(museum <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))
+museum %>%
+leaflet() %>%
+addProviderTiles(providers$Esri.WorldImagery, group = "World Imagery") %>%
+addProviderTiles(providers$Stamen.TonerLite, group = "Toner Lite") %>%
+addLayersControl(baseGroups = c("Toner Lite", "World Imagery")) %>%
+addMarkers(label = museum$museum,
+           clusterOptions = markerClusterOptions(),
+           popup = ifelse(museum$`Presidential Library`=="Yes",
+                          "1 person around this area",
+                          "1 person around this area")) %>% setView(lat = 53.921236496, lng = -1.1392187894608434, zoom = 09)
 ```
 
 
-## CEPEH Qualatative Feedback
+```{r MOHAMMED please make FREQ bar chart of top 15 Cities- sorted, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 
-The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing. 
+city <- subset(data, select = "City")
+city <- na.omit(city)
 
-One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.
+#table filter- to remove text from a coolumn:- !grep and then the cell text 
 
-Therefore, we have created such tools to allow efficient and intelligent analysis of this open/free focus group data.
+city <- subset(city, select = "City") %>%filter(!grepl('INVALID IPV4 ADDRESS', City))
+city1 <- subset(city, select = "City") %>%filter(!grepl(' ', City))
+view(city1)
+colnames(city1)[1] = "City"
 
-```{r read text and name it}
-CEPEHQ_raw <- readtext("P1.txt")
-
-CEPEHQ_raw $doc_id <- sub(".txt", "", CEPEHQ_raw $doc_id) # this gets rid of .txt in the play titles
-```
-
-```{r batch read files, eval=FALSE, include=FALSE}
-CEPEHQ_raw <- readtext("Shakespeare txts/*")
-
-```
-
-```{r rename file, echo=FALSE, message=FALSE, warning=FALSE}
-CEPEHQ_raw$doc_id <- as.factor(CEPEHQ_raw$doc_id)
-CEPEHQ_raw$doc_id <- plyr::revalue(CEPEHQ_raw$doc_id,
-                                              c("P1" = "1"))
-```
-
-## Tokenising
-
-A Token is "a meaningful unit of text, most often a word, that we are interested in using for further analysis"
-Meaning, for each word we give it a property that we can call upon later. 
-
-The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as "characters", "ngrams", "sentences", "lines", "regex", "paragraphs")
-
-
-```{r give text tokens, echo=FALSE, message=FALSE, warning=FALSE}
-CEPEHQ_tidy <- CEPEHQ_raw%>% 
-  unnest_tokens(word, text)
-
-
-head(CEPEHQ_tidy)
-
-```
-
-### 2.2 Removing non-alphanumeric characters
-* str_extract is used to get rid of non-alphanumeric characters (because we don't want to count _word_ separately from word)
-```{r}
-CEPEHQ_tidy <- CEPEHQ_tidy %>% 
-  mutate(word = str_extract(word, "[a-z']+"))
-``` 
-
-
-### 2.3 Stop words
-* Stop words: very common, "meaningless" function words like "the", "of" and "to" -- not usually important in an analysis (i.e. to find out that the most common word in two books you are comparing is "the")
-* tidytext has a built-in df called stop_words for English 
-* remove these from your dataset with anti_join
-
-We can take a look:
-```{r}
-stop_words
-```
-
-```{r}
-CEPEHQ_tidy <- CEPEHQ_tidy %>% 
-  anti_join(stop_words)
-
-CEPEHQ_tidy
-```
-
-Define other stop words:
-```{r}
-meaningless_words <- tibble(word = c("found", "chatbot", "chatbots", "presentations", "NA", "video", "videos", "didnt", "na", "nil", ""))
-
-CEPEHQ_tidy <- CEPEHQ_tidy %>% 
-  anti_join(meaningless_words)
-```
-
-
-
-
-Break: Prepare your data with the steps above. 1) Unnest tokens, 2) Remove alpha-numeric characters, 3) Remove stopwords 
-
-
-## 3 Analysing frequencies
-
-### 3.1 Find most frequent words
-* Easily find frequent words using count() 
-* Data must be in tidy format (one token per line)
-* sort = TRUE to show the most frequent words first
-
-tidy_books %>%
-  count(word, sort = TRUE) 
-
-```{r this half worked but keep, echo=TRUE, message=FALSE, warning=FALSE}
-
-library(tidytext)
-library(tidyverse)
-library(tm)
-library(tigerstats)
-library(tidyselect)
-
-CEPEHQ_freq <- CEPEHQ_tidy %>% group_by(doc_id) %>% count(word, sort=TRUE)
-
-CEPEHQ_freq <- CEPEHQ_freq[-6,]
-
-CEPEHQ_freq
-```
-The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word *'helpful'* which has a positive connotation, however there are 386 words, with many having several occurrences. 
-
-What is the sentiment of all participants? What is types of emotional words are being used?
-
-
-```{r group by word and filter for true, message=FALSE, warning=FALSE}
-CEPEHQ_tidy %>% 
-  group_by(doc_id) %>% 
-  count(word, sort=TRUE) %>% 
-  filter(doc_id == "1")
-```
-
-#### Plotting word frequencies - bar graphs
-
-Bar graph of top words in CEPEHQ.
-
-Basic graph:
-```{r eval=FALSE, include=FALSE}
-CEPEHQ_freq %>% 
-  filter(n>7& doc_id == "1") %>% 
-  ggplot(aes(x=word, y=n)) +
-  geom_col()
-```
-
-
-```{r Readable labels}
-CEPEHQ_freq %>% 
-  filter(n>7 & doc_id == "1") %>% 
-  ggplot(aes(x=word, y=n)) +
-  geom_col() +
-  theme(axis.text.x = element_text(angle = 45))
-```
-
-
-```{r Descending order, include=FALSE}
-CEPEHQ_freq %>% 
-  filter(n>7 & doc_id == "1") %>% 
-  ggplot(aes(x=reorder(word, -n), y=n)) +
-  geom_col() +
-  theme(axis.text.x = element_text(angle = 45))
-```
-
-
-```{r include=FALSE}
-CEPEHQ_freq %>% 
-  filter(n>4 & doc_id == "1") %>% 
-  ggplot(aes(x=reorder(word, -n), y=n, fill=n)) +
-  geom_col(show.legend=FALSE) +
-  theme(axis.text.x = element_text(angle = 45)) +
-  xlab("Word") +
-  ylab("Frequency") +
-  ggtitle("Most frequent words in all CEPEH qualatative data")
-```
-
-
-The words can be grouped and plotted onto a bar chart, and to show more words this chart is presented with horizontal bars. 
-The most frequent words present in the various focus group discussions after using the 4 CEPEH chatbots are in the Figure below.
-
-
-```{r}
-CEPEHQ_freq %>% 
-  filter(n>3,doc_id == "1") %>% 
-  ggplot(aes(x=reorder(word, n), y=n, fill=n)) +
-  geom_col(show.legend=FALSE) +
-  xlab("Word") +
-  ylab("Frequency") +
-  ggtitle("Most frequent words in all CEPEH qualatative data") +
-  coord_flip()
-```
-
-
-Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted. 
-
-
-
-
-### 3.2 Normalised frequency
-* when comparing the frequencies of words from different texts, they are commonly normalised
-* convention in corpus linguistics: report the frequency per 1 million words
-* for shorter texts: per 10,000 or per 100,000 words
-* calculation: raw frequency * 1,000,000 / total numbers in text
-```{r}
-# see the total number of words per play (doc_id)
-CEPEHQ_freq %>% 
-  group_by(doc_id) %>% 
-  mutate(sum(n)) %>% 
-  distinct(doc_id, sum(n))
-
-CEPEHQ_freq <- CEPEHQ_freq %>% 
-  na.omit() %>% 
-  group_by(doc_id) %>% 
-  mutate(pmw = n*1000/sum(n)) %>% # creates a new column called pmw
-  ungroup() %>% 
-  anti_join(stop_words) # removing stopwords afterwards
-
-CEPEHQ_freq %>% select(word, pmw)
-```
-
-#### Plotting normalised frequency
-Now we can plot, for example, the 20 most frequent words (by pmw).
-```{r}
-CEPEHQ_freq %>% 
-  filter(doc_id == "1") %>% 
-  top_n(20, pmw) %>% 
-  ggplot(aes(x=reorder(word, -pmw), y=pmw, fill=pmw)) +
-  geom_col(show.legend=FALSE) +
-  theme(axis.text.x = element_text(angle = 45)) +
-  xlab("Word") +
-  ylab("Frequency per 1000 words") +
-  ggtitle("Most frequent words in HELM")
-```
-
-
-### 3.3 Word clouds
-
-Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g. normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
-```{r}
-wordcloud(words = CEPEHQ_freq$word, freq = CEPEHQ_freq$n, 
-          min.freq = 4, max.words=2000, random.order=FALSE, rot.per=0.35, 
-          colors=brewer.pal(8, "Dark2"))
-```
-
-
-## The vocabulary of Texts
-
-```{r include=FALSE}
-comp_2 <- CEPEHQ_freq %>% 
-  filter(doc_id == "1"|doc_id == "1") %>% 
-  group_by(doc_id) %>% 
-  mutate(proportion = n / sum(n)) %>% #creates proportion column (word frequency divided by overall frequency per author)
-  select(-n) %>%
-  spread(doc_id, proportion)
-
-summary(comp_2)
-```
-
-Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
-```{r}
-ggplot(comp_2, 
-       aes(x = `1`, y = `1`, 
-           color = abs(`1` - `1`))) +
-  geom_abline(color = "blue1", lty = 2) +
-  geom_jitter(alpha = 0.1, size = 4.5, width = 0.5, height = 0.8) +
-  geom_text(aes(label = word), check_overlap = TRUE, vjust = 1.5) +
-  scale_x_log10(labels = percent_format()) +
-  scale_y_log10(labels = percent_format()) +
-  theme_light() +
-  theme(legend.position="none") +
-  labs(y = "1", x = "1")
-```
-
-
-# Sentiment analysis
-
-```{r sentiment, echo=FALSE, message=FALSE, warning=FALSE}
-
-head(get_sentiments("bing"))
-
-CEPEHQ_tidy %>% 
-  inner_join(get_sentiments("bing")) %>% 
-  head()
-
-CEPEHQ_tidy %>% 
-  inner_join(get_sentiments("bing"))%>% 
-  count(sentiment)
-
-CEPEHQ_tidy %>% 
-  inner_join(get_sentiments("bing")) %>% 
-  count(word, sentiment, sort = TRUE) %>% 
-  head()
-
-CEPEHQ_tidy %>% 
-  inner_join(get_sentiments("bing")) %>% 
-  count(doc_id,sentiment) %>% 
-  head()
-
-
-CEPEHQ_tidy  %>% 
-  inner_join(get_sentiments("bing"))%>% 
-  count(sentiment)
-
-CEPEHQ_tidy  %>% 
-  inner_join(get_sentiments("bing")) %>% 
-  count(word, sentiment, sort = TRUE) %>% 
-  head()
-
-CEPEHQ_tidy_bing <-  CEPEHQ_tidy%>% 
-  inner_join(get_sentiments("bing")) %>% 
-  count(doc_id, sentiment) %>% 
-  spread(sentiment, n, fill=0) %>% 
-  mutate(total_score = positive - negative)
-
-CEPEHQ_tidy_bing %>% 
-  summarize(max(total_score), min(total_score)) 
-
-ggplot(aes(x=total_score, y=total_score, group=total_score), data=CEPEHQ_tidy_bing) +
-    geom_violin(aes(color=total_score), show.legend=FALSE)
-```
-
-
+####insert table for frequency top 15 here
 
 ```
 
 
+## CEPEH Training Event 2
 
-```{r, eval=knitr::is_html_output(), out.width='100%', out.height='1000px'}
-knitr::include_graphics("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf")
+**Pre-Training Event survey May 9th-13th 2022 Thessaloniki, Greece**
+
+Twenty-six participants attended the Training Event, along with approximately 10 staff members. There were 21 undergraduate students and 5 postgraduate students, who completed the survey for a total of 26 responses. There were 86% of participants who stated they had not been to a similar event like the training event CEPEH facilitated. There were 90% of students who found the event schedule very organised, and 70% agreed most of the planned sessions were relevant to that interest with the remaining 30% not having enough experience to understand the context to determine if they are interested in the training event. There were 95% of students agreeing or strongly agreeing the training event location is great, the remaining person did not leave additional comments. 
+
+
+Table 1 suggested attendees had minimal intention to share their own ideas due to lack of previous experience of attending such events, or due to lack of knowledge on the area. However, most were interested in listening to other groups and hearing contextual cases in healthcare.
+
+
+
+There were 77% of participants stated they were novices in experience with chatbots in healthcare and were attending to learn more.  The remaining 23% (7 students) stated they were competent and had limited experience with chatbots in healthcare.
+
+
+One day had several events regarding cybersecurity in healthcare. When asked before these events, 83% stated they were neutral or disagreed that they felt confident about their cybersecurity knowledge in healthcare. In addition, 80% stated they when neutral or disagreed that they felt they had strong cybersecurity safety in healthcare.  Table 2 shows the main pre and post results suggesting a positive experience for more than 75% of attendees on all measures. 
+
+
+
+There were 90% (23) of students who heard about the event through a lecturer or a professor, the CEPEH newsletter (2), and 1 person was informed through the anatomy tutoring system at Karolinska Institute. Additionally, 60% suggested the training event to somebody else before the course started.
+
+
+There were six individuals who stated neutral or disagree when asked if having issues on registration or finding the information for the event. This may have been due to being dependent on emails to receive the information, instead of a dedicated website where the information is available anytime. 
+
+
+As this was face-to-face, participants were asked about sufficient Covid-19 precautions in place at the facility, 94% agreed with sufficient precautions, two individuals stated no but did not give further information in the additional input box provided.
+In summary, most participants were undergraduate students with novice experience, happy with the training event location, felt the sessions were relevant to them, and most shared the event with their colleagues. The values of co-creation, chatbots in healthcare, and taking patient history were bestowed to students in an engaging and well-received manner. Notably, the highest ratings were for staff friendliness which is key to engagement and consistent interaction throughout the intense and long 5-day duration. The sessions were recorded there for the online recordings may be viewed with higher numbers over the subsequent weeks. 
+
+
+
+The usual way to include citations in an *R Markdown* document is to put references in a plain text file with the extension **.bib**, in **BibTex** format.[^bib-formats]
+Then reference the path to this file in **index.Rmd**'s YAML header with `bibliography: example.bib`.
+
+[^bib-formats]: The bibliography can be in other formats as well, including EndNote (**.enl**) and RIS (**.ris**), see [rmarkdown.rstudio.com/authoring_bibliographies_and_citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
+
+Most reference managers can create a .bib file with you references automatically.
+However, the **by far** best reference manager to use with *R Markdown* is [Zotero](https://www.zotero.org) with the [Better BibTex plug-in](https://retorque.re/zotero-better-bibtex/), because the `citr` plugin for RStudio (see below) can read references directly from your Zotero library!
+
+Here is an example of an entry in a **.bib** file:
+```bibtex
+@article{Shea2014,
+  author =        {Shea, Nicholas and Boldt, Annika},
+  journal =       {Trends in Cognitive Sciences},
+  pages =         {186--193},
+  title =         {{Supra-personal cognitive control}},
+  volume =        {18},
+  year =          {2014},
+  doi =           {10.1016/j.tics.2014.01.006},
+}
 ```
-<br>
+
+In this entry highlighted section, 'Shea2014' is the **citation identifier**.
+To default way to cite an entry in your text is with this syntax: `[@citation-identifier]`.
+
+So I might cite some things [@Shea2014; @Lottridge2012; @Mill1965].
+
+### Appearance of citations and references section (pandoc) {#citation-appearance}
+By default, `oxforddown` lets [Pandoc](https://pandoc.org) handle how citations are inserted in your text and the references section.
+You can change the appearance of citations and references by specifying a CSL (Citation Style Language) file in the `csl` metadata field of **index.Rmd**.
+By default, `oxforddown` by the Americal Psychological Association (7th Edition), which is an author-year format.
+
+With this style, a number of variations on the citation syntax are useful to know:
+
+- Put author names outside the parenthesis
+  - This: `@Shea2014 says blah.`
+  - Becomes: @Shea2014 says blah.
+- Include only the citation-year (in parenthesis)
+  - This: `Shea et al. says blah [-@Shea2014]`
+  - Becomes: Shea et al. says blah [-@Shea2014]
+- Add text and page or chapter references to the citation
+  - This: `[see @Shea2014, pp. 33-35; also @Wu2016, ch. 1]`
+  - Becomes: Blah blah [see @Shea2014, pp. 33-35; also @Wu2016, ch. 1].
 
 
-```{r, echo=TRUE, results='asis', eval=knitr::is_latex_output(), linewidth = 70}
-# install.packages(pdftools)
-# split PDF into pages stored in figures/sample-content/pdf_embed_example/split/
-# pdftools::pdf_split("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf",
-#        output = "figures/sample-content/pdf_embed_example/split/")
+If you want a numerical citation style instead, try `csl: bibliography/transactions-on-computer-human-interaction.csl` or just have a browse through the [Zotero Style Repository](https://www.zotero.org/styles) and look for one you like.
+For convenience, you can set the line spacing and the space between the bibliographic entries in the reference section directly from the YAML header in **index.Rmd**.
 
-# grab the pages
-pages <- list.files("figures/sample-content/pdf_embed_example/split", full.names = TRUE)
+If you prefer to use `biblatex` or `natbib` to handle references, see [this chapter](#customising-citations).
 
-# set how wide you want the inserted PDFs to be: 
-# 1.0 is 100 per cent of the oxforddown PDF page width;
-# you may want to make it a bit bigger
-pdf_width <- 1.2
+\clearpage
 
-# for each PDF page, insert it nicely and
-# end with a page break
-cat(stringr::str_c("\\newpage \\begin{center} \\makebox[\\linewidth][c]{\\includegraphics[width=", pdf_width, "\\linewidth]{", pages, "}} \\end{center}"))
+<!-- clearpage ends the page, and also dumps out all floats.
+  Floats are things like tables and figures. -->
 
+### Insert references easily with RStudio's Visual Editor 
+For an easy way to insert citations, use RStudio's [Visual Editor](https://rstudio.github.io/visual-markdown-editing/citations.html).
+Make sure you have the latest version of RStudio -- the visual editor was originally really buggy, especially in relation to references, but as per v2022.02.0, it's great!
+
+
+## Cross-referencing
+We can make cross-references to **sections** within our document, as well as to **figures** (images and plots) and **tables**.
+
+The general cross-referencing syntax is **`\@ref(label)`**
+
+### Section references
+Headers are automatically assigned a reference label, which is the text in lower caps separated by dashes. For example, `# My header` is automatically given the label `my-header`. So `# My header` can be referenced with `\@ref(my-section)`
+
+Remember what we wrote in section \@ref(citations)?
+
+We can also use **hyperlink syntax** and add \# before the label, though this is only guaranteed to work properly in HTML output:
+
+- So if we write `Remember what we wrote up in [the previous section](#citations)?`
+- It becomes Remember what we wrote up in [the previous section](#citations)?
+
+#### Creating custom labels
+It is a very good idea to create **custom labels** for our sections. This is because the automatically assigned labels will change when we change the titles of the sections - to avoid this, we can create the labels ourselves and leave them untouched if we change the section titles.
+
+We create custom labels by adding `{#label}` after a header, e.g. `# My section {#my-label}`.
+See [our chapter title](#cites-and-refs) for an example. That was section \@ref(cites-and-refs).
+
+### Figure (image and plot) references
+- To refer to figures (i.e. images and plots) use the syntax `\@ref(fig:label)`
+- **GOTCHA**: Figures and tables must have captions if you wish to cross-reference them.
+
+Let's add an image:
+```{r captain, eval=FALSE, fig.align='center', fig.cap="A marvel-lous meme", include=FALSE, out.width="65%"}
+knitr::include_graphics("figures/sample-content/captain.jpeg")
 ```
 
+We refer to this image with `\@ref(fig:captain)`.
+So Figure \@ref(fig:captain) is [this image](#fig:captain).
 
-```{r, echo=FALSE, eval=knitr::is_html_output(), out.width='100%', out.height='1000px'}
-knitr::include_graphics("figures/sample-content/alt_frontmatter_example/alt-frontmatter-example.pdf")
+And in Figure \@ref(fig:cars-plot) we saw a [cars plot](#fig:cars-plot).
+
+
+### Table references
+- To refer to tables use the syntax `\@ref(tab:label)`
+
+Let's include a table:
+```{r cars-table2}
+knitr::kable(cars[1:5,],
+            caption="Stopping cars")
 ```
 
-\noindent
-```{r, echo=FALSE, out.width='100%', out.height='1000px', results='asis', eval=knitr::is_latex_output}
-# grab the pages
-pages <- list.files("figures/sample-content/alt_frontmatter_example/split", full.names = TRUE)
+We refer to this table with `\@ref(tab:cars-table2)`. 
+So Table \@ref(tab:cars-table2) is [this table](#tab:cars-table2).
 
-pdf_width <- 0.32
+And in Table \@ref(tab:cars-table) we saw more or less [the same cars table](#tab:cars-table).
 
-cat(stringr::str_c("\\fbox{\\includegraphics[width=", pdf_width, "\\linewidth]{", pages, "}}"))
-```
+### Including page numbers
+Finally, in the PDF output we might also want to include the page number of a reference, so that it's easy to find in physical printed output.
+LaTeX has a command for this, which looks like this: `\pageref{fig/tab:label}` (note: curly braces, not parentheses)
+
+When we output to PDF, we can use raw LaTeX directly in our .Rmd files. So if we wanted to include the page of the cars plot we could write:
+
+- This: `Figure \@ref(fig:cars-plot) on page \pageref(fig:cars-plot)`
+- Becomes: Figure \@ref(fig:cars-plot) on page \pageref{fig:cars-plot}
+
+#### Include page numbers only in PDF output
+A problem here is that LaTeX commands don't display in HTML output, so in the gitbook output we'd see simply "Figure \@ref(fig:cars-plot) on page ".
+
+One way to get around this is to use inline R code to insert the text, and use an `ifelse` statement to check the output format and then insert the appropriate text.
+
+- So this: `` ``r ''`r ifelse(knitr::is_latex_output(), "Figure \\@ref(fig:cars-plot) on page \\pageref{fig:cars-plot}", "")` ``
+- Inserts this (check this on both PDF and gitbook): `r ifelse(knitr::is_latex_output(), "Figure \\@ref(fig:cars-plot) on page \\pageref{fig:cars-plot}", "")`
+
+Note that we need to escape the backslash with another backslash here to get the correct output.
+
+
+## Collaborative writing
+
+Best practices for collaboration and change tracking when using R Markdown are still an open question. 
+In the blog post [**One year to dissertate**](https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/) by Lucy D'Agostino, which I highly recommend, the author notes that she knits .Rmd files to a word document, then uses the `googledrive` R package to send this to Google Drive for comments / revisions from co-authors, then incorporates Google Drive suggestions *by hand* into the .Rmd source files. 
+This is a bit clunky, and there are ongoing discussions among the _R Markdown_ developers about what the best way is to handle collaborative writing (see [issue #1463](https://github.com/rstudio/rmarkdown/issues/1463) on GitHub, where [CriticMarkup](http://criticmarkup.com) is among the suggestions).
+
+For now, this is an open question in the community of R Markdown users. 
+I often knit to a format that can easily be imported to Google Docs for comments, then go over suggested revisions and manually incorporate them back in to the .Rmd source files. 
+For articles, I sometimes upload a near-final draft to [Overleaf](https://www.overleaf.com/), then collaboratively make final edits to the LaTeX file there. 
+I suspect some great solution will be developed in the not-to-distant future, probably by the RStudio team.
+
+
+## Additional resources
+
+- *R Markdown: The Definitive Guide* - <https://bookdown.org/yihui/rmarkdown/>
+
+- *R for Data Science* - <https://r4ds.had.co.nz>
+
