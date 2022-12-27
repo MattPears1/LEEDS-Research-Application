@@ -476,55 +476,11 @@ There were 78 questions asked in total, therefore the full dataset has over 4000
 
 There were 22 females and 7 males from Greece.
 There were 3 females and 4 males from Cyprus.
-There were 2 females and 2 males from Sweden.
+There were 2 females and 2 males from Sweden,
+and there were 2 participants from the United Kingdom.
 
-6 participants differed from the majority (33) who were student, as 3 were learning technologists, 2 were lecturers, and 1 was a doctor.
-Although there could be a difference in these groups, the design was within- groups therefore each participants pre-usage metrics were the comparative control data, and participant differences cannot affect the evaluation.
-
-\begin{longtable}[]{@{}lr@{}}
-\toprule()
-Profession & n \\
-\midrule()
-\endhead
-College student & 3 \\
-Learning Technologist & 3 \\
-Lecturer & 2 \\
-Mature Student & 1 \\
-Medical doctor & 1 \\
-Student on a Healthcare course & 28 \\
-\bottomrule()
-\end{longtable}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(readr)}
-
-\NormalTok{Boxplotsplits1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh {-} Copy.csv"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{na.strings=}\FunctionTok{c}\NormalTok{(}\StringTok{""}\NormalTok{, }\StringTok{"NA"}\NormalTok{))}
-
-\CommentTok{\#{-}{-}{-}{-}{-}{-}make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps}
-\NormalTok{Boxplotsplits1 }\SpecialCharTok{\%\textgreater{}\%}
-  
-  \FunctionTok{filter}\NormalTok{(Location }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Cyprus"}\NormalTok{,}\StringTok{"Greece"}\NormalTok{,}\StringTok{"Sweden"}\NormalTok{,}\StringTok{"United Kingdom"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-           
-           \FunctionTok{drop\_na}\NormalTok{(Location) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{drop\_na}\NormalTok{(Profession)}\SpecialCharTok{\%\textgreater{}\%}
-\CommentTok{\#{-}{-}{-}{-}{-}{-}then pipe into ggplot}
-  \CommentTok{\#the first aesthetic label is always the x axis}
-  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(Profession))}\SpecialCharTok{+}
-  \FunctionTok{geom\_bar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ Profession), }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{)}\SpecialCharTok{+}
-  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Location)}\SpecialCharTok{+}
-  \FunctionTok{theme\_get}\NormalTok{()}\SpecialCharTok{+}
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{panel.grid.major =} \FunctionTok{element\_blank}\NormalTok{(),}
-        \AttributeTok{panel.grid.minor =} \FunctionTok{element\_blank}\NormalTok{(),}
-        \AttributeTok{axis.title.x=}\FunctionTok{element\_blank}\NormalTok{(),}
-        \AttributeTok{axis.text.x=}\FunctionTok{element\_blank}\NormalTok{(),}
-        \AttributeTok{axis.ticks.x=}\FunctionTok{element\_blank}\NormalTok{())}\SpecialCharTok{+}
-                 \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"Location and Profession of Participants"}\NormalTok{,}
-                      \AttributeTok{x=} \StringTok{"Like to use chatbots frequently (Pre)"}\NormalTok{,}
-                      \AttributeTok{y=} \StringTok{"Frequency"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+The majority 36 participants, were student, with 3 being learning technologists, 2 were lecturers, and 1 was a doctor.
+Although there could be a difference in these groups, the design was within- groups therefore each participants pre-usage metrics were the comparative control data, and participant differences did not affect the evaluation.
 
 \includegraphics{_main_files/figure-latex/location Boxplotsplits1-1.pdf}
 \#\# Procedure
@@ -1030,16 +986,16 @@ Repeated Measures t-test, aka paired t-test (before and after measurements)
 ## # A tibble: 168 x 3
 ##    sex    before after
 ##    <chr>   <dbl> <dbl>
-##  1 <NA>       NA     1
-##  2 Female      2     2
-##  3 <NA>       NA     1
-##  4 <NA>       NA     1
-##  5 <NA>       NA     1
-##  6 <NA>       NA     1
-##  7 <NA>       NA     1
-##  8 <NA>       NA     1
-##  9 <NA>       NA     1
-## 10 <NA>       NA     1
+##  1 Male        2     2
+##  2 Female      3     2
+##  3 Female      3     2
+##  4 Male        1     2
+##  5 Male        1     2
+##  6 Female      2     2
+##  7 Male        1     2
+##  8 Male        2     2
+##  9 Female      1     2
+## 10 Male        1     2
 ## # ... with 158 more rows
 \end{verbatim}
 
@@ -1050,10 +1006,10 @@ Repeated Measures t-test, aka paired t-test (before and after measurements)
 ##  Paired t-test
 ## 
 ## data:  CUQ and after
-## t = 64.377, df = 117, p-value < 2.2e-16
+## t = 64.48, df = 117, p-value < 2.2e-16
 ## alternative hypothesis: true mean difference is not equal to 0
 ## 9.5 percent confidence interval:
-##  62.88084 63.11493
+##  62.88102 63.11474
 ## sample estimates:
 ## mean difference 
 ##        62.99788
