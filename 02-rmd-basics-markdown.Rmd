@@ -28,11 +28,13 @@ videos/interactive materials* which includes such tools as chatbots.
 ```{r currently used stuff, echo=FALSE, message=FALSE, warning=FALSE}
 
 ## table for currently used learning resources
-curr <- subset(data, select = c("CurrentMaterials"))
-curr <- na.omit(curr)
+
+curr<- subset(data, select = c(CurrentMaterials))
+curr<- na.omit(curr)
 colnames(disc)[1] = "CurrentMaterials"
 
-knitr::kable(curr <-curr %>% filter(CurrentMaterials %in% c("Books","Online videos/interactive material", "Online journals/books","1 to 1 workshops or lectures",format('html'))) %>% group_by(CurrentMaterials) %>% count(CurrentMaterials),"pipe")
+knitr::kable(curr<-curr%>% filter(CurrentMaterials %in% c("Books","Online videosinteractive material", "Online journalsbooks","1 to 1 workshops or lectures", format('html'))) %>% group_by(CurrentMaterials) %>% count(CurrentMaterials),"pipe")
+
 ```
 This can be supported when asked the amount of time participants have
 used a chatbot- in any form or subject: 23 stated they had never used a
@@ -341,9 +343,24 @@ We believe the CUQ has more validity towards measuring the concepts of
 interest on this study.
 
 [Read the CUQ development paper, see page 3 for correlation](a<href="https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T)
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(readr)
+mydata.needed <- read_csv("Full DATA CEPEH Moh - Copy.csv")
 
+plot(CUQ,
+     main="Chatbot Usability Questionnaire Scoring",
+     xlab="Participant Data (All 4 chatbots)",
+     ylab="Scoring out of 100",
+     col="blue")
+      
+
+
+```
+Figure shows the CUQ scores as a box plot to highlight the range of Usability of the resources. Further exploration is required to understand which elements are causing this spread.  
 
 ```{r Importing Data 2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+
 knitr::opts_chunk$set(
 	echo = FALSE,
 	message = FALSE,
@@ -399,7 +416,7 @@ This meant the score of the SUS was not created, however the CUQ score
 better represented the Learners' perceptions of the CEPEH chatbot in
 terms of feasibility of reuse and acceptability in healthcare curricula.
 
-```{r SUS table 2 questions, echo=FALSE, message=FALSE, warning=FALSE}
+```{r SUS table 2 questions, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 # table for sus results
 
@@ -413,12 +430,11 @@ library(plyr)
 counts <- ddply(SUS2, .(SUS2$KeepUsing, SUS2$Confident), nrow)
 names(counts) <- c("KeepUsing", "Confident", "V1")
 
-counts[order(counts$V1),]
 
 colnames(counts)[1] = "Keep_Using_Chatbots"
 colnames(counts)[2] = "Confident"
 colnames(counts)[3] = "Count"
-counts[order(counts$Count),]
+
 knitr::kable(counts[order(counts$Keep_Using_Chatbots), ],"pipe")
 ```
 
@@ -578,7 +594,7 @@ ggplot(disc2, aes(dRLO)) + geom_bar(width = 0.5, fill = "darkblue") + theme_mini
 
 Repeated Measures t-test, aka paired t-test (before and after measurements)
 
-```{r T-test, message=FALSE, warning=FALSE}
+```{r T-test, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(readr)
 
@@ -588,14 +604,9 @@ attach(mydata.needed)
 names(mydata.needed)
 mydata.needed[1:3]
 
-boxplot(before, after)
+plot(CUQ)
 
-plot(before, after)
-
-
-
-
-t.test(before, after, mu=0, alt="two.sided", paired=T, conf.level=0.095)
+t.test(CUQ, after, mu=0, alt="two.sided", paired=T, conf.level=0.095)
 
 
 

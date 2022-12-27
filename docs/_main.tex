@@ -677,8 +677,6 @@ CurrentMaterials & n \\
 \endhead
 1 to 1 workshops or lectures & 2 \\
 Books & 21 \\
-Online journals/books & 13 \\
-Online videos/interactive material & 6 \\
 \bottomrule()
 \end{longtable}
 
@@ -758,6 +756,8 @@ interest on this study.
 
 \href{a\%3Chref=\%22https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T}{Read the CUQ development paper, see page 3 for correlation}
 
+Figure shows the CUQ scores as a box plot to highlight the range of Usability of the resources. Further exploration is required to understand which elements are causing this spread.
+
 \hypertarget{system-usability-scale-sus-scores}{%
 \section{System Usability Scale (SUS) Scores}\label{system-usability-scale-sus-scores}}
 
@@ -781,46 +781,6 @@ expect 2 that did not have cross-over. The two questions were:
 This meant the score of the SUS was not created, however the CUQ score
 better represented the Learners' perceptions of the CEPEH chatbot in
 terms of feasibility of reuse and acceptability in healthcare curricula.
-
-\begin{verbatim}
-##            KeepUsing      Confident V1
-## 9            Neutral       Disagree  1
-## 13    Strongly Agree Not Applicable  1
-## 15 Strongly Disagree          Agree  1
-## 16 Strongly Disagree Strongly Agree  1
-## 11    Not Applicable Not Applicable  3
-## 7           Disagree        Neutral  4
-## 2              Agree       Disagree  5
-## 6           Disagree       Disagree  5
-## 4              Agree Strongly Agree  6
-## 5           Disagree          Agree  6
-## 10           Neutral        Neutral  6
-## 8            Neutral          Agree 10
-## 12    Strongly Agree          Agree 10
-## 3              Agree        Neutral 11
-## 14    Strongly Agree Strongly Agree 12
-## 1              Agree          Agree 44
-\end{verbatim}
-
-\begin{verbatim}
-##    Keep_Using_Chatbots      Confident Count
-## 9              Neutral       Disagree     1
-## 13      Strongly Agree Not Applicable     1
-## 15   Strongly Disagree          Agree     1
-## 16   Strongly Disagree Strongly Agree     1
-## 11      Not Applicable Not Applicable     3
-## 7             Disagree        Neutral     4
-## 2                Agree       Disagree     5
-## 6             Disagree       Disagree     5
-## 4                Agree Strongly Agree     6
-## 5             Disagree          Agree     6
-## 10             Neutral        Neutral     6
-## 8              Neutral          Agree    10
-## 12      Strongly Agree          Agree    10
-## 3                Agree        Neutral    11
-## 14      Strongly Agree Strongly Agree    12
-## 1                Agree          Agree    44
-\end{verbatim}
 
 \begin{longtable}[]{@{}llr@{}}
 \toprule()
@@ -1012,20 +972,20 @@ Repeated Measures t-test, aka paired t-test (before and after measurements)
 ## # ... with 158 more rows
 \end{verbatim}
 
-\includegraphics{_main_files/figure-latex/T-test-1.pdf} \includegraphics{_main_files/figure-latex/T-test-2.pdf}
+\includegraphics{_main_files/figure-latex/T-test-1.pdf}
 
 \begin{verbatim}
 ## 
 ##  Paired t-test
 ## 
-## data:  before and after
-## t = -1.3109, df = 41, p-value = 0.1972
+## data:  CUQ and after
+## t = 64.377, df = 117, p-value < 2.2e-16
 ## alternative hypothesis: true mean difference is not equal to 0
 ## 9.5 percent confidence interval:
-##  -0.1819341 -0.1513992
+##  62.88084 63.11493
 ## sample estimates:
 ## mean difference 
-##      -0.1666667
+##        62.99788
 \end{verbatim}
 
 This t-test compares confident using mobile chatbots before and after CEPEH chatbot usage.
@@ -1315,13 +1275,13 @@ Here is a (very large) table with all of the currently active RLOS.
 \toprule
 sex & time & Code & Location & Profession & CurrentMaterials & Previous\_Chatbot\_Usage & UseChatbotsFrequently & I feel very confident using mobile apps (pre) & UsefulPE1PRE & IncreaseAchievingPE2PRE & AccomplishThingsQuicklyPE3PRE & IncreasesProductivityPE4PRE & HowToUse(EE1)(pre) & InteractionsClearUnderstandable(EE2)(pre) & EasyToUse(EE3)(pre) & EasySkilfulUsing(EE4)(pre) & PeopleImportantUse(SI1)(pre) & PeopleInfluenceUse(SI2)(pre) & PeopleOpinionsUse(SI3)(pre) & ResourcesNecessary(FC1)(pre) & KnowledgeNecessary(FC2)(pre) & CompatibleOtherTech(FC3)(pre) & GetHelpWhenDifficuly(FC3)(pre) & Enjoyable(HM2)(pre) & Entertaining(HM3)(pre) & ContinueUsing(BI1)(pre) & ChatbotUsed & The chatbot provided the information I needed with minimal commands(post) & My knowledge of the topic improved after i had used the Chatbot(post) & My confidence in understanding the topic improved after I had used the Chatbot(post) & The chatbot provided me with the type of response i expected from asking a tutor/lecturer(post) & The information provided was reliable (post) & The chatbot’s personality was realistic and engaging (CUQ1)(post) & The chatbot seemed too robotic (CUQ2)(post) & The chatbot was welcoming during initial setup (CUQ3)(post) & The chatbot seemed very unfriendly (CUQ4)(post) & The chatbot explained its scope and purpose well (CUQ5)(post) & The chatbot gave no indication as to its purpose (CUQ6)(post) & The chatbot was easy to navigate (CUQ7)(post) & It would be easy to get confused when using the chatbot (CUQ8)(post) & The chatbot understood me well (CUQ9)(post) & The chatbot failed to recognise a lot of my inputs (CUQ10)(post) & Chatbot responses were useful, appropriate and informative (CUQ11)(post) & Chatbot responses were irrelevant (CUQ12)(post) & The chatbot coped well with any errors or mistakes (CUQ13)(post) & The chatbot seemed unable to handle any errors (CUQ14)(post) & The chatbot was very easy to use (CUQ15)(post) & The chatbot was very complex (CUQ16)(post) & I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post) & I felt confident using the CEPEH chatbot (SUS2)(post) & The chatbot has a high level of trustworthiness(post) & The duration of conversations to find my answer was too long(post) & I found the CEPEH chatbots useful in my daily life (PE1)(post) & Using CEPEH chatbots increases my chances of achieving things important to me (PE2)(post) & Using CEPEH chatbots can help me accomplish things more quickly (PE3)(post) & Using CEPEH chatbots increases my productivity (PE4)(post) & Learning how to use CEPEH chatbots is easy for me (EE1)(post) & My interaction with CEPEH chatbots is clear and understandable (EE2)(post) & I find CEPEH chatbots easy to use (EE3)(post) & It is easy for me to become skilful at using CEPEH chatbots (EE4)(post) & People who are important to me think that I should use CEPEH chatbots (SI1)(post) & People who influence my behaviour think that I should use CEPEH chatbots (SI2)(post) & People whose opinions that I value prefer that I use CEPEH chatbots (SI3)(post) & I have the resources necessary to use CEPEH chatbots (FC1)(post) & I have the knowledge necessary to use CEPEH chatbots (FC2)(post) & CEPEH Chatbots are compatible with other technologies I use (FC3)(post) & I can get help from others when I have difficulties using CEPEH chatbots (FC4)(post) & Using CEPEH chatbots is enjoyable (HM2)(post) & Intend & The videos/images provided were useful to my questions(post) & The chatbot exceeded my expectation of how it could help me(post) & The chatbot exceeded my expectation of how it could engage with me(post) & The chatbot exceeded my expectation of how entertaining it was to use(post) & I think this learning method could help me to acquire knowledge(post) & Reuse & I think i will actively use this learning method(post) & I believe i had some choice about learning during chatbot use(post) & I would trust the chatbot to provide me with information for my course(post) & One piece of knowledge i learned from the chatbot was..(post) & Informed of results(post) & Date (post) & CUQ\\
 \midrule
-NA & Post & bb4 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & KI Neuroanatomy chatbot & Neutral & Agree & Neutral & Disagree & Strongly Agree & Not Applicable & Strongly Disagree & Agree & Disagree & Disagree & Neutral & Disagree & Not Applicable & Not Applicable & Not Applicable & Agree & Disagree & Not Applicable & Not Applicable & Not Applicable & Not Applicable & Agree & Strongly Agree & Strongly Agree & Disagree & Not Applicable & Agree & Agree & Neutral & Strongly Agree & Agree & Not Applicable & Strongly Agree & Neutral & Neutral & Neutral & Neutral & Strongly Agree & Agree & Not Applicable & Disagree & Agree & Not Applicable & Neutral & Neutral & Neutral & Strongly Agree & Strongly Agree & Agree & Agree & Strongly Agree & It got stuck I’m afraid & NO & 2022-11-14 12:49:40 UTC & 64.0625\\
-Female & Pre & E. P.  03/03/2003 & Greece & Student on a Healthcare course & Books & 1-4 hours & Agree & Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Agree & Agree & Neutral & Neutral & Neutral & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & AUTH- Medical History Chatbot & Agree & Strongly Agree & Agree & Disagree & Agree & Agree & Agree & Agree & Disagree & Neutral & Neutral & Agree & Agree & Neutral & Disagree & Neutral & Neutral & Neutral & Agree & Agree & Disagree & Strongly Agree & Agree & Agree & Agree & Strongly Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & Agree & Neutral & Agree & Strongly Agree & Strongly Agree & Agree & Strongly Agree & Agree & Agree & Neutral & Agree & Agree & Agree & Strongly Agree & Agree & Agree & Agree & NA & YES & 2022-05-11 12:21:32 UTC & 45.3125\\
-Female & Pre & E.K 25/09/2003 & Greece & Student on a Healthcare course & Books & Never & Disagree & Disagree & Agree & Agree & Agree & Agree & Neutral & Neutral & Disagree & Neutral & Strongly Disagree & Disagree & Agree & Neutral & Disagree & Neutral & Agree & Neutral & Agree & Disagree & AUTH- Medical History Chatbot & Strongly Agree & Agree & Agree & Strongly Agree & Strongly Agree & Strongly Agree & Disagree & Agree & Strongly Disagree & Strongly Agree & Strongly Disagree & Strongly Agree & Disagree & Neutral & Neutral & Strongly Agree & Strongly Disagree & Strongly Agree & Disagree & Agree & Disagree & Agree & Neutral & Disagree & Strongly Disagree & Strongly Agree & Strongly Agree & Agree & Strongly Agree & Agree & Agree & Agree & Neutral & Agree & Neutral & Agree & Strongly Disagree & Agree & Agree & Agree & Agree & Strongly Agree & Strongly Agree & Agree & Neutral & Disagree & Strongly Agree & Strongly Agree & Agree & Strongly Agree & Strongly Agree & NA & YES & 2022-05-11 07:46:17 UTC & 43.7500\\
-NA & Post & ED2310 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & UoN- Cybersecurity chatbot & Agree & Disagree & Disagree & Disagree & Neutral & Agree & Agree & Agree & Strongly Disagree & Disagree & Neutral & Neutral & Strongly Disagree & Disagree & Agree & Disagree & Agree & Strongly Agree & Strongly Disagree & Agree & Disagree & Agree & Agree & Neutral & Disagree & Agree & Agree & Neutral & Strongly Disagree & Agree & Neutral & Agree & Agree & Neutral & Neutral & Neutral & Neutral & Neutral & Agree & Agree & Strongly Agree & Strongly Agree & Strongly Disagree & Agree & Agree & Agree & Strongly Agree & Strongly Agree & Agree & Agree & Agree & NA & YES & 2022-05-12 08:02:26 UTC & 78.1250\\
-NA & Post & E.G 01/10/1968 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & KI Neuroanatomy chatbot & Agree & Agree & Agree & Agree & Agree & Agree & Disagree & Strongly Agree & Strongly Disagree & Agree & Disagree & Strongly Agree & Strongly Disagree & Agree & Disagree & Strongly Agree & Strongly Disagree & Agree & Disagree & Strongly Agree & Strongly Disagree & Agree & Agree & Agree & Neutral & Strongly Agree & Agree & Strongly Agree & Agree & Strongly Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Agree & Agree & Agree & Agree & Agree & Strongly Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & NA & YES & 2022-05-12 11:35:16 UTC & 73.4375\\
+Female & Pre & ER 31102000 & Sweden & Student on a Healthcare course & 1 to 1 workshops or lectures & Never & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Strongly Agree & Strongly Agree & Strongly Agree & Neutral & Neutral & Neutral & Neutral & UoN- Cybersecurity chatbot & Agree & Neutral & Neutral & Neutral & Neutral & Strongly Agree & Disagree & Strongly Agree & Strongly Disagree & Strongly Agree & Disagree & Strongly Agree & Disagree & Strongly Agree & Disagree & Agree & Disagree & Agree & Disagree & Agree & Disagree & Strongly Agree & Strongly Agree & Agree & Disagree & Agree & Agree & Agree & Agree & Strongly Agree & Agree & Agree & Agree & Neutral & Neutral & Agree & Agree & Agree & Agree & Agree & Strongly Agree & Agree & Disagree & Neutral & Strongly Agree & Strongly Agree & Neutral & Agree & Neutral & Neutral & Agree & (Comment) alison was exremely polite with me & YES & 2022-05-12 08:01:18 UTC & 75.0000\\
+Male & Pre & bb4 & Cyprus & College student & 1 to 1 workshops or lectures & Never & Agree & Agree & Agree & Neutral & Agree & Agree & Neutral & Disagree & Does not apply & Neutral & Neutral & Neutral & Neutral & Agree & Strongly Disagree & Neutral & Agree & Neutral & Neutral & Neutral & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & 59.3750\\
+Female & Pre & E. P.  03032003 & Greece & Student on a Healthcare course & Books & 1-4 hours & Agree & Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Agree & Agree & Neutral & Neutral & Neutral & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & AUTH- Medical History Chatbot & Agree & Strongly Agree & Agree & Disagree & Agree & Agree & Agree & Agree & Disagree & Neutral & Neutral & Agree & Agree & Neutral & Disagree & Neutral & Neutral & Neutral & Agree & Agree & Disagree & Strongly Agree & Agree & Agree & Agree & Strongly Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & Agree & Neutral & Agree & Strongly Agree & Strongly Agree & Agree & Strongly Agree & Agree & Agree & Neutral & Agree & Agree & Agree & Strongly Agree & Agree & Agree & Agree & NA & YES & 2022-05-11 12:21:32 UTC & 45.3125\\
+Female & Pre & E.K 25092003 & Greece & Student on a Healthcare course & Books & Never & Disagree & Disagree & Agree & Agree & Agree & Agree & Neutral & Neutral & Disagree & Neutral & Strongly Disagree & Disagree & Agree & Neutral & Disagree & Neutral & Agree & Neutral & Agree & Disagree & AUTH- Medical History Chatbot & Strongly Agree & Agree & Agree & Strongly Agree & Strongly Agree & Strongly Agree & Disagree & Agree & Strongly Disagree & Strongly Agree & Strongly Disagree & Strongly Agree & Disagree & Neutral & Neutral & Strongly Agree & Strongly Disagree & Strongly Agree & Disagree & Agree & Disagree & Agree & Neutral & Disagree & Strongly Disagree & Strongly Agree & Strongly Agree & Agree & Strongly Agree & Agree & Agree & Agree & Neutral & Agree & Neutral & Agree & Strongly Disagree & Agree & Agree & Agree & Agree & Strongly Agree & Strongly Agree & Agree & Neutral & Disagree & Strongly Agree & Strongly Agree & Agree & Strongly Agree & Strongly Agree & NA & YES & 2022-05-11 07:46:17 UTC & 43.7500\\
+Female & Pre & E.K 25092003 & Greece & Student on a Healthcare course & Books & Never & Neutral & Disagree & Agree & Neutral & Neutral & Neutral & Agree & Neutral & Agree & Neutral & Agree & Neutral & Agree & Agree & Neutral & Agree & Neutral & Agree & Agree & Agree & UoN- Cybersecurity chatbot & Disagree & Neutral & Neutral & Disagree & Neutral & Neutral & Disagree & Agree & Neutral & Agree & Neutral & Neutral & Neutral & Disagree & Agree & Neutral & Neutral & Disagree & Neutral & Neutral & Disagree & Agree & Agree & Neutral & Neutral & Agree & Agree & Neutral & Neutral & Agree & Agree & Agree & Agree & Neutral & Neutral & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & Neutral & Neutral & Agree & Agree & Neutral & Neutral & Neutral & Neutral & NA & YES & 2022-05-12 08:00:29 UTC & 64.0625\\
 \addlinespace
-NA & Post & E.K 25/09/2003 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & AUTH- Medical History Chatbot & Agree & Agree & Strongly Agree & Agree & Agree & Neutral & Disagree & Agree & Disagree & Agree & Disagree & Agree & Disagree & Neutral & Disagree & Neutral & Disagree & Neutral & Disagree & Agree & Disagree & Agree & Neutral & Neutral & Neutral & Neutral & Agree & Agree & Neutral & Agree & Agree & Neutral & Neutral & Neutral & Neutral & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & NA & YES & 2022-05-11 07:47:36 UTC & 64.0625\\
+Female & Pre & FAI2205 & Greece & Student on a Healthcare course & Books & Never & Agree & Agree & Strongly Agree & Strongly Agree & Strongly Agree & Neutral & Agree & Neutral & Agree & Agree & Neutral & Agree & Neutral & Disagree & Neutral & Agree & Strongly Agree & Strongly Agree & Strongly Agree & Strongly Agree & CYENS - Patient Chatbot & Strongly Agree & Agree & Agree & Agree & Strongly Agree & Agree & Neutral & Neutral & Strongly Disagree & Agree & Disagree & Agree & Disagree & Agree & Disagree & Agree & Disagree & Agree & Disagree & Agree & Disagree & Agree & Agree & Agree & Disagree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Agree & Neutral & Agree & The structure of medical history & YES & 2022-11-14 12:58:01 UTC & 64.0625\\
 \bottomrule
 \end{tabular}
 
@@ -2067,7 +2027,7 @@ Basic graph:
 The words can be grouped and plotted onto a bar chart, and to show more words this chart is presented with horizontal bars.
 The most frequent words present in the various focus group discussions after using the 4 CEPEH chatbots are in the Figure below.
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-18-1.pdf}
 
 Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted.
 
@@ -2115,19 +2075,19 @@ Although the frequency is not high for each word, we are able to get a general p
 \subsubsection{Plotting normalised frequency}\label{plotting-normalised-frequency}}
 
 Now we can plot, for example, the 20 most frequent words (by pmw).
-\includegraphics{_main_files/figure-latex/unnamed-chunk-19-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-20-1.pdf}
 
 \hypertarget{word-clouds}{%
 \subsection{3.3 Word clouds}\label{word-clouds}}
 
 Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g.~normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
-\includegraphics{_main_files/figure-latex/unnamed-chunk-20-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-21-1.pdf}
 
 \hypertarget{the-vocabulary-of-texts}{%
 \section{The vocabulary of Texts}\label{the-vocabulary-of-texts}}
 
 Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
-\includegraphics{_main_files/figure-latex/unnamed-chunk-22-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-23-1.pdf}
 
 \hypertarget{sentiment-analysis}{%
 \chapter{Sentiment analysis}\label{sentiment-analysis}}
