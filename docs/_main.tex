@@ -245,7 +245,7 @@
 %%%%% THESIS / TITLE PAGE INFORMATION
 % Everybody needs to complete the following:
 \title{\texttt{Feasibility\ and\ Acceptance\ of\ chatbots\ embedded\ in\ healthcare\ curricula}:}
-\author{--}
+\author{Dr Matthew Pears BSc, MRes, PhD 2023}
 \college{CEPEH report}
 
 % Master's candidates who require the alternate title page (with candidate number and word count)
@@ -667,9 +667,7 @@ Mature Student.Therefore, we can state that the sample used did not regularly us
 
 The first boxplot here shows learners perceptions of easy of use of mobile appa dn other educational mobile resources
 
-\includegraphics{_main_files/figure-latex/Boxplotsplits3-1.pdf}
-There was only 1 `Strongly Disagree' response.
-The agreement options counted for the majority of the data.
+\includegraphics{_main_files/figure-latex/Boxplotsplits2-1.pdf}
 
 \begin{longtable}[]{@{}lr@{}}
 \toprule()
@@ -684,13 +682,14 @@ Never & 23 \\
 \bottomrule()
 \end{longtable}
 
-\hypertarget{pre-intervention-results}{%
-\section{Pre-Intervention Results}\label{pre-intervention-results}}
-
 \#\#Post-Intervention Results and Comparision
 
 \includegraphics{_main_files/figure-latex/Boxplotsplits4-1.pdf}
 For CYENS, even though the knowledge of the topic was not perceived to improve by some participants, this box plot shows how 34/42 stated they would reuse the chatbot developed by CYENS.
+
+\includegraphics{_main_files/figure-latex/Boxplotsplits3-1.pdf}
+There was only 1 `Strongly Disagree' response.
+The agreement options counted for the majority of the data.
 
 \hypertarget{other-findings}{%
 \subsection{Other Findings}\label{other-findings}}
@@ -716,8 +715,6 @@ I think i will actively use this learning method
 I believe I had some choice about learning during chatbot use
 I would trust the chatbot to provide me with information for my course
 One piece of knowledge i learned from the chatbot was..
-
-\includegraphics{_main_files/figure-latex/Boxplotsplits2-1.pdf}
 
 Repeated Measures t-test, aka paired t-test (before and after measurements)
 
@@ -845,18 +842,6 @@ resources.
 \hypertarget{inferential-statistics}{%
 \section{Inferential Statistics}\label{inferential-statistics}}
 
-output:
-\#bookdown::html\_document2: default
-\#bookdown::word\_document2: default
-bookdown::pdf\_document2:
-template: templates/template.tex
-documentclass: book
-
-\#bibliography: {[}bibliography/references.bib, bibliography/additional-references.bib{]}
-
-\hypertarget{text-mining-natural-language-processing-and-sentiment-analysis}{%
-\chapter{Text Mining, Natural Language Processing, and Sentiment Analysis}\label{text-mining-natural-language-processing-and-sentiment-analysis}}
-
 \hypertarget{cepeh-qualatative-feedback}{%
 \section{CEPEH Qualatative Feedback}\label{cepeh-qualatative-feedback}}
 
@@ -881,6 +866,24 @@ The model then removed words with meaningless function. These are called stop wo
 We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.
 
 The data was ready for analysis by the model. We ordered it to find the most frequent words.
+
+\begin{verbatim}
+## # A tibble: 384 x 3
+## # Groups:   doc_id [1]
+##    doc_id word            n
+##    <fct>  <chr>       <int>
+##  1 1      information    11
+##  2 1      helpful         8
+##  3 1      understand      8
+##  4 1      idea            7
+##  5 1      ideas           7
+##  6 1      workshop        7
+##  7 1      beginning       6
+##  8 1      dont            6
+##  9 1      medical         6
+## 10 1      technology      6
+## # ... with 374 more rows
+\end{verbatim}
 
 \hypertarget{plotting-word-frequencies---bar-graphs}{%
 \section{Plotting word frequencies - bar graphs}\label{plotting-word-frequencies---bar-graphs}}
@@ -943,23 +946,6 @@ negative & positive & total\_score\\
 24 & 62 & 38\\
 \hline
 \end{tabular}
-
-\begin{verbatim}
-output:
-  #bookdown::html_document2: default
-  #bookdown::word_document2: default
-  bookdown::pdf_document2:
-    template: templates/template.tex
-    keep_tex: true
-
-#bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
-
-  bookdown::html_document2: default
-  bookdown::word_document2: default
-documentclass: book
-\end{verbatim}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{Discussion}{%
 \chapter{Discussion}\label{Discussion}}

@@ -1,19 +1,18 @@
 ---
-output: 
-  html_document: 
-    fig_caption: yes
----
-
 output:
-  #bookdown::html_document2: default
-  #bookdown::word_document2: default
   bookdown::pdf_document2:
     template: templates/template.tex
+  bookdown::html_document2: default
+  bookdown::word_document2: default
 documentclass: book
-
 #bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
-
+editor_options: 
+  markdown: 
+    wrap: 72
 # Text Mining, Natural Language Processing, and Sentiment Analysis
+---
+
+## CEPEH Qualatative Feedback
 
 ```{r setup packages, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(
@@ -32,7 +31,6 @@ library(wordcloud) # for creating wordclouds
 library(syuzhet)
 ```
 
-## CEPEH Qualatative Feedback
 
 The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing. 
 
@@ -66,7 +64,6 @@ The data manipulation for this included removing punctuation, converting to lowe
 ```{r give text tokens, message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_tidy <- CEPEHQ_raw%>% 
   unnest_tokens(word, text)
-
 
 head(CEPEHQ_tidy)
 
@@ -102,22 +99,23 @@ CEPEHQ_tidy <- CEPEHQ_tidy %>%
 
 The data was ready for analysis by the model. We ordered it to find the most frequent words. 
 
-```{r this half worked but keep, message=FALSE, warning=FALSE, include=FALSE}
+```{r this half worked but keep, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidytext)
 library(tidyverse)
 library(tm)
 library(tigerstats)
 library(tidyselect)
+library(dplyr)
 
-CEPEHQ_freq <- CEPEHQ_tidy %>% group_by(doc_id) %>% count(word, sort=TRUE)
+CEPEHQ_freq <- CEPEHQ_tidy %>% group_by(doc_id) %>% count(word,sort=TRUE)
 
 CEPEHQ_freq <- CEPEHQ_freq[-6,]
 
 CEPEHQ_freq
 ```
 
-```{r group by word and filter for true, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+```{r group by word and filter for true, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
 CEPEHQ_tidy %>% 
   group_by(doc_id) %>% 
   count(word, sort=TRUE) %>% 

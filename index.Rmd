@@ -18,7 +18,7 @@ knit: (function(input, ...) {
 title: |
   `Feasibility and Acceptance of chatbots embedded in healthcare curricula`: 
     
-author: --
+author: Dr Matthew Pears BSc, MRes, PhD 2023
 college: CEPEH report
 university:  --
 university-logo: templates/download.png

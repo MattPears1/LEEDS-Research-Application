@@ -11,14 +11,12 @@ technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
 learner-characteristics
-pre-intervention-results
 other-findings
 system-usability-scale-sus-scores
 technology-acceptance-model
 chatbot-usabilty-questionanire-cuq
 cuq-calcuation-tool
 inferential-statistics
-text-mining-natural-language-processing-and-sentiment-analysis
 cepeh-qualatative-feedback
 tokenising
 stop-words
