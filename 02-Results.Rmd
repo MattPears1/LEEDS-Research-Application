@@ -10,7 +10,10 @@ editor_options:
   markdown: 
     wrap: 72
 ---
-
+<style>
+body {
+text-align: justify}
+</style>
 # Results {#rmd-basics}
 
 \minitoc <!-- this will include a mini table of contents-->

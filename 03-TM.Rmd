@@ -11,6 +11,11 @@ editor_options:
     wrap: 72
 # Text Mining, Natural Language Processing, and Sentiment Analysis
 ---
+<style>
+body {
+text-align: justify}
+</style>
+
 
 ## CEPEH Qualatative Feedback
 

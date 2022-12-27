@@ -5,8 +5,15 @@ output:
     template: templates/template.tex
   bookdown::word_document2: default
 documentclass: book
+
+
 #bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
 ---
+
+<style>
+body {
+text-align: justify}
+</style>
 
 # Introduction {.unnumbered}
 
