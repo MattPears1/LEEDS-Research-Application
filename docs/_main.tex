@@ -651,65 +651,22 @@ Figure 1: Flow diagram of the recruitment process
 
 \noindent
 
-\hypertarget{learner-characteristics}{%
-\section{Learner Characteristics}\label{learner-characteristics}}
+\hypertarget{learner-characteristics1}{%
+\section{Learner Characteristics1}\label{learner-characteristics1}}
 
 Most learners use books or online books as resources. Of course, they
 may use multiple sources however they were asked to note the primary
 source. Only 6 stated their primary sources were \emph{Online
 videos/interactive materials} which includes such tools as chatbots.
 
-\begin{longtable}[]{@{}lr@{}}
-\toprule()
-CurrentMaterials & n \\
-\midrule()
-\endhead
-Books & 21 \\
-\bottomrule()
-\end{longtable}
-
 This can be supported when asked the amount of time participants have
 used a chatbot- in any form or subject: 23 stated they had never used a
 chatbot, being educational or not. 2 individuals had spent what would be
 extensive time with usage- these were the Learning Technologist and
-Mature Student.
-
-Therefore, we can state that the sample used did not regularly use chatbots for their course learning, with 18/42 having used a chatbot at least once for between 0-4 hours of ue in total.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(readr)}
-
-\NormalTok{Boxplotsplits1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh {-} Copy.csv"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{na.strings=}\FunctionTok{c}\NormalTok{(}\StringTok{""}\NormalTok{, }\StringTok{"NA"}\NormalTok{))}
-
-\CommentTok{\#{-}{-}{-}{-}{-}{-}make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps}
-\NormalTok{Boxplotsplits1 }\SpecialCharTok{\%\textgreater{}\%}
-  
-  \FunctionTok{filter}\NormalTok{(Location }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Cyprus"}\NormalTok{,}\StringTok{"Greece"}\NormalTok{,}\StringTok{"Sweden"}\NormalTok{,}\StringTok{"United Kingdom"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-           
-           \FunctionTok{drop\_na}\NormalTok{(Location) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{drop\_na}\NormalTok{(Profession)}\SpecialCharTok{\%\textgreater{}\%}
-\CommentTok{\#{-}{-}{-}{-}{-}{-}then pipe into ggplot}
-  \CommentTok{\#the first aesthetic label is always the x axis}
-  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(Profession))}\SpecialCharTok{+}
-  \FunctionTok{geom\_bar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ Profession), }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{)}\SpecialCharTok{+}
-  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Location)}\SpecialCharTok{+}
-  \FunctionTok{theme\_get}\NormalTok{()}\SpecialCharTok{+}
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{panel.grid.major =} \FunctionTok{element\_blank}\NormalTok{(),}
-        \AttributeTok{panel.grid.minor =} \FunctionTok{element\_blank}\NormalTok{(),}
-        \AttributeTok{axis.title.x=}\FunctionTok{element\_blank}\NormalTok{(),}
-        \AttributeTok{axis.text.x=}\FunctionTok{element\_blank}\NormalTok{(),}
-        \AttributeTok{axis.ticks.x=}\FunctionTok{element\_blank}\NormalTok{())}\SpecialCharTok{+}
-                 \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"Location and Profession of Participants"}\NormalTok{,}
-                      \AttributeTok{x=} \StringTok{"Like to use chatbots frequently (Pre)"}\NormalTok{,}
-                      \AttributeTok{y=} \StringTok{"Frequency"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/TEST Boxplotsplits1-1.pdf}
+Mature Student.Therefore, we can state that the sample used did not regularly use chatbots for their course learning, with 18/42 having used a chatbot at least once for between 0-4 hours of use in total.
 
 The first boxplot here shows
+
 \includegraphics{_main_files/figure-latex/Boxplotsplits3-1.pdf}
 There was only 1 `Strongly Disagree' response.
 The agreement options counted for the majority of the data.
