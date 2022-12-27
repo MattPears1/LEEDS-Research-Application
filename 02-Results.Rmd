@@ -68,7 +68,7 @@ such tools as chatbots.
 
 The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of easy of use of mobile app and other educational mobile resources
 
-```{r Boxplotsplits2, echo=FALSE, fig.cap="Usage Freq Pre.", message=FALSE, warning=FALSE}
+```{r Boxplotsplits2, echo=FALSE, fig.cap="Usage Frequency-Pre", message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -78,15 +78,15 @@ Boxplotsplits2 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh -
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits2 %>%
   
-  filter(ReuseChatbot %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+  filter(Use_chatbots_frequently_pre %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
            
-           drop_na(ReuseChatbot) %>%
-  drop_na(ChatbotUsed)%>%
+           drop_na(Use_chatbots_frequently_pre) %>%
+  drop_na(Profession)%>%
 #------then pipe into ggplot
   #the first aesthetic label is always the x axis
-  ggplot(aes(ChatbotUsed))+
-  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
-  facet_wrap(~ReuseChatbot)+
+  ggplot(aes(Profession))+
+  geom_bar(aes(fill = Profession), alpha = 0.8)+
+  facet_wrap(~Profession)+
   theme_get()+
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
@@ -98,12 +98,44 @@ Boxplotsplits2 %>%
                       y= "Frequency")
 ```
 
+```{r BoxplotUsefulPre, echo=FALSE, fig.cap="Useful Opinion-Pre", message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+
+try(Boxplotsplits2 <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))
+
+drop_na(Boxplotsplits2)
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits2 %>%
+  
+  filter(UsefulPE1PRE %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(UsefulPE1PRE) %>%
+  drop_na(ChatbotUsed)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(ChatbotUsed))+
+  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
+  facet_wrap(~UsefulPE1PRE)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="I think chatbots are useful -Pre",
+                      x= "Like to use chatbots frequently (Pre)",
+                      y= "Frequency")
+```
+
 
 
 ```{r previous chatbot use, echo=FALSE, message=FALSE, warning=FALSE}
 
 # table for previous chatbot usage
-
 prevchat <- subset(data, select = c("Previous_Chatbot_Usage"))
 prevchat <- na.omit(prevchat)
 colnames(disc)[1] = "Previous_Chatbot_Usage"
@@ -114,10 +146,21 @@ knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never
 
 
 
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------
+
 ##Post-Intervention Results and Comparision
 
+After using the CEPEH chatbots, majority of participants stated they would reuse the chatbots. However, there was 6 counts of *disagree* or *strongly disagree* for all 4 chatbots. Further, there were 17 counts of neutral in reuse, which was approximately 4 participants per chatbot (see (\@ref(fig:Boxplotsplits4)).
 
-```{r Boxplotsplits4, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits4, fig.cap="Intend to Reuse-Post", echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -146,10 +189,14 @@ Boxplotsplits4 %>%
                       x= "",
                       y= "Frequency")
 ```
+
+
+
+
 For CYENS, even though the knowledge of the topic was not perceived to improve by some participants, this box plot shows how 34/42 stated they would reuse the chatbot developed by CYENS.
 
 
-```{r Boxplotsplits3, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits3, fig.cap="Easy to Use- Post", echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -182,29 +229,42 @@ There was only 1 'Strongly Disagree' response.
 The agreement options counted for the majority of the data. 
 
 
-
 ### Other Findings
 
 Other questions
 
 I intend to continue using chatbots in the future (BI1)
+
 The chatbot provided the information I needed with minimal commands
+
 My knowledge of the topic improved after i had used the Chatbot
-My confidence in understanding the topic improved after I had used the
-Chatbot
-The chatbot provided me with the type of response i expected from asking
-a tutor/lecturer
+
+My confidence in understanding the topic improved after I had used the Chatbot
+
+The chatbot provided me with the type of response i expected from asking a tutor/lecturer
+
 The information provided was reliable
+
 The chatbot has a high level of trustworthiness
+
 The duration of conversations to find my answer was too long
+
 The videos/images provided were useful to my questions
+
 The chatbot exceeded my expectation of how it could help me
+
 The chatbot exceeded my expectation of how it could engage with me
+
 I think this learning method could help me to acquire knowledge
+
 I would use this tool again as it has some value to me
+
 I think i will actively use this learning method
+
 I believe I had some choice about learning during chatbot use
+
 I would trust the chatbot to provide me with information for my course
+
 One piece of knowledge i learned from the chatbot was..
 
 ```{r second setup stuff 3, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=FALSE}
@@ -223,21 +283,6 @@ library(tidyverse)
 
 ```
 
-
-
-
-
-
-
-```{r Discovery Section, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=FALSE}
-
-# horizontal bar plot of Discovery
-## dataset disc2
-disc2 <- disc %>% filter(dRLO == c("Other", "It was a course learning resource", "General internet search", "Recommended by a colleague/peer","Through HELM-Open")) 
-
-##bar plot of discovery
-ggplot(disc2, aes(dRLO)) + geom_bar(width = 0.5, fill = "darkblue") + theme_minimal() + ggtitle("How did you find out about the RLO you used?") + theme(plot.title = element_text(hjust = -1.5, face = "bold.italic")) + coord_flip() + ylab("Number of respondents") + xlab(" ")
-```
 
 
 Repeated Measures t-test, aka paired t-test (before and after measurements)
@@ -260,25 +305,12 @@ t.test(CUQ, after, mu=0, alt="two.sided", paired=T, conf.level=0.095)
 
 
 
-
 ```
 This t-test compares confident using mobile chatbots before and after CEPEH chatbot usage. 
 
 
 
 
-
-
-```{r Discovery section 2, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=FALSE}
-
-# A Table showing Identity X Discovery of RLO X NFrequency
-disc3 <- subset(data, select = c("Identity","Discover RLO"))
-
-colnames(disc3)[2] <- "dRLO"
-
-disc3 <- disc3 %>% filter(dRLO == c("Other", "It was a course learning resource", "General internet search", "Recommended by a colleague/peer","Through HELM-Open"))
-
-```
 
 ### System Usability Scale (SUS) Scores
 
@@ -601,7 +633,7 @@ Those who disagreed or were neutral in the pre usage measure, improved their und
 with the CEPEH chatbots. After usage, 40 participants agreed they could get help if they had difficulty using the 
 resources.
 
-
+--------------------------------------------------------------------
 
 
 ## Inferential Statistics

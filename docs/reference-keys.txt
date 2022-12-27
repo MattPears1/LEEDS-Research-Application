@@ -1,4 +1,8 @@
+fig:location1
 fig:Boxplotsplits2
+fig:BoxplotUsefulPre
+fig:Boxplotsplits4
+fig:Boxplotsplits3
 method
 participants
 procedure
