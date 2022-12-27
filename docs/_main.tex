@@ -995,15 +995,14 @@ The focus group discussions provided a lot of feedback for how the participants 
 
 One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.
 
-Therefore, we have created such tools to allow efficient and intelligent analysis of this open/free focus group data.
+Therefore, we have created a model to allow efficient and intelligent analysis of this open/free focus group data.
 
 \hypertarget{tokenising}{%
 \section{Tokenising}\label{tokenising}}
 
-A Token is ``a meaningful unit of text, most often a word, that we are interested in using for further analysis''
-Meaning, for each word we give it a property that we can call upon later.
+Firstly, we tokenised the words from the FGDs. A Token is ``a meaningful unit of text, most often a word, that we are interested in using for further analysis''. For each word we give it a property that we can call upon later.
 
-The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as ``characters'', ``ngrams'', ``sentences'', ``lines'', ``regex'', ``paragraphs'')
+The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as ``characters'', ``ngrams'', ``sentences'', ``lines'' etc)
 
 \begin{verbatim}
 ## readtext object consisting of 6 documents and 0 docvars.
@@ -1018,29 +1017,10 @@ The data manipulation for this included removing punctuation, converting to lowe
 ## 6 1      was        "\"\"..."
 \end{verbatim}
 
-\hypertarget{removing-non-alphanumeric-characters}{%
-\subsection{2.2 Removing non-alphanumeric characters}\label{removing-non-alphanumeric-characters}}
-
-\begin{itemize}
-\tightlist
-\item
-  str\_extract is used to get rid of non-alphanumeric characters (because we don't want to count \emph{word} separately from word)
-\end{itemize}
-
 \hypertarget{stop-words}{%
-\subsection{2.3 Stop words}\label{stop-words}}
+\subsection{Stop words}\label{stop-words}}
 
-\begin{itemize}
-\tightlist
-\item
-  Stop words: very common, ``meaningless'' function words like ``the'', ``of'' and ``to'' -- not usually important in an analysis (i.e.~to find out that the most common word in two books you are comparing is ``the'')
-\item
-  tidytext has a built-in df called stop\_words for English
-\item
-  remove these from your dataset with anti\_join
-\end{itemize}
-
-We can take a look:
+The model then removed words with meaningless function. These are called stop words. Words like ``the'', ``of'' and ``to'' are the most frequent words found, technically, but are of little interest to us.
 
 \begin{verbatim}
 ## # A tibble: 1,149 x 2
@@ -1073,119 +1053,100 @@ We can take a look:
 ## # ... with 800 more rows
 \end{verbatim}
 
-Define other stop words:
+We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.
 
-Break: Prepare your data with the steps above. 1) Unnest tokens, 2) Remove alpha-numeric characters, 3) Remove stopwords
-
-\hypertarget{analysing-frequencies}{%
-\section{3 Analysing frequencies}\label{analysing-frequencies}}
-
-\hypertarget{find-most-frequent-words}{%
-\subsection{3.1 Find most frequent words}\label{find-most-frequent-words}}
-
-\begin{itemize}
-\tightlist
-\item
-  Easily find frequent words using count()
-\item
-  Data must be in tidy format (one token per line)
-\item
-  sort = TRUE to show the most frequent words first
-\end{itemize}
-
-tidy\_books \%\textgreater\%
-count(word, sort = TRUE)
-
-The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word \emph{`helpful'} which has a positive connotation, however there are 386 words, with many having several occurrences.
-
-What is the sentiment of all participants? What is types of emotional words are being used?
+The data was ready for analysis by the model. We ordered it to find the most frequent words.
 
 \begin{verbatim}
-## # A tibble: 387 x 3
+## # A tibble: 385 x 3
 ## # Groups:   doc_id [1]
-##    doc_id word              n
-##    <fct>  <chr>         <int>
-##  1 1      cybersecurity    11
-##  2 1      information      11
-##  3 1      presentation      9
-##  4 1      helpful           8
-##  5 1      understand        8
-##  6 1      idea              7
-##  7 1      ideas             7
-##  8 1      lot               7
-##  9 1      workshop          7
-## 10 1      beginning         6
-## # ... with 377 more rows
+##    doc_id word            n
+##    <fct>  <chr>       <int>
+##  1 1      information    11
+##  2 1      helpful         8
+##  3 1      understand      8
+##  4 1      idea            7
+##  5 1      ideas           7
+##  6 1      lot             7
+##  7 1      workshop        7
+##  8 1      beginning       6
+##  9 1      dont            6
+## 10 1      medical         6
+## # ... with 375 more rows
+\end{verbatim}
+
+\begin{verbatim}
+## readtext object consisting of 669 documents and 0 docvars.
+## # Description: df [669 x 3]
+##   doc_id word       text     
+##   <fct>  <chr>      <chr>    
+## 1 1      personally "\"\"..."
+## 2 1      nice       "\"\"..."
+## 3 1      week       "\"\"..."
+## 4 1      ive        "\"\"..."
+## 5 1      feeling    "\"\"..."
+## 6 1      technical  "\"\"..."
+## # ... with 663 more rows
 \end{verbatim}
 
 \hypertarget{plotting-word-frequencies---bar-graphs}{%
 \subsubsection{Plotting word frequencies - bar graphs}\label{plotting-word-frequencies---bar-graphs}}
 
-Bar graph of top words in CEPEHQ.
+With this information a Bar graph of top words from the participants in the FGD can be rendered.
 
-Basic graph:
+\includegraphics{_main_files/figure-latex/FREQ words bar graph-1.pdf}
 
-\includegraphics{_main_files/figure-latex/Readable labels-1.pdf}
+and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.
 
-The words can be grouped and plotted onto a bar chart, and to show more words this chart is presented with horizontal bars.
-The most frequent words present in the various focus group discussions after using the 4 CEPEH chatbots are in the Figure below.
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-8-1.pdf}
 
 Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted.
 
 \hypertarget{normalised-frequency}{%
 \subsection{3.2 Normalised frequency}\label{normalised-frequency}}
 
-\begin{itemize}
-\tightlist
-\item
-  when comparing the frequencies of words from different texts, they are commonly normalised
-\item
-  convention in corpus linguistics: report the frequency per 1 million words
-\item
-  for shorter texts: per 10,000 or per 100,000 words
-\item
-  calculation: raw frequency * 1,000,000 / total numbers in text
-\end{itemize}
+A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to suit.
 
 \begin{verbatim}
 ## # A tibble: 1 x 2
 ## # Groups:   doc_id [1]
 ##   doc_id `sum(n)`
 ##   <fct>     <int>
-## 1 1           682
+## 1 1           656
 \end{verbatim}
 
 \begin{verbatim}
-## # A tibble: 385 x 2
-##    word            pmw
-##    <chr>         <dbl>
-##  1 cybersecurity  46.0
-##  2 information    46.0
-##  3 presentation   37.6
-##  4 helpful        33.5
-##  5 understand     33.5
-##  6 ideas          29.3
-##  7 lot            29.3
-##  8 workshop       29.3
-##  9 beginning      25.1
-## 10 dont           25.1
-## # ... with 375 more rows
+## # A tibble: 383 x 2
+##    word          pmw
+##    <chr>       <dbl>
+##  1 information  47.4
+##  2 helpful      34.5
+##  3 understand   34.5
+##  4 idea         30.2
+##  5 ideas        30.2
+##  6 workshop     30.2
+##  7 beginning    25.9
+##  8 dont         25.9
+##  9 medical      25.9
+## 10 technology   25.9
+## # ... with 373 more rows
 \end{verbatim}
 
 \hypertarget{plotting-normalised-frequency}{%
 \subsubsection{Plotting normalised frequency}\label{plotting-normalised-frequency}}
 
-Now we can plot, for example, the 20 most frequent words (by pmw).
+Now we can plot, for example, the 20 most frequent words when normalised by the source text.
+
 \includegraphics{_main_files/figure-latex/CEPEH MOST FREQ-1.pdf}
+In summary, this understanding of frequent words can help to understand common concurrences and extrapolate to a larger audience. If scope and impact of CEPEH chatbots increased we can understand the type of themes and trends may occur, based on such FGD analysis.
 
 \hypertarget{word-clouds}{%
 \subsection{3.3 Word clouds}\label{word-clouds}}
 
-Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size. -this issued to visualise normalised frequency, in accordance to the FGD source document analysed.
+To visualise the most frequent words in another format, below is a word cloud which presents the word size to indicate the frequency- words that occur more often being displayed in a larger font size.
+This has a normalised data frequency in accordance to the FGD source document analysed.
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-11-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-10-1.pdf}
 We understand the context has been reduced for each word. However, in general there can be categorised positive/negative words from the word cloud:
 Positive words are- benefit, practical, nice, helpful, learn, ideas, and enjoyed
 Negative words are- difficult, test (who likes a test?), don't, and `lot' may be negative if there is a `lot' of information.
@@ -1194,10 +1155,13 @@ Negative words are- difficult, test (who likes a test?), don't, and `lot' may be
 \section{The vocabulary of Texts}\label{the-vocabulary-of-texts}}
 
 Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
-\includegraphics{_main_files/figure-latex/unnamed-chunk-13-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-12-1.pdf}
 
 \hypertarget{sentiment-analysis}{%
 \section{Sentiment analysis}\label{sentiment-analysis}}
+
+What is the sentiment of all participants? What is types of emotional words are being used?
+The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word \emph{`helpful'} which has a positive connotation, however there are 386 words, with many having several occurrences.
 
 \begin{verbatim}
 ## # A tibble: 6 x 2
@@ -1279,16 +1243,6 @@ Here is a graph that has plotted the words in places depending on the word frequ
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{CEPEHQ\_tidy\_bing }\OtherTok{\textless{}{-}}\NormalTok{  CEPEHQ\_tidy}\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{inner\_join}\NormalTok{(}\FunctionTok{get\_sentiments}\NormalTok{(}\StringTok{"bing"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{count}\NormalTok{(sentiment) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{spread}\NormalTok{(sentiment, n, }\AttributeTok{fill=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{total\_score =}\NormalTok{ positive }\SpecialCharTok{{-}}\NormalTok{ negative)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{CEPEHQ\_tidy\_bing }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarize}\NormalTok{(}\FunctionTok{max}\NormalTok{(total\_score), }\FunctionTok{min}\NormalTok{(total\_score)) }
 \end{Highlighting}
@@ -1313,38 +1267,28 @@ negative & positive & total\_score\\
 \hline
 \end{tabular}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages(pdftools)}
-\CommentTok{\# split PDF into pages stored in figures/sample{-}content/pdf\_embed\_example/split/}
-\CommentTok{\# pdftools::pdf\_split("figures/sample{-}content/pdf\_embed\_example/Lyngs2020\_FB.pdf",}
-\CommentTok{\#        output = "figures/sample{-}content/pdf\_embed\_example/split/")}
+\begin{verbatim}
 
-\CommentTok{\# grab the pages}
-\NormalTok{pages }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\StringTok{"figures/sample{-}content/pdf\_embed\_example/split"}\NormalTok{, }\AttributeTok{full.names =} \ConstantTok{TRUE}\NormalTok{)}
+<!--chapter:end:03-TM.Rmd-->
 
-\CommentTok{\# set how wide you want the inserted PDFs to be: }
-\CommentTok{\# 1.0 is 100 per cent of the oxforddown PDF page width;}
-\CommentTok{\# you may want to make it a bit bigger}
-\NormalTok{pdf\_width }\OtherTok{\textless{}{-}} \FloatTok{1.2}
+---
+output:
+  #bookdown::html_document2: default
+  #bookdown::word_document2: default
+  bookdown::pdf_document2:
+    template: templates/template.tex
+    keep_tex: true
+documentclass: book
+#bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
+---
 
-\CommentTok{\# for each PDF page, insert it nicely and}
-\CommentTok{\# end with a page break}
-\FunctionTok{cat}\NormalTok{(stringr}\SpecialCharTok{::}\FunctionTok{str\_c}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{newpage }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{begin\{center\} }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{makebox[}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{linewidth][c]\{}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{includegraphics[width="}\NormalTok{, pdf\_width, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{linewidth]\{"}\NormalTok{, pages, }\StringTok{"\}\} }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{end\{center\}"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\newpage \begin{center} \makebox[\linewidth][c]{\includegraphics[width=1.2\linewidth]{figures/sample-content/pdf_embed_example/split/_000000000000001.pdf}} \end{center} \newpage \begin{center} \makebox[\linewidth][c]{\includegraphics[width=1.2\linewidth]{figures/sample-content/pdf_embed_example/split/_000000000000011.pdf}} \end{center}
-
-\noindent
-\fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000001.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000002.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000003.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000004.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000005.pdf}} \fbox{\includegraphics[width=0.32\linewidth]{figures/sample-content/alt_frontmatter_example/split/_000006.pdf}}
-
-\hypertarget{Discussion}{%
-\chapter{Discussion}\label{Discussion}}
-
-\minitoc 
+# Discussion {#Discussion } 
+\minitoc <!-- this will include a mini table of contents-->
 
 Here is a (very large) table with all of the currently active RLOS.
+
+
+
 
 \begin{tabular}{llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllr}
 \toprule
@@ -1360,23 +1304,38 @@ Female & Pre & AG 26062002 & Greece & Student on a Healthcare course & Books & N
 \bottomrule
 \end{tabular}
 
+
 Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement. As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants. However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
 
-\hypertarget{reach-impact-and-qualatative-analysis}{%
-\section{Reach, Impact, and Qualatative analysis}\label{reach-impact-and-qualatative-analysis}}
+
+
+
+
+
+
+## Reach, Impact, and Qualatative analysis 
+
+
+
+
+
+
+
 
 Dealing with tables in LaTeX can be painful.
 This section explains the main tricks you need to make the pain go away.
 
 (Note: if you are looking at the eBook version, you will not see much difference in this section, as it is only relevant for PDF output!)
 
-\hypertarget{making-your-table-pretty}{%
-\subsection{Making your table pretty}\label{making-your-table-pretty}}
-
-When you use \texttt{kable} to create tables, you will almost certainly want to set the option \texttt{booktabs\ =\ TRUE}.
+### Making your table pretty
+When you use `kable` to create tables, you will almost certainly want to set the option `booktabs = TRUE`.
 This makes your table look a million times better:
 
+
+
 Compare this to the default style, which looks terrible:
+
+
 
 \begin{tabular}{l|r|r|r|r|r|r|r|r|r|r|r}
 \hline
@@ -1396,11 +1355,12 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \hline
 \end{tabular}
 
-\hypertarget{if-your-table-is-too-wide}{%
-\subsection{If your table is too wide}\label{if-your-table-is-too-wide}}
+
+### If your table is too wide
+
 
 You might find that your table expands into the margins of the page, like the tables above.
-Fix this with the \texttt{kable\_styling} function from the \href{https://haozhu233.github.io/kableExtra/}{\texttt{kableExtra}} package:
+Fix this with the `kable_styling` function from the [`kableExtra`](https://haozhu233.github.io/kableExtra/) package:
 
 \begin{table}
 \centering
@@ -1422,10 +1382,10 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 
 This scales down the table to fit the page width.
 
-\hypertarget{if-your-table-is-too-long}{%
-\subsection{If your table is too long}\label{if-your-table-is-too-long}}
 
-If your table is too long to fit on a single page, set \texttt{longtable\ =\ TRUE} in the \texttt{kable} function to split the table across multiple pages.
+### If your table is too long
+If your table is too long to fit on a single page, set `longtable = TRUE` in the `kable` function to split the table across multiple pages.
+
 
 \begin{longtable}{lrrrrrrrr}
 \toprule
@@ -1511,7 +1471,8 @@ Volvo 142E1 & 21.4 & 4 & 121.0 & 109 & 4.11 & 2.780 & 18.60 & 1\\
 \end{longtable}
 
 When you do this, you'll probably want to make the header repeat on new pages.
-Do this with the \texttt{kable\_styling} function from \texttt{kableExtra}:
+Do this with the `kable_styling` function from `kableExtra`:
+
 
 \begin{longtable}{lrrrrrrrrrrr}
 \toprule
@@ -1605,9 +1566,9 @@ Maserati Bora1 & 15.0 & 8 & 301.0 & 335 & 3.54 & 3.570 & 14.60 & 0 & 1 & 5 & 8\\
 Volvo 142E1 & 21.4 & 4 & 121.0 & 109 & 4.11 & 2.780 & 18.60 & 1 & 1 & 4 & 2\\*
 \end{longtable}
 
-Unfortunately, we cannot use the \texttt{scale\_down} option with a \texttt{longtable}.
-So if a \texttt{longtable} is too wide, you can either manually adjust the font size, or show the table in landscape layout.
-To adjust the font size, use kableExtra's \texttt{font\_size} option:
+Unfortunately, we cannot use the `scale_down` option with a `longtable`. 
+So if a `longtable` is too wide, you can either manually adjust the font size, or show the table in landscape layout. 
+To adjust the font size, use kableExtra's `font_size` option:
 
 \begingroup\fontsize{9}{11}\selectfont
 
@@ -1704,7 +1665,8 @@ Volvo 142E1 & 21.4 & 4 & 121.0 & 109 & 4.11 & 2.780 & 18.60 & 1 & 1 & 4 & 2\\*
 \end{longtable}
 \endgroup{}
 
-To put the table in landscape mode, use kableExtra's \texttt{landscape} function:
+To put the table in landscape mode, use kableExtra's `landscape` function:
+
 
 \begin{landscape}
 \begin{longtable}{lrrrrrrrrrrr}
@@ -1800,12 +1762,10 @@ Volvo 142E1 & 21.4 & 4 & 121.0 & 109 & 4.11 & 2.780 & 18.60 & 1 & 1 & 4 & 2\\*
 \end{longtable}
 \end{landscape}
 
-\hypertarget{max-power}{%
-\subsection{Max power: manually adjust the raw LaTeX output}\label{max-power}}
-
-For total flexibility, you can adjust the raw LaTeX output from \texttt{kable}/\texttt{kableExtra} that generates the table.
+### Max power: manually adjust the raw LaTeX output {#max-power}
+For total flexibility, you can adjust the raw LaTeX output from `kable`/`kableExtra` that generates the table.
 Let us consider how we would do this for the example of adjusting the font size if our table is too wide:
-Latex has a bunch of standard commands that set an approximate font size, as shown below in Figure \ref{fig:latex-font-sizing}.
+Latex has a bunch of standard commands that set an approximate font size, as shown below in Figure \\ref{fig:latex-font-sizing}.
 
 \begin{figure}[H]
 
@@ -1818,14 +1778,9 @@ Latex has a bunch of standard commands that set an approximate font size, as sho
 
 You could use these to manually adjust the font size in your longtable in two steps:
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Wrap the longtable environment in, e.g., a \texttt{scriptsize} environment, by doing a string replacement in the output from \texttt{kable}/\texttt{kableExtra}
-\item
-  Add the attributes that make R Markdown understand that the table is a table (it seems R drops these when we do the string replacement)
-\end{enumerate}
+1. Wrap the longtable environment in, e.g., a `scriptsize` environment, by doing a string replacement in the output from `kable`/`kableExtra`
+2. Add the attributes that make R Markdown understand that the table is a table (it seems R drops these when we do the string replacement)
+
 
 \begin{scriptsize}
 \begin{longtable}{lrrrrrrrrrrr}
@@ -1921,87 +1876,114 @@ Volvo 142E1 & 21.4 & 4 & 121.0 & 109 & 4.11 & 2.780 & 18.60 & 1 & 1 & 4 & 2\\*
 \end{longtable}
 \end{scriptsize}
 
+<!--chapter:end:04-Discussion.Rmd-->
+
 output:
-\#bookdown::html\_document2: default
-\#bookdown::word\_document2: default
-bookdown::pdf\_document2:
-template: templates/template.tex
+  #bookdown::html_document2: default
+  #bookdown::word_document2: default
+  bookdown::pdf_document2: 
+    template: templates/template.tex
 documentclass: book
-\#bibliography: {[}bibliography/references.bib, bibliography/additional-references.bib{]}
+#bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
 ---
 
 
 
-\hypertarget{cites-and-refs}{%
-\chapter{Training Event Results}\label{cites-and-refs}}
+
+
+
+# Training Event Results {#cites-and-refs}
 
 \chaptermark{Citations and cross-refs}
+\minitoc <!-- this will include a mini table of contents-->
 
-\minitoc 
 
-\hypertarget{cepeh-training-event-c1}{%
-\section{CEPEH Training Event C1}\label{cepeh-training-event-c1}}
+## CEPEH Training Event C1
+
 
 The CEPEH training event C1 held at the premises of University of Nottingham aiming to prepare participants for the practical elements of co-creation and implementation of chatbots as an educational resource. It combined both theoretical and hands-on training.
 15 participants were from RISE, AUTH, UoN.
 
 Project managers of partners signposted the person involved, and relevant announcements were made though social media channels to the wider public. External to the project speakers were from University of Leeds, and Computer Science Department of University of Nottingham. It included academics, medical doctors, and researchers with focus both on clinical research and digital innovations in healthcare education and IT specialist/learning technologists 11.18 years of experiences (SD=7.2). A balance between male and female participants achieved.
 
-\hypertarget{overall-training-events-evalaution}{%
-\chapter{Overall Training Events Evalaution}\label{overall-training-events-evalaution}}
+
+
+ 
+# Overall Training Events Evalaution
+
 
 Participants were asked to highlight what they liked for each day and how each day can be improved. Findings are described below per day of the training event
 
-Day 1\\
+
+Day 1  
 The participants comment that they liked the design method for educational resources presented using a co-creation approach, they liked the interactions with other groups, and they liked the overview of existing chatbot resources of the partners. On the areas that can be improved, more media material were requested.
+
 
 Day 2
 Participants enjoyed the presentation from the invited speaker from another faculty of the University of Nottingham, the CEPEH recources presented and the storyboarding process. Participants highlighted that the participation of more clinicians in the event would be an added value in regards with the storyboarding process.
 
+
 Day3
 Participants liked the hands-on activities of the day also enjoyed the creativity of the groups on the online chatbot development tool. As an area of improvement, participants wanted more time on hands on sections.
 
-\hypertarget{cepeh-training-event-2}{%
-\section{CEPEH Training Event 2}\label{cepeh-training-event-2}}
 
-\textbf{Pre-Training Event survey May 9th-13th 2022 Thessaloniki, Greece}
 
-Twenty-six participants attended the Training Event, along with approximately 10 staff members. There were 21 undergraduate students and 5 postgraduate students, who completed the survey for a total of 26 responses. There were 86\% of participants who stated they had not been to a similar event like the training event CEPEH facilitated. There were 90\% of students who found the event schedule very organised, and 70\% agreed most of the planned sessions were relevant to that interest with the remaining 30\% not having enough experience to understand the context to determine if they are interested in the training event. There were 95\% of students agreeing or strongly agreeing the training event location is great, the remaining person did not leave additional comments.
+
+
+
+
+
+
+
+## CEPEH Training Event 2
+
+**Pre-Training Event survey May 9th-13th 2022 Thessaloniki, Greece**
+
+Twenty-six participants attended the Training Event, along with approximately 10 staff members. There were 21 undergraduate students and 5 postgraduate students, who completed the survey for a total of 26 responses. There were 86% of participants who stated they had not been to a similar event like the training event CEPEH facilitated. There were 90% of students who found the event schedule very organised, and 70% agreed most of the planned sessions were relevant to that interest with the remaining 30% not having enough experience to understand the context to determine if they are interested in the training event. There were 95% of students agreeing or strongly agreeing the training event location is great, the remaining person did not leave additional comments. 
+
 
 Table 1 suggested attendees had minimal intention to share their own ideas due to lack of previous experience of attending such events, or due to lack of knowledge on the area. However, most were interested in listening to other groups and hearing contextual cases in healthcare.
 
-There were 77\% of participants stated they were novices in experience with chatbots in healthcare and were attending to learn more. The remaining 23\% (7 students) stated they were competent and had limited experience with chatbots in healthcare.
 
-One day had several events regarding cybersecurity in healthcare. When asked before these events, 83\% stated they were neutral or disagreed that they felt confident about their cybersecurity knowledge in healthcare. In addition, 80\% stated they when neutral or disagreed that they felt they had strong cybersecurity safety in healthcare. Table 2 shows the main pre and post results suggesting a positive experience for more than 75\% of attendees on all measures.
 
-There were 90\% (23) of students who heard about the event through a lecturer or a professor, the CEPEH newsletter (2), and 1 person was informed through the anatomy tutoring system at Karolinska Institute. Additionally, 60\% suggested the training event to somebody else before the course started.
+There were 77% of participants stated they were novices in experience with chatbots in healthcare and were attending to learn more.  The remaining 23% (7 students) stated they were competent and had limited experience with chatbots in healthcare.
 
-There were six individuals who stated neutral or disagree when asked if having issues on registration or finding the information for the event. This may have been due to being dependent on emails to receive the information, instead of a dedicated website where the information is available anytime.
 
-As this was face-to-face, participants were asked about sufficient Covid-19 precautions in place at the facility, 94\% agreed with sufficient precautions, two individuals stated no but did not give further information in the additional input box provided.
-In summary, most participants were undergraduate students with novice experience, happy with the training event location, felt the sessions were relevant to them, and most shared the event with their colleagues. The values of co-creation, chatbots in healthcare, and taking patient history were bestowed to students in an engaging and well-received manner. Notably, the highest ratings were for staff friendliness which is key to engagement and consistent interaction throughout the intense and long 5-day duration. The sessions were recorded there for the online recordings may be viewed with higher numbers over the subsequent weeks.
+One day had several events regarding cybersecurity in healthcare. When asked before these events, 83% stated they were neutral or disagreed that they felt confident about their cybersecurity knowledge in healthcare. In addition, 80% stated they when neutral or disagreed that they felt they had strong cybersecurity safety in healthcare.  Table 2 shows the main pre and post results suggesting a positive experience for more than 75% of attendees on all measures. 
 
-The usual way to include citations in an \emph{R Markdown} document is to put references in a plain text file with the extension \textbf{.bib}, in \textbf{BibTex} format.\footnote{The bibliography can be in other formats as well, including EndNote (\textbf{.enl}) and RIS (\textbf{.ris}), see \href{https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html}{rmarkdown.rstudio.com/authoring\_bibliographies\_and\_citations}.}
-Then reference the path to this file in \textbf{index.Rmd}'s YAML header with \texttt{bibliography:\ example.bib}.
+
+
+There were 90% (23) of students who heard about the event through a lecturer or a professor, the CEPEH newsletter (2), and 1 person was informed through the anatomy tutoring system at Karolinska Institute. Additionally, 60% suggested the training event to somebody else before the course started.
+
+
+There were six individuals who stated neutral or disagree when asked if having issues on registration or finding the information for the event. This may have been due to being dependent on emails to receive the information, instead of a dedicated website where the information is available anytime. 
+
+
+As this was face-to-face, participants were asked about sufficient Covid-19 precautions in place at the facility, 94% agreed with sufficient precautions, two individuals stated no but did not give further information in the additional input box provided.
+In summary, most participants were undergraduate students with novice experience, happy with the training event location, felt the sessions were relevant to them, and most shared the event with their colleagues. The values of co-creation, chatbots in healthcare, and taking patient history were bestowed to students in an engaging and well-received manner. Notably, the highest ratings were for staff friendliness which is key to engagement and consistent interaction throughout the intense and long 5-day duration. The sessions were recorded there for the online recordings may be viewed with higher numbers over the subsequent weeks. 
+
+
+
+The usual way to include citations in an *R Markdown* document is to put references in a plain text file with the extension **.bib**, in **BibTex** format.[^bib-formats]
+Then reference the path to this file in **index.Rmd**'s YAML header with `bibliography: example.bib`.
+
+[^bib-formats]: The bibliography can be in other formats as well, including EndNote (**.enl**) and RIS (**.ris**), see [rmarkdown.rstudio.com/authoring_bibliographies_and_citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
 
 Most reference managers can create a .bib file with you references automatically.
-However, the \textbf{by far} best reference manager to use with \emph{R Markdown} is \href{https://www.zotero.org}{Zotero} with the \href{https://retorque.re/zotero-better-bibtex/}{Better BibTex plug-in}, because the \texttt{citr} plugin for RStudio (see below) can read references directly from your Zotero library!
+However, the **by far** best reference manager to use with *R Markdown* is [Zotero](https://www.zotero.org) with the [Better BibTex plug-in](https://retorque.re/zotero-better-bibtex/), because the `citr` plugin for RStudio (see below) can read references directly from your Zotero library!
 
-Here is an example of an entry in a \textbf{.bib} file:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\VariableTok{@article}\NormalTok{\{}\OtherTok{Shea2014}\NormalTok{,}
-  \DataTypeTok{author}\NormalTok{ =        \{Shea, Nicholas and Boldt, Annika\},}
-  \DataTypeTok{journal}\NormalTok{ =       \{Trends in Cognitive Sciences\},}
-  \DataTypeTok{pages}\NormalTok{ =         \{186{-}{-}193\},}
-  \DataTypeTok{title}\NormalTok{ =         \{\{Supra{-}personal cognitive control\}\},}
-  \DataTypeTok{volume}\NormalTok{ =        \{18\},}
-  \DataTypeTok{year}\NormalTok{ =          \{2014\},}
-  \DataTypeTok{doi}\NormalTok{ =           \{10.1016/j.tics.2014.01.006\},}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+Here is an example of an entry in a **.bib** file:
+```bibtex
+@article{Shea2014,
+  author =        {Shea, Nicholas and Boldt, Annika},
+  journal =       {Trends in Cognitive Sciences},
+  pages =         {186--193},
+  title =         {{Supra-personal cognitive control}},
+  volume =        {18},
+  year =          {2014},
+  doi =           {10.1016/j.tics.2014.01.006},
+}
+\end{verbatim}
 
 In this entry highlighted section, `Shea2014' is the \textbf{citation identifier}.
 To default way to cite an entry in your text is with this syntax: \texttt{{[}@citation-identifier{]}}.
@@ -2234,9 +2216,6 @@ This first appendix includes an R chunk that was hidden in the document (using \
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-Darwin1859}{}}%
-Darwin, C. (1859). \emph{{On the Origin of Species by Means of Natural Selection or the Preservation of Favoured Races in the Struggle for Life}}. John Murray.
-
 \leavevmode\vadjust pre{\hypertarget{ref-von_goethe_wilhelm_1829}{}}%
 Goethe, J. W. von. (1829). \emph{Wilhelm {Meisters} {Wanderjahre} oder die {Entsagenden}}. Cotta.
 

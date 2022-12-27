@@ -54,11 +54,9 @@ CEPEHQ_raw$doc_id <- plyr::revalue(CEPEHQ_raw$doc_id,
 
 ## Tokenising
 
-A Token is "a meaningful unit of text, most often a word, that we are interested in using for further analysis"
-Meaning, for each word we give it a property that we can call upon later. 
+Firstly, we tokenised the words from the FGDs. A Token is "a meaningful unit of text, most often a word, that we are interested in using for further analysis". For each word we give it a property that we can call upon later. 
 
-The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as "characters", "ngrams", "sentences", "lines", "regex", "paragraphs")
-
+The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as "characters", "ngrams", "sentences", "lines" etc)
 
 ```{r give text tokens, echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_tidy <- CEPEHQ_raw%>% 
@@ -69,20 +67,14 @@ head(CEPEHQ_tidy)
 
 ```
 
-### 2.2 Removing non-alphanumeric characters
-* str_extract is used to get rid of non-alphanumeric characters (because we don't want to count _word_ separately from word)
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_tidy <- CEPEHQ_tidy %>% 
   mutate(word = str_extract(word, "[a-z']+"))
 ``` 
 
+### Stop words
+ The model then removed words with meaningless function. These are called stop words. Words like "the", "of" and "to" are the most frequent words found, technically, but are of little interest to us.
 
-### 2.3 Stop words
-* Stop words: very common, "meaningless" function words like "the", "of" and "to" -- not usually important in an analysis (i.e. to find out that the most common word in two books you are comparing is "the")
-* tidytext has a built-in df called stop_words for English 
-* remove these from your dataset with anti_join
-
-We can take a look:
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 stop_words
 ```
@@ -94,29 +86,16 @@ CEPEHQ_tidy <- CEPEHQ_tidy %>%
 CEPEHQ_tidy
 ```
 
-Define other stop words:
+We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.
+
 ```{r}
-meaningless_words <- tibble(word = c("found", "chatbot", "chatbots", "presentations", "NA", "video", "videos", "didnt", "didn't", "na", "nil", ""))
+meaningless_words <- tibble(word = c("found", "chatbot", "cybersecurity","chatbots", "presentations", "presentation", "NA", "video", "videos", "didnt", "didn't", "na", "nil", ""))
 
 CEPEHQ_tidy <- CEPEHQ_tidy %>% 
   anti_join(meaningless_words)
 ```
 
-
-
-
-Break: Prepare your data with the steps above. 1) Unnest tokens, 2) Remove alpha-numeric characters, 3) Remove stopwords 
-
-
-## 3 Analysing frequencies
-
-### 3.1 Find most frequent words
-* Easily find frequent words using count() 
-* Data must be in tidy format (one token per line)
-* sort = TRUE to show the most frequent words first
-
-tidy_books %>%
-  count(word, sort = TRUE) 
+The data was ready for analysis by the model. We ordered it to find the most frequent words. 
 
 ```{r this half worked but keep, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -132,32 +111,28 @@ CEPEHQ_freq <- CEPEHQ_freq[-6,]
 
 CEPEHQ_freq
 ```
-The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word *'helpful'* which has a positive connotation, however there are 386 words, with many having several occurrences. 
 
-What is the sentiment of all participants? What is types of emotional words are being used?
-
-
-```{r group by word and filter for true, echo=FALSE, message=FALSE, warning=FALSE}
+```{r group by word and filter for true, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 CEPEHQ_tidy %>% 
   group_by(doc_id) %>% 
   count(word, sort=TRUE) %>% 
   filter(doc_id == "1")
+
+CEPEHQ_tidy 
 ```
 
 #### Plotting word frequencies - bar graphs
 
-Bar graph of top words in CEPEHQ.
+With this information a Bar graph of top words from the participants in the FGD can be rendered.
 
-Basic graph:
-```{r eval=FALSE, include=FALSE}
+```{r FREQ words bar graph, echo=FALSE}
 CEPEHQ_freq %>% 
   filter(n>7& doc_id == "1") %>% 
   ggplot(aes(x=word, y=n)) +
   geom_col()
 ```
 
-
-```{r Readable labels, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Readable labels, message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_freq %>% 
   filter(n>7 & doc_id == "1") %>% 
   ggplot(aes(x=word, y=n)) +
@@ -166,7 +141,7 @@ CEPEHQ_freq %>%
 ```
 
 
-```{r Descending order, include=FALSE}
+```{r Descending order, message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_freq %>% 
   filter(n>7 & doc_id == "1") %>% 
   ggplot(aes(x=reorder(word, -n), y=n)) +
@@ -174,22 +149,19 @@ CEPEHQ_freq %>%
   theme(axis.text.x = element_text(angle = 45))
 ```
 
+and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.
+```{r message=FALSE, warning=FALSE, include=FALSE}
+CEPEHQ_freq <- na.omit(CEPEHQ_freq)
 
-```{r include=FALSE}
-CEPEHQ_freq %>% 
+CEPEHQ_freq %>%
   filter(n>4 & doc_id == "1") %>% 
   ggplot(aes(x=reorder(word, -n), y=n, fill=n)) +
   geom_col(show.legend=FALSE) +
   theme(axis.text.x = element_text(angle = 45)) +
   xlab("Word") +
   ylab("Frequency") +
-  ggtitle("Most frequent words in all CEPEH qualatative data")
+  ggtitle("Most frequent words in CEPEH Chatbot Focus Group Discussions")
 ```
-
-
-The words can be grouped and plotted onto a bar chart, and to show more words this chart is presented with horizontal bars. 
-The most frequent words present in the various focus group discussions after using the 4 CEPEH chatbots are in the Figure below.
-
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_freq %>% 
@@ -202,16 +174,10 @@ CEPEHQ_freq %>%
   coord_flip()
 ```
 
-
 Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted. 
 
-
-
 ### 3.2 Normalised frequency
-* when comparing the frequencies of words from different texts, they are commonly normalised
-* convention in corpus linguistics: report the frequency per 1 million words
-* for shorter texts: per 10,000 or per 100,000 words
-* calculation: raw frequency * 1,000,000 / total numbers in text
+A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to suit.
 ```{r}
 # see the total number of words per play (doc_id)
 CEPEHQ_freq %>% 
@@ -230,7 +196,9 @@ CEPEHQ_freq %>% select(word, pmw)
 ```
 
 #### Plotting normalised frequency
-Now we can plot, for example, the 20 most frequent words (by pmw).
+
+Now we can plot, for example, the 20 most frequent words when normalised by the source text.
+
 ```{r CEPEH MOST FREQ, echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_freq %>% 
   filter(doc_id == "1") %>% 
@@ -243,11 +211,13 @@ CEPEHQ_freq %>%
   ggtitle("Most frequent words in CEPEH FGDs")
 
 ```
+In summary, this understanding of frequent words can help to understand common concurrences and extrapolate to a larger audience. If scope and impact of CEPEH chatbots increased we can understand the type of themes and trends may occur, based on such FGD analysis.
 
 
 ### 3.3 Word clouds
 
-Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size. -this issued to visualise normalised frequency, in accordance to the FGD source document analysed.
+To visualise the most frequent words in another format, below is a word cloud which presents the word size to indicate the frequency- words that occur more often being displayed in a larger font size. 
+This has a normalised data frequency in accordance to the FGD source document analysed.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 wordcloud(words = CEPEHQ_freq$word, freq = CEPEHQ_freq$n, 
@@ -291,6 +261,9 @@ ggplot(comp_2,
 
 ## Sentiment analysis
 
+
+What is the sentiment of all participants? What is types of emotional words are being used?
+The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word *'helpful'* which has a positive connotation, however there are 386 words, with many having several occurrences.
 ```{r sentiment, echo=FALSE, message=FALSE, warning=FALSE}
 head(get_sentiments("bing"))
 
@@ -342,45 +315,5 @@ knitr::kable(CEPEHQ_tidy_bing)
 
 ```
 
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, out.height='1000px', out.width='100%'}
-knitr::include_graphics("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf")
-```
-<br>
-
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, linewidth=, results='asis'}
-# install.packages(pdftools)
-# split PDF into pages stored in figures/sample-content/pdf_embed_example/split/
-# pdftools::pdf_split("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf",
-#        output = "figures/sample-content/pdf_embed_example/split/")
-
-# grab the pages
-pages <- list.files("figures/sample-content/pdf_embed_example/split", full.names = TRUE)
-
-# set how wide you want the inserted PDFs to be: 
-# 1.0 is 100 per cent of the oxforddown PDF page width;
-# you may want to make it a bit bigger
-pdf_width <- 1.2
-
-# for each PDF page, insert it nicely and
-# end with a page break
-cat(stringr::str_c("\\newpage \\begin{center} \\makebox[\\linewidth][c]{\\includegraphics[width=", pdf_width, "\\linewidth]{", pages, "}} \\end{center}"))
-
-```
-
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, out.height='1000px', out.width='100%'}
-knitr::include_graphics("figures/sample-content/alt_frontmatter_example/alt-frontmatter-example.pdf")
-```
-
-\noindent
-```{r echo=FALSE, message=FALSE, warning=FALSE, out.height='1000px', out.width='100%', results='asis'}
-# grab the pages
-pages <- list.files("figures/sample-content/alt_frontmatter_example/split", full.names = TRUE)
-
-pdf_width <- 0.32
-
-cat(stringr::str_c("\\fbox{\\includegraphics[width=", pdf_width, "\\linewidth]{", pages, "}}"))
 
 ```
