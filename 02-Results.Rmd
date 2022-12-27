@@ -18,7 +18,7 @@ editor_options:
 <!-- LaTeX normally does not indent the first line after a heading - however, it does so after the mini table of contents. You can manually tell it not to with \noindent -->
 \noindent
 
-```{r Importing Data 2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r Importing Data 2, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 
 
 knitr::opts_chunk$set(
@@ -85,7 +85,7 @@ Boxplotsplits2 %>%
 #------then pipe into ggplot
   #the first aesthetic label is always the x axis
   ggplot(aes(Profession))+
-  geom_bar(aes(fill = Profession), alpha = 0.8)+
+  geom_bar(aes(fill = Use_chatbots_frequently_pre), alpha = 0.8)+
   facet_wrap(~Profession)+
   theme_get()+
   theme(panel.grid.major = element_blank(),
@@ -93,20 +93,21 @@ Boxplotsplits2 %>%
         axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+
-                 labs(title="I would like to use chatbots frequently",
+                 labs(title="I would like to use chatbots frequently-Pre",
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
 ```
 
-```{r BoxplotUsefulPre, echo=FALSE, fig.cap="Useful Opinion-Pre", message=FALSE, warning=FALSE}
+
+
+```{r BoxplotUsefulPre, echo=FALSE, fig.cap="Useful Opinion-Pre", message=FALSE, warning=FALSE, paged.print=TRUE}
 
 library(tidyverse)
 library(readr)
 
-
 try(Boxplotsplits2 <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))
 
-drop_na(Boxplotsplits2)
+Boxplotsplits2<- na.omit(Boxplotsplits2)
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits2 %>%
@@ -129,6 +130,7 @@ Boxplotsplits2 %>%
                  labs(title="I think chatbots are useful -Pre",
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
+
 ```
 
 
