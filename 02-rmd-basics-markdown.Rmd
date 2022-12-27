@@ -73,9 +73,6 @@ Boxplotsplits1 %>%
 ```
 
 
-
-
-
 ```{r Boxplotsplits3, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
@@ -107,7 +104,6 @@ Boxplotsplits3 %>%
 ```
 There was only 1 'Strongly Disagree' response.
 The agreement options counted for the majority of the data. 
-
 
 
 
@@ -299,7 +295,43 @@ Boxplotsplits9 %>%
                       y= "Frequency")
 ```
 
+
+
+```{r Boxplotsplits10, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits10 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits10 %>%
+  
+  filter(get_help %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(get_help) %>%
+  drop_na(get_help_pre)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(get_help_pre))+
+  geom_bar(aes(fill =get_help_pre), alpha = 0.8)+
+  facet_wrap(~get_help)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="I can get help when I have difficulties using CEPEH chatbots",
+                      x= "",
+                      y= "Frequency")
+```
+Those who disagreed or were neutral in the pre usage measure, improved their understanding that help was available with the CEPEH chatbots. After usage, 40 participants agreed they could get help if they had difficulty using the resources.
+
+
 ```{r previous chatbot use, message=FALSE, warning=FALSE}
+
+
 
 # table for previous chatbot usage
 
