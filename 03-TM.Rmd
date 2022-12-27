@@ -325,7 +325,7 @@ CEPEHQ_tidy  %>%
 
 ```
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 CEPEHQ_tidy_bing <-  CEPEHQ_tidy%>% 
   inner_join(get_sentiments("bing")) %>% 
@@ -344,13 +344,13 @@ knitr::kable(CEPEHQ_tidy_bing)
 ```
 
 
-```{r, eval=knitr::is_html_output(), out.width='100%', out.height='1000px'}
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height='1000px', out.width='100%'}
 knitr::include_graphics("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf")
 ```
 <br>
 
 
-```{r, echo=TRUE, results='asis', eval=knitr::is_latex_output(), linewidth = 70}
+```{r echo=FALSE, message=FALSE, warning=FALSE, linewidth=, results='asis'}
 # install.packages(pdftools)
 # split PDF into pages stored in figures/sample-content/pdf_embed_example/split/
 # pdftools::pdf_split("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf",
@@ -371,12 +371,12 @@ cat(stringr::str_c("\\newpage \\begin{center} \\makebox[\\linewidth][c]{\\includ
 ```
 
 
-```{r, echo=FALSE, eval=knitr::is_html_output(), out.width='100%', out.height='1000px'}
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height='1000px', out.width='100%'}
 knitr::include_graphics("figures/sample-content/alt_frontmatter_example/alt-frontmatter-example.pdf")
 ```
 
 \noindent
-```{r, echo=FALSE, out.width='100%', out.height='1000px', results='asis', eval=knitr::is_latex_output}
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height='1000px', out.width='100%', results='asis'}
 # grab the pages
 pages <- list.files("figures/sample-content/alt_frontmatter_example/split", full.names = TRUE)
 
