@@ -293,8 +293,6 @@ resources.
 
 ```{r previous chatbot use, message=FALSE, warning=FALSE}
 
-
-
 # table for previous chatbot usage
 
 prevchat <- subset(data, select = c("Previous_Chatbot_Usage"))

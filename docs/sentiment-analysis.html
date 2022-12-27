@@ -150,32 +150,24 @@
 ## 6 easy      positive      3 "\"\"..."</code></pre>
 <pre><code>##   max(total_score) min(total_score)
 ## 1               38               38</code></pre>
-<div class="inline-figure"><img src="_main_files/figure-html/sentiment-1.png" width="672"></div>
-<pre><code>
-
-
-&lt;embed src="figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf" width="100%" height="1000px" type="application/pdf" /&gt;
-&lt;br&gt;
-
-
-
-```r
-# install.packages(pdftools)
-# split PDF into pages stored in figures/sample-content/pdf_embed_example/split/
-# pdftools::pdf_split("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf",
-#        output = "figures/sample-content/pdf_embed_example/split/")
-
-# grab the pages
-pages &lt;- list.files("figures/sample-content/pdf_embed_example/split", full.names = TRUE)
-
-# set how wide you want the inserted PDFs to be: 
-# 1.0 is 100 per cent of the oxforddown PDF page width;
-# you may want to make it a bit bigger
-pdf_width &lt;- 1.2
-
-# for each PDF page, insert it nicely and
-# end with a page break
-cat(stringr::str_c("\\newpage \\begin{center} \\makebox[\\linewidth][c]{\\includegraphics[width=", pdf_width, "\\linewidth]{", pages, "}} \\end{center}"))</code></pre>
+<embed src="figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf" width="100%" height="1000px" type="application/pdf"></embed><p><br></p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages(pdftools)</span></span>
+<span><span class="co"># split PDF into pages stored in figures/sample-content/pdf_embed_example/split/</span></span>
+<span><span class="co"># pdftools::pdf_split("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf",</span></span>
+<span><span class="co">#        output = "figures/sample-content/pdf_embed_example/split/")</span></span>
+<span></span>
+<span><span class="co"># grab the pages</span></span>
+<span><span class="va">pages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="st">"figures/sample-content/pdf_embed_example/split"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># set how wide you want the inserted PDFs to be: </span></span>
+<span><span class="co"># 1.0 is 100 per cent of the oxforddown PDF page width;</span></span>
+<span><span class="co"># you may want to make it a bit bigger</span></span>
+<span><span class="va">pdf_width</span> <span class="op">&lt;-</span> <span class="fl">1.2</span></span>
+<span></span>
+<span><span class="co"># for each PDF page, insert it nicely and</span></span>
+<span><span class="co"># end with a page break</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"\\newpage \\begin{center} \\makebox[\\linewidth][c]{\\includegraphics[width="</span>, <span class="va">pdf_width</span>, <span class="st">"\\linewidth]{"</span>, <span class="va">pages</span>, <span class="st">"}} \\end{center}"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <embed src="figures/sample-content/alt_frontmatter_example/alt-frontmatter-example.pdf" width="100%" height="1000px" type="application/pdf"></embed><p>
 </p>
 

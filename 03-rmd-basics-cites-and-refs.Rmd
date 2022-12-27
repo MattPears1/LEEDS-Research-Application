@@ -1,3 +1,8 @@
+---
+output: 
+  html_document: 
+    fig_caption: yes
+---
 
 output:
   #bookdown::html_document2: default
@@ -78,7 +83,7 @@ CEPEHQ_tidy <- CEPEHQ_tidy %>%
 * remove these from your dataset with anti_join
 
 We can take a look:
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 stop_words
 ```
 
@@ -91,7 +96,7 @@ CEPEHQ_tidy
 
 Define other stop words:
 ```{r}
-meaningless_words <- tibble(word = c("found", "chatbot", "chatbots", "presentations", "NA", "video", "videos", "didnt", "na", "nil", ""))
+meaningless_words <- tibble(word = c("found", "chatbot", "chatbots", "presentations", "NA", "video", "videos", "didnt", "didn't", "na", "nil", ""))
 
 CEPEHQ_tidy <- CEPEHQ_tidy %>% 
   anti_join(meaningless_words)
@@ -188,7 +193,7 @@ The most frequent words present in the various focus group discussions after usi
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_freq %>% 
-  filter(n>3,doc_id == "1") %>% 
+  filter(n>3,doc_id == "1") %>% na.omit(CEPEHQ_freq)%>%
   ggplot(aes(x=reorder(word, n), y=n, fill=n)) +
   geom_col(show.legend=FALSE) +
   xlab("Word") +
@@ -199,7 +204,6 @@ CEPEHQ_freq %>%
 
 
 Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted. 
-
 
 
 
@@ -218,7 +222,7 @@ CEPEHQ_freq %>%
 CEPEHQ_freq <- CEPEHQ_freq %>% 
   na.omit() %>% 
   group_by(doc_id) %>% 
-  mutate(pmw = n*1000/sum(n)) %>% # creates a new column called pmw
+  mutate(pmw = n*2827/sum(n)) %>% # creates a new column called pmw
   ungroup() %>% 
   anti_join(stop_words) # removing stopwords afterwards
 
@@ -227,7 +231,7 @@ CEPEHQ_freq %>% select(word, pmw)
 
 #### Plotting normalised frequency
 Now we can plot, for example, the 20 most frequent words (by pmw).
-```{r}
+```{r CEPEH MOST FREQ, echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_freq %>% 
   filter(doc_id == "1") %>% 
   top_n(20, pmw) %>% 
@@ -235,19 +239,24 @@ CEPEHQ_freq %>%
   geom_col(show.legend=FALSE) +
   theme(axis.text.x = element_text(angle = 45)) +
   xlab("Word") +
-  ylab("Frequency per 1000 words") +
-  ggtitle("Most frequent words in HELM")
+  ylab("Frequency within 2827 words FGD Source") +
+  ggtitle("Most frequent words in CEPEH FGDs")
+
 ```
 
 
 ### 3.3 Word clouds
 
-Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g. normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
+Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size. -this issued to visualise normalised frequency, in accordance to the FGD source document analysed.
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 wordcloud(words = CEPEHQ_freq$word, freq = CEPEHQ_freq$n, 
           min.freq = 4, max.words=2000, random.order=FALSE, rot.per=0.35, 
           colors=brewer.pal(8, "Dark2"))
 ```
+We understand the context has been reduced for each word. However, in general there can be categorised positive/negative words from the word cloud: 
+Positive words are- benefit, practical, nice, helpful, learn, ideas, and enjoyed
+Negative words are- difficult, test (who likes a test?), don't, and 'lot' may be negative if there is a 'lot' of information.
 
 
 ## The vocabulary of Texts
@@ -315,21 +324,16 @@ CEPEHQ_tidy  %>%
 
 CEPEHQ_tidy_bing <-  CEPEHQ_tidy%>% 
   inner_join(get_sentiments("bing")) %>% 
-  count(doc_id, sentiment) %>% 
+  count(sentiment) %>% 
   spread(sentiment, n, fill=0) %>% 
   mutate(total_score = positive - negative)
 
 CEPEHQ_tidy_bing %>% 
   summarize(max(total_score), min(total_score)) 
 
-ggplot(aes(x=total_score, y=total_score, group=total_score), data=CEPEHQ_tidy_bing) +
-    geom_violin(aes(color=total_score), show.legend=FALSE)
-```
-
 
 
 ```
-
 
 
 ```{r, eval=knitr::is_html_output(), out.width='100%', out.height='1000px'}

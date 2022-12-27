@@ -1160,16 +1160,16 @@ Although the frequency is not high for each word, we are able to get a general p
 ## # A tibble: 385 x 2
 ##    word            pmw
 ##    <chr>         <dbl>
-##  1 cybersecurity 16.3 
-##  2 information   16.3 
-##  3 presentation  13.3 
-##  4 helpful       11.8 
-##  5 understand    11.8 
-##  6 ideas         10.4 
-##  7 lot           10.4 
-##  8 workshop      10.4 
-##  9 beginning      8.88
-## 10 dont           8.88
+##  1 cybersecurity  46.0
+##  2 information    46.0
+##  3 presentation   37.6
+##  4 helpful        33.5
+##  5 understand     33.5
+##  6 ideas          29.3
+##  7 lot            29.3
+##  8 workshop       29.3
+##  9 beginning      25.1
+## 10 dont           25.1
 ## # ... with 375 more rows
 \end{verbatim}
 
@@ -1177,19 +1177,23 @@ Although the frequency is not high for each word, we are able to get a general p
 \subsubsection{Plotting normalised frequency}\label{plotting-normalised-frequency}}
 
 Now we can plot, for example, the 20 most frequent words (by pmw).
-\includegraphics{_main_files/figure-latex/unnamed-chunk-11-1.pdf}
+\includegraphics{_main_files/figure-latex/CEPEH MOST FREQ-1.pdf}
 
 \hypertarget{word-clouds}{%
 \subsection{3.3 Word clouds}\label{word-clouds}}
 
-Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size, but this can also be used to visualise e.g.~normalised frequency (pmw) or length or anything else you pass to the freq = part of the command.
-\includegraphics{_main_files/figure-latex/unnamed-chunk-12-1.pdf}
+Let's visualise the most frequent words in a word cloud. Here, the size indicates the frequency, with words that occur more often being displayed in a larger font size. -this issued to visualise normalised frequency, in accordance to the FGD source document analysed.
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-11-1.pdf}
+We understand the context has been reduced for each word. However, in general there can be categorised positive/negative words from the word cloud:
+Positive words are- benefit, practical, nice, helpful, learn, ideas, and enjoyed
+Negative words are- difficult, test (who likes a test?), don't, and `lot' may be negative if there is a `lot' of information.
 
 \hypertarget{the-vocabulary-of-texts}{%
 \section{The vocabulary of Texts}\label{the-vocabulary-of-texts}}
 
 Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour coding shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
-\includegraphics{_main_files/figure-latex/unnamed-chunk-14-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-13-1.pdf}
 
 \hypertarget{sentiment-analysis}{%
 \chapter{Sentiment analysis}\label{sentiment-analysis}}
@@ -1277,35 +1281,26 @@ Here is a graph that has plotted the words in places depending on the word frequ
 ## 1               38               38
 \end{verbatim}
 
-\includegraphics{_main_files/figure-latex/sentiment-1.pdf}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages(pdftools)}
+\CommentTok{\# split PDF into pages stored in figures/sample{-}content/pdf\_embed\_example/split/}
+\CommentTok{\# pdftools::pdf\_split("figures/sample{-}content/pdf\_embed\_example/Lyngs2020\_FB.pdf",}
+\CommentTok{\#        output = "figures/sample{-}content/pdf\_embed\_example/split/")}
 
-\begin{verbatim}
+\CommentTok{\# grab the pages}
+\NormalTok{pages }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\StringTok{"figures/sample{-}content/pdf\_embed\_example/split"}\NormalTok{, }\AttributeTok{full.names =} \ConstantTok{TRUE}\NormalTok{)}
 
+\CommentTok{\# set how wide you want the inserted PDFs to be: }
+\CommentTok{\# 1.0 is 100 per cent of the oxforddown PDF page width;}
+\CommentTok{\# you may want to make it a bit bigger}
+\NormalTok{pdf\_width }\OtherTok{\textless{}{-}} \FloatTok{1.2}
 
-
-
-<br>
-
-
-
-```r
-# install.packages(pdftools)
-# split PDF into pages stored in figures/sample-content/pdf_embed_example/split/
-# pdftools::pdf_split("figures/sample-content/pdf_embed_example/Lyngs2020_FB.pdf",
-#        output = "figures/sample-content/pdf_embed_example/split/")
-
-# grab the pages
-pages <- list.files("figures/sample-content/pdf_embed_example/split", full.names = TRUE)
-
-# set how wide you want the inserted PDFs to be: 
-# 1.0 is 100 per cent of the oxforddown PDF page width;
-# you may want to make it a bit bigger
-pdf_width <- 1.2
-
-# for each PDF page, insert it nicely and
-# end with a page break
-cat(stringr::str_c("\\newpage \\begin{center} \\makebox[\\linewidth][c]{\\includegraphics[width=", pdf_width, "\\linewidth]{", pages, "}} \\end{center}"))
-\end{verbatim}
+\CommentTok{\# for each PDF page, insert it nicely and}
+\CommentTok{\# end with a page break}
+\FunctionTok{cat}\NormalTok{(stringr}\SpecialCharTok{::}\FunctionTok{str\_c}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{newpage }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{begin\{center\} }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{makebox[}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{linewidth][c]\{}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{includegraphics[width="}\NormalTok{, pdf\_width, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{linewidth]\{"}\NormalTok{, pages, }\StringTok{"\}\} }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{end\{center\}"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \newpage \begin{center} \makebox[\linewidth][c]{\includegraphics[width=1.2\linewidth]{figures/sample-content/pdf_embed_example/split/_000000000000001.pdf}} \end{center} \newpage \begin{center} \makebox[\linewidth][c]{\includegraphics[width=1.2\linewidth]{figures/sample-content/pdf_embed_example/split/_000000000000011.pdf}} \end{center}
 
