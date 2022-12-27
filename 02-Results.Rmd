@@ -59,20 +59,16 @@ colnames(disc)[1] = "Location"
 
 ## Learner Characteristics
 
-Most learners use books or online books as resources. Of course, they
-may use multiple sources however they were asked to note the primary
-source. Only 6 stated their primary sources were *Online
-videos/interactive materials* which includes such tools as chatbots.
+When asked the amount of time participants have used a chatbot- in any form or subject: 23 stated they had never used a chatbot, educational or not. Further, 18/42 having used a chatbot at least once for between 0-4 hours of use in total. Two individuals had spent much longer time with usage- these were a learning technologist associated with the CEPEH team, and a mature student. 
+In short, this sample of participants did not regularly use chatbots for their course learning, but 1/3 had used one in some form previously.
 
-This can be supported when asked the amount of time participants have
-used a chatbot- in any form or subject: 23 stated they had never used a
-chatbot, being educational or not. 2 individuals had spent what would be
-extensive time with usage- these were the Learning Technologist and
-Mature Student.Therefore, we can state that the sample used did not regularly use chatbots for their course learning, with 18/42 having used a chatbot at least once for between 0-4 hours of use in total.
+Most learners use books or online books as resources. They may use multiple sources however they were asked to note
+the primary source. Only 6 stated their primary sources were *Online videos/interactive materials* which includes
+such tools as chatbots.
 
-The first boxplot here shows learners perceptions of easy of use of mobile appa dn other educational mobile resources
+The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of easy of use of mobile app and other educational mobile resources
 
-```{r Boxplotsplits2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits2, echo=FALSE, fig.cap="Usage Freq Pre.", message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -102,7 +98,9 @@ Boxplotsplits2 %>%
                       y= "Frequency")
 ```
 
-```{r previous chatbot use, message=FALSE, warning=FALSE}
+
+
+```{r previous chatbot use, echo=FALSE, message=FALSE, warning=FALSE}
 
 # table for previous chatbot usage
 
@@ -112,6 +110,7 @@ colnames(disc)[1] = "Previous_Chatbot_Usage"
 
 knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never","1-4 hours", "5-9 hours","20+ hours","10-19 hours",format('html'))) %>% group_by(Previous_Chatbot_Usage) %>% count(Previous_Chatbot_Usage),"pipe", decreasing = TRUE)
 ```
+
 
 
 
