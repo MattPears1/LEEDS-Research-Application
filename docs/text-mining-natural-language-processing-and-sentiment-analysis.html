@@ -104,81 +104,23 @@
 </h2>
 <p>Firstly, we tokenised the words from the FGDs. A Token is “a meaningful unit of text, most often a word, that we are interested in using for further analysis”. For each word we give it a property that we can call upon later.</p>
 <p>The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as “characters”, “ngrams”, “sentences”, “lines” etc)</p>
-<pre><code>## readtext object consisting of 6 documents and 0 docvars.
-## # Description: df [6 × 3]
-##   doc_id word       text     
-##   &lt;fct&gt;  &lt;chr&gt;      &lt;chr&gt;    
-## 1 1      p1         "\"\"..."
-## 2 1      for        "\"\"..."
-## 3 1      me         "\"\"..."
-## 4 1      personally "\"\"..."
-## 5 1      it         "\"\"..."
-## 6 1      was        "\"\"..."</code></pre>
 <div id="stop-words" class="section level3" number="3.2.1">
 <h3>
 <span class="header-section-number">3.2.1</span> Stop words<a class="anchor" aria-label="anchor" href="#stop-words"><i class="fas fa-link"></i></a>
 </h3>
 <p>The model then removed words with meaningless function. These are called stop words. Words like “the”, “of” and “to” are the most frequent words found, technically, but are of little interest to us.</p>
-<pre><code>## # A tibble: 1,149 × 2
-##    word        lexicon
-##    &lt;chr&gt;       &lt;chr&gt;  
-##  1 a           SMART  
-##  2 a's         SMART  
-##  3 able        SMART  
-##  4 about       SMART  
-##  5 above       SMART  
-##  6 according   SMART  
-##  7 accordingly SMART  
-##  8 across      SMART  
-##  9 actually    SMART  
-## 10 after       SMART  
-## # … with 1,139 more rows</code></pre>
-<pre><code>## readtext object consisting of 806 documents and 0 docvars.
-## # Description: df [806 × 3]
-##   doc_id word       text     
-##   &lt;fct&gt;  &lt;chr&gt;      &lt;chr&gt;    
-## 1 1      personally "\"\"..."
-## 2 1      nice       "\"\"..."
-## 3 1      week       "\"\"..."
-## 4 1      ive        "\"\"..."
-## 5 1      feeling    "\"\"..."
-## 6 1      chatbots   "\"\"..."
-## # … with 800 more rows</code></pre>
 <p>We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.</p>
+<pre><code>## Joining, by = "word"</code></pre>
 <p>The data was ready for analysis by the model. We ordered it to find the most frequent words.</p>
-<pre><code>## # A tibble: 385 × 3
-## # Groups:   doc_id [1]
-##    doc_id word            n
-##    &lt;fct&gt;  &lt;chr&gt;       &lt;int&gt;
-##  1 1      information    11
-##  2 1      helpful         8
-##  3 1      understand      8
-##  4 1      idea            7
-##  5 1      ideas           7
-##  6 1      lot             7
-##  7 1      workshop        7
-##  8 1      beginning       6
-##  9 1      dont            6
-## 10 1      medical         6
-## # … with 375 more rows</code></pre>
-<pre><code>## readtext object consisting of 669 documents and 0 docvars.
-## # Description: df [669 × 3]
-##   doc_id word       text     
-##   &lt;fct&gt;  &lt;chr&gt;      &lt;chr&gt;    
-## 1 1      personally "\"\"..."
-## 2 1      nice       "\"\"..."
-## 3 1      week       "\"\"..."
-## 4 1      ive        "\"\"..."
-## 5 1      feeling    "\"\"..."
-## 6 1      technical  "\"\"..."
-## # … with 663 more rows</code></pre>
 <div id="plotting-word-frequencies---bar-graphs" class="section level4" number="3.2.1.1">
 <h4>
 <span class="header-section-number">3.2.1.1</span> Plotting word frequencies - bar graphs<a class="anchor" aria-label="anchor" href="#plotting-word-frequencies---bar-graphs"><i class="fas fa-link"></i></a>
 </h4>
 <p>With this information a Bar graph of top words from the participants in the FGD can be rendered.</p>
 <div class="inline-figure"><img src="_main_files/figure-html/FREQ%20words%20bar%20graph-1.png" width="672"></div>
-<p>and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.</p>
+<div class="inline-figure">and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.
+<img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672">
+</div>
 <div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
 <p>Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted.</p>
 </div>
@@ -188,25 +130,6 @@
 <span class="header-section-number">3.2.2</span> 3.2 Normalised frequency<a class="anchor" aria-label="anchor" href="#normalised-frequency"><i class="fas fa-link"></i></a>
 </h3>
 <p>A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to suit.</p>
-<pre><code>## # A tibble: 1 × 2
-## # Groups:   doc_id [1]
-##   doc_id `sum(n)`
-##   &lt;fct&gt;     &lt;int&gt;
-## 1 1           656</code></pre>
-<pre><code>## # A tibble: 383 × 2
-##    word          pmw
-##    &lt;chr&gt;       &lt;dbl&gt;
-##  1 information  47.4
-##  2 helpful      34.5
-##  3 understand   34.5
-##  4 idea         30.2
-##  5 ideas        30.2
-##  6 workshop     30.2
-##  7 beginning    25.9
-##  8 dont         25.9
-##  9 medical      25.9
-## 10 technology   25.9
-## # … with 373 more rows</code></pre>
 <div id="plotting-normalised-frequency" class="section level4" number="3.2.2.1">
 <h4>
 <span class="header-section-number">3.2.2.1</span> Plotting normalised frequency<a class="anchor" aria-label="anchor" href="#plotting-normalised-frequency"><i class="fas fa-link"></i></a>
@@ -244,70 +167,8 @@ Negative words are- difficult, test (who likes a test?), don’t, and ‘lot’ 
 </h2>
 <p>What is the sentiment of all participants? What is types of emotional words are being used?
 The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word <em>‘helpful’</em> which has a positive connotation, however there are 386 words, with many having several occurrences.</p>
-<pre><code>## # A tibble: 6 × 2
-##   word       sentiment
-##   &lt;chr&gt;      &lt;chr&gt;    
-## 1 2-faces    negative 
-## 2 abnormal   negative 
-## 3 abolish    negative 
-## 4 abominable negative 
-## 5 abominably negative 
-## 6 abominate  negative</code></pre>
-<pre><code>## readtext object consisting of 6 documents and 1 docvar.
-## # Description: df [6 × 4]
-##   doc_id word       sentiment text     
-##   &lt;fct&gt;  &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;    
-## 1 1      nice       positive  "\"\"..."
-## 2 1      invaluable positive  "\"\"..."
-## 3 1      facilitate positive  "\"\"..."
-## 4 1      difficult  negative  "\"\"..."
-## 5 1      benefits   positive  "\"\"..."
-## 6 1      easier     positive  "\"\"..."</code></pre>
-<pre><code>## readtext object consisting of 2 documents and 0 docvars.
-## # Description: df [2 × 3]
-##   sentiment     n text     
-##   &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;    
-## 1 negative     24 "\"\"..."
-## 2 positive     62 "\"\"..."</code></pre>
-<pre><code>## readtext object consisting of 6 documents and 1 docvar.
-## # Description: df [6 × 4]
-##   word      sentiment     n text     
-##   &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;    
-## 1 helpful   positive      8 "\"\"..."
-## 2 benefit   positive      4 "\"\"..."
-## 3 difficult negative      4 "\"\"..."
-## 4 enjoyed   positive      4 "\"\"..."
-## 5 nice      positive      4 "\"\"..."
-## 6 easy      positive      3 "\"\"..."</code></pre>
-<pre><code>## readtext object consisting of 2 documents and 1 docvar.
-## # Description: df [2 × 4]
-##   doc_id sentiment     n text     
-## * &lt;fct&gt;  &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;    
-## 1 1      negative     24 "\"\"..."
-## 2 1      positive     62 "\"\"..."</code></pre>
-<pre><code>## readtext object consisting of 2 documents and 0 docvars.
-## # Description: df [2 × 3]
-##   sentiment     n text     
-##   &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;    
-## 1 negative     24 "\"\"..."
-## 2 positive     62 "\"\"..."</code></pre>
-<pre><code>## readtext object consisting of 6 documents and 1 docvar.
-## # Description: df [6 × 4]
-##   word      sentiment     n text     
-##   &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;    
-## 1 helpful   positive      8 "\"\"..."
-## 2 benefit   positive      4 "\"\"..."
-## 3 difficult negative      4 "\"\"..."
-## 4 enjoyed   positive      4 "\"\"..."
-## 5 nice      positive      4 "\"\"..."
-## 6 easy      positive      3 "\"\"..."</code></pre>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">CEPEHQ_tidy_bing</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">summarize</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">total_score</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">total_score</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>##   max(total_score) min(total_score)
 ## 1               38               38</code></pre>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">CEPEHQ_tidy_bing</span><span class="op">)</span> </span></code></pre></div>
 
 <pre><code>output:
   #bookdown::html_document2: default

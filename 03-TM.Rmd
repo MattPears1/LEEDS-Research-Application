@@ -16,6 +16,11 @@ documentclass: book
 # Text Mining, Natural Language Processing, and Sentiment Analysis
 
 ```{r setup packages, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = TRUE,
+	warning = TRUE
+)
 library(tidyverse) #for various data manipulation tasks
 library(tidytext) #for text mining specifically, main package in book
 library(stringr) #for various text operations
@@ -58,7 +63,7 @@ Firstly, we tokenised the words from the FGDs. A Token is "a meaningful unit of 
 
 The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as "characters", "ngrams", "sentences", "lines" etc)
 
-```{r give text tokens, echo=FALSE, message=FALSE, warning=FALSE}
+```{r give text tokens, message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_tidy <- CEPEHQ_raw%>% 
   unnest_tokens(word, text)
 
@@ -75,11 +80,11 @@ CEPEHQ_tidy <- CEPEHQ_tidy %>%
 ### Stop words
  The model then removed words with meaningless function. These are called stop words. Words like "the", "of" and "to" are the most frequent words found, technically, but are of little interest to us.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 stop_words
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_tidy <- CEPEHQ_tidy %>% 
   anti_join(stop_words)
 
@@ -112,7 +117,7 @@ CEPEHQ_freq <- CEPEHQ_freq[-6,]
 CEPEHQ_freq
 ```
 
-```{r group by word and filter for true, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r group by word and filter for true, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
 CEPEHQ_tidy %>% 
   group_by(doc_id) %>% 
   count(word, sort=TRUE) %>% 
@@ -150,7 +155,7 @@ CEPEHQ_freq %>%
 ```
 
 and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_freq <- na.omit(CEPEHQ_freq)
 
 CEPEHQ_freq %>%
@@ -178,7 +183,7 @@ Although the frequency is not high for each word, we are able to get a general p
 
 ### 3.2 Normalised frequency
 A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to suit.
-```{r}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 # see the total number of words per play (doc_id)
 CEPEHQ_freq %>% 
   group_by(doc_id) %>% 
@@ -264,7 +269,7 @@ ggplot(comp_2,
 
 What is the sentiment of all participants? What is types of emotional words are being used?
 The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word *'helpful'* which has a positive connotation, however there are 386 words, with many having several occurrences.
-```{r sentiment, echo=FALSE, message=FALSE, warning=FALSE}
+```{r sentiment, message=FALSE, warning=FALSE, include=FALSE}
 head(get_sentiments("bing"))
 
 CEPEHQ_tidy %>% 
@@ -297,7 +302,7 @@ CEPEHQ_tidy  %>%
 
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 
 CEPEHQ_tidy_bing <-  CEPEHQ_tidy%>% 
   inner_join(get_sentiments("bing")) %>% 
@@ -306,7 +311,7 @@ CEPEHQ_tidy_bing <-  CEPEHQ_tidy%>%
   mutate(total_score = positive - negative)
 ```
 
-```{r sentiment2, echo=TRUE, message=FALSE, warning=FALSE}
+```{r sentiment2, echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_tidy_bing %>% 
   summarize(max(total_score), min(total_score)) 
 

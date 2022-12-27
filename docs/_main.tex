@@ -1004,90 +1004,18 @@ Firstly, we tokenised the words from the FGDs. A Token is ``a meaningful unit of
 
 The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as ``characters'', ``ngrams'', ``sentences'', ``lines'' etc)
 
-\begin{verbatim}
-## readtext object consisting of 6 documents and 0 docvars.
-## # Description: df [6 x 3]
-##   doc_id word       text     
-##   <fct>  <chr>      <chr>    
-## 1 1      p1         "\"\"..."
-## 2 1      for        "\"\"..."
-## 3 1      me         "\"\"..."
-## 4 1      personally "\"\"..."
-## 5 1      it         "\"\"..."
-## 6 1      was        "\"\"..."
-\end{verbatim}
-
 \hypertarget{stop-words}{%
 \subsection{Stop words}\label{stop-words}}
 
 The model then removed words with meaningless function. These are called stop words. Words like ``the'', ``of'' and ``to'' are the most frequent words found, technically, but are of little interest to us.
 
-\begin{verbatim}
-## # A tibble: 1,149 x 2
-##    word        lexicon
-##    <chr>       <chr>  
-##  1 a           SMART  
-##  2 a's         SMART  
-##  3 able        SMART  
-##  4 about       SMART  
-##  5 above       SMART  
-##  6 according   SMART  
-##  7 accordingly SMART  
-##  8 across      SMART  
-##  9 actually    SMART  
-## 10 after       SMART  
-## # ... with 1,139 more rows
-\end{verbatim}
-
-\begin{verbatim}
-## readtext object consisting of 806 documents and 0 docvars.
-## # Description: df [806 x 3]
-##   doc_id word       text     
-##   <fct>  <chr>      <chr>    
-## 1 1      personally "\"\"..."
-## 2 1      nice       "\"\"..."
-## 3 1      week       "\"\"..."
-## 4 1      ive        "\"\"..."
-## 5 1      feeling    "\"\"..."
-## 6 1      chatbots   "\"\"..."
-## # ... with 800 more rows
-\end{verbatim}
-
 We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.
 
+\begin{verbatim}
+## Joining, by = "word"
+\end{verbatim}
+
 The data was ready for analysis by the model. We ordered it to find the most frequent words.
-
-\begin{verbatim}
-## # A tibble: 385 x 3
-## # Groups:   doc_id [1]
-##    doc_id word            n
-##    <fct>  <chr>       <int>
-##  1 1      information    11
-##  2 1      helpful         8
-##  3 1      understand      8
-##  4 1      idea            7
-##  5 1      ideas           7
-##  6 1      lot             7
-##  7 1      workshop        7
-##  8 1      beginning       6
-##  9 1      dont            6
-## 10 1      medical         6
-## # ... with 375 more rows
-\end{verbatim}
-
-\begin{verbatim}
-## readtext object consisting of 669 documents and 0 docvars.
-## # Description: df [669 x 3]
-##   doc_id word       text     
-##   <fct>  <chr>      <chr>    
-## 1 1      personally "\"\"..."
-## 2 1      nice       "\"\"..."
-## 3 1      week       "\"\"..."
-## 4 1      ive        "\"\"..."
-## 5 1      feeling    "\"\"..."
-## 6 1      technical  "\"\"..."
-## # ... with 663 more rows
-\end{verbatim}
 
 \hypertarget{plotting-word-frequencies---bar-graphs}{%
 \subsubsection{Plotting word frequencies - bar graphs}\label{plotting-word-frequencies---bar-graphs}}
@@ -1097,6 +1025,7 @@ With this information a Bar graph of top words from the participants in the FGD 
 \includegraphics{_main_files/figure-latex/FREQ words bar graph-1.pdf}
 
 and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.
+\includegraphics{_main_files/figure-latex/unnamed-chunk-7-1.pdf}
 
 \includegraphics{_main_files/figure-latex/unnamed-chunk-8-1.pdf}
 
@@ -1106,31 +1035,6 @@ Although the frequency is not high for each word, we are able to get a general p
 \subsection{3.2 Normalised frequency}\label{normalised-frequency}}
 
 A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to suit.
-
-\begin{verbatim}
-## # A tibble: 1 x 2
-## # Groups:   doc_id [1]
-##   doc_id `sum(n)`
-##   <fct>     <int>
-## 1 1           656
-\end{verbatim}
-
-\begin{verbatim}
-## # A tibble: 383 x 2
-##    word          pmw
-##    <chr>       <dbl>
-##  1 information  47.4
-##  2 helpful      34.5
-##  3 understand   34.5
-##  4 idea         30.2
-##  5 ideas        30.2
-##  6 workshop     30.2
-##  7 beginning    25.9
-##  8 dont         25.9
-##  9 medical      25.9
-## 10 technology   25.9
-## # ... with 373 more rows
-\end{verbatim}
 
 \hypertarget{plotting-normalised-frequency}{%
 \subsubsection{Plotting normalised frequency}\label{plotting-normalised-frequency}}
@@ -1164,100 +1068,9 @@ What is the sentiment of all participants? What is types of emotional words are 
 The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word \emph{`helpful'} which has a positive connotation, however there are 386 words, with many having several occurrences.
 
 \begin{verbatim}
-## # A tibble: 6 x 2
-##   word       sentiment
-##   <chr>      <chr>    
-## 1 2-faces    negative 
-## 2 abnormal   negative 
-## 3 abolish    negative 
-## 4 abominable negative 
-## 5 abominably negative 
-## 6 abominate  negative
-\end{verbatim}
-
-\begin{verbatim}
-## readtext object consisting of 6 documents and 1 docvar.
-## # Description: df [6 x 4]
-##   doc_id word       sentiment text     
-##   <fct>  <chr>      <chr>     <chr>    
-## 1 1      nice       positive  "\"\"..."
-## 2 1      invaluable positive  "\"\"..."
-## 3 1      facilitate positive  "\"\"..."
-## 4 1      difficult  negative  "\"\"..."
-## 5 1      benefits   positive  "\"\"..."
-## 6 1      easier     positive  "\"\"..."
-\end{verbatim}
-
-\begin{verbatim}
-## readtext object consisting of 2 documents and 0 docvars.
-## # Description: df [2 x 3]
-##   sentiment     n text     
-##   <chr>     <int> <chr>    
-## 1 negative     24 "\"\"..."
-## 2 positive     62 "\"\"..."
-\end{verbatim}
-
-\begin{verbatim}
-## readtext object consisting of 6 documents and 1 docvar.
-## # Description: df [6 x 4]
-##   word      sentiment     n text     
-##   <chr>     <chr>     <int> <chr>    
-## 1 helpful   positive      8 "\"\"..."
-## 2 benefit   positive      4 "\"\"..."
-## 3 difficult negative      4 "\"\"..."
-## 4 enjoyed   positive      4 "\"\"..."
-## 5 nice      positive      4 "\"\"..."
-## 6 easy      positive      3 "\"\"..."
-\end{verbatim}
-
-\begin{verbatim}
-## readtext object consisting of 2 documents and 1 docvar.
-## # Description: df [2 x 4]
-##   doc_id sentiment     n text     
-## * <fct>  <chr>     <int> <chr>    
-## 1 1      negative     24 "\"\"..."
-## 2 1      positive     62 "\"\"..."
-\end{verbatim}
-
-\begin{verbatim}
-## readtext object consisting of 2 documents and 0 docvars.
-## # Description: df [2 x 3]
-##   sentiment     n text     
-##   <chr>     <int> <chr>    
-## 1 negative     24 "\"\"..."
-## 2 positive     62 "\"\"..."
-\end{verbatim}
-
-\begin{verbatim}
-## readtext object consisting of 6 documents and 1 docvar.
-## # Description: df [6 x 4]
-##   word      sentiment     n text     
-##   <chr>     <chr>     <int> <chr>    
-## 1 helpful   positive      8 "\"\"..."
-## 2 benefit   positive      4 "\"\"..."
-## 3 difficult negative      4 "\"\"..."
-## 4 enjoyed   positive      4 "\"\"..."
-## 5 nice      positive      4 "\"\"..."
-## 6 easy      positive      3 "\"\"..."
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{CEPEHQ\_tidy\_bing }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{summarize}\NormalTok{(}\FunctionTok{max}\NormalTok{(total\_score), }\FunctionTok{min}\NormalTok{(total\_score)) }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
 ##   max(total_score) min(total_score)
 ## 1               38               38
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(CEPEHQ\_tidy\_bing) }
-\end{Highlighting}
-\end{Shaded}
 
 \begin{tabular}{r|r|r}
 \hline
@@ -1541,6 +1354,13 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 
 You might find that your table expands into the margins of the page, like the tables above.
 Fix this with the `kable_styling` function from the [`kableExtra`](https://haozhu233.github.io/kableExtra/) package:
+
+\end{verbatim}
+
+\hypertarget{warning-package-kableextra-was-built-under-r-version-4.2.2}{%
+\section{Warning: package `kableExtra' was built under R version 4.2.2}\label{warning-package-kableextra-was-built-under-r-version-4.2.2}}
+
+\begin{verbatim}
 
 \begin{table}
 \centering
