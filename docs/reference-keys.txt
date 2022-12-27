@@ -26,6 +26,11 @@ plotting-normalised-frequency
 word-clouds
 the-vocabulary-of-texts
 sentiment-analysis
+Discussion
+cites-and-refs
+cepeh-training-event-c1
+overall-training-events-evalaution
+cepeh-training-event-2
 citation-appearance
 insert-references-easily-with-rstudios-visual-editor
 cross-referencing
@@ -33,6 +38,12 @@ section-references
 creating-custom-labels
 figure-image-and-plot-references
 table-references
+insert-references-easily-with-rstudios-visual-editor-1
+cross-referencing-1
+section-references-1
+creating-custom-labels-1
+figure-image-and-plot-references-1
+table-references-1
 including-page-numbers
 include-page-numbers-only-in-pdf-output
 collaborative-writing

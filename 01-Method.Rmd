@@ -32,6 +32,7 @@ library(wesanderson)
 library(viridis)
 library(knitr)
 library(tidyverse)
+library(tinytex)
 library(leaflet)
 
 try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))

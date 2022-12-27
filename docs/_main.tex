@@ -1268,27 +1268,28 @@ negative & positive & total\_score\\
 \end{tabular}
 
 \begin{verbatim}
-
-<!--chapter:end:03-TM.Rmd-->
-
----
 output:
   #bookdown::html_document2: default
   #bookdown::word_document2: default
   bookdown::pdf_document2:
     template: templates/template.tex
     keep_tex: true
-documentclass: book
-#bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
----
 
-# Discussion {#Discussion } 
-\minitoc <!-- this will include a mini table of contents-->
+#bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
+
+  bookdown::html_document2: default
+  bookdown::word_document2: default
+documentclass: book
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{Discussion}{%
+\chapter{Discussion}\label{Discussion}}
+
+\minitoc 
 
 Here is a (very large) table with all of the currently active RLOS.
-
-
-
 
 \begin{tabular}{llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllr}
 \toprule
@@ -1304,21 +1305,200 @@ Female & Pre & AG 26062002 & Greece & Student on a Healthcare course & Books & N
 \bottomrule
 \end{tabular}
 
+\hypertarget{cites-and-refs}{%
+\chapter{Training Event Results}\label{cites-and-refs}}
 
+\chaptermark{Citations and cross-refs}
+
+\minitoc 
+
+\hypertarget{cepeh-training-event-c1}{%
+\section{CEPEH Training Event C1}\label{cepeh-training-event-c1}}
+
+The CEPEH training event C1 held at the premises of University of Nottingham aiming to prepare participants for the practical elements of co-creation and implementation of chatbots as an educational resource. It combined both theoretical and hands-on training.
+15 participants were from RISE, AUTH, UoN.
+
+Project managers of partners signposted the person involved, and relevant announcements were made though social media channels to the wider public. External to the project speakers were from University of Leeds, and Computer Science Department of University of Nottingham. It included academics, medical doctors, and researchers with focus both on clinical research and digital innovations in healthcare education and IT specialist/learning technologists 11.18 years of experiences (SD=7.2). A balance between male and female participants achieved.
+
+\hypertarget{overall-training-events-evalaution}{%
+\chapter{Overall Training Events Evalaution}\label{overall-training-events-evalaution}}
+
+Participants were asked to highlight what they liked for each day and how each day can be improved. Findings are described below per day of the training event
+
+Day 1\\
+The participants comment that they liked the design method for educational resources presented using a co-creation approach, they liked the interactions with other groups, and they liked the overview of existing chatbot resources of the partners. On the areas that can be improved, more media material were requested.
+
+Day 2
+Participants enjoyed the presentation from the invited speaker from another faculty of the University of Nottingham, the CEPEH recources presented and the storyboarding process. Participants highlighted that the participation of more clinicians in the event would be an added value in regards with the storyboarding process.
+
+Day3
+Participants liked the hands-on activities of the day also enjoyed the creativity of the groups on the online chatbot development tool. As an area of improvement, participants wanted more time on hands on sections.
+
+\hypertarget{cepeh-training-event-2}{%
+\section{CEPEH Training Event 2}\label{cepeh-training-event-2}}
+
+\textbf{Pre-Training Event survey May 9th-13th 2022 Thessaloniki, Greece}
+
+Twenty-six participants attended the Training Event, along with approximately 10 staff members. There were 21 undergraduate students and 5 postgraduate students, who completed the survey for a total of 26 responses. There were 86\% of participants who stated they had not been to a similar event like the training event CEPEH facilitated. There were 90\% of students who found the event schedule very organised, and 70\% agreed most of the planned sessions were relevant to that interest with the remaining 30\% not having enough experience to understand the context to determine if they are interested in the training event. There were 95\% of students agreeing or strongly agreeing the training event location is great, the remaining person did not leave additional comments.
+
+Table 1 suggested attendees had minimal intention to share their own ideas due to lack of previous experience of attending such events, or due to lack of knowledge on the area. However, most were interested in listening to other groups and hearing contextual cases in healthcare.
+
+There were 77\% of participants stated they were novices in experience with chatbots in healthcare and were attending to learn more. The remaining 23\% (7 students) stated they were competent and had limited experience with chatbots in healthcare.
+
+One day had several events regarding cybersecurity in healthcare. When asked before these events, 83\% stated they were neutral or disagreed that they felt confident about their cybersecurity knowledge in healthcare. In addition, 80\% stated they when neutral or disagreed that they felt they had strong cybersecurity safety in healthcare. Table 2 shows the main pre and post results suggesting a positive experience for more than 75\% of attendees on all measures.
+
+There were 90\% (23) of students who heard about the event through a lecturer or a professor, the CEPEH newsletter (2), and 1 person was informed through the anatomy tutoring system at Karolinska Institute. Additionally, 60\% suggested the training event to somebody else before the course started.
+
+There were six individuals who stated neutral or disagree when asked if having issues on registration or finding the information for the event. This may have been due to being dependent on emails to receive the information, instead of a dedicated website where the information is available anytime.
+
+As this was face-to-face, participants were asked about sufficient Covid-19 precautions in place at the facility, 94\% agreed with sufficient precautions, two individuals stated no but did not give further information in the additional input box provided.
+In summary, most participants were undergraduate students with novice experience, happy with the training event location, felt the sessions were relevant to them, and most shared the event with their colleagues. The values of co-creation, chatbots in healthcare, and taking patient history were bestowed to students in an engaging and well-received manner. Notably, the highest ratings were for staff friendliness which is key to engagement and consistent interaction throughout the intense and long 5-day duration. The sessions were recorded there for the online recordings may be viewed with higher numbers over the subsequent weeks.
+
+The usual way to include citations in an \emph{R Markdown} document is to put references in a plain text file with the extension \textbf{.bib}, in \textbf{BibTex} format.\footnote{The bibliography can be in other formats as well, including EndNote (\textbf{.enl}) and RIS (\textbf{.ris}), see \href{https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html}{rmarkdown.rstudio.com/authoring\_bibliographies\_and\_citations}.}
+Then reference the path to this file in \textbf{index.Rmd}'s YAML header with \texttt{bibliography:\ example.bib}.
+
+Most reference managers can create a .bib file with you references automatically.
+However, the \textbf{by far} best reference manager to use with \emph{R Markdown} is \href{https://www.zotero.org}{Zotero} with the \href{https://retorque.re/zotero-better-bibtex/}{Better BibTex plug-in}, because the \texttt{citr} plugin for RStudio (see below) can read references directly from your Zotero library!
+
+Here is an example of an entry in a \textbf{.bib} file:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{@article}\NormalTok{\{}\OtherTok{Shea2014}\NormalTok{,}
+  \DataTypeTok{author}\NormalTok{ =        \{Shea, Nicholas and Boldt, Annika\},}
+  \DataTypeTok{journal}\NormalTok{ =       \{Trends in Cognitive Sciences\},}
+  \DataTypeTok{pages}\NormalTok{ =         \{186{-}{-}193\},}
+  \DataTypeTok{title}\NormalTok{ =         \{\{Supra{-}personal cognitive control\}\},}
+  \DataTypeTok{volume}\NormalTok{ =        \{18\},}
+  \DataTypeTok{year}\NormalTok{ =          \{2014\},}
+  \DataTypeTok{doi}\NormalTok{ =           \{10.1016/j.tics.2014.01.006\},}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In this entry highlighted section, `Shea2014' is the \textbf{citation identifier}.
+To default way to cite an entry in your text is with this syntax: \texttt{{[}@citation-identifier{]}}.
+
+So I might cite some things (\protect\hyperlink{ref-Lottridge2012}{Lottridge et al., 2012}; \protect\hyperlink{ref-Mill1965}{Mill, 1965 {[}1843{]}}; \protect\hyperlink{ref-Shea2014}{Shea et al., 2014}).
+
+\hypertarget{citation-appearance}{%
+\subsection{Appearance of citations and references section (pandoc)}\label{citation-appearance}}
+
+By default, \texttt{oxforddown} lets \href{https://pandoc.org}{Pandoc} handle how citations are inserted in your text and the references section.
+You can change the appearance of citations and references by specifying a CSL (Citation Style Language) file in the \texttt{csl} metadata field of \textbf{index.Rmd}.
+By default, \texttt{oxforddown} by the Americal Psychological Association (7th Edition), which is an author-year format.
+
+With this style, a number of variations on the citation syntax are useful to know:
+
+\begin{itemize}
+\tightlist
+\item
+  Put author names outside the parenthesis
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This: \texttt{@Shea2014\ says\ blah.}
+  \item
+    Becomes: Shea et al. (\protect\hyperlink{ref-Shea2014}{2014}) says blah.
+  \end{itemize}
+\item
+  Include only the citation-year (in parenthesis)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This: \texttt{Shea\ et\ al.\ says\ blah\ {[}-@Shea2014{]}}
+  \item
+    Becomes: Shea et al.~says blah (\protect\hyperlink{ref-Shea2014}{2014})
+  \end{itemize}
+\item
+  Add text and page or chapter references to the citation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This: \texttt{{[}see\ @Shea2014,\ pp.\ 33-35;\ also\ @Wu2016,\ ch.\ 1{]}}
+  \item
+    Becomes: Blah blah (see \protect\hyperlink{ref-Shea2014}{Shea et al., 2014, pp. 33--35}; also \protect\hyperlink{ref-Wu2016}{Wu, 2016}, ch.~1).
+  \end{itemize}
+\end{itemize}
+
+If you want a numerical citation style instead, try \texttt{csl:\ bibliography/transactions-on-computer-human-interaction.csl} or just have a browse through the \href{https://www.zotero.org/styles}{Zotero Style Repository} and look for one you like.
+For convenience, you can set the line spacing and the space between the bibliographic entries in the reference section directly from the YAML header in \textbf{index.Rmd}.
+
+If you prefer to use \texttt{biblatex} or \texttt{natbib} to handle references, see \protect\hyperlink{customising-citations}{this chapter}.
+
+\clearpage
+
+\hypertarget{insert-references-easily-with-rstudios-visual-editor}{%
+\subsection{Insert references easily with RStudio's Visual Editor}\label{insert-references-easily-with-rstudios-visual-editor}}
+
+For an easy way to insert citations, use RStudio's \href{https://rstudio.github.io/visual-markdown-editing/citations.html}{Visual Editor}.
+Make sure you have the latest version of RStudio -- the visual editor was originally really buggy, especially in relation to references, but as per v2022.02.0, it's great!
+
+\hypertarget{cross-referencing}{%
+\section{Cross-referencing}\label{cross-referencing}}
+
+We can make cross-references to \textbf{sections} within our document, as well as to \textbf{figures} (images and plots) and \textbf{tables}.
+
+The general cross-referencing syntax is \textbf{\texttt{\textbackslash{}@ref(label)}}
+
+\hypertarget{section-references}{%
+\subsection{Section references}\label{section-references}}
+
+Headers are automatically assigned a reference label, which is the text in lower caps separated by dashes. For example, \texttt{\#\ My\ header} is automatically given the label \texttt{my-header}. So \texttt{\#\ My\ header} can be referenced with \texttt{\textbackslash{}@ref(my-section)}
+
+Remember what we wrote in section \ref{citations}?
+
+We can also use \textbf{hyperlink syntax} and add \# before the label, though this is only guaranteed to work properly in HTML output:
+
+\begin{itemize}
+\tightlist
+\item
+  So if we write \texttt{Remember\ what\ we\ wrote\ up\ in\ {[}the\ previous\ section{]}(\#citations)?}
+\item
+  It becomes Remember what we wrote up in \protect\hyperlink{citations}{the previous section}?
+\end{itemize}
+
+\hypertarget{creating-custom-labels}{%
+\subsubsection{Creating custom labels}\label{creating-custom-labels}}
+
+It is a very good idea to create \textbf{custom labels} for our sections. This is because the automatically assigned labels will change when we change the titles of the sections - to avoid this, we can create the labels ourselves and leave them untouched if we change the section titles.
+
+We create custom labels by adding \texttt{\{\#label\}} after a header, e.g.~\texttt{\#\ My\ section\ \{\#my-label\}}.
+See \protect\hyperlink{cites-and-refs}{our chapter title} for an example. That was section \ref{cites-and-refs}.
+
+\hypertarget{figure-image-and-plot-references}{%
+\subsection{Figure (image and plot) references}\label{figure-image-and-plot-references}}
+
+\begin{itemize}
+\tightlist
+\item
+  To refer to figures (i.e.~images and plots) use the syntax \texttt{\textbackslash{}@ref(fig:label)}
+\item
+  \textbf{GOTCHA}: Figures and tables must have captions if you wish to cross-reference them.
+\end{itemize}
+
+We refer to this image with \texttt{\textbackslash{}@ref(fig:captain)}.
+So Figure \ref{fig:captain} is \protect\hyperlink{fig:captain}{this image}.
+
+And in Figure \ref{fig:cars-plot} we saw a \protect\hyperlink{fig:cars-plot}{cars plot}.
+
+\hypertarget{table-references}{%
+\subsection{Table references}\label{table-references}}
+
+\begin{itemize}
+\tightlist
+\item
+  To refer to tables use the syntax \texttt{\textbackslash{}@ref(tab:label)}
+\end{itemize}
+
+\begin{verbatim}
 Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement. As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants. However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
 
 
-
-
-
-
-
 ## Reach, Impact, and Qualatative analysis 
-
-
-
-
-
 
 
 
@@ -2040,21 +2220,21 @@ If you prefer to use \texttt{biblatex} or \texttt{natbib} to handle references, 
 
 \clearpage
 
-\hypertarget{insert-references-easily-with-rstudios-visual-editor}{%
-\subsection{Insert references easily with RStudio's Visual Editor}\label{insert-references-easily-with-rstudios-visual-editor}}
+\hypertarget{insert-references-easily-with-rstudios-visual-editor-1}{%
+\subsection{Insert references easily with RStudio's Visual Editor}\label{insert-references-easily-with-rstudios-visual-editor-1}}
 
 For an easy way to insert citations, use RStudio's \href{https://rstudio.github.io/visual-markdown-editing/citations.html}{Visual Editor}.
 Make sure you have the latest version of RStudio -- the visual editor was originally really buggy, especially in relation to references, but as per v2022.02.0, it's great!
 
-\hypertarget{cross-referencing}{%
-\section{Cross-referencing}\label{cross-referencing}}
+\hypertarget{cross-referencing-1}{%
+\section{Cross-referencing}\label{cross-referencing-1}}
 
 We can make cross-references to \textbf{sections} within our document, as well as to \textbf{figures} (images and plots) and \textbf{tables}.
 
 The general cross-referencing syntax is \textbf{\texttt{\textbackslash{}@ref(label)}}
 
-\hypertarget{section-references}{%
-\subsection{Section references}\label{section-references}}
+\hypertarget{section-references-1}{%
+\subsection{Section references}\label{section-references-1}}
 
 Headers are automatically assigned a reference label, which is the text in lower caps separated by dashes. For example, \texttt{\#\ My\ header} is automatically given the label \texttt{my-header}. So \texttt{\#\ My\ header} can be referenced with \texttt{\textbackslash{}@ref(my-section)}
 
@@ -2070,16 +2250,16 @@ We can also use \textbf{hyperlink syntax} and add \# before the label, though th
   It becomes Remember what we wrote up in \protect\hyperlink{citations}{the previous section}?
 \end{itemize}
 
-\hypertarget{creating-custom-labels}{%
-\subsubsection{Creating custom labels}\label{creating-custom-labels}}
+\hypertarget{creating-custom-labels-1}{%
+\subsubsection{Creating custom labels}\label{creating-custom-labels-1}}
 
 It is a very good idea to create \textbf{custom labels} for our sections. This is because the automatically assigned labels will change when we change the titles of the sections - to avoid this, we can create the labels ourselves and leave them untouched if we change the section titles.
 
 We create custom labels by adding \texttt{\{\#label\}} after a header, e.g.~\texttt{\#\ My\ section\ \{\#my-label\}}.
 See \protect\hyperlink{cites-and-refs}{our chapter title} for an example. That was section \ref{cites-and-refs}.
 
-\hypertarget{figure-image-and-plot-references}{%
-\subsection{Figure (image and plot) references}\label{figure-image-and-plot-references}}
+\hypertarget{figure-image-and-plot-references-1}{%
+\subsection{Figure (image and plot) references}\label{figure-image-and-plot-references-1}}
 
 \begin{itemize}
 \tightlist
@@ -2096,8 +2276,8 @@ So Figure \ref{fig:captain} is \protect\hyperlink{fig:captain}{this image}.
 
 And in Figure \ref{fig:cars-plot} we saw a \protect\hyperlink{fig:cars-plot}{cars plot}.
 
-\hypertarget{table-references}{%
-\subsection{Table references}\label{table-references}}
+\hypertarget{table-references-1}{%
+\subsection{Table references}\label{table-references-1}}
 
 \begin{itemize}
 \tightlist
