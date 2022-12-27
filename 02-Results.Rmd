@@ -66,7 +66,6 @@ There was only 1 'Strongly Disagree' response.
 The agreement options counted for the majority of the data. 
 
 
-
 ```{r Boxplotsplits4, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
@@ -162,7 +161,6 @@ Boxplotsplits6 %>%
 ```
 
 
-
 ```{r Boxplotsplits7, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
@@ -254,7 +252,6 @@ Boxplotsplits9 %>%
                       x= "",
                       y= "Frequency")
 ```
-
 
 
 ```{r Boxplotsplits10, echo=FALSE, message=FALSE, warning=FALSE}

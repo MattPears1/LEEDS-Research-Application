@@ -10,6 +10,7 @@ output:
   bookdown::pdf_document2:
     template: templates/template.tex
 documentclass: book
+
 #bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
 
 # Text Mining, Natural Language Processing, and Sentiment Analysis
@@ -288,7 +289,8 @@ ggplot(comp_2,
 ```
 
 
-# Sentiment analysis
+
+## Sentiment analysis
 
 ```{r sentiment, echo=FALSE, message=FALSE, warning=FALSE}
 head(get_sentiments("bing"))
