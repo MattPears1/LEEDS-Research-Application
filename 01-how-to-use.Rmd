@@ -53,54 +53,54 @@ colnames(disc)[1] = "Location"
 
 ```{r Participants, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 
-# Sexes split
+# sexes split
 Males <-data %>%
-  select(Sex)%>%
-  filter (Sex %in% c("Male"))%>%
-  drop_na(Sex)
+  select(sex)%>%
+  filter (sex %in% c("Male"))%>%
+  drop_na(sex)
 
 Females <-data %>%
-  select(Sex)%>%
-  filter (Sex %in% c("Female"))%>%
-  drop_na(Sex)
+  select(sex)%>%
+  filter (sex %in% c("Female"))%>%
+  drop_na(sex)
 
 # sexes split by location
 Femalesgreece <-data %>%
-  select(Sex, Location)%>%
-  filter (Sex %in% c("Female"))%>%
+  select(sex, Location)%>%
+  filter (sex %in% c("Female"))%>%
   filter (Location %in% c("Greece"))%>%
-  drop_na(Sex, Location)
+  drop_na(sex, Location)
 
 Femalescyprus <-data %>%
-  select(Sex, Location)%>%
-  filter (Sex %in% c("Female"))%>%
+  select(sex, Location)%>%
+  filter (sex %in% c("Female"))%>%
   filter (Location %in% c("Cyprus"))%>%
-  drop_na(Sex, Location)
+  drop_na(sex, Location)
 
 Femalessweden <-data %>%
-  select(Sex, Location)%>%
-  filter (Sex %in% c("Female"))%>%
+  select(sex, Location)%>%
+  filter (sex %in% c("Female"))%>%
   filter (Location %in% c("Sweden"))%>%
-  drop_na(Sex, Location)
+  drop_na(sex, Location)
 
 # males location
 malesgreece <-data %>%
-  select(Sex, Location)%>%
-  filter (Sex %in% c("Male"))%>%
+  select(sex, Location)%>%
+  filter (sex %in% c("Male"))%>%
   filter (Location %in% c("Greece"))%>%
-  drop_na(Sex, Location)
+  drop_na(sex, Location)
 
 malescyprus <-data %>%
-  select(Sex, Location)%>%
-  filter (Sex %in% c("Male"))%>%
+  select(sex, Location)%>%
+  filter (sex %in% c("Male"))%>%
   filter (Location %in% c("Cyprus"))%>%
-  drop_na(Sex, Location)
+  drop_na(sex, Location)
 
 malessweden <-data %>%
-  select(Sex, Location)%>%
-  filter (Sex %in% c("Male"))%>%
+  select(sex, Location)%>%
+  filter (sex %in% c("Male"))%>%
   filter (Location %in% c("Sweden"))%>%
-  drop_na(Sex, Location)
+  drop_na(sex, Location)
 ```
 
 This dataset had `r count(Males)` males and `r count(Females)` females therefore a total of 42 participants.
@@ -128,8 +128,6 @@ knitr::kable(sus<-sus %>% filter(Profession %in% c("Student on a Healthcare cour
 ## Procedure
 
 ```{r Procedure, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
-
-
 
 
 ```

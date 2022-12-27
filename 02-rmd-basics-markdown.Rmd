@@ -40,13 +40,75 @@ chatbot, being educational or not. 2 individuals had spent what would be
 extensive time with usage- these were the Learning Technologist and
 Mature Student.
 
-```{r pre measures other, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits1, echo=FALSE, message=FALSE, warning=FALSE}
 
-## table for currently used learning resources
+library(tidyverse)
+library(readr)
 
-library(scales)
+Boxplotsplits1 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits1 %>%
+  
+  filter(UseChatbotsFrequently %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(UseChatbotsFrequently) %>%
+  drop_na(sex)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(sex))+
+  geom_bar(aes(fill = sex), alpha = 0.8)+
+  facet_wrap(~UseChatbotsFrequently)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="I would like to use chatbots frequently",
+                      x= "Like to use chatbots frequently (Pre)",
+                      y= "Frequency")
 ```
+
+
+
+
+
+```{r Boxplotsplits3, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits3 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits3 %>%
+  
+  filter(CEPEH_chatbots_easy_use_EE3POST %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(CEPEH_chatbots_easy_use_EE3POST) %>%
+  drop_na(CEPEH_chatbots_easy_use_EE3POST)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(ChatbotUsed))+
+  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
+  facet_wrap(~CEPEH_chatbots_easy_use_EE3POST)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="CEPEH Chatbots are Easy to Use",
+                      x= "Like to use chatbots frequently (Pre)",
+                      y= "Frequency")
+```
+
+
+
+
+
+
 
 
 
@@ -281,6 +343,42 @@ library(tidyverse)
 
 
 ```
+
+
+
+
+```{r Boxplotsplits2, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits2 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits2 %>%
+  
+  filter(ReuseChatbot %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(ReuseChatbot) %>%
+  drop_na(ChatbotUsed)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(ChatbotUsed))+
+  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
+  facet_wrap(~ReuseChatbot)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="I would like to use chatbots frequently",
+                      x= "Like to use chatbots frequently (Pre)",
+                      y= "Frequency")
+```
+
+
+
 
 ```{r Discovery Section, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=FALSE}
 
