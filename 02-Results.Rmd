@@ -234,27 +234,24 @@ ggplot(RLOk, aes(fill = RLO, x = Identity)) + geom_bar(width=0.5,position = "fil
 The TAM questions were analysed according to their subsets. The subsets
 were Perceived Usefulness (PU) and Perceived Easy of Use (PEU)
 
-The questions were:
+The questions were: Perceived Usefulness (PU)
 
- 1. Using CEPEH chatbots would enable me to accomplish tasks more
-quickly
-
+1.  Using CEPEH chatbots would enable me to accomplish tasks more
+    quickly
 2.  Using CEPEH chatbots would increase performance
-
 3.  Using CEPEH chatbots would increase my productivity
-
 4.  I would find CEPEH chatbots useful on my course
 
 Perceived Easy of Use (PEU)
 
--   Learning to use CEPEH chatbots would be easy to me
+5.  Learning to use CEPEH chatbots would be easy to me
 
--   It would be easy for me to be skilful at using CEPEH chatbots
+6.  It would be easy for me to be skilful at using CEPEH chatbots
 
--   My interactions with CEPEH chatbots would be clear and
+7.  My interactions with CEPEH chatbots would be clear and
     understandable
 
--   I would find CEPEH chatbots easy to use
+8.  I would find CEPEH chatbots easy to use
 
     Results:
 
