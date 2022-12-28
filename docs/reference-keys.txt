@@ -1,6 +1,5 @@
 fig:location1
 fig:Boxplotsplits2
-fig:BoxplotUsefulPre
 fig:Boxplotsplits5
 fig:Boxplotsplits9
 fig:Boxplotsplits4
@@ -16,7 +15,7 @@ computer-self-efficacy-scale-tool
 technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
-participant-characteristics
+participants-characteristics
 system-usability-scale-sus-scores
 technology-acceptance-model
 chatbot-usability-questionnaire-cuq-1
