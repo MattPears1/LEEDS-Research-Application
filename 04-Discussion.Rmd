@@ -14,115 +14,30 @@ documentclass: book
 # Discussion {#Discussion } 
 \minitoc <!-- this will include a mini table of contents-->
 
+
+##Summary of Findings
+
 The Chatbots were beneficial. 
 
 Learners have lots of other choices such as YouTube, but there is a certain need for personalised information gathering , this can save time and prevent learning incorrect information. 
 
 This was one reason why they were rated positive as they are able to streamline data finding for learners in a format that is understandable and easy to them. 
 
-```{r eval=FALSE, message=FALSE, include=FALSE}
-library(knitr)
-library(tidyverse)
 
-head(data) %>% 
-  kable(booktabs = TRUE)
-```
-
-# Training Event Results {#cites-and-refs}
-
-\chaptermark{Citations and cross-refs}
-\minitoc <!-- this will include a mini table of contents-->
+## Quantatative Results
 
 
-## CEPEH Training Event C1
+## Qualatative Results
+
+## Limitations
 
 
-The CEPEH training event C1 held at the premises of University of Nottingham aiming to prepare participants for the practical elements of co-creation and implementation of chatbots as an educational resource. It combined both theoretical and hands-on training.
-15 participants were from RISE, AUTH, UoN.
-
-Project managers of partners signposted the person involved, and relevant announcements were made though social media channels to the wider public. External to the project speakers were from University of Leeds, and Computer Science Department of University of Nottingham. It included academics, medical doctors, and researchers with focus both on clinical research and digital innovations in healthcare education and IT specialist/learning technologists 11.18 years of experiences (SD=7.2). A balance between male and female participants achieved.
-
-
-
- 
-# Overall Training Events Evalaution
-
-
-Participants were asked to highlight what they liked for each day and how each day can be improved. Findings are described below per day of the training event
-
-
-Day 1  
-The participants comment that they liked the design method for educational resources presented using a co-creation approach, they liked the interactions with other groups, and they liked the overview of existing chatbot resources of the partners. On the areas that can be improved, more media material were requested.
-
-
-Day 2
-Participants enjoyed the presentation from the invited speaker from another faculty of the University of Nottingham, the CEPEH recources presented and the storyboarding process. Participants highlighted that the participation of more clinicians in the event would be an added value in regards with the storyboarding process.
-
-
-Day3
-Participants liked the hands-on activities of the day also enjoyed the creativity of the groups on the online chatbot development tool. As an area of improvement, participants wanted more time on hands on sections.
+## Conclusions
 
 
 
 
-```{r map Importing Data3, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
-try(museum <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))
-museum %>%
-leaflet() %>%
-addProviderTiles(providers$Esri.WorldImagery, group = "World Imagery") %>%
-addProviderTiles(providers$Stamen.TonerLite, group = "Toner Lite") %>%
-addLayersControl(baseGroups = c("Toner Lite", "World Imagery")) %>%
-addMarkers(label = museum$museum,
-           clusterOptions = markerClusterOptions(),
-           popup = ifelse(museum$`Presidential Library`=="Yes",
-                          "1 person around this area",
-                          "1 person around this area")) %>% setView(lat = 53.921236496, lng = -1.1392187894608434, zoom = 09)
-```
 
-
-```{r c, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-
-city <- subset(data, select = "City")
-city <- na.omit(city)
-
-#table filter- to remove text from a coolumn:- !grep and then the cell text 
-
-city <- subset(city, select = "City") %>%filter(!grepl('INVALID IPV4 ADDRESS', City))
-city1 <- subset(city, select = "City") %>%filter(!grepl(' ', City))
-view(city1)
-colnames(city1)[1] = "City"
-
-####insert table for frequency top 15 here
-
-```
-
-
-## CEPEH Training Event 2
-
-**Pre-Training Event survey May 9th-13th 2022 Thessaloniki, Greece**
-
-Twenty-six participants attended the Training Event, along with approximately 10 staff members. There were 21 undergraduate students and 5 postgraduate students, who completed the survey for a total of 26 responses. There were 86% of participants who stated they had not been to a similar event like the training event CEPEH facilitated. There were 90% of students who found the event schedule very organised, and 70% agreed most of the planned sessions were relevant to that interest with the remaining 30% not having enough experience to understand the context to determine if they are interested in the training event. There were 95% of students agreeing or strongly agreeing the training event location is great, the remaining person did not leave additional comments. 
-
-
-Table 1 suggested attendees had minimal intention to share their own ideas due to lack of previous experience of attending such events, or due to lack of knowledge on the area. However, most were interested in listening to other groups and hearing contextual cases in healthcare.
-
-
-
-There were 77% of participants stated they were novices in experience with chatbots in healthcare and were attending to learn more.  The remaining 23% (7 students) stated they were competent and had limited experience with chatbots in healthcare.
-
-
-One day had several events regarding cybersecurity in healthcare. When asked before these events, 83% stated they were neutral or disagreed that they felt confident about their cybersecurity knowledge in healthcare. In addition, 80% stated they when neutral or disagreed that they felt they had strong cybersecurity safety in healthcare.  Table 2 shows the main pre and post results suggesting a positive experience for more than 75% of attendees on all measures. 
-
-
-
-There were 90% (23) of students who heard about the event through a lecturer or a professor, the CEPEH newsletter (2), and 1 person was informed through the anatomy tutoring system at Karolinska Institute. Additionally, 60% suggested the training event to somebody else before the course started.
-
-
-There were six individuals who stated neutral or disagree when asked if having issues on registration or finding the information for the event. This may have been due to being dependent on emails to receive the information, instead of a dedicated website where the information is available anytime. 
-
-
-As this was face-to-face, participants were asked about sufficient Covid-19 precautions in place at the facility, 94% agreed with sufficient precautions, two individuals stated no but did not give further information in the additional input box provided.
-In summary, most participants were undergraduate students with novice experience, happy with the training event location, felt the sessions were relevant to them, and most shared the event with their colleagues. The values of co-creation, chatbots in healthcare, and taking patient history were bestowed to students in an engaging and well-received manner. Notably, the highest ratings were for staff friendliness which is key to engagement and consistent interaction throughout the intense and long 5-day duration. The sessions were recorded there for the online recordings may be viewed with higher numbers over the subsequent weeks. 
 
 
 
@@ -211,16 +126,9 @@ See [our chapter title](#cites-and-refs) for an example. That was section \@ref(
 - **GOTCHA**: Figures and tables must have captions if you wish to cross-reference them.
 
 
-We refer to this image with `\@ref(fig:captain)`.
-So Figure \@ref(fig:captain) is [this image](#fig:captain).
-
-And in Figure \@ref(fig:cars-plot) we saw a [cars plot](#fig:cars-plot).
 
 
-### Table references
-- To refer to tables use the syntax `\@ref(tab:label)`
 
-```
 Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement. As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants. However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
 
 
@@ -228,107 +136,6 @@ Those results can be interpreted that the learning objectives of the training ev
 
 
 
-Dealing with tables in LaTeX can be painful.
-This section explains the main tricks you need to make the pain go away.
-
-(Note: if you are looking at the eBook version, you will not see much difference in this section, as it is only relevant for PDF output!)
-
-### Making your table pretty
-When you use `kable` to create tables, you will almost certainly want to set the option `booktabs = TRUE`.
-This makes your table look a million times better:
-
-
-
-Compare this to the default style, which looks terrible:
-
-
-```{r}
-head(mtcars) %>% 
-  kable()
 ```
+# Appendix {-}
 
-
-### If your table is too wide
-
-
-You might find that your table expands into the margins of the page, like the tables above.
-Fix this with the `kable_styling` function from the [`kableExtra`](https://haozhu233.github.io/kableExtra/) package:
-
-```{r, message=FALSE}
-library(kableExtra)
-
-head(mtcars) %>% 
-  kable(booktabs = TRUE) %>% 
-  kable_styling(latex_options = "scale_down")
-```
-
-This scales down the table to fit the page width.
-
-
-### If your table is too long
-If your table is too long to fit on a single page, set `longtable = TRUE` in the `kable` function to split the table across multiple pages.
-
-```{r}
-a_long_table <- rbind(mtcars, mtcars)
-
-a_long_table %>% 
-  select(1:8) %>% 
-  kable(booktabs = TRUE, longtable = TRUE)
-```
-
-When you do this, you'll probably want to make the header repeat on new pages.
-Do this with the `kable_styling` function from `kableExtra`:
-
-```{r}
-a_long_table %>% 
-  kable(booktabs = TRUE, longtable = TRUE) %>% 
-  kable_styling(latex_options = "repeat_header")
-```
-
-Unfortunately, we cannot use the `scale_down` option with a `longtable`. 
-So if a `longtable` is too wide, you can either manually adjust the font size, or show the table in landscape layout. 
-To adjust the font size, use kableExtra's `font_size` option:
-
-```{r}
-a_long_table %>% 
-  kable(booktabs = TRUE, longtable = TRUE) %>% 
-  kable_styling(font_size = 9, latex_options = "repeat_header")
-```
-
-To put the table in landscape mode, use kableExtra's `landscape` function:
-
-```{r}
-a_long_table %>% 
-  kable(booktabs = TRUE, longtable = TRUE) %>% 
-  kable_styling(latex_options = "repeat_header") %>% 
-  landscape()
-```
-
-### Max power: manually adjust the raw LaTeX output {#max-power}
-For total flexibility, you can adjust the raw LaTeX output from `kable`/`kableExtra` that generates the table.
-Let us consider how we would do this for the example of adjusting the font size if our table is too wide:
-Latex has a bunch of standard commands that set an approximate font size, as shown below in Figure \@ref(fig:latex-font-sizing).
-
-```{r latex-font-sizing, echo=FALSE, out.width='50%', fig.cap="Font sizes in LaTeX", fig.pos="H", fig.align='center'}
-knitr::include_graphics("figures/sample-content/latex_font_sizes.png")
-```
-
-You could use these to manually adjust the font size in your longtable in two steps:
-
-1. Wrap the longtable environment in, e.g., a `scriptsize` environment, by doing a string replacement in the output from `kable`/`kableExtra`
-2. Add the attributes that make R Markdown understand that the table is a table (it seems R drops these when we do the string replacement)
-
-```{r }
-our_adjusted_table <- a_long_table %>% 
-  kable(booktabs = TRUE, longtable = TRUE) %>% 
-  kable_styling(latex_options = "repeat_header") %>% 
-  # wrap the longtable in a tiny environment
-  str_replace('\\\\begin\\{longtable\\}', 
-              '\\\\begin\\{scriptsize\\}\n\\\\begin\\{longtable\\}') %>%
-  str_replace('\\\\end\\{longtable\\}', 
-              '\\\\end\\{longtable\\}\n\\\\end\\{scriptsize\\}')
-
-#add attributes to make R Markdown treat this as a kable LaTeX table again
-our_adjusted_table %>% 
-  structure(format = "latex", class = "knitr_kable")
-```

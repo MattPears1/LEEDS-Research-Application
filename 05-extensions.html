@@ -359,7 +359,7 @@ bibliography/additional-references.bib] —</p>
 <p>(ref:darwin-quote) — Charles Darwin <span class="citation">[@Darwin1859]</span>
 <!-- note that the quote author won't show up when you knit just a single chapter --></p>
 <div id="cites-and-refs" class="section level1">
-<h1>Training Event Results</h1>
+<h1>(Additional Analyses) Training Events</h1>
 <p><!-- this will include a mini table of contents--></p>
 <div id="cepeh-training-event-c1" class="section level2">
 <h2>CEPEH Training Event C1</h2>
@@ -376,10 +376,6 @@ included academics, medical doctors, and researchers with focus both on
 clinical research and digital innovations in healthcare education and IT
 specialist/learning technologists 11.18 years of experiences (SD=7.2). A
 balance between male and female participants achieved.</p>
-</div>
-</div>
-<div id="overall-training-events-evalaution" class="section level1">
-<h1>Overall Training Events Evalaution</h1>
 <p>Participants were asked to highlight what they liked for each day and
 how each day can be improved. Findings are described below per day of
 the training event</p>
@@ -398,6 +394,7 @@ be an added value in regards with the storyboarding process.</p>
 enjoyed the creativity of the groups on the online chatbot development
 tool. As an area of improvement, participants wanted more time on hands
 on sections.</p>
+</div>
 <div id="cepeh-training-event-2" class="section level2">
 <h2>CEPEH Training Event 2</h2>
 <p><strong>Pre-Training Event survey May 9th-13th 2022 Thessaloniki,
@@ -454,245 +451,7 @@ engagement and consistent interaction throughout the intense and long
 5-day duration. The sessions were recorded there for the online
 recordings may be viewed with higher numbers over the subsequent
 weeks.</p>
-<p>The usual way to include citations in an <em>R Markdown</em> document
-is to put references in a plain text file with the extension
-<strong>.bib</strong>, in <strong>BibTex</strong> format.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Then reference the
-path to this file in <strong>index.Rmd</strong>’s YAML header with
-<code>bibliography: example.bib</code>.</p>
-<p>Most reference managers can create a .bib file with you references
-automatically. However, the <strong>by far</strong> best reference
-manager to use with <em>R Markdown</em> is <a href="https://www.zotero.org">Zotero</a> with the <a href="https://retorque.re/zotero-better-bibtex/">Better BibTex
-plug-in</a>, because the <code>citr</code> plugin for RStudio (see
-below) can read references directly from your Zotero library!</p>
-<p>Here is an example of an entry in a <strong>.bib</strong> file:</p>
-<pre class="bibtex"><code>@article{Shea2014,
-  author =        {Shea, Nicholas and Boldt, Annika},
-  journal =       {Trends in Cognitive Sciences},
-  pages =         {186--193},
-  title =         {{Supra-personal cognitive control}},
-  volume =        {18},
-  year =          {2014},
-  doi =           {10.1016/j.tics.2014.01.006},
-}</code></pre>
-<p>In this entry highlighted section, ‘Shea2014’ is the <strong>citation
-identifier</strong>. To default way to cite an entry in your text is
-with this syntax: <code>[@citation-identifier]</code>.</p>
-<p>So I might cite some things <span class="citation">[@Shea2014;
-@Lottridge2012; @Mill1965]</span>.</p>
-<div id="citation-appearance" class="section level3">
-<h3>Appearance of citations and references section (pandoc)</h3>
-<p>By default, <code>oxforddown</code> lets <a href="https://pandoc.org">Pandoc</a> handle how citations are inserted
-in your text and the references section. You can change the appearance
-of citations and references by specifying a CSL (Citation Style
-Language) file in the <code>csl</code> metadata field of
-<strong>index.Rmd</strong>. By default, <code>oxforddown</code> by the
-Americal Psychological Association (7th Edition), which is an
-author-year format.</p>
-<p>With this style, a number of variations on the citation syntax are
-useful to know:</p>
-<ul>
-<li>Put author names outside the parenthesis
-<ul>
-<li>This: <code>@Shea2014 says blah.</code></li>
-<li>Becomes: <span class="citation">@Shea2014</span> says blah.</li>
-</ul></li>
-<li>Include only the citation-year (in parenthesis)
-<ul>
-<li>This: <code>Shea et al. says blah [-@Shea2014]</code></li>
-<li>Becomes: Shea et al. says blah <span class="citation">[-@Shea2014]</span></li>
-</ul></li>
-<li>Add text and page or chapter references to the citation
-<ul>
-<li>This:
-<code>[see @Shea2014, pp. 33-35; also @Wu2016, ch. 1]</code></li>
-<li>Becomes: Blah blah <span class="citation">[see @Shea2014, pp. 33-35;
-also @Wu2016, ch. 1]</span>.</li>
-</ul></li>
-</ul>
-<p>If you want a numerical citation style instead, try
-<code>csl: bibliography/transactions-on-computer-human-interaction.csl</code>
-or just have a browse through the <a href="https://www.zotero.org/styles">Zotero Style Repository</a> and
-look for one you like. For convenience, you can set the line spacing and
-the space between the bibliographic entries in the reference section
-directly from the YAML header in <strong>index.Rmd</strong>.</p>
-<p>If you prefer to use <code>biblatex</code> or <code>natbib</code> to
-handle references, see <a href="#customising-citations">this
-chapter</a>.</p>
-<!-- clearpage ends the page, and also dumps out all floats.
-  Floats are things like tables and figures. -->
 </div>
-<div id="insert-references-easily-with-rstudios-visual-editor" class="section level3">
-<h3>Insert references easily with RStudio’s Visual Editor</h3>
-<p>For an easy way to insert citations, use RStudio’s <a href="https://rstudio.github.io/visual-markdown-editing/citations.html">Visual
-Editor</a>. Make sure you have the latest version of RStudio – the
-visual editor was originally really buggy, especially in relation to
-references, but as per v2022.02.0, it’s great!</p>
-</div>
-</div>
-<div id="cross-referencing" class="section level2">
-<h2>Cross-referencing</h2>
-<p>We can make cross-references to <strong>sections</strong> within our
-document, as well as to <strong>figures</strong> (images and plots) and
-<strong>tables</strong>.</p>
-<p>The general cross-referencing syntax is
-<strong><code>\@ref(label)</code></strong></p>
-<div id="section-references" class="section level3">
-<h3>Section references</h3>
-<p>Headers are automatically assigned a reference label, which is the
-text in lower caps separated by dashes. For example,
-<code># My header</code> is automatically given the label
-<code>my-header</code>. So <code># My header</code> can be referenced
-with <code>\@ref(my-section)</code></p>
-<p>Remember what we wrote in section @ref(citations)?</p>
-<p>We can also use <strong>hyperlink syntax</strong> and add # before
-the label, though this is only guaranteed to work properly in HTML
-output:</p>
-<ul>
-<li>So if we write
-<code>Remember what we wrote up in [the previous section](#citations)?</code></li>
-<li>It becomes Remember what we wrote up in <a href="#citations">the
-previous section</a>?</li>
-</ul>
-<div id="creating-custom-labels" class="section level4">
-<h4>Creating custom labels</h4>
-<p>It is a very good idea to create <strong>custom labels</strong> for
-our sections. This is because the automatically assigned labels will
-change when we change the titles of the sections - to avoid this, we can
-create the labels ourselves and leave them untouched if we change the
-section titles.</p>
-<p>We create custom labels by adding <code>{#label}</code> after a
-header, e.g. <code># My section {#my-label}</code>. See <a href="#cites-and-refs">our chapter title</a> for an example. That was
-section @ref(cites-and-refs).</p>
-</div>
-</div>
-<div id="figure-image-and-plot-references" class="section level3">
-<h3>Figure (image and plot) references</h3>
-<ul>
-<li>To refer to figures (i.e. images and plots) use the syntax
-<code>\@ref(fig:label)</code></li>
-<li><strong>GOTCHA</strong>: Figures and tables must have captions if
-you wish to cross-reference them.</li>
-</ul>
-<p>Let’s add an image:</p>
-<p>We refer to this image with <code>\@ref(fig:captain)</code>. So
-Figure @ref(fig:captain) is <a href="#fig:captain">this image</a>.</p>
-<p>And in Figure @ref(fig:cars-plot) we saw a <a href="#fig:cars-plot">cars plot</a>.</p>
-</div>
-<div id="table-references" class="section level3">
-<h3>Table references</h3>
-<ul>
-<li>To refer to tables use the syntax <code>\@ref(tab:label)</code></li>
-</ul>
-<p>Let’s include a table:</p>
-<pre class="r"><code>knitr::kable(cars[1:5,],
-            caption=&quot;Stopping cars&quot;)</code></pre>
-<table>
-<caption>Stopping cars</caption>
-<thead>
-<tr class="header">
-<th align="right">speed</th>
-<th align="right">dist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">4</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">10</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">7</td>
-<td align="right">22</td>
-</tr>
-<tr class="odd">
-<td align="right">8</td>
-<td align="right">16</td>
-</tr>
-</tbody>
-</table>
-<p>We refer to this table with <code>\@ref(tab:cars-table2)</code>. So
-Table @ref(tab:cars-table2) is <a href="#tab:cars-table2">this
-table</a>.</p>
-<p>And in Table @ref(tab:cars-table) we saw more or less <a href="#tab:cars-table">the same cars table</a>.</p>
-</div>
-<div id="including-page-numbers" class="section level3">
-<h3>Including page numbers</h3>
-<p>Finally, in the PDF output we might also want to include the page
-number of a reference, so that it’s easy to find in physical printed
-output. LaTeX has a command for this, which looks like this:
-<code>\pageref{fig/tab:label}</code> (note: curly braces, not
-parentheses)</p>
-<p>When we output to PDF, we can use raw LaTeX directly in our .Rmd
-files. So if we wanted to include the page of the cars plot we could
-write:</p>
-<ul>
-<li>This:
-<code>Figure \@ref(fig:cars-plot) on page \pageref(fig:cars-plot)</code></li>
-<li>Becomes: Figure @ref(fig:cars-plot) on page </li>
-</ul>
-<div id="include-page-numbers-only-in-pdf-output" class="section level4">
-<h4>Include page numbers only in PDF output</h4>
-<p>A problem here is that LaTeX commands don’t display in HTML output,
-so in the gitbook output we’d see simply “Figure @ref(fig:cars-plot) on
-page”.</p>
-<p>One way to get around this is to use inline R code to insert the
-text, and use an <code>ifelse</code> statement to check the output
-format and then insert the appropriate text.</p>
-<ul>
-<li>So this:
-<code>`r ifelse(knitr::is_latex_output(), &quot;Figure \\@ref(fig:cars-plot) on page \\pageref{fig:cars-plot}&quot;, &quot;&quot;)`</code></li>
-<li>Inserts this (check this on both PDF and gitbook):</li>
-</ul>
-<p>Note that we need to escape the backslash with another backslash here
-to get the correct output.</p>
-</div>
-</div>
-</div>
-<div id="collaborative-writing" class="section level2">
-<h2>Collaborative writing</h2>
-<p>Best practices for collaboration and change tracking when using R
-Markdown are still an open question. In the blog post <a href="https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/"><strong>One
-year to dissertate</strong></a> by Lucy D’Agostino, which I highly
-recommend, the author notes that she knits .Rmd files to a word
-document, then uses the <code>googledrive</code> R package to send this
-to Google Drive for comments / revisions from co-authors, then
-incorporates Google Drive suggestions <em>by hand</em> into the .Rmd
-source files. This is a bit clunky, and there are ongoing discussions
-among the <em>R Markdown</em> developers about what the best way is to
-handle collaborative writing (see <a href="https://github.com/rstudio/rmarkdown/issues/1463">issue #1463</a>
-on GitHub, where <a href="http://criticmarkup.com">CriticMarkup</a> is
-among the suggestions).</p>
-<p>For now, this is an open question in the community of R Markdown
-users. I often knit to a format that can easily be imported to Google
-Docs for comments, then go over suggested revisions and manually
-incorporate them back in to the .Rmd source files. For articles, I
-sometimes upload a near-final draft to <a href="https://www.overleaf.com/">Overleaf</a>, then collaboratively make
-final edits to the LaTeX file there. I suspect some great solution will
-be developed in the not-to-distant future, probably by the RStudio
-team.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2>Additional resources</h2>
-<ul>
-<li><p><em>R Markdown: The Definitive Guide</em> - <a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></p></li>
-<li><p><em>R for Data Science</em> - <a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a></p></li>
-</ul>
-</div>
-</div>
-<div class="footnotes footnotes-end-of-document">
-<hr />
-<ol>
-<li id="fn1"><p>The bibliography can be in other formats as well,
-including EndNote (<strong>.enl</strong>) and RIS
-(<strong>.ris</strong>), see <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">rmarkdown.rstudio.com/authoring_bibliographies_and_citations</a>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
 
 

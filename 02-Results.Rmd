@@ -150,183 +150,13 @@ knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never
 
 
 
-/n
-i
-i
-i
-i
-i
-i
-i
-i
 
 
 
 
+# Post-Intervention Results and Comparision
 
-
-
-
-
------------------------------------------------------------------------
-
-##Post-Intervention Results and Comparision
-
-After using the CEPEH chatbots, majority of participants stated they would reuse the chatbots. However, there was 6 counts of *disagree* or *strongly disagree* for all 4 chatbots. Further, there were 17 counts of neutral in reuse, which was approximately 4 participants per chatbot (see (\@ref(fig:Boxplotsplits4)).
-
-```{r Boxplotsplits4, fig.cap="Intend to Reuse-Post", echo=FALSE, message=FALSE, warning=FALSE}
-
-library(tidyverse)
-library(readr)
-
-Boxplotsplits4 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
-
-#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
-Boxplotsplits4 %>%
-  
-  filter(Intend %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
-           
-           drop_na(Intend) %>%
-  drop_na(Intend)%>%
-#------then pipe into ggplot
-  #the first aesthetic label is always the x axis
-  ggplot(aes(ChatbotUsed))+
-  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
-  facet_wrap(~Intend)+
-  theme_get()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank())+
-                 labs(title="I Intend to again use the CEPEH Chatbots",
-                      x= "",
-                      y= "Frequency")
-```
-
-
-
-
-For CYENS, even though the knowledge of the topic was not perceived to improve by some participants, this box plot shows how 34/42 stated they would reuse the chatbot developed by CYENS.
-
-
-```{r Boxplotsplits3, fig.cap="Easy to Use- Post", echo=FALSE, message=FALSE, warning=FALSE}
-
-library(tidyverse)
-library(readr)
-
-Boxplotsplits3 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
-
-#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
-Boxplotsplits3 %>%
-  
-  filter(Information_with_minimal_command_post %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
-           
-           drop_na(Information_with_minimal_command_post) %>%
-  drop_na(Information_with_minimal_command_post)%>%
-#------then pipe into ggplot
-  #the first aesthetic label is always the x axis
-  ggplot(aes(ChatbotUsed))+
-  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
-  facet_wrap(~Information_with_minimal_command_post)+
-  theme_get()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank())+
-                 labs(title="CEPEH Chatbots are Easy to Use",
-                      x= "Like to use chatbots frequently (Pre)",
-                      y= "Frequency")
-```
-There was only 1 'Strongly Disagree' response.
-The agreement options counted for the majority of the data. 
-
-
-### Other Findings
-
-Other questions
-
-I intend to continue using chatbots in the future (BI1)
-
-The chatbot provided the information I needed with minimal commands
-
-My knowledge of the topic improved after i had used the Chatbot
-
-My confidence in understanding the topic improved after I had used the Chatbot
-
-The chatbot provided me with the type of response i expected from asking a tutor/lecturer
-
-The information provided was reliable
-
-The chatbot has a high level of trustworthiness
-
-The duration of conversations to find my answer was too long
-
-The videos/images provided were useful to my questions
-
-The chatbot exceeded my expectation of how it could help me
-
-The chatbot exceeded my expectation of how it could engage with me
-
-I think this learning method could help me to acquire knowledge
-
-I would use this tool again as it has some value to me
-
-I think i will actively use this learning method
-
-I believe I had some choice about learning during chatbot use
-
-I would trust the chatbot to provide me with information for my course
-
-One piece of knowledge i learned from the chatbot was..
-
-```{r second setup stuff 3, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=FALSE}
-
-library(readxl)
-library(ggplot2)
-library(lubridate)
-library(plotly)
-library(dplyr)
-#color pallets
-library(wesanderson)
-library(viridis)
-library(knitr)
-library(tidyverse)
-
-
-```
-
-
-
-Repeated Measures t-test, aka paired t-test (before and after measurements)
-
-```{r T-test, message=FALSE, warning=FALSE, include=FALSE}
-
-library(readr)
-
-mydata.needed <- read_csv("Full DATA CEPEH Moh - Copy.csv")
-
-attach(mydata.needed)
-names(mydata.needed)
-mydata.needed[1:3]
-
-plot(CUQ)
-
-t.test(CUQ, after, mu=0, alt="two.sided", paired=T, conf.level=0.095)
-
-
-
-
-
-```
-This t-test compares confident using mobile chatbots before and after CEPEH chatbot usage. 
-
-
-
-
-
-### System Usability Scale (SUS) Scores
+## System Usability Scale (SUS) Scores
 
 *Note= The amount of 'agreement' is defined as the addition of 'Agree'
 and 'Strongly agree' responses.*
@@ -399,7 +229,8 @@ ggplot(RLOk, aes(fill = RLO, x = Identity)) + geom_bar(width=0.5,position = "fil
 
 ```
 
-### Technology Acceptance Model
+
+## Technology Acceptance Model
 
 The TAM had 3 sections (Ease of Use, Perceived Usefulness, and Intention
 of Use). Ease of Use results showed significant increases in Users'
@@ -419,7 +250,9 @@ more benefit than expected by students.
 
 
 
+
 ## Chatbot Usabilty Questionanire (CUQ)
+
 ### CUQ Calcuation tool
 
 The CUQ was developed by researchers at Ulster University,[Link](<a href="https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq") 
@@ -650,7 +483,165 @@ resources.
 --------------------------------------------------------------------
 
 
+
 ## Inferential Statistics
+
+### Repeated Measures T-test results
+
+After using the CEPEH chatbots, majority of participants stated they would reuse the chatbots. However, there was 6 counts of *disagree* or *strongly disagree* for all 4 chatbots. Further, there were 17 counts of neutral in reuse, which was approximately 4 participants per chatbot (see (\@ref(fig:Boxplotsplits4)).
+
+```{r Boxplotsplits4, fig.cap="Intend to Reuse-Post", echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits4 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits4 %>%
+  
+  filter(Intend %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(Intend) %>%
+  drop_na(Intend)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(ChatbotUsed))+
+  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
+  facet_wrap(~Intend)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="I Intend to again use the CEPEH Chatbots",
+                      x= "",
+                      y= "Frequency")
+```
+
+
+For CYENS, even though the knowledge of the topic was not perceived to improve by some participants, this box plot shows how 34/42 stated they would reuse the chatbot developed by CYENS.
+
+
+```{r Boxplotsplits3, fig.cap="Easy to Use- Post", echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits3 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits3 %>%
+  
+  filter(Information_with_minimal_command_post %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(Information_with_minimal_command_post) %>%
+  drop_na(Information_with_minimal_command_post)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(ChatbotUsed))+
+  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
+  facet_wrap(~Information_with_minimal_command_post)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="CEPEH Chatbots are Easy to Use",
+                      x= "Like to use chatbots frequently (Pre)",
+                      y= "Frequency")
+```
+There was only 1 'Strongly Disagree' response.
+The agreement options counted for the majority of the data. 
+
+
+### Other Findings
+
+Other questions
+
+I intend to continue using chatbots in the future (BI1)
+
+The chatbot provided the information I needed with minimal commands
+
+My knowledge of the topic improved after i had used the Chatbot
+
+My confidence in understanding the topic improved after I had used the Chatbot
+
+The chatbot provided me with the type of response i expected from asking a tutor/lecturer
+
+The information provided was reliable
+
+The chatbot has a high level of trustworthiness
+
+The duration of conversations to find my answer was too long
+
+The videos/images provided were useful to my questions
+
+The chatbot exceeded my expectation of how it could help me
+
+The chatbot exceeded my expectation of how it could engage with me
+
+I think this learning method could help me to acquire knowledge
+
+I would use this tool again as it has some value to me
+
+I think i will actively use this learning method
+
+I believe I had some choice about learning during chatbot use
+
+I would trust the chatbot to provide me with information for my course
+
+One piece of knowledge i learned from the chatbot was..
+
+```{r second setup stuff 3, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=FALSE}
+
+library(readxl)
+library(ggplot2)
+library(lubridate)
+library(plotly)
+library(dplyr)
+#color pallets
+library(wesanderson)
+library(viridis)
+library(knitr)
+library(tidyverse)
+
+
+```
+
+
+
+Repeated Measures t-test, aka paired t-test (before and after measurements)
+
+```{r T-test, message=FALSE, warning=FALSE, include=FALSE}
+
+library(readr)
+
+mydata.needed <- read_csv("Full DATA CEPEH Moh - Copy.csv")
+
+attach(mydata.needed)
+names(mydata.needed)
+mydata.needed[1:3]
+
+plot(CUQ)
+
+t.test(CUQ, after, mu=0, alt="two.sided", paired=T, conf.level=0.095)
+
+
+
+
+
+```
+This t-test compares confident using mobile chatbots before and after CEPEH chatbot usage. 
+
+
+
+
+
+
+
 
 
 
