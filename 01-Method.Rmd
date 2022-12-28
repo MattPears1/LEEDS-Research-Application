@@ -114,13 +114,15 @@ It was a repeated measure design whereby each participant used the 4 chatbots de
 Therefore, there are 42 points of data in the condition before testing, and 126 data points after testing the chatbots- for a total of `r count(data)` row of data, 5 per participant.
 There were 78 questions asked in total, therefore the full dataset has over 4000 cells recorded.
 
+
+
 There were `r count(Femalesgreece)` females and `r count(malesgreece)` males from Greece.
 There were `r count(Femalescyprus)` females and `r count(malescyprus)` males from Cyprus.
 There were `r count(Femalessweden)` females and `r count(malessweden)` males from Sweden,
 and there were 2 participants from the United Kingdom (see(\@ref(fig:location1)).
 
 
-```{r location1, fig.cap="Location and Profession", echo=FALSE, message=FALSE, warning=FALSE}
+```{r location1, fig.cap="Location and Profession of Participants", echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)

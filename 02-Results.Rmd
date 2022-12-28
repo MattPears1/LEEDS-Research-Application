@@ -64,7 +64,7 @@ disc <- na.omit(disc)
 colnames(disc)[1] = "Location"
 ```
 
-## Learner Characteristics
+## Participant Characteristics
 
 When asked the amount of time participants have used a chatbot- in any
 form or subject: 23 stated they had never used a chatbot, educational or
