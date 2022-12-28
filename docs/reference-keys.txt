@@ -7,7 +7,6 @@ method
 participants
 procedure
 design
-materials-and-measures
 chatbot-usability-questionnaire-cuq
 utaut2-unified-theory-of-acceptance-and-use-of-technology
 system-usability-scale
@@ -16,7 +15,6 @@ technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
 learner-characteristics
-post-intervention-results-and-comparision
 system-usability-scale-sus-scores
 technology-acceptance-model
 chatbot-usabilty-questionanire-cuq
@@ -24,7 +22,7 @@ cuq-calcuation-tool
 inferential-statistics
 repeated-measures-t-test-results
 other-findings
-cepeh-qualatative-feedback
+cepeh-focus-group-discussion-analysis
 tokenising
 stop-words
 plotting-word-frequencies---bar-graphs
@@ -38,10 +36,10 @@ quantatative-results
 qualatative-results
 limitations
 conclusions
-citation-appearance
-insert-references-easily-with-rstudios-visual-editor
-cross-referencing
-section-references
-creating-custom-labels
-figure-image-and-plot-references
 reach-impact-and-qualatative-analysis
+cites-and-refs
+cepeh-training-event-c1
+cepeh-training-event-2
+bibliography-bibliographyreferences.bib-bibliographyadditional-references.bib
+the-first-appendix
+the-second-appendix-for-fun

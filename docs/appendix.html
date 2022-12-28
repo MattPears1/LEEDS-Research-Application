@@ -42,9 +42,9 @@
   </style>
 <link rel="stylesheet" href="templates/bs4_style.css">
 <link rel="stylesheet" href="templates/corrections.css">
-<meta name="description" content="body { text-align: justify}  3.5 CEPEH Qualatative Feedback The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and...">
-<meta property="og:description" content="body { text-align: justify}  3.5 CEPEH Qualatative Feedback The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and...">
-<meta name="twitter:description" content="body { text-align: justify}  3.5 CEPEH Qualatative Feedback The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and...">
+<meta name="description" content="A book created with bookdown.">
+<meta property="og:description" content="A book created with bookdown.">
+<meta name="twitter:description" content="A book created with bookdown.">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -70,9 +70,14 @@
 <li><a class="" href="introduction.html">Introduction</a></li>
 <li><a class="" href="method.html"><span class="header-section-number">1</span> Method</a></li>
 <li><a class="" href="rmd-basics.html"><span class="header-section-number">2</span> Results</a></li>
-<li><a class="" href="post-intervention-results-and-comparision.html"><span class="header-section-number">3</span> Post-Intervention Results and Comparision</a></li>
-<li><a class="active" href="appendix.html">Appendix</a></li>
+<li><a class="" href="cepeh-focus-group-discussion-analysis.html"><span class="header-section-number">3</span> CEPEH Focus Group Discussion Analysis</a></li>
 <li><a class="" href="Discussion.html"><span class="header-section-number">4</span> Discussion</a></li>
+<li><a class="" href="cites-and-refs.html"><span class="header-section-number">5</span> (Additional Analyses) Training Events</a></li>
+<li><a class="active" href="appendix.html">Appendix</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="the-first-appendix.html"><span class="header-section-number">A</span> The First Appendix</a></li>
+<li><a class="" href="the-second-appendix-for-fun.html"><span class="header-section-number">B</span> The Second Appendix, for Fun</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -84,135 +89,32 @@
 <h1>Appendix<a class="anchor" aria-label="anchor" href="#appendix"><i class="fas fa-link"></i></a>
 </h1>
 
-<style>
-body {
-text-align: justify}
-</style>
-<div id="cepeh-qualatative-feedback" class="section level2" number="3.5">
-<h2>
-<span class="header-section-number">3.5</span> CEPEH Qualatative Feedback<a class="anchor" aria-label="anchor" href="#cepeh-qualatative-feedback"><i class="fas fa-link"></i></a>
-</h2>
-<p>The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing.</p>
-<p>One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.</p>
-<p>Therefore, we have created a model to allow efficient and intelligent analysis of this open/free focus group data.</p>
 </div>
-<div id="tokenising" class="section level2" number="3.6">
-<h2>
-<span class="header-section-number">3.6</span> Tokenising<a class="anchor" aria-label="anchor" href="#tokenising"><i class="fas fa-link"></i></a>
-</h2>
-<p>Firstly, we tokenised the words from the FGDs. A Token is “a meaningful unit of text, most often a word, that we are interested in using for further analysis”. For each word we give it a property that we can call upon later.</p>
-<p>The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as “characters”, “ngrams”, “sentences”, “lines” etc)</p>
-<div id="stop-words" class="section level3" number="3.6.1">
-<h3>
-<span class="header-section-number">3.6.1</span> Stop words<a class="anchor" aria-label="anchor" href="#stop-words"><i class="fas fa-link"></i></a>
-</h3>
-<p>The model then removed words with meaningless function. These are called stop words. Words like “the”, “of” and “to” are the most frequent words found, technically, but are of little interest to us.</p>
-<p>We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.</p>
-<p>The data was ready for analysis by the model. We ordered it to find the most frequent words.</p>
-<pre><code>## # A tibble: 384 × 3
-## # Groups:   doc_id [1]
-##    doc_id word            n
-##    &lt;fct&gt;  &lt;chr&gt;       &lt;int&gt;
-##  1 1      information    11
-##  2 1      helpful         8
-##  3 1      understand      8
-##  4 1      idea            7
-##  5 1      ideas           7
-##  6 1      workshop        7
-##  7 1      beginning       6
-##  8 1      dont            6
-##  9 1      medical         6
-## 10 1      technology      6
-## # … with 374 more rows</code></pre>
-</div>
-</div>
-<div id="plotting-word-frequencies---bar-graphs" class="section level2" number="3.7">
-<h2>
-<span class="header-section-number">3.7</span> Plotting word frequencies - bar graphs<a class="anchor" aria-label="anchor" href="#plotting-word-frequencies---bar-graphs"><i class="fas fa-link"></i></a>
-</h2>
-<p>With this information a Bar graph of top words from the participants in the FGD can be rendered.</p>
-<div class="inline-figure"><img src="_main_files/figure-html/FREQ%20words%20bar%20graph-1.png" width="672"></div>
-<p>and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
-<p>Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted.</p>
-<div id="normalised-frequency" class="section level3" number="3.7.1">
-<h3>
-<span class="header-section-number">3.7.1</span> Normalised frequency<a class="anchor" aria-label="anchor" href="#normalised-frequency"><i class="fas fa-link"></i></a>
-</h3>
-<p>A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to reflect this.</p>
-<div id="plotting-normalised-frequency" class="section level4" number="3.7.1.1">
-<h4>
-<span class="header-section-number">3.7.1.1</span> Plotting normalised frequency<a class="anchor" aria-label="anchor" href="#plotting-normalised-frequency"><i class="fas fa-link"></i></a>
-</h4>
-<p>Now we can plot, for example, the 20 most frequent words when normalised by the source text.</p>
-<div class="inline-figure">
-<img src="_main_files/figure-html/CEPEH%20MOST%20FREQ-1.png" width="672">
-In summary, this understanding of frequent words can help to understand common concurrences and extrapolate to a larger audience. If scope and impact of CEPEH chatbots increased we can understand the type of themes and trends may occur, based on such FGD analysis.</div>
-</div>
-</div>
-</div>
-<div id="word-clouds" class="section level2" number="3.8">
-<h2>
-<span class="header-section-number">3.8</span> Word clouds<a class="anchor" aria-label="anchor" href="#word-clouds"><i class="fas fa-link"></i></a>
-</h2>
-<p>To visualise the most frequent words in another format, below is a word cloud which presents the word size to indicate the frequency- words that occur more often being displayed in a larger font size.
-This has a normalised data frequency in accordance to the FGD source document analysed.</p>
-<div class="inline-figure">
-<img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672">
-We understand the context has been reduced for each word. However, in general there can be categorised positive/negative words from the word cloud:
-Positive words are- benefit, practical, nice, helpful, learn, ideas, and enjoyed
-Negative words are- difficult, test (who likes a test?), don’t, and ‘lot’ may be negative if there is a ‘lot’ of information.</div>
-<div id="the-vocabulary-of-texts" class="section level3" number="3.8.1">
-<h3>
-<span class="header-section-number">3.8.1</span> The vocabulary of Texts<a class="anchor" aria-label="anchor" href="#the-vocabulary-of-texts"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure">Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour hotspots shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
-<img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672">
-</div>
-</div>
-</div>
-<div id="sentiment-analysis" class="section level2" number="3.9">
-<h2>
-<span class="header-section-number">3.9</span> Sentiment analysis<a class="anchor" aria-label="anchor" href="#sentiment-analysis"><i class="fas fa-link"></i></a>
-</h2>
-<p>What is the sentiment of all participants? What is types of emotional words are being used?
-The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word <em>‘helpful’</em> which has a positive connotation, however there are 386 words, with many having several occurrences.</p>
-<pre><code>##   max(total_score) min(total_score)
-## 1               38               38</code></pre>
 
-</div>
-</div>
-  <div class="chapter-nav">
-<div class="prev"><a href="post-intervention-results-and-comparision.html"><span class="header-section-number">3</span> Post-Intervention Results and Comparision</a></div>
-<div class="next"><a href="Discussion.html"><span class="header-section-number">4</span> Discussion</a></div>
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="cites-and-refs.html"><span class="header-section-number">5</span> (Additional Analyses) Training Events</a></div>
+<div class="next"><a href="the-first-appendix.html"><span class="header-section-number">A</span> The First Appendix</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#appendix">Appendix</a></li>
-<li><a class="nav-link" href="#cepeh-qualatative-feedback"><span class="header-section-number">3.5</span> CEPEH Qualatative Feedback</a></li>
-<li>
-<a class="nav-link" href="#tokenising"><span class="header-section-number">3.6</span> Tokenising</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#stop-words"><span class="header-section-number">3.6.1</span> Stop words</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#plotting-word-frequencies---bar-graphs"><span class="header-section-number">3.7</span> Plotting word frequencies - bar graphs</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#normalised-frequency"><span class="header-section-number">3.7.1</span> Normalised frequency</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#word-clouds"><span class="header-section-number">3.8</span> Word clouds</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-vocabulary-of-texts"><span class="header-section-number">3.8.1</span> The vocabulary of Texts</a></li></ul>
-</li>
-<li><a class="nav-link" href="#sentiment-analysis"><span class="header-section-number">3.9</span> Sentiment analysis</a></li>
-</ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#appendix">Appendix</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="E:%5Coxforddown-master/blob/master/02.1-conclusion.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
-          <li><a id="book-edit" href="E:%5Coxforddown-master/edit/master/02.1-conclusion.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+<li><a id="book-source" href="E:%5Coxforddown-master/blob/master/06-conclusion.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="E:%5Coxforddown-master/edit/master/06-conclusion.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
         </ul>
 </div>
     </nav>
 </div>
+</div>
+  
+
+  
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 

@@ -17,7 +17,7 @@ text-align: justify}
 </style>
 
 
-## CEPEH Qualatative Feedback
+# CEPEH Focus Group Discussion Analysis
 
 ```{r setup packages, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(
@@ -129,6 +129,7 @@ CEPEHQ_tidy %>%
 CEPEHQ_tidy 
 ```
 
+
 ## Plotting word frequencies - bar graphs
 
 With this information a Bar graph of top words from the participants in the FGD can be rendered.
@@ -186,6 +187,7 @@ Although the frequency is not high for each word, we are able to get a general p
 
 ### Normalised frequency
 A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to reflect this.
+
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 # see the total number of words per play (doc_id)
 CEPEHQ_freq %>% 
@@ -203,7 +205,7 @@ CEPEHQ_freq <- CEPEHQ_freq %>%
 CEPEHQ_freq %>% select(word, pmw)
 ```
 
-#### Plotting normalised frequency
+### Plotting normalised frequency
 
 Now we can plot, for example, the 20 most frequent words when normalised by the source text.
 
@@ -251,6 +253,7 @@ summary(comp_2)
 ```
 
 Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour hotspots shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(comp_2, 
        aes(x = `1`, y = `1`, 
@@ -264,7 +267,6 @@ ggplot(comp_2,
   theme(legend.position="none") +
   labs(y = "1", x = "1")
 ```
-
 
 
 ## Sentiment analysis

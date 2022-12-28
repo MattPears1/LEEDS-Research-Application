@@ -24,118 +24,29 @@ Learners have lots of other choices such as YouTube, but there is a certain need
 This was one reason why they were rated positive as they are able to streamline data finding for learners in a format that is understandable and easy to them. 
 
 
+
+
 ## Quantatative Results
 
 
 ## Qualatative Results
+
 
 ## Limitations
 
 
 ## Conclusions
 
-
-
-
-
-
-
-
-The usual way to include citations in an *R Markdown* document is to put references in a plain text file with the extension **.bib**, in **BibTex** format.[^bib-formats]
-Then reference the path to this file in **index.Rmd**'s YAML header with `bibliography: example.bib`.
-
-[^bib-formats]: The bibliography can be in other formats as well, including EndNote (**.enl**) and RIS (**.ris**), see [rmarkdown.rstudio.com/authoring_bibliographies_and_citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
-
-Most reference managers can create a .bib file with you references automatically.
-However, the **by far** best reference manager to use with *R Markdown* is [Zotero](https://www.zotero.org) with the [Better BibTex plug-in](https://retorque.re/zotero-better-bibtex/), because the `citr` plugin for RStudio (see below) can read references directly from your Zotero library!
-
-Here is an example of an entry in a **.bib** file:
-```bibtex
-@article{Shea2014,
-  author =        {Shea, Nicholas and Boldt, Annika},
-  journal =       {Trends in Cognitive Sciences},
-  pages =         {186--193},
-  title =         {{Supra-personal cognitive control}},
-  volume =        {18},
-  year =          {2014},
-  doi =           {10.1016/j.tics.2014.01.006},
-}
-```
-
-In this entry highlighted section, 'Shea2014' is the **citation identifier**.
-To default way to cite an entry in your text is with this syntax: `[@citation-identifier]`.
-
-So I might cite some things [@Shea2014; @Lottridge2012; @Mill1965].
-
-### Appearance of citations and references section (pandoc) {#citation-appearance}
-By default, `oxforddown` lets [Pandoc](https://pandoc.org) handle how citations are inserted in your text and the references section.
-You can change the appearance of citations and references by specifying a CSL (Citation Style Language) file in the `csl` metadata field of **index.Rmd**.
-By default, `oxforddown` by the Americal Psychological Association (7th Edition), which is an author-year format.
-
-With this style, a number of variations on the citation syntax are useful to know:
-
-- Put author names outside the parenthesis
-  - This: `@Shea2014 says blah.`
-  - Becomes: @Shea2014 says blah.
-- Include only the citation-year (in parenthesis)
-  - This: `Shea et al. says blah [-@Shea2014]`
-  - Becomes: Shea et al. says blah [-@Shea2014]
-- Add text and page or chapter references to the citation
-  - This: `[see @Shea2014, pp. 33-35; also @Wu2016, ch. 1]`
-  - Becomes: Blah blah [see @Shea2014, pp. 33-35; also @Wu2016, ch. 1].
-
-
-If you want a numerical citation style instead, try `csl: bibliography/transactions-on-computer-human-interaction.csl` or just have a browse through the [Zotero Style Repository](https://www.zotero.org/styles) and look for one you like.
-For convenience, you can set the line spacing and the space between the bibliographic entries in the reference section directly from the YAML header in **index.Rmd**.
-
-If you prefer to use `biblatex` or `natbib` to handle references, see [this chapter](#customising-citations).
-
-\clearpage
-
-<!-- clearpage ends the page, and also dumps out all floats.
-  Floats are things like tables and figures. -->
-
-### Insert references easily with RStudio's Visual Editor 
-For an easy way to insert citations, use RStudio's [Visual Editor](https://rstudio.github.io/visual-markdown-editing/citations.html).
-Make sure you have the latest version of RStudio -- the visual editor was originally really buggy, especially in relation to references, but as per v2022.02.0, it's great!
-
-
-## Cross-referencing
-We can make cross-references to **sections** within our document, as well as to **figures** (images and plots) and **tables**.
-
-The general cross-referencing syntax is **`\@ref(label)`**
-
-### Section references
-Headers are automatically assigned a reference label, which is the text in lower caps separated by dashes. For example, `# My header` is automatically given the label `my-header`. So `# My header` can be referenced with `\@ref(my-section)`
-
-Remember what we wrote in section \@ref(citations)?
-
-We can also use **hyperlink syntax** and add \# before the label, though this is only guaranteed to work properly in HTML output:
-
-- So if we write `Remember what we wrote up in [the previous section](#citations)?`
-- It becomes Remember what we wrote up in [the previous section](#citations)?
-
-#### Creating custom labels
-It is a very good idea to create **custom labels** for our sections. This is because the automatically assigned labels will change when we change the titles of the sections - to avoid this, we can create the labels ourselves and leave them untouched if we change the section titles.
-
-We create custom labels by adding `{#label}` after a header, e.g. `# My section {#my-label}`.
-See [our chapter title](#cites-and-refs) for an example. That was section \@ref(cites-and-refs).
-
-### Figure (image and plot) references
-- To refer to figures (i.e. images and plots) use the syntax `\@ref(fig:label)`
-- **GOTCHA**: Figures and tables must have captions if you wish to cross-reference them.
-
-
-
-
-
 Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement. As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants. However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
+
 
 
 ## Reach, Impact, and Qualatative analysis 
 
 
 
-```
-# Appendix {-}
+
+
+
+
 

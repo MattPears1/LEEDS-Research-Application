@@ -76,7 +76,7 @@ The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of easy
 library(tidyverse)
 library(readr)
 
-Boxplotsplits2 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits2 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits2 %>%
@@ -149,12 +149,6 @@ knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never
 ```
 
 
-
-
-
-
-
-# Post-Intervention Results and Comparision
 
 ## System Usability Scale (SUS) Scores
 
@@ -250,7 +244,6 @@ more benefit than expected by students.
 
 
 
-
 ## Chatbot Usabilty Questionanire (CUQ)
 
 ### CUQ Calcuation tool
@@ -299,7 +292,7 @@ Figure shows the CUQ scores as a box plot to highlight the range of Usability of
 library(tidyverse)
 library(readr)
 
-Boxplotsplits5 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits5 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits5 %>%
@@ -330,7 +323,7 @@ CYENS chatbot had around 10 more participants stating that they were neutral on 
 library(tidyverse)
 library(readr)
 
-Boxplotsplits6 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits6 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits6 %>%
@@ -360,7 +353,7 @@ Boxplotsplits6 %>%
 library(tidyverse)
 library(readr)
 
-Boxplotsplits7 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits7 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits7 %>%
@@ -391,7 +384,7 @@ There was mixed results for the chatbot used being realistic and engaging. This 
 library(tidyverse)
 library(readr)
 
-Boxplotsplits8 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits8 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits8 %>%
@@ -422,7 +415,7 @@ Boxplotsplits8 %>%
 library(tidyverse)
 library(readr)
 
-Boxplotsplits9 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits9 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits9 %>%
@@ -452,7 +445,7 @@ Boxplotsplits9 %>%
 library(tidyverse)
 library(readr)
 
-Boxplotsplits10 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits10 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits10 %>%
@@ -495,7 +488,7 @@ After using the CEPEH chatbots, majority of participants stated they would reuse
 library(tidyverse)
 library(readr)
 
-Boxplotsplits4 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits4 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits4 %>%
@@ -529,7 +522,7 @@ For CYENS, even though the knowledge of the topic was not perceived to improve b
 library(tidyverse)
 library(readr)
 
-Boxplotsplits3 <- read.csv("C:/Users/MattP/Desktop/cepeh R/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+Boxplotsplits3 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits3 %>%
@@ -557,7 +550,7 @@ There was only 1 'Strongly Disagree' response.
 The agreement options counted for the majority of the data. 
 
 
-### Other Findings
+## Other Findings
 
 Other questions
 
