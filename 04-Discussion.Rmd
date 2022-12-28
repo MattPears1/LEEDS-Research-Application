@@ -41,7 +41,7 @@ Those results can be interpreted that the learning objectives of the training ev
 
 
 
-## Reach, Impact, and Qualatative analysis 
+
 
 
 
