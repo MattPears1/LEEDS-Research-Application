@@ -443,7 +443,7 @@ Boxplotsplits8 %>%
                       y= "Frequency")
 ```
 
-```{r Boxplotsplits9, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits9, fig.cap="Ease of Use Comparison", echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -466,12 +466,16 @@ Boxplotsplits9 %>%
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank())+
+        axis.text.x=element_blank())+
                  labs(title="Change in Ease of Use Perception, after CEPEH Chatbot Usage",
                       x= "",
                       y= "Frequency")
 ```
+After usage, there was only agreement in Ease of Use- as shown in (\@ref(fig:Boxplotsplits9)).
+
+
+
+
 
 ```{r Boxplotsplits10, echo=FALSE, message=FALSE, warning=FALSE}
 

@@ -2,6 +2,7 @@ fig:location1
 fig:Boxplotsplits2
 fig:BoxplotUsefulPre
 fig:Boxplotsplits5
+fig:Boxplotsplits9
 fig:Boxplotsplits4
 fig:Boxplotsplits3
 method
