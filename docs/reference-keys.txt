@@ -1,6 +1,7 @@
 fig:location1
 fig:Boxplotsplits2
 fig:BoxplotUsefulPre
+fig:Boxplotsplits5
 fig:Boxplotsplits4
 fig:Boxplotsplits3
 method
@@ -17,8 +18,8 @@ rmd-basics
 learner-characteristics
 system-usability-scale-sus-scores
 technology-acceptance-model
-chatbot-usabilty-questionanire-cuq
-cuq-calcuation-tool
+chatbot-usability-questionnaire-cuq-1
+cuq-calculation-tool
 inferential-statistics
 repeated-measures-t-test-results
 other-findings

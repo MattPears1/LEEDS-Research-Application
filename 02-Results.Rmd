@@ -10,15 +10,19 @@ editor_options:
   markdown: 
     wrap: 72
 ---
+
+```{=html}
 <style>
 body {
 text-align: justify}
 </style>
+```
 # Results {#rmd-basics}
 
 \minitoc <!-- this will include a mini table of contents-->
 
 <!-- LaTeX normally does not indent the first line after a heading - however, it does so after the mini table of contents. You can manually tell it not to with \noindent -->
+
 \noindent
 
 ```{r Importing Data 2, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
@@ -62,14 +66,22 @@ colnames(disc)[1] = "Location"
 
 ## Learner Characteristics
 
-When asked the amount of time participants have used a chatbot- in any form or subject: 23 stated they had never used a chatbot, educational or not. Further, 18/42 having used a chatbot at least once for between 0-4 hours of use in total. Two individuals had spent much longer time with usage- these were a learning technologist associated with the CEPEH team, and a mature student. 
-In short, this sample of participants did not regularly use chatbots for their course learning, but 1/3 had used one in some form previously.
+When asked the amount of time participants have used a chatbot- in any
+form or subject: 23 stated they had never used a chatbot, educational or
+not. Further, 18/42 having used a chatbot at least once for between 0-4
+hours of use in total. Two individuals had spent much longer time with
+usage- these were a learning technologist associated with the CEPEH
+team, and a mature student. In short, this sample of participants did
+not regularly use chatbots for their course learning, but 1/3 had used
+one in some form previously.
 
-Most learners use books or online books as resources. They may use multiple sources however they were asked to note
-the primary source. Only 6 stated their primary sources were *Online videos/interactive materials* which includes
-such tools as chatbots.
+Most learners use books or online books as resources. They may use
+multiple sources however they were asked to note the primary source.
+Only 6 stated their primary sources were *Online videos/interactive
+materials* which includes such tools as chatbots.
 
-The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of easy of use of mobile app and other educational mobile resources
+The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions
+of easy of use of mobile app and other educational mobile resources
 
 ```{r Boxplotsplits2, echo=FALSE, fig.cap="Usage Frequency-Pre", message=FALSE, warning=FALSE}
 
@@ -100,8 +112,6 @@ Boxplotsplits2 %>%
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
 ```
-
-
 
 ```{r BoxplotUsefulPre, echo=FALSE, fig.cap="Useful Opinion-Pre", message=FALSE, warning=FALSE, paged.print=TRUE}
 
@@ -136,8 +146,6 @@ Boxplotsplits2 %>%
 
 ```
 
-
-
 ```{r previous chatbot use, echo=FALSE, message=FALSE, warning=FALSE}
 
 # table for previous chatbot usage
@@ -147,8 +155,6 @@ colnames(disc)[1] = "Previous_Chatbot_Usage"
 
 knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never","1-4 hours", "5-9 hours","20+ hours","10-19 hours",format('html'))) %>% group_by(Previous_Chatbot_Usage) %>% count(Previous_Chatbot_Usage),"pipe", decreasing = TRUE)
 ```
-
-
 
 ## System Usability Scale (SUS) Scores
 
@@ -223,81 +229,82 @@ ggplot(RLOk, aes(fill = RLO, x = Identity)) + geom_bar(width=0.5,position = "fil
 
 ```
 
-
 ## Technology Acceptance Model
 
-The TAM questions were analysed according to their subsets.
-The first subset was Perceived Usefulness (PU)
+The TAM questions were analysed according to their subsets. The subsets
+were Perceived Usefulness (PU) and Perceived Easy of Use (PEU)
 
 The questions were:
-1. Using CEPEH chatbots would enable me to accomplish tasks more quickly
 
-2. Using CEPEH chatbots would increase performance
+ 1. Using CEPEH chatbots would enable me to accomplish tasks more
+quickly
 
-3. Using CEPEH chatbots would increase my productivity
+2.  Using CEPEH chatbots would increase performance
 
-4. I would find CEPEH chatbots useful on my course
+3.  Using CEPEH chatbots would increase my productivity
 
+4.  I would find CEPEH chatbots useful on my course
 
 Perceived Easy of Use (PEU)
 
-5. Learning to use CEPEH chatbots would be easy to me
+5.  Learning to use CEPEH chatbots would be easy to me
 
-6. It would be easy for me to be skilful at using CEPEH chatbots
+6.  It would be easy for me to be skilful at using CEPEH chatbots
 
-7. My interactions with CEPEH chatbots would be clear and understandable
+7.  My interactions with CEPEH chatbots would be clear and
+    understandable
 
-8. I would find CEPEH chatbots easy to use
-
+8.  I would find CEPEH chatbots easy to use
 
 The scores as a percentage of agreement were:
-66% agreement for Perceived Usefulness (Average (1,2,3,4)/42 = 2.2 (Strong Perceived Usefulness)   
 
-64% agreement for Perceived Ease of Use (Average (5,6,7,8)/42)= 2.3 (Strong Perceived Ease of Use)
+-   66% agreement for Perceived Usefulness (Average (1,2,3,4)/42 = 2.2
+    (Strong Perceived Usefulness)
 
+-   64% agreement for Perceived Ease of Use (Average (5,6,7,8)/42)= 2.3
+    (Strong Perceived Ease of Use)
 
+Perceived Usefulness: There were not significant findings for the
+Perceived usefulness. The justification for this may be due to being
+early versions of applications with limited functionality and functions
+which can be difficult for user to experience the intended further range
+of features and learning exercises.
 
-Perceived Usefulness: There were not
-significant findings for the Perceived usefulness. The justification for
-this may be due to being early versions of applications with limited
-functionality and functions which can be difficult for user to
-experience the intended further range of features and learning
-exercises.
+Perceived Easy of Use (PEU): For changes in Ease of Use use within their
+course, the result of the Mann-Whitney U test was not significant, U = ,
+z = , p = .
 
-Intention of Use: For users' intentions to use within their course, the
-result of the Mann-Whitney U test was not significant, U = , z = , p = .
-in their intentions before use (m=xx, mode=xx) compared to after (m=xx,
-mode=x), however there was improvement therefore the chatbots may have
-more benefit than expected by students.
+Before (m=xx, mode=xx) and after (m=xx, mode=x).
 
+## Chatbot Usability Questionnaire (CUQ)
 
+### CUQ Calculation tool
 
-## Chatbot Usabilty Questionanire (CUQ)
-
-### CUQ Calcuation tool
-
-The CUQ was developed by researchers at Ulster University,[Link](<a href="https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq") 
-and as the calculation can be complex a dedicated calculation tool has been created.
-Please download the CEPEH CUQ calculation tool which has all of the data entered, so you can see the CEPEH CUQ scoring.
+The CUQ was developed by researchers at Ulster University,
+[Link](%3Ca%20href=%22https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq%22)
+and as the calculation can be complex a dedicated calculation tool has
+been created. Please download the CEPEH CUQ calculation tool which has
+all of the data entered, so you can see the CEPEH CUQ scoring.
 
 [click here to download CUQ calc tool](CUQ-Calculation-Tool.xlsx)
 
 [click here to download CUQ score image](cuq.png)
-*mobile download disabled
 
-```{r cuq image, echo=FALSE, fig.align='center', fig.cap="A marvel-lous meme", message=FALSE, warning=FALSE, out.width="75%"}
+```{r cuq image, echo=FALSE, fig.align='center', fig.cap="CUQ CEPEH Score", message=FALSE, warning=FALSE, out.width="75%"}
 knitr::include_graphics("cuq.png")
 ```
 
-The score for all 3 chatbots grouped was 65.2/100, 
-This scoring system was designed to be comparable to SUS and may be
-freely used alongside it, or in combination with other usability
-metrics. There has been evidence of correlation of 76% between the CUQ
-and SUS therefore we expect the SUS scored to be between 48.75 and 81%.
-We believe the CUQ has more validity towards measuring the concepts of
-interest on this study.
+The score for all 3 chatbots grouped was 65.2/100, This scoring system
+was designed to be comparable to SUS and may be freely used alongside
+it, or in combination with other usability metrics. There has been
+evidence of correlation of 76% between the CUQ and SUS therefore we
+expect the SUS scored to be between 48.75 and 81%. We believe the CUQ
+has more validity towards measuring the concepts of interest on this
+study.
 
-[Read the CUQ development paper, see page 3 for correlation](<a href="https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T)
+[Read the CUQ development paper, see page 3 for
+correlation](%3Ca%20href=%22https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T)
+
 ```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 library(readr)
 mydata.needed <- read_csv("Full DATA CEPEH Moh - Copy.csv")
@@ -309,13 +316,12 @@ plot(CUQ,
      col="blue")
       
 ```
-Figure shows the CUQ scores as a box plot to highlight the range of Usability of the resources. Further exploration is required to understand which elements are causing this spread.  
 
+Figure shows the CUQ scores as a box plot to highlight the range of
+Usability of the resources. Further exploration is required to
+understand which elements are causing this spread.
 
-
-
-
-```{r Boxplotsplits5, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits5, fig.cap="Improvements in Knowledge", echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -344,7 +350,9 @@ Boxplotsplits5 %>%
                       x= "",
                       y= "Frequency")
 ```
-CYENS chatbot had around 10 more participants stating that they were neutral on gaining knowledge of the topic
+
+CYENS chatbot had around 10 more participants stating that they were
+neutral on gaining knowledge of the topic
 
 ```{r Boxplotsplits6, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -405,7 +413,14 @@ Boxplotsplits7 %>%
                       x= "",
                       y= "Frequency")
 ```
-There was mixed results for the chatbot used being realistic and engaging. This question has two descriptive terms however based on the other results we understand that the chatbots' NLP logic, or ability to respond required improvement to be more 'smooth' in replying. The primary limitation was found in the 'robotic' interactions(See Figure 10). This was investigated further in the 'Text Mining' and 'Sentiment Analysis' sections.
+
+There was mixed results for the chatbot used being realistic and
+engaging. This question has two descriptive terms however based on the
+other results we understand that the chatbots' NLP logic, or ability to
+respond required improvement to be more 'smooth' in replying. The
+primary limitation was found in the 'robotic' interactions(See Figure
+10). This was investigated further in the 'Text Mining' and 'Sentiment
+Analysis' sections.
 
 ```{r Boxplotsplits8, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -436,7 +451,6 @@ Boxplotsplits8 %>%
                       x= "",
                       y= "Frequency")
 ```
-
 
 ```{r Boxplotsplits9, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -497,16 +511,21 @@ Boxplotsplits10 %>%
                       x= "",
                       y= "Frequency")
 ```
-Those who disagreed or were neutral in the pre usage measure, improved their understanding that help was available 
-with the CEPEH chatbots. After usage, 40 participants agreed they could get help if they had difficulty using the 
-resources.
 
+Those who disagreed or were neutral in the pre usage measure, improved
+their understanding that help was available with the CEPEH chatbots.
+After usage, 40 participants agreed they could get help if they had
+difficulty using the resources.
 
 ## Inferential Statistics
 
 ### Repeated Measures T-test results
 
-After using the CEPEH chatbots, majority of participants stated they would reuse the chatbots. However, there was 6 counts of *disagree* or *strongly disagree* for all 4 chatbots. Further, there were 17 counts of neutral in reuse, which was approximately 4 participants per chatbot (see (\@ref(fig:Boxplotsplits4)).
+After using the CEPEH chatbots, majority of participants stated they
+would reuse the chatbots. However, there was 6 counts of *disagree* or
+*strongly disagree* for all 4 chatbots. Further, there were 17 counts of
+neutral in reuse, which was approximately 4 participants per chatbot
+(see (\@ref(fig:Boxplotsplits4)).
 
 ```{r Boxplotsplits4, fig.cap="Intend to Reuse-Post", echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -538,9 +557,9 @@ Boxplotsplits4 %>%
                       y= "Frequency")
 ```
 
-
-For CYENS, even though the knowledge of the topic was not perceived to improve by some participants, this box plot shows how 34/42 stated they would reuse the chatbot developed by CYENS.
-
+For CYENS, even though the knowledge of the topic was not perceived to
+improve by some participants, this box plot shows how 34/42 stated they
+would reuse the chatbot developed by CYENS.
 
 ```{r Boxplotsplits3, fig.cap="Easy to Use- Post", echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -571,9 +590,9 @@ Boxplotsplits3 %>%
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
 ```
-There was only 1 'Strongly Disagree' response.
-The agreement options counted for the majority of the data. 
 
+There was only 1 'Strongly Disagree' response. The agreement options
+counted for the majority of the data.
 
 ## Other Findings
 
@@ -585,9 +604,11 @@ The chatbot provided the information I needed with minimal commands
 
 My knowledge of the topic improved after i had used the Chatbot
 
-My confidence in understanding the topic improved after I had used the Chatbot
+My confidence in understanding the topic improved after I had used the
+Chatbot
 
-The chatbot provided me with the type of response i expected from asking a tutor/lecturer
+The chatbot provided me with the type of response i expected from asking
+a tutor/lecturer
 
 The information provided was reliable
 
@@ -629,9 +650,8 @@ library(tidyverse)
 
 ```
 
-
-
-Repeated Measures t-test, aka paired t-test (before and after measurements)
+Repeated Measures t-test, aka paired t-test (before and after
+measurements)
 
 ```{r T-test, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -652,15 +672,6 @@ t.test(CUQ, after, mu=0, alt="two.sided", paired=T, conf.level=0.095)
 
 
 ```
-This t-test compares confident using mobile chatbots before and after CEPEH chatbot usage. 
 
-
-
-
-
-
-
-
-
-
-
+This t-test compares confident using mobile chatbots before and after
+CEPEH chatbot usage.
