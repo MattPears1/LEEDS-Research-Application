@@ -15,7 +15,7 @@ computer-self-efficacy-scale-tool
 technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
-learner-characteristics
+participant-characteristics
 system-usability-scale-sus-scores
 technology-acceptance-model
 chatbot-usability-questionnaire-cuq-1

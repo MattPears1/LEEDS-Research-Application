@@ -146,7 +146,7 @@ Boxplotsplits2 %>%
 
 ```
 
-```{r previous chatbot use, echo=FALSE, message=FALSE, warning=FALSE}
+```{r previous chatbot use,tab.cap="Previous Chatbot Usage", echo=FALSE, message=FALSE, warning=FALSE}
 
 # table for previous chatbot usage
 prevchat <- subset(data, select = c("Previous_Chatbot_Usage"))
@@ -253,7 +253,7 @@ Perceived Easy of Use (PEU)
 
 8.  I would find CEPEH chatbots easy to use
 
-    Results:
+  Results:
 
 The scores as a percentage of agreement, were calculated by averaging
 the subsets and interpreted as:
@@ -276,8 +276,7 @@ and learning exercises.
 ### CUQ Calculation tool
 
 The CUQ was developed by researchers at Ulster University,
-[Link](%3Ca%20href=%22https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq%22)
-and as the calculation can be complex a dedicated calculation tool has
+[Link](%3Ca%20href=%22https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq%22) and as the calculation can be complex a dedicated calculation tool has
 been created. Please download the CEPEH CUQ calculation tool which has
 all of the data entered, so you can see the CEPEH CUQ scoring.
 
@@ -297,8 +296,7 @@ expect the SUS scored to be between 48.75 and 81%. We believe the CUQ
 has more validity towards measuring the concepts of interest on this
 study.
 
-[Read the CUQ development paper, see page 3 for
-correlation](%3Ca%20href=%22https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T)
+[Read the CUQ development paper, see page 3 for correlation](%3Ca%20href=%22https://dl.acm.org/doi/pdf/10.1145/3335082.3335094?casa_token=rGs2gNvKuLkAAAAA:Cd8Qn3QywYHZGYJzbD5CU1dVFWHPLGzDnmQYue6ix-AcqOkWLa7VN4GuzvfrZR2DhhvEAoZOF_2T)
 
 ```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 library(readr)
