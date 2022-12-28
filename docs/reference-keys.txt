@@ -42,4 +42,3 @@ cepeh-training-event-c1
 cepeh-training-event-2
 bibliography-bibliographyreferences.bib-bibliographyadditional-references.bib
 the-first-appendix
-the-second-appendix-for-fun

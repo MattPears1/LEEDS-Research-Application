@@ -226,9 +226,38 @@ ggplot(RLOk, aes(fill = RLO, x = Identity)) + geom_bar(width=0.5,position = "fil
 
 ## Technology Acceptance Model
 
-The TAM had 3 sections (Ease of Use, Perceived Usefulness, and Intention
-of Use). Ease of Use results showed significant increases in Users'
-usage with each Chatbot. Perceived Usefulness: There were not
+The TAM questions were analysed according to their subsets.
+The first subset was Perceived Usefulness (PU)
+
+The questions were:
+1. Using CEPEH chatbots would enable me to accomplish tasks more quickly
+
+2. Using CEPEH chatbots would increase performance
+
+3. Using CEPEH chatbots would increase my productivity
+
+4. I would find CEPEH chatbots useful on my course
+
+
+Perceived Easy of Use (PEU)
+
+5. Learning to use CEPEH chatbots would be easy to me
+
+6. It would be easy for me to be skilful at using CEPEH chatbots
+
+7. My interactions with CEPEH chatbots would be clear and understandable
+
+8. I would find CEPEH chatbots easy to use
+
+
+The scores as a percentage of agreement were:
+66% agreement for Perceived Usefulness (Average (1,2,3,4)/42 = 2.2 (Strong Perceived Usefulness)   
+
+64% agreement for Perceived Ease of Use (Average (5,6,7,8)/42)= 2.3 (Strong Perceived Ease of Use)
+
+
+
+Perceived Usefulness: There were not
 significant findings for the Perceived usefulness. The justification for
 this may be due to being early versions of applications with limited
 functionality and functions which can be difficult for user to
@@ -240,7 +269,6 @@ result of the Mann-Whitney U test was not significant, U = , z = , p = .
 in their intentions before use (m=xx, mode=xx) compared to after (m=xx,
 mode=x), however there was improvement therefore the chatbots may have
 more benefit than expected by students.
-
 
 
 
@@ -472,9 +500,6 @@ Boxplotsplits10 %>%
 Those who disagreed or were neutral in the pre usage measure, improved their understanding that help was available 
 with the CEPEH chatbots. After usage, 40 participants agreed they could get help if they had difficulty using the 
 resources.
-
---------------------------------------------------------------------
-
 
 
 ## Inferential Statistics

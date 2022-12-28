@@ -1,9 +1,15 @@
 \item[CEPEH] Chatbot Enhance Personalised European Healthcare curricula
 
+\item[HELM] Health E-Learning and Media team 
+
 \item[RLO] Reusable Learning Object 
+
+\item[ASPIRE] Aims Storyboarding Production Implementation Release Evaluation
 
 \item[NLP] Natural Language Processing
 
 \item[NLU] Natural Language Understanding
 
 \item[A.I] Artificial Intelligence
+
+\item[HIG] HELM is Great

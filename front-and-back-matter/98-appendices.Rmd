@@ -7,7 +7,7 @@
 
 # The First Appendix
 
-This first appendix includes an R chunk that was hidden in the document (using `echo = FALSE`) to help with readibility:
+This first appendix includes an R chunk that was hidden in the document (using `echo = FALSE`) to help with readability:
 
 **In 02-rmd-basics-code.Rmd**
 
@@ -20,5 +20,3 @@ This first appendix includes an R chunk that was hidden in the document (using `
 ```
 
 
-
-# The Second Appendix, for Fun
