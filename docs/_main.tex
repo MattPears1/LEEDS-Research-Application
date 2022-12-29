@@ -983,95 +983,135 @@ CEPEH chatbot usage.
 \hypertarget{cepeh-focus-group-discussion-analysis}{%
 \chapter{CEPEH Focus Group Discussion Analysis}\label{cepeh-focus-group-discussion-analysis}}
 
-The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing.
+The focus group discussions provided a lot of feedback for how the
+participants experienced their interactions with the chatbots, and how
+the CEPEH team can improve them, improve the design and development
+processes, and improve uptake and sharing.
 
-One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.
+One method of analysing this data is with use of text mining and data
+manipulation, creating word clouds, sentiment analysis, and using a
+model which can distinguish the unique themes in text, and highlights
+for us what text is used to create these themes.
 
-Therefore, we have created a model to allow efficient and intelligent analysis of this open/free focus group data.
+Therefore, we have created a model to allow efficient and intelligent
+analysis of this open/free focus group data.
 
 \hypertarget{tokenising}{%
 \section{Tokenising}\label{tokenising}}
 
-Firstly, we tokenised the words from the FGDs. A Token is ``a meaningful unit of text, most often a word, that we are interested in using for further analysis''. For each word we give it a property that we can call upon later.
+Firstly, we tokenised the words from the FGDs. A Token is ``a meaningful
+unit of text, most often a word, that we are interested in using for
+further analysis''. For each word we give it a property that we can call
+upon later.
 
-The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as ``characters'', ``ngrams'', ``sentences'', ``lines'' etc)
+The data manipulation for this included removing punctuation, converting
+to lower-case, and setting word type to word (and not such types as
+``characters'', ``ngrams'', ``sentences'', ``lines'' etc)
 
 \hypertarget{stop-words}{%
 \subsection{Stop words}\label{stop-words}}
 
-The model then removed words with meaningless function. These are called stop words. Words like ``the'', ``of'' and ``to'' are the most frequent words found, technically, but are of little interest to us.
+The model then removed words with meaningless function. These are called
+stop words. Words like ``the'', ``of'' and ``to'' are the most frequent words
+found, technically, but are of little interest to us.
 
-We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.
+We also created a custom list of stop words for CEPEH. We know
+participants may mention other objects, and the list was as followed:
+found; chatbot; chatbots; presentation.
 
-The data was ready for analysis by the model. We ordered it to find the most frequent words.
+The data was ready for analysis by the model. We ordered it to find the
+most frequent words. Below is a table with the 6 frequently occurring
+words, showing how Stop words have now been filtered.
 
-\begin{verbatim}
-## # A tibble: 384 x 3
-## # Groups:   doc_id [1]
-##    doc_id word            n
-##    <fct>  <chr>       <int>
-##  1 1      information    11
-##  2 1      helpful         8
-##  3 1      understand      8
-##  4 1      idea            7
-##  5 1      ideas           7
-##  6 1      workshop        7
-##  7 1      beginning       6
-##  8 1      dont            6
-##  9 1      medical         6
-## 10 1      technology      6
-## # ... with 374 more rows
-\end{verbatim}
+\begin{longtable}[]{@{}lr@{}}
+\toprule()
+word & n \\
+\midrule()
+\endhead
+information & 11 \\
+helpful & 8 \\
+understand & 8 \\
+idea & 7 \\
+ideas & 7 \\
+lot & 7 \\
+\bottomrule()
+\end{longtable}
+
+This word list can then be used for sentiment analysis, (see \emph{Sentiment
+Analysis} section), in addition to frequency of words.
 
 \hypertarget{plotting-word-frequencies---bar-graphs}{%
 \section{Plotting word frequencies - bar graphs}\label{plotting-word-frequencies---bar-graphs}}
 
-With this information a Bar graph of top words from the participants in the FGD can be rendered.
+With this information a Bar graph of top words from the participants in
+the FGD can be rendered and after some modifications, a graph of the top
+35 words is produced, with better aesthetics.The most frequent words
+present in focus group discussions after using the 4 chatbots, are in
+the Figure below.
 
-\includegraphics{_main_files/figure-latex/FREQ words bar graph-1.pdf}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-7-1} \end{center}
 
-and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-7-1.pdf}
-
-Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted.
+We are able to get a general picture of the sentiments, intensities, and
+concerns which would be immediately occurring when plotted. However, the
 
 \hypertarget{normalised-frequency}{%
 \subsection{Normalised frequency}\label{normalised-frequency}}
 
-A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to reflect this.
+A better way to understand this data is to normalise the frequency of
+occurrences in accordance with the source text. The raw text had 2827
+words in total. Therefore we can mutate the ratios to reflect this.
 
 \hypertarget{plotting-normalised-frequency}{%
 \subsection{Plotting normalised frequency}\label{plotting-normalised-frequency}}
 
-Now we can plot, for example, the 20 most frequent words when normalised by the source text.
+Now we can plot, for example, the 20 most frequent words when normalised
+by the source text.
 
-\includegraphics{_main_files/figure-latex/CEPEH MOST FREQ-1.pdf}
-In summary, this understanding of frequent words can help to understand common concurrences and extrapolate to a larger audience. If scope and impact of CEPEH chatbots increased we can understand the type of themes and trends may occur, based on such FGD analysis.
+\begin{center}\includegraphics{_main_files/figure-latex/CEPEH MOST FREQ-1} \end{center}
+
+In summary, this understanding of frequent words can help to understand
+common concurrences and extrapolate to a larger audience. If scope and
+impact of CEPEH chatbots increased we can understand the type of themes
+and trends may occur, based on such FGD analysis.
 
 \hypertarget{word-clouds}{%
 \section{Word clouds}\label{word-clouds}}
 
-To visualise the most frequent words in another format, below is a word cloud which presents the word size to indicate the frequency- words that occur more often being displayed in a larger font size.
-This has a normalised data frequency in accordance to the FGD source document analysed.
+To visualise the most frequent words in another format, below is a word
+cloud which presents the word size to indicate the frequency- words that
+occur more often being displayed in a larger font size. This has a
+normalised data frequency in accordance to the FGD source document
+analysed.
 
 \includegraphics{_main_files/figure-latex/unnamed-chunk-9-1.pdf}
-We understand the context has been reduced for each word. However, in general there can be categorised positive/negative words from the word cloud:
-Positive words are- benefit, practical, nice, helpful, learn, ideas, and enjoyed
-Negative words are- difficult, test (who likes a test?), don't, and `lot' may be negative if there is a `lot' of information.
+
+We understand the context has been reduced for each word. However, in
+general there can be categorised positive/negative words from the word
+cloud: Positive words are- benefit, practical, nice, helpful, learn,
+ideas, and enjoyed Negative words are- difficult, test (who likes a
+test?), don't, and `lot' may be negative if there is a `lot' of
+information.
 
 \hypertarget{the-vocabulary-of-texts}{%
 \subsection{The vocabulary of Texts}\label{the-vocabulary-of-texts}}
 
-Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour hotspots shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
+Here is a graph that has plotted the words in places depending on the
+word frequencies. Additionally, colour hotspots shows how different the
+frequencies are - darker items are more similar in terms of their
+frequencies, lighter-coloured ones more frequent in one text compared to
+the other.
 
 \includegraphics{_main_files/figure-latex/unnamed-chunk-11-1.pdf}
 
 \hypertarget{sentiment-analysis}{%
 \section{Sentiment analysis}\label{sentiment-analysis}}
 
-What is the sentiment of all participants? What is types of emotional words are being used?
-The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word \emph{`helpful'} which has a positive connotation, however there are 386 words, with many having several occurrences.
+What is the sentiment of all participants? What is types of emotional
+words are being used? The preparation of these words has some use in
+understanding the frequencies, but their emotional valence are not
+compared. The table above has the word \emph{`helpful'} which has a positive
+connotation, however there are 386 words, with many having several
+occurrences.
 
 \begin{verbatim}
 ##   max(total_score) min(total_score)
@@ -1107,12 +1147,12 @@ This was one reason why they were rated positive as they are able to streamline 
 
 Holmes et al.~{[}\url{https://dl.acm.org/doi/10.1145/3335082.3335094}{]} designed the CUQ to be comparable with the system usability scale (SUS).
 
-We have calculated both these scores out of 100 to allow the same benchmark, which is 68. A score of 68 is at the centre of the range is thought of as ``C''. The average benchmark for CUQ is 68, and in initial/pilot studies 68 may be considered higher than expected when considering technical issues, less developed user interfaces etc.
+We have calculated both these scores out of 100 to allow the same benchmark, which is 68.
+A score of 68 is at the centre of the range is thought of as ``C''.
+The average benchmark for CUQ is 68, and in initial/pilot studies 68 may be considered higher than expected when considering technical issues, less developed user interfaces etc.
 
-Previous studies evaluating chatbots have had similar score. For
-example, in 2022 \href{a\%3C\%20href=}{Link} found a
-physical activity promotion chatbot received 64.5/100, with lowest score
-at 40.6
+Previous studies evaluating chatbots have had similar score.
+For example, in 2022 \href{a\%3C\%20href=}{Link} found a physical activity promotion chatbot received 64.5/100, with lowest score at 40.6
 
 \hypertarget{qualatative-results}{%
 \section{Qualatative Results}\label{qualatative-results}}
@@ -1123,7 +1163,9 @@ at 40.6
 \hypertarget{conclusions}{%
 \section{Conclusions}\label{conclusions}}
 
-Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement. As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants. However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
+Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement.
+As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants.
+However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
 
 output:
 \#bookdown::html\_document2: default

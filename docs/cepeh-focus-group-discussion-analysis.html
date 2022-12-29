@@ -88,80 +88,134 @@
 <h1>
 <span class="header-section-number">3</span> CEPEH Focus Group Discussion Analysis<a class="anchor" aria-label="anchor" href="#cepeh-focus-group-discussion-analysis"><i class="fas fa-link"></i></a>
 </h1>
-<p>The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing.</p>
-<p>One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.</p>
-<p>Therefore, we have created a model to allow efficient and intelligent analysis of this open/free focus group data.</p>
+<p>The focus group discussions provided a lot of feedback for how the
+participants experienced their interactions with the chatbots, and how
+the CEPEH team can improve them, improve the design and development
+processes, and improve uptake and sharing.</p>
+<p>One method of analysing this data is with use of text mining and data
+manipulation, creating word clouds, sentiment analysis, and using a
+model which can distinguish the unique themes in text, and highlights
+for us what text is used to create these themes.</p>
+<p>Therefore, we have created a model to allow efficient and intelligent
+analysis of this open/free focus group data.</p>
 <div id="tokenising" class="section level2" number="3.1">
 <h2>
 <span class="header-section-number">3.1</span> Tokenising<a class="anchor" aria-label="anchor" href="#tokenising"><i class="fas fa-link"></i></a>
 </h2>
-<p>Firstly, we tokenised the words from the FGDs. A Token is “a meaningful unit of text, most often a word, that we are interested in using for further analysis”. For each word we give it a property that we can call upon later.</p>
-<p>The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as “characters”, “ngrams”, “sentences”, “lines” etc)</p>
+<p>Firstly, we tokenised the words from the FGDs. A Token is “a meaningful
+unit of text, most often a word, that we are interested in using for
+further analysis”. For each word we give it a property that we can call
+upon later.</p>
+<p>The data manipulation for this included removing punctuation, converting
+to lower-case, and setting word type to word (and not such types as
+“characters”, “ngrams”, “sentences”, “lines” etc)</p>
 <div id="stop-words" class="section level3" number="3.1.1">
 <h3>
 <span class="header-section-number">3.1.1</span> Stop words<a class="anchor" aria-label="anchor" href="#stop-words"><i class="fas fa-link"></i></a>
 </h3>
-<p>The model then removed words with meaningless function. These are called stop words. Words like “the”, “of” and “to” are the most frequent words found, technically, but are of little interest to us.</p>
-<p>We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.</p>
-<p>The data was ready for analysis by the model. We ordered it to find the most frequent words.</p>
-<pre><code>## # A tibble: 384 × 3
-## # Groups:   doc_id [1]
-##    doc_id word            n
-##    &lt;fct&gt;  &lt;chr&gt;       &lt;int&gt;
-##  1 1      information    11
-##  2 1      helpful         8
-##  3 1      understand      8
-##  4 1      idea            7
-##  5 1      ideas           7
-##  6 1      workshop        7
-##  7 1      beginning       6
-##  8 1      dont            6
-##  9 1      medical         6
-## 10 1      technology      6
-## # … with 374 more rows</code></pre>
+<p>The model then removed words with meaningless function. These are called
+stop words. Words like “the”, “of” and “to” are the most frequent words
+found, technically, but are of little interest to us.</p>
+<p>We also created a custom list of stop words for CEPEH. We know
+participants may mention other objects, and the list was as followed:
+found; chatbot; chatbots; presentation.</p>
+<p>The data was ready for analysis by the model. We ordered it to find the
+most frequent words. Below is a table with the 6 frequently occurring
+words, showing how Stop words have now been filtered.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">word</th>
+<th align="right">n</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">information</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">helpful</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">understand</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">idea</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">ideas</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">lot</td>
+<td align="right">7</td>
+</tr>
+</tbody>
+</table></div>
+<p>This word list can then be used for sentiment analysis, (see <em>Sentiment
+Analysis</em> section), in addition to frequency of words.</p>
 </div>
 </div>
 <div id="plotting-word-frequencies---bar-graphs" class="section level2" number="3.2">
 <h2>
 <span class="header-section-number">3.2</span> Plotting word frequencies - bar graphs<a class="anchor" aria-label="anchor" href="#plotting-word-frequencies---bar-graphs"><i class="fas fa-link"></i></a>
 </h2>
-<p>With this information a Bar graph of top words from the participants in the FGD can be rendered.</p>
-<div class="inline-figure"><img src="_main_files/figure-html/FREQ%20words%20bar%20graph-1.png" width="672"></div>
-<p>and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
-<p>Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted.</p>
+<p>With this information a Bar graph of top words from the participants in
+the FGD can be rendered and after some modifications, a graph of the top
+35 words is produced, with better aesthetics.The most frequent words
+present in focus group discussions after using the 4 chatbots, are in
+the Figure below.</p>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>We are able to get a general picture of the sentiments, intensities, and
+concerns which would be immediately occurring when plotted. However, the</p>
 <div id="normalised-frequency" class="section level3" number="3.2.1">
 <h3>
 <span class="header-section-number">3.2.1</span> Normalised frequency<a class="anchor" aria-label="anchor" href="#normalised-frequency"><i class="fas fa-link"></i></a>
 </h3>
-<p>A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to reflect this.</p>
+<p>A better way to understand this data is to normalise the frequency of
+occurrences in accordance with the source text. The raw text had 2827
+words in total. Therefore we can mutate the ratios to reflect this.</p>
 </div>
 <div id="plotting-normalised-frequency" class="section level3" number="3.2.2">
 <h3>
 <span class="header-section-number">3.2.2</span> Plotting normalised frequency<a class="anchor" aria-label="anchor" href="#plotting-normalised-frequency"><i class="fas fa-link"></i></a>
 </h3>
-<p>Now we can plot, for example, the 20 most frequent words when normalised by the source text.</p>
-<div class="inline-figure">
-<img src="_main_files/figure-html/CEPEH%20MOST%20FREQ-1.png" width="672">
-In summary, this understanding of frequent words can help to understand common concurrences and extrapolate to a larger audience. If scope and impact of CEPEH chatbots increased we can understand the type of themes and trends may occur, based on such FGD analysis.</div>
+<p>Now we can plot, for example, the 20 most frequent words when normalised
+by the source text.</p>
+<div class="inline-figure"><img src="_main_files/figure-html/CEPEH%20MOST%20FREQ-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>In summary, this understanding of frequent words can help to understand
+common concurrences and extrapolate to a larger audience. If scope and
+impact of CEPEH chatbots increased we can understand the type of themes
+and trends may occur, based on such FGD analysis.</p>
 </div>
 </div>
 <div id="word-clouds" class="section level2" number="3.3">
 <h2>
 <span class="header-section-number">3.3</span> Word clouds<a class="anchor" aria-label="anchor" href="#word-clouds"><i class="fas fa-link"></i></a>
 </h2>
-<p>To visualise the most frequent words in another format, below is a word cloud which presents the word size to indicate the frequency- words that occur more often being displayed in a larger font size.
-This has a normalised data frequency in accordance to the FGD source document analysed.</p>
-<div class="inline-figure">
-<img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672">
-We understand the context has been reduced for each word. However, in general there can be categorised positive/negative words from the word cloud:
-Positive words are- benefit, practical, nice, helpful, learn, ideas, and enjoyed
-Negative words are- difficult, test (who likes a test?), don’t, and ‘lot’ may be negative if there is a ‘lot’ of information.</div>
+<p>To visualise the most frequent words in another format, below is a word
+cloud which presents the word size to indicate the frequency- words that
+occur more often being displayed in a larger font size. This has a
+normalised data frequency in accordance to the FGD source document
+analysed.</p>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+<p>We understand the context has been reduced for each word. However, in
+general there can be categorised positive/negative words from the word
+cloud: Positive words are- benefit, practical, nice, helpful, learn,
+ideas, and enjoyed Negative words are- difficult, test (who likes a
+test?), don’t, and ‘lot’ may be negative if there is a ‘lot’ of
+information.</p>
 <div id="the-vocabulary-of-texts" class="section level3" number="3.3.1">
 <h3>
 <span class="header-section-number">3.3.1</span> The vocabulary of Texts<a class="anchor" aria-label="anchor" href="#the-vocabulary-of-texts"><i class="fas fa-link"></i></a>
 </h3>
-<p>Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour hotspots shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.</p>
+<p>Here is a graph that has plotted the words in places depending on the
+word frequencies. Additionally, colour hotspots shows how different the
+frequencies are - darker items are more similar in terms of their
+frequencies, lighter-coloured ones more frequent in one text compared to
+the other.</p>
 <div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
 </div>
 </div>
@@ -169,8 +223,12 @@ Negative words are- difficult, test (who likes a test?), don’t, and ‘lot’ 
 <h2>
 <span class="header-section-number">3.4</span> Sentiment analysis<a class="anchor" aria-label="anchor" href="#sentiment-analysis"><i class="fas fa-link"></i></a>
 </h2>
-<p>What is the sentiment of all participants? What is types of emotional words are being used?
-The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word <em>‘helpful’</em> which has a positive connotation, however there are 386 words, with many having several occurrences.</p>
+<p>What is the sentiment of all participants? What is types of emotional
+words are being used? The preparation of these words has some use in
+understanding the frequencies, but their emotional valence are not
+compared. The table above has the word <em>‘helpful’</em> which has a positive
+connotation, however there are 386 words, with many having several
+occurrences.</p>
 <pre><code>##   max(total_score) min(total_score)
 ## 1               38               38</code></pre>
 

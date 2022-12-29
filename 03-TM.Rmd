@@ -11,12 +11,13 @@ editor_options:
     wrap: 72
 # Text Mining, Natural Language Processing, and Sentiment Analysis
 ---
+
+```{=html}
 <style>
 body {
 text-align: justify}
 </style>
-
-
+```
 # CEPEH Focus Group Discussion Analysis
 
 ```{r setup packages, message=FALSE, warning=FALSE}
@@ -36,12 +37,18 @@ library(wordcloud) # for creating wordclouds
 library(syuzhet)
 ```
 
+The focus group discussions provided a lot of feedback for how the
+participants experienced their interactions with the chatbots, and how
+the CEPEH team can improve them, improve the design and development
+processes, and improve uptake and sharing.
 
-The focus group discussions provided a lot of feedback for how the participants experienced their interactions with the chatbots, and how the CEPEH team can improve them, improve the design and development processes, and improve uptake and sharing. 
+One method of analysing this data is with use of text mining and data
+manipulation, creating word clouds, sentiment analysis, and using a
+model which can distinguish the unique themes in text, and highlights
+for us what text is used to create these themes.
 
-One method of analysing this data is with use of text mining and data manipulation, creating word clouds, sentiment analysis, and using a model which can distinguish the unique themes in text, and highlights for us what text is used to create these themes.
-
-Therefore, we have created a model to allow efficient and intelligent analysis of this open/free focus group data.
+Therefore, we have created a model to allow efficient and intelligent
+analysis of this open/free focus group data.
 
 ```{r read text and name it, echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_raw <- readtext("P1.txt")
@@ -62,9 +69,14 @@ CEPEHQ_raw$doc_id <- plyr::revalue(CEPEHQ_raw$doc_id,
 
 ## Tokenising
 
-Firstly, we tokenised the words from the FGDs. A Token is "a meaningful unit of text, most often a word, that we are interested in using for further analysis". For each word we give it a property that we can call upon later. 
+Firstly, we tokenised the words from the FGDs. A Token is "a meaningful
+unit of text, most often a word, that we are interested in using for
+further analysis". For each word we give it a property that we can call
+upon later.
 
-The data manipulation for this included removing punctuation, converting to lower-case, and setting word type to word (and not such types as "characters", "ngrams", "sentences", "lines" etc)
+The data manipulation for this included removing punctuation, converting
+to lower-case, and setting word type to word (and not such types as
+"characters", "ngrams", "sentences", "lines" etc)
 
 ```{r give text tokens, message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_tidy <- CEPEHQ_raw%>% 
@@ -77,10 +89,13 @@ head(CEPEHQ_tidy)
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 CEPEHQ_tidy <- CEPEHQ_tidy %>% 
   mutate(word = str_extract(word, "[a-z']+"))
-``` 
+```
 
 ### Stop words
- The model then removed words with meaningless function. These are called stop words. Words like "the", "of" and "to" are the most frequent words found, technically, but are of little interest to us.
+
+The model then removed words with meaningless function. These are called
+stop words. Words like "the", "of" and "to" are the most frequent words
+found, technically, but are of little interest to us.
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 stop_words
@@ -93,7 +108,9 @@ CEPEHQ_tidy <- CEPEHQ_tidy %>%
 CEPEHQ_tidy
 ```
 
-We also created a custom list of stop words for CEPEH. We know participants may mention other objects, and the list was as followed: found; chatbot; chatbots; presentation.
+We also created a custom list of stop words for CEPEH. We know
+participants may mention other objects, and the list was as followed:
+found; chatbot; chatbots; presentation.
 
 ```{r include=FALSE}
 meaningless_words <- tibble(word = c("found", "chatbot", "cybersecurity","chatbots", "presentations", "presentation", "NA", "video", "videos", "didnt", "didn't", "na", "nil", ""))
@@ -102,7 +119,9 @@ CEPEHQ_tidy <- CEPEHQ_tidy %>%
   anti_join(meaningless_words)
 ```
 
-The data was ready for analysis by the model. We ordered it to find the most frequent words. 
+The data was ready for analysis by the model. We ordered it to find the
+most frequent words. Below is a table with the 6 frequently occurring
+words, showing how Stop words have now been filtered.
 
 ```{r this half worked but keep, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -113,28 +132,36 @@ library(tigerstats)
 library(tidyselect)
 library(dplyr)
 
+
+CEPEHQ_freq <- CEPEHQ_tidy %>% count(word,sort=TRUE)
+knitr::kable(head(CEPEHQ_freq),"pipe")
+
 CEPEHQ_freq <- CEPEHQ_tidy %>% group_by(doc_id) %>% count(word,sort=TRUE)
 
 CEPEHQ_freq <- CEPEHQ_freq[-6,]
 
-CEPEHQ_freq
+
 ```
+
+This word list can then be used for sentiment analysis, (see *Sentiment
+Analysis* section), in addition to frequency of words.
 
 ```{r group by word and filter for true, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
 CEPEHQ_tidy %>% 
   group_by(doc_id) %>% 
-  count(word, sort=TRUE) %>% 
-  filter(doc_id == "1")
-
-CEPEHQ_tidy 
+  count(word, sort=TRUE)
+sample(CEPEHQ_tidy)
 ```
-
 
 ## Plotting word frequencies - bar graphs
 
-With this information a Bar graph of top words from the participants in the FGD can be rendered.
+With this information a Bar graph of top words from the participants in
+the FGD can be rendered and after some modifications, a graph of the top
+35 words is produced, with better aesthetics.The most frequent words
+present in focus group discussions after using the 4 chatbots, are in
+the Figure below.
 
-```{r FREQ words bar graph, echo=FALSE}
+```{r FREQ words bar graph, fig.align='center', fig.cap="CEPEH ", message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 CEPEHQ_freq %>% 
   filter(n>7& doc_id == "1") %>% 
   ggplot(aes(x=word, y=n)) +
@@ -149,7 +176,6 @@ CEPEHQ_freq %>%
   theme(axis.text.x = element_text(angle = 45))
 ```
 
-
 ```{r Descending order, message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_freq %>% 
   filter(n>7 & doc_id == "1") %>% 
@@ -158,7 +184,6 @@ CEPEHQ_freq %>%
   theme(axis.text.x = element_text(angle = 45))
 ```
 
-and after some modifications, a graph of the top 35 words is produced, with better aesthetics.The most frequent words present in focus group discussions after using the 4 chatbots, are in the Figure below.
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 CEPEHQ_freq <- na.omit(CEPEHQ_freq)
 
@@ -172,7 +197,7 @@ CEPEHQ_freq %>%
   ggtitle("Most frequent words in CEPEH Chatbot Focus Group Discussions")
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, fig.align='center', warning=FALSE}
 CEPEHQ_freq %>% 
   filter(n>3,doc_id == "1") %>% na.omit(CEPEHQ_freq)%>%
   ggplot(aes(x=reorder(word, n), y=n, fill=n)) +
@@ -183,10 +208,14 @@ CEPEHQ_freq %>%
   coord_flip()
 ```
 
-Although the frequency is not high for each word, we are able to get a general picture of the sentiments, intensities, and concerns which would be immediately occurring when plotted. 
+We are able to get a general picture of the sentiments, intensities, and
+concerns which would be immediately occurring when plotted. However, the
 
 ### Normalised frequency
-A better way to understand this data is to normalise the frequency of occurrences in accordance with the source text. The raw text had 2827 words in total. Therefore we can mutate the ratios to reflect this.
+
+A better way to understand this data is to normalise the frequency of
+occurrences in accordance with the source text. The raw text had 2827
+words in total. Therefore we can mutate the ratios to reflect this.
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 # see the total number of words per play (doc_id)
@@ -198,46 +227,57 @@ CEPEHQ_freq %>%
 CEPEHQ_freq <- CEPEHQ_freq %>% 
   na.omit() %>% 
   group_by(doc_id) %>% 
-  mutate(pmw = n*2827/sum(n)) %>% # creates a new column called pmw
+  mutate(WordsPerSource = n*2827/sum(n)) %>% # creates a new column called pmw
   ungroup() %>% 
   anti_join(stop_words) # removing stopwords afterwards
 
-CEPEHQ_freq %>% select(word, pmw)
+CEPEHQ_freq %>% select(word, WordsPerSource)
 ```
 
 ### Plotting normalised frequency
 
-Now we can plot, for example, the 20 most frequent words when normalised by the source text.
+Now we can plot, for example, the 20 most frequent words when normalised
+by the source text.
 
-```{r CEPEH MOST FREQ, echo=FALSE, message=FALSE, warning=FALSE}
+```{r CEPEH MOST FREQ, echo=FALSE,fig.align='center', message=FALSE, warning=FALSE}
 CEPEHQ_freq %>% 
   filter(doc_id == "1") %>% 
-  top_n(20, pmw) %>% 
-  ggplot(aes(x=reorder(word, -pmw), y=pmw, fill=pmw)) +
-  geom_col(show.legend=FALSE) +
+  top_n(20, WordsPerSource) %>% 
+  ggplot(aes(x=reorder(word, -WordsPerSource), y=WordsPerSource, fill=WordsPerSource)) +
+  geom_col(show.legend=TRUE) +
   theme(axis.text.x = element_text(angle = 45)) +
   xlab("Word") +
   ylab("Frequency within 2827 words FGD Source") +
-  ggtitle("Most frequent words in CEPEH FGDs")
+  ggtitle("Most frequent words in CEPEH focus group data") +
+  coord_flip()
 
 ```
-In summary, this understanding of frequent words can help to understand common concurrences and extrapolate to a larger audience. If scope and impact of CEPEH chatbots increased we can understand the type of themes and trends may occur, based on such FGD analysis.
 
+In summary, this understanding of frequent words can help to understand
+common concurrences and extrapolate to a larger audience. If scope and
+impact of CEPEH chatbots increased we can understand the type of themes
+and trends may occur, based on such FGD analysis.
 
 ## Word clouds
 
-To visualise the most frequent words in another format, below is a word cloud which presents the word size to indicate the frequency- words that occur more often being displayed in a larger font size. 
-This has a normalised data frequency in accordance to the FGD source document analysed.
+To visualise the most frequent words in another format, below is a word
+cloud which presents the word size to indicate the frequency- words that
+occur more often being displayed in a larger font size. This has a
+normalised data frequency in accordance to the FGD source document
+analysed.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 wordcloud(words = CEPEHQ_freq$word, freq = CEPEHQ_freq$n, 
           min.freq = 4, max.words=2000, random.order=FALSE, rot.per=0.35, 
           colors=brewer.pal(8, "Dark2"))
 ```
-We understand the context has been reduced for each word. However, in general there can be categorised positive/negative words from the word cloud: 
-Positive words are- benefit, practical, nice, helpful, learn, ideas, and enjoyed
-Negative words are- difficult, test (who likes a test?), don't, and 'lot' may be negative if there is a 'lot' of information.
 
+We understand the context has been reduced for each word. However, in
+general there can be categorised positive/negative words from the word
+cloud: Positive words are- benefit, practical, nice, helpful, learn,
+ideas, and enjoyed Negative words are- difficult, test (who likes a
+test?), don't, and 'lot' may be negative if there is a 'lot' of
+information.
 
 ### The vocabulary of Texts
 
@@ -252,7 +292,11 @@ comp_2 <- CEPEHQ_freq %>%
 summary(comp_2)
 ```
 
-Here is a graph that has plotted the words in places depending on the word frequencies. Additionally, colour hotspots shows how different the frequencies are - darker items are more similar in terms of their frequencies, lighter-coloured ones more frequent in one text compared to the other.
+Here is a graph that has plotted the words in places depending on the
+word frequencies. Additionally, colour hotspots shows how different the
+frequencies are - darker items are more similar in terms of their
+frequencies, lighter-coloured ones more frequent in one text compared to
+the other.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(comp_2, 
@@ -268,12 +312,15 @@ ggplot(comp_2,
   labs(y = "1", x = "1")
 ```
 
-
 ## Sentiment analysis
 
+What is the sentiment of all participants? What is types of emotional
+words are being used? The preparation of these words has some use in
+understanding the frequencies, but their emotional valence are not
+compared. The table above has the word *'helpful'* which has a positive
+connotation, however there are 386 words, with many having several
+occurrences.
 
-What is the sentiment of all participants? What is types of emotional words are being used?
-The preparation of these words has some use in understanding the frequencies, but their emotional valence are not compared. The table above has the word *'helpful'* which has a positive connotation, however there are 386 words, with many having several occurrences.
 ```{r sentiment, message=FALSE, warning=FALSE, include=FALSE}
 head(get_sentiments("bing"))
 
