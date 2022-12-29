@@ -154,179 +154,49 @@ Around 25% were neutral or disagreed that healthcare chatbots were useful.
 
 
 *The participants then used the 4 chatbots, and completed the post-usage survey after each chatbot. Pre-and post differences are as followed:*
-
-
-## System Usability Scale (SUS) Scores
-
-*Note= The amount of 'agreement' is defined as the addition of 'Agree'
-and 'Strongly agree' responses.*
-
-The SUS score should consist of 10 items. However, some SUS questions
-were improved upon by 1 or more CUQ questions, specifically to this
-Chatbot study. The SUS results would be overshadowed by the CUQ scores,
-expect 2 that did not have cross-over. The two questions were:
-
--   I would like to use the CEPEH chatbot I tested, more frequently
-    (SUS1)(post)
--   I felt confident using the CEPEH chatbot (SUS2)(post)
-
-This meant the score of the SUS was not created, however the CUQ score
-better represented the Learners' perceptions of the CEPEH chatbot in
-terms of feasibility of reuse and acceptability in healthcare curricula.
-
-```{r SUS table 2 questions, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-# table for sus results
-
-SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
-SUS2 <- na.omit(SUS2)
-colnames(SUS2)[1] = "Keep Using"
-colnames(SUS2)[2] = "Confident"
-
-library(plyr)
-
-counts <- ddply(SUS2, .(SUS2$Confident), nrow)
-names(counts) <- c("Keep Using", "V1")
-
-colnames(counts)[1] = "I will continue to use CEPEH chatbot(s)"
-colnames(counts)[2] = "Responces"
-
-knitr::kable((counts),"pipe")
-
-counts <- ddply(SUS2, .(SUS2$Confident), nrow)
-names(counts) <- c("Keep Using", "V1")
-
-colnames(counts)[1] = "Confidence using CEPEH Chatbot(s)"
-colnames(counts)[2] = "Responces"
-
-knitr::kable((counts),"pipe")
-
-```
-This table 
-```{r graphs2, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-
-ggplot(year, aes(year)) + geom_bar(color="purple", fill=rgb(0.2,0.3,0.9,0.7) ) + scale_x_continuous(breaks = seq(2006, 2022,1)) + theme(plot.title = element_text(face="bold.italic"))
-```
-
-```{r Recommend table 1, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=TRUE}
-
-rec <- subset(data, select = c("Recommend","Identity"))
-rec <- na.omit(rec)
-
-knitr::kable(rec <-rec %>% filter(Identity == c("HE student","Healthcare professional", "Other", "Student","Tutor/Teacher/Lecturer","Patient/Service-user/Carer",format('html'))) %>% group_by(Identity, Recommend) %>% count(Recommend), "pipe")
-
-```
-
-```{r Helpful table 1, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=TRUE}
-
-RLO <- subset(data, select = c("Identity","RLO Helpful"))
-RLO <- na.omit(RLO)
-colnames(RLO)[2] = "RLO" 
-knitr::kable(RLO <- RLO %>% filter(Identity == c("HE student","Healthcare professional", "Other", format('html'), "Student","Tutor/Teacher/Lecturer", "Patient/Service-user/Carer")) %>% group_by(Identity, RLO) %>% count(RLO), "pipe")
-
-```
-
-```{r barplot, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-# stacked horizontal bar plot of RLO X identity 
-##dataset RLOk 
-RLOk <- na.omit(RLO) 
-
-## the bar plot
-ggplot(RLOk, aes(fill = RLO, x = Identity)) + geom_bar(width=0.5,position = "fill") + coord_flip() + ggtitle("How helpful has this learning object been?") + theme(plot.title = element_text(face="bold.italic")) + ylab("Scale of how helpful (0-1) ") + xlab("") + scale_fill_viridis(discrete = TRUE,option = "D") 
-
-```
-
-## Technology Acceptance Model
-
-The TAM questions were analysed according to their subsets. The subsets
-were Perceived Usefulness (PU) and Perceived Easy of Use (PEU)
-
-The questions were: Perceived Usefulness (PU)
-
-1.  Using CEPEH chatbots would enable me to accomplish tasks more
-    quickly
-2.  Using CEPEH chatbots would increase performance
-3.  Using CEPEH chatbots would increase my productivity
-4.  I would find CEPEH chatbots useful on my course
-
-Perceived Easy of Use (PEU)
-
-5.  Learning to use CEPEH chatbots would be easy to me
-
-6.  It would be easy for me to be skilful at using CEPEH chatbots
-
-7.  My interactions with CEPEH chatbots would be clear and
-    understandable
-
-8.  I would find CEPEH chatbots easy to use
-
-  Results:
-
-The scores as a percentage of agreement, were calculated by averaging
-the subsets and interpreted as:
-
-Before using the CEPEH chatbots, there was 66% (2.2/5) agreement for the
-Perceived Usefulness of chatbots in healthcare education, and after 48%
-(2.6/5) agreed.
-
-Before using the CEPEH chatbots, there was 64% (2.3) agreement for
-Perceived Ease of Use of chatbots in healthcare education, and after 51%
-(2.56) agreed.
-
-The justification for this may be due to being early versions of
-applications with limited functionality and functions which can be
-difficult for user to experience the intended further range of features
-and learning exercises.
-
 ## Chatbot Usability Questionnaire (CUQ)
 
 ### CUQ Calculation tool
 
-The CUQ was developed by researchers at Ulster University,
-[Link](%3Ca%20href=%22https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq%22) and as the calculation can be complex a dedicated calculation tool has
-been created. Please download the CEPEH CUQ calculation tool which has
-all of the data entered, so you can see the CEPEH CUQ scoring.
+The CUQ was developed by researchers at Ulster University, [Link](a< href= "https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq%22") and as the calculation can be complex, a dedicated calculation tool has
+been created. 
 
-[Click here to download CUQ calc tool](CUQ-Calculation-Tool.xlsx)
+Please download the CEPEH CUQ calculation tool which has all of the data entered, so you can see the CEPEH CUQ scoring---[Click here to download CUQ calc tool](CUQ-Calculation-Tool.xlsx)---
 
-[Click here to download CUQ score image](cuq.png)
+[Click here to download CEPEH CUQ score result](cuq.png)
 
 ```{r cuq image, echo=FALSE, fig.align='center', fig.cap="CUQ CEPEH Score", message=FALSE, warning=FALSE, out.width="75%"}
 knitr::include_graphics("cuq.png")
 ```
 
-Breakdown of the chatbots (score out of 100): 
-AUTH CUQ score = 62.9 
-CYENS Centre of Excellence CUQ score = 66.94
-Karolinska Institute CUQ score = 63.28 
-University of Nottingham CUQ score = 67.7
+Although the design and development was similar, each chatbot CUQ score was calculated to understand how the topic content may affect usability: 
+
+The breakdown of the chatbots was: 
+Aristotle University of Thessaloniki CUQ score = 63/100
+CYENS Centre of Excellence CUQ score = 67/100
+Karolinska Institute CUQ score = 63/100
+University of Nottingham CUQ score = 68/100
 
 
-The score for all 3 chatbots grouped was 65.2/100, This scoring system
-was designed to be comparable to SUS and may be freely used alongside
-it, or in combination with other usability metrics. There has been
-evidence of correlation of 76% between the CUQ and SUS therefore we
-expect the SUS scored to be between 48.75 and 81%. We believe the CUQ
-has the highest validity in the measures used towards the concepts of interest on this
-study.
+The score for all 3 chatbots grouped was 65/100, This scoring system was designed to be comparable to SUS and may be freely used alongside it, or in combination with other usability metrics. There has been evidence of correlation of 76% between the CUQ and SUS therefore we expect the SUS scored to be between 48.75 and 81%. We believe the CUQ has the highest validity in the measures used towards the concepts of interest on this study.
 
 
-
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+```{r CUQ scatter plot, eval=FALSE, message=FALSE, fig.align='center', fig.cap="CUQ Scatter Plot", warning=FALSE, include=FALSE}
 library(readr)
 mydata.needed <- read_csv("Full DATA CEPEH Moh - Copy.csv")
 
 plot(CUQ,
      main="Chatbot Usability Questionnaire Scoring",
-     xlab="Participant Data (All 4 chatbots)",
+     xlab="Participant responce data (4 chatbots)",
      ylab="Scoring out of 100",
-     col="blue")
-      
+     col=factor(ChatbotUsed))
+      legend("bottomright",
+       legend = levels(factor(ChatbotUsed)),
+       pch = 19,
+       col = factor(levels(factor(ChatbotUsed)))
 ```
 
-Figure shows the CUQ scores as a box plot to highlight the range of
-Usability of the resources. Further exploration is required to
-understand which elements are causing this spread.
+Figure \@ref(fig:CUQ scatter plot) shows the CUQ scores as a scatter plot to highlight how there was a moderate distribution of results. Further exploration is required to understand which elements are causing this spread, and if it was due to problems within a small group of learners.
 
 ```{r Boxplotsplits5, fig.cap="Improvements in Knowledge", echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -462,8 +332,7 @@ Boxplotsplits8 %>%
 ```
 *The chatbot seemed too robotic* results had the largest mix of responses, and for all 4 chatbots evaluated. The University of Nottingham Cybersecurity chatbot had more deterministic pathways with exploitation of the NLP modelling to provide illusion of realism. This may explain why there was less agreement. However, Neutrality and/or agreement was not desired. 
 
-The CYENS meidcal patient chatbot had more complex pathways of interactions, 
-
+The CYENS medical patient chatbot had more complex pathways of interactions, 
 
 
 ```{r Boxplotsplits9, fig.cap="Ease of Use Comparison", echo=FALSE, message=FALSE, warning=FALSE}
@@ -495,8 +364,6 @@ Boxplotsplits9 %>%
                       y= "Frequency")
 ```
 After usage, there was only agreement in Ease of Use- as shown in (\@ref(fig:Boxplotsplits9)).
-
-
 
 
 
@@ -534,6 +401,130 @@ Those who disagreed or were neutral in the pre usage measure, improved
 their understanding that help was available with the CEPEH chatbots.
 After usage, 40 participants agreed they could get help if they had
 difficulty using the resources.
+
+
+## System Usability Scale (SUS) Scores
+
+*Note= The amount of 'agreement' is defined as the addition of 'Agree'
+and 'Strongly agree' responses.*
+
+The SUS score should consist of 10 items. However, some SUS questions
+were improved upon by 1 or more CUQ questions, specifically to this
+Chatbot study. The SUS results would be overshadowed by the CUQ scores,
+expect 2 that did not have cross-over. The two questions were:
+
+-   I would like to use the CEPEH chatbot I tested, more frequently
+    (SUS1)(post)
+-   I felt confident using the CEPEH chatbot (SUS2)(post)
+
+This meant the score of the SUS was not created, however the CUQ score
+better represented the Learners' perceptions of the CEPEH chatbot in
+terms of feasibility of reuse and acceptability in healthcare curricula.
+
+```{r SUS table 2 questions, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+# table for sus results
+
+SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
+SUS2 <- na.omit(SUS2)
+colnames(SUS2)[1] = "Keep Using"
+colnames(SUS2)[2] = "Confident"
+
+library(plyr)
+
+counts <- ddply(SUS2, .(SUS2$Confident), nrow)
+names(counts) <- c("Keep Using", "V1")
+
+colnames(counts)[1] = "I will continue to use CEPEH chatbot(s)"
+colnames(counts)[2] = "Responces"
+
+knitr::kable((counts),"pipe")
+
+counts <- ddply(SUS2, .(SUS2$Confident), nrow)
+names(counts) <- c("Keep Using", "V1")
+
+colnames(counts)[1] = "Confidence using CEPEH Chatbot(s)"
+colnames(counts)[2] = "Responces"
+
+knitr::kable((counts),"pipe")
+
+```
+This table 
+```{r graphs2, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+
+ggplot(year, aes(year)) + geom_bar(color="purple", fill=rgb(0.2,0.3,0.9,0.7) ) + scale_x_continuous(breaks = seq(2006, 2022,1)) + theme(plot.title = element_text(face="bold.italic"))
+```
+
+```{r Recommend table 1, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=TRUE}
+
+rec <- subset(data, select = c("Recommend","Identity"))
+rec <- na.omit(rec)
+
+knitr::kable(rec <-rec %>% filter(Identity == c("HE student","Healthcare professional", "Other", "Student","Tutor/Teacher/Lecturer","Patient/Service-user/Carer",format('html'))) %>% group_by(Identity, Recommend) %>% count(Recommend), "pipe")
+
+```
+
+```{r Helpful table 1, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=TRUE}
+
+RLO <- subset(data, select = c("Identity","RLO Helpful"))
+RLO <- na.omit(RLO)
+colnames(RLO)[2] = "RLO" 
+knitr::kable(RLO <- RLO %>% filter(Identity == c("HE student","Healthcare professional", "Other", format('html'), "Student","Tutor/Teacher/Lecturer", "Patient/Service-user/Carer")) %>% group_by(Identity, RLO) %>% count(RLO), "pipe")
+
+```
+
+```{r barplot, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# stacked horizontal bar plot of RLO X identity 
+##dataset RLOk 
+RLOk <- na.omit(RLO) 
+
+## the bar plot
+ggplot(RLOk, aes(fill = RLO, x = Identity)) + geom_bar(width=0.5,position = "fill") + coord_flip() + ggtitle("How helpful has this learning object been?") + theme(plot.title = element_text(face="bold.italic")) + ylab("Scale of how helpful (0-1) ") + xlab("") + scale_fill_viridis(discrete = TRUE,option = "D") 
+
+```
+
+## Technology Acceptance Model
+
+The TAM questions were analysed according to their subsets. The subsets
+were Perceived Usefulness (PU) and Perceived Easy of Use (PEU)
+
+The questions were: Perceived Usefulness (PU)
+
+1.  Using CEPEH chatbots would enable me to accomplish tasks more
+    quickly
+2.  Using CEPEH chatbots would increase performance
+3.  Using CEPEH chatbots would increase my productivity
+4.  I would find CEPEH chatbots useful on my course
+
+Perceived Easy of Use (PEU)
+
+5.  Learning to use CEPEH chatbots would be easy to me
+
+6.  It would be easy for me to be skilful at using CEPEH chatbots
+
+7.  My interactions with CEPEH chatbots would be clear and
+    understandable
+
+8.  I would find CEPEH chatbots easy to use
+
+  Results:
+
+The scores as a percentage of agreement, were calculated by averaging
+the subsets and interpreted as:
+
+Before using the CEPEH chatbots, there was 66% (2.2/5) agreement for the
+Perceived Usefulness of chatbots in healthcare education, and after 48%
+(2.6/5) agreed.
+
+Before using the CEPEH chatbots, there was 64% (2.3) agreement for
+Perceived Ease of Use of chatbots in healthcare education, and after 51%
+(2.56) agreed.
+
+The justification for this may be due to being early versions of
+applications with limited functionality and functions which can be
+difficult for user to experience the intended further range of features
+and learning exercises.
+
 
 ## Inferential Statistics
 
