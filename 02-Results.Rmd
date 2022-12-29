@@ -115,7 +115,7 @@ Most learners use books or online books as resources. They may use multiple sour
 
 The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of easy of use of mobile app and other educational mobile resources
 
-```{r BoxplotUsefulPre, eval=FALSE, fig.cap="Chatbots are Useful Opinion- Pre", message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+```{r BoxplotUsefulPre, echo=FALSE, fig.cap="Chatbots are Useful Opinion- Pre", message=FALSE, warning=FALSE, paged.print=TRUE}
 
 library(tidyverse)
 library(readr)
@@ -153,6 +153,8 @@ Around 25% were neutral or disagreed that healthcare chatbots were useful.
 
 
 *The participants then used the 4 chatbots, and completed the post-usage survey after each chatbot. Pre-and post differences are as followed:*
+
+
 ## Chatbot Usability Questionnaire (CUQ)
 
 ### CUQ Calculation tool
@@ -160,11 +162,13 @@ Around 25% were neutral or disagreed that healthcare chatbots were useful.
 The CUQ was developed by researchers at Ulster University, [Link](a< href= "https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq%22") and as the calculation can be complex, a dedicated calculation tool has
 been created. 
 
-Please download the CEPEH CUQ calculation tool which has all of the data entered, so you can see the CEPEH CUQ scoring---[Click here to download CUQ calc tool](CUQ-Calculation-Tool.xlsx)---
+Please download the CEPEH CUQ calculation tool which has all of the data entered, so you can see the CEPEH CUQ scoring
+
+[Click here to download CUQ calc tool](CUQ-Calculation-Tool.xlsx)
 
 [Click here to download CEPEH CUQ score result](cuq.png)
 
-```{r cuq image, echo=FALSE, fig.align='center', fig.cap="CUQ CEPEH Score", message=FALSE, warning=FALSE, out.width="75%"}
+```{r cuqimage, echo=FALSE, fig.align='center', fig.cap="CUQ CEPEH Score", message=FALSE, warning=FALSE, out.width="75%", paged.print=TRUE}
 knitr::include_graphics("cuq.png")
 ```
 
@@ -198,6 +202,10 @@ plot(CUQ,
 
 Figure (\@ref(fig:CUQscatterplot)) shows the CUQ scores as a scatter plot to highlight how there was a moderate distribution of results. Further exploration is required to understand which elements are causing this spread, and if it was due to problems within a small group of learners.
 
+## Other Measeures
+
+### Knowledge of Topics after Use
+
 ```{r Boxplotsplits5, fig.cap="Improvements in Knowledge", echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
@@ -230,6 +238,9 @@ Boxplotsplits5 %>%
 
 CYENS chatbot had around 10 more participants stating that they were
 neutral on gaining knowledge of the topic
+
+
+### Trust in CEPEH chatbots after Use
 
 ```{r Boxplotsplits6, echo=FALSE, fig.cap="Trust Chatbots POST use", message=FALSE, warning=FALSE}
 
@@ -301,6 +312,9 @@ primary limitation was found in the 'robotic' interactions(See Figure
 10). This was investigated further in the 'Text Mining' and 'Sentiment
 Analysis' sections.
 
+
+### Personailty and Interactions
+
 ```{r Boxplotsplits8, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
@@ -335,6 +349,9 @@ Boxplotsplits8 %>%
 The CYENS medical patient chatbot had more complex pathways of interactions, 
 
 
+
+### Ease of Use and Seeking Support
+
 ```{r Boxplotsplits9, fig.cap="Ease of Use Comparison", echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
@@ -363,7 +380,8 @@ Boxplotsplits9 %>%
                       x= "",
                       y= "Frequency")
 ```
-After usage, there was only agreement in Ease of Use- as shown in (\@ref(fig:Boxplotsplits9)).
+
+After usage, there was only agreement in Ease of Use- as shown in (\@ref(fig:Boxplotsplits9) as there are no 'Neutral' or disagree columns. Any learners with disagreement before using the CEPEH chatbots, after believed they were easy to use. 
 
 
 

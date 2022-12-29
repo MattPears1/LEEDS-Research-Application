@@ -1,5 +1,7 @@
 fig:location1
 fig:Boxplotsplits2
+fig:BoxplotUsefulPre
+fig:cuqimage
 fig:CUQscatterplot
 fig:Boxplotsplits5
 fig:Boxplotsplits6
@@ -18,7 +20,13 @@ technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
 participants-characteristics
+chatbot-usability-questionnaire-cuq-1
 cuq-calculation-tool
+other-measeures
+knowledge-of-topics-after-use
+trust-in-cepeh-chatbots-after-use
+personailty-and-interactions
+ease-of-use-and-seeking-support
 system-usability-scale-sus-scores
 technology-acceptance-model
 inferential-statistics
