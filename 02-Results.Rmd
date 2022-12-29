@@ -250,7 +250,7 @@ colnames(SUS2)[2] = "Confident"
 library(plyr)
 
 counts <- ddply(SUS2, .(SUS2$KeepUsing), nrow)
-names(counts) <- c("Confident", "V1")
+names(counts) <- c("Confident", "Responces")
 knitr::kable((counts),"pipe")
 
 ```
@@ -278,39 +278,6 @@ are confident in using the chatbots. However, 21/126 (16%) were neutral
 and 11/126 (8.5%) disagreed and this was explored in the qualitative
 analysis section.
 
-```{r graphs2, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-
-ggplot(year, aes(year)) + geom_bar(color="purple", fill=rgb(0.2,0.3,0.9,0.7) ) + scale_x_continuous(breaks = seq(2006, 2022,1)) + theme(plot.title = element_text(face="bold.italic"))
-```
-
-```{r Recommend table 1, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=TRUE}
-
-rec <- subset(data, select = c("Recommend","Identity"))
-rec <- na.omit(rec)
-
-knitr::kable(rec <-rec %>% filter(Identity == c("HE student","Healthcare professional", "Other", "Student","Tutor/Teacher/Lecturer","Patient/Service-user/Carer",format('html'))) %>% group_by(Identity, Recommend) %>% count(Recommend), "pipe")
-
-```
-
-```{r Helpful table 1, eval=FALSE, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=TRUE}
-
-RLO <- subset(data, select = c("Identity","RLO Helpful"))
-RLO <- na.omit(RLO)
-colnames(RLO)[2] = "RLO" 
-knitr::kable(RLO <- RLO %>% filter(Identity == c("HE student","Healthcare professional", "Other", format('html'), "Student","Tutor/Teacher/Lecturer", "Patient/Service-user/Carer")) %>% group_by(Identity, RLO) %>% count(RLO), "pipe")
-
-```
-
-```{r barplot, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-# stacked horizontal bar plot of RLO X identity 
-##dataset RLOk 
-RLOk <- na.omit(RLO) 
-
-## the bar plot
-ggplot(RLOk, aes(fill = RLO, x = Identity)) + geom_bar(width=0.5,position = "fill") + coord_flip() + ggtitle("How helpful has this learning object been?") + theme(plot.title = element_text(face="bold.italic")) + ylab("Scale of how helpful (0-1) ") + xlab("") + scale_fill_viridis(discrete = TRUE,option = "D") 
-
-```
-
 ## Technology Acceptance Model
 
 The TAM questions were analysed according to their subsets. The subsets
@@ -335,23 +302,28 @@ Perceived Easy of Use (PEU)
 
 8.  I would find CEPEH chatbots easy to use
 
-Results:
+*Results*
 
 The scores as a percentage of agreement, were calculated by averaging
 the subsets and interpreted as:
 
-Before using the CEPEH chatbots, there was 66% (2.2/5) agreement for the
-Perceived Usefulness of chatbots in healthcare education, and after 48%
-(2.6/5) agreed.
+-   Before using the CEPEH chatbots, there was 66% (2.2/5) agreement for
+    the Perceived Usefulness of chatbots in healthcare education, and
+    after 48% (2.6/5) agreed.
 
-Before using the CEPEH chatbots, there was 64% (2.3) agreement for
-Perceived Ease of Use of chatbots in healthcare education, and after 51%
-(2.56) agreed.
+-   Before using the CEPEH chatbots, there was 64% (2.3) agreement for
+    Perceived Ease of Use of chatbots in healthcare education, and after
+    51% (2.56) agreed.
 
 The justification for this may be due to being early versions of
 applications with limited functionality and functions which can be
 difficult for user to experience the intended further range of features
 and learning exercises.
+
+```{r tam, echo=FALSE, fig.align='center', fig.cap="TAM Model processes", message=FALSE, warning=FALSE, out.width="75%", paged.print=TRUE}
+
+knitr::include_graphics("tam1.png")
+```
 
 ## Other Measeures
 

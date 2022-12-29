@@ -3,6 +3,7 @@ fig:Boxplotsplits2
 fig:BoxplotUsefulPre
 fig:cuqimage
 fig:CUQscatterplot
+fig:tam
 fig:Boxplotsplits5
 fig:Boxplotsplits6
 fig:Boxplotsplits9
