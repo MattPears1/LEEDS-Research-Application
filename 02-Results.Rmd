@@ -180,14 +180,11 @@ University of Nottingham CUQ score = 68/100
 The score for all 3 chatbots grouped was 65/100, This scoring system was designed to be comparable to SUS and may be freely used alongside it, or in combination with other usability metrics. There has been evidence of correlation of 76% between the CUQ and SUS therefore we expect the SUS scored to be between 48.75 and 81%. We believe the CUQ has the highest validity in the measures used towards the concepts of interest on this study.
 
 
-```{r CUQ scatter plot, echo=FALSE, fig.align='center', fig.cap="CUQ Scatter Plot", message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r CUQ scatter plot, echo=FALSE, fig.align='center', fig.cap="CUQ Scatter Plot", message=FALSE, warning=FALSE, paged.print=FALSE}
 library(readr)
 mydata.needed <- read_csv("Full DATA CEPEH Moh - Copy.csv")
 
 attach(mydata.needed)
-names(mydata.needed)
-
-CUQ
 plot(CUQ,
      main="Chatbot Usability Questionnaire Scoring",
      xlab="Participant responce data (4 chatbots)",
