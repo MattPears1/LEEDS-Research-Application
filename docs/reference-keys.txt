@@ -22,13 +22,13 @@ rmd-basics
 participants-characteristics
 chatbot-usability-questionnaire-cuq-1
 cuq-calculation-tool
+system-usability-scale-sus-scores
+technology-acceptance-model
 other-measeures
 knowledge-of-topics-after-use
 trust-in-cepeh-chatbots-after-use
 personailty-and-interactions
 ease-of-use-and-seeking-support
-system-usability-scale-sus-scores
-technology-acceptance-model
 inferential-statistics
 repeated-measures-t-test-results
 other-findings
@@ -43,6 +43,7 @@ the-vocabulary-of-texts
 sentiment-analysis
 Discussion
 quantatative-results
+cuq
 qualatative-results
 limitations
 conclusions
