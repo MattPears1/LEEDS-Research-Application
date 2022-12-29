@@ -167,7 +167,7 @@ that healthcare chatbots were useful.
 post-usage survey after each chatbot. Results after use are as
 followed:***
 
-## Chatbot Usability Questionnaire (CUQ) {#sec-chatbot-usability-questionnaire-(cuq)}
+## Chatbot Usability Questionnaire (CUQ)
 
 ### CUQ Calculation tool
 
@@ -222,7 +222,7 @@ Further exploration is required to understand which elements are causing
 this spread, and if it was due to problems within a small group of
 learners.
 
-## System Usability Scale (SUS) Scores {#sec-system-usability-scale-(sus-scores)}
+## System Usability Scale (SUS) Scores
 
 *Note= The amount of 'agreement' is defined as the addition of 'Agree'
 and 'Strongly agree' responses.*
@@ -241,9 +241,7 @@ better represented the Learners' perceptions of the CEPEH chatbot in
 terms of feasibility of use and acceptability in healthcare curricula.
 
 ```{r SUS table 2 questions, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
 # table for sus results
-
 SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
 SUS2 <- na.omit(SUS2)
 colnames(SUS2)[1] = "KeepUsing"
@@ -253,14 +251,14 @@ library(plyr)
 
 counts <- ddply(SUS2, .(SUS2$KeepUsing), nrow)
 names(counts) <- c("Confident", "V1")
-
 knitr::kable((counts),"pipe")
-
-
 
 ```
 
-This table above shows keep using chatbots
+The table above shows the results for agreement participants may
+continue to use the CEPEH chatbots: 89/126 (70%) agreed or strongly
+agreed. However, there were 23 records that learners were neutral or
+disagree they would continue use.
 
 ```{r confidence}
 
