@@ -28,7 +28,6 @@ text-align: justify}
 
 ```{r Importing Data 2, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 
-
 knitr::opts_chunk$set(
 	echo = FALSE,
 	message = FALSE,
@@ -148,7 +147,7 @@ Boxplotsplits2 %>%
 
 ```
 
-\@ref(fig:BoxplotUsefulPre) shows the opinions of all participants on the usefulness of chatbots. Many had not had experience with them yet had positive rating. This positive opinions of chatbots may be from colleagues, friends, media, tutors, or other social information of the benefits in healthcare education. 
+(\@ref(fig:BoxplotUsefulPre)) shows the opinions of all participants on the usefulness of chatbots. Many had not had experience with them yet had positive rating. This positive opinions of chatbots may be from colleagues, friends, media, tutors, or other social information of the benefits in healthcare education. 
 Around 25% were neutral or disagreed that healthcare chatbots were useful. 
 
 
@@ -185,6 +184,7 @@ The score for all 3 chatbots grouped was 65/100, This scoring system was designe
 library(readr)
 mydata.needed <- read_csv("Full DATA CEPEH Moh - Copy.csv")
 
+CUQ
 plot(CUQ,
      main="Chatbot Usability Questionnaire Scoring",
      xlab="Participant responce data (4 chatbots)",
@@ -196,7 +196,7 @@ plot(CUQ,
        col = factor(levels(factor(ChatbotUsed))))
 ```
 
-Figure \@ref(fig:CUQ scatter plot) shows the CUQ scores as a scatter plot to highlight how there was a moderate distribution of results. Further exploration is required to understand which elements are causing this spread, and if it was due to problems within a small group of learners.
+Figure \@ref(fig:CUQscatterplot) shows the CUQ scores as a scatter plot to highlight how there was a moderate distribution of results. Further exploration is required to understand which elements are causing this spread, and if it was due to problems within a small group of learners.
 
 ```{r Boxplotsplits5, fig.cap="Improvements in Knowledge", echo=FALSE, message=FALSE, warning=FALSE}
 
