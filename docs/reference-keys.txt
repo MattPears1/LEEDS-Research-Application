@@ -20,9 +20,9 @@ technology-acceptance-model-tam
 qualitative-measure--focus-group-discussions
 rmd-basics
 participants-characteristics
-chatbot-usability-questionnaire-cuq-1
+chatbot-usability-questionnaire-cuq-sec-chatbot-usability-questionnaire-cuq
 cuq-calculation-tool
-system-usability-scale-sus-scores
+system-usability-scale-sus-scores-sec-system-usability-scale-sus-scores
 technology-acceptance-model
 other-measeures
 knowledge-of-topics-after-use

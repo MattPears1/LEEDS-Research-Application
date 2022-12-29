@@ -163,15 +163,16 @@ colleagues, friends, media, tutors, or other social information of the
 benefits in healthcare education. Around 25% were neutral or disagreed
 that healthcare chatbots were useful.
 
-*The participants then used the 4 chatbots, and completed the post-usage
-survey after each chatbot. Pre-and post differences are as followed:*
+***The participants then used the 4 chatbots, and completed the
+post-usage survey after each chatbot. Results after use are as
+followed:***
 
-## Chatbot Usability Questionnaire (CUQ)
+## Chatbot Usability Questionnaire (CUQ) {#sec-chatbot-usability-questionnaire-(cuq)}
 
 ### CUQ Calculation tool
 
 The CUQ was developed by researchers at Ulster University,
-[Link](a%3C%20href= "https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq%22")
+[Link](https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq)
 and as the calculation can be complex, a dedicated calculation tool has
 been created.
 
@@ -196,8 +197,8 @@ The breakdown of the chatbots was:
 -   Karolinska Institute CUQ score = 63/100
 -   University of Nottingham CUQ score = 68/100
 
-The score for all 3 chatbots grouped was 65/100. 
-
+The score for all 3 chatbots grouped was 65/100. See Discussion CUQ
+section for interpretation
 
 ```{r CUQscatterplot, echo=FALSE, fig.align='center', fig.cap="CUQ Scatter Plot", message=FALSE, warning=FALSE, paged.print=FALSE}
 library(readr)
@@ -215,17 +216,20 @@ plot(CUQ,
        col = factor(levels(factor(ChatbotUsed))))
 ```
 
-Figure (\@ref(fig:CUQscatterplot)) shows the CUQ scores as a scatter plot to highlight how there was a moderate distribution of results. Further exploration is required to understand which elements are causing
-this spread, and if it was due to problems within a small group of learners.
+Figure (\@ref(fig:CUQscatterplot)) shows the CUQ scores as a scatter
+plot to highlight how there was a moderate distribution of results.
+Further exploration is required to understand which elements are causing
+this spread, and if it was due to problems within a small group of
+learners.
 
-## System Usability Scale (SUS) Scores
+## System Usability Scale (SUS) Scores {#sec-system-usability-scale-(sus-scores)}
 
 *Note= The amount of 'agreement' is defined as the addition of 'Agree'
 and 'Strongly agree' responses.*
 
 The SUS score should consist of 10 items. However, some SUS questions
 were improved upon by 1 or more CUQ questions, specifically to this
-Chatbot study. The SUS results would be overshadowed by the CUQ scores,
+Chatbot study. The SUS results would be obscured by the CUQ scores,
 expect 2 that did not have cross-over. The two questions were:
 
 -   I would like to use the CEPEH chatbot I tested, more frequently
@@ -234,7 +238,7 @@ expect 2 that did not have cross-over. The two questions were:
 
 This meant the score of the SUS was not created, however the CUQ score
 better represented the Learners' perceptions of the CEPEH chatbot in
-terms of feasibility of reuse and acceptability in healthcare curricula.
+terms of feasibility of use and acceptability in healthcare curricula.
 
 ```{r SUS table 2 questions, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
@@ -242,18 +246,23 @@ terms of feasibility of reuse and acceptability in healthcare curricula.
 
 SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
 SUS2 <- na.omit(SUS2)
-colnames(SUS2)[1] = "Keep Using"
+colnames(SUS2)[1] = "KeepUsing"
 colnames(SUS2)[2] = "Confident"
 
 library(plyr)
 
-counts <- ddply(SUS2, .(SUS2$Confident), nrow)
-names(counts) <- c("Keep Using", "V1")
-
-colnames(counts)[1] = "I will continue to use CEPEH chatbot(s)"
-colnames(counts)[2] = "Responces"
+counts <- ddply(SUS2, .(SUS2$KeepUsing), nrow)
+names(counts) <- c("Confident", "V1")
 
 knitr::kable((counts),"pipe")
+
+
+
+```
+
+This table above shows keep using chatbots
+
+```{r confidence}
 
 counts <- ddply(SUS2, .(SUS2$Confident), nrow)
 names(counts) <- c("Keep Using", "V1")
@@ -265,7 +274,11 @@ knitr::kable((counts),"pipe")
 
 ```
 
-This table
+This table shows the distribution of agreement for participants for all
+4 chatbots. The table shows 90/126 records that participants feel they
+are confident in using the chatbots. However, 21/126 (16%) were neutral
+and 11/126 (8.5%) disagreed and this was explored in the qualitative
+analysis section.
 
 ```{r graphs2, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 
