@@ -9,6 +9,7 @@ documentclass: book
 editor_options: 
   markdown: 
     wrap: 72
+  chunk_output_type: console
 ---
 
 ```{=html}
@@ -66,14 +67,9 @@ colnames(disc)[1] = "Location"
 
 ## Participants' Characteristics
 
-When asked the amount of time participants have used a chatbot- in any
-form or subject: 23 stated they had never used a chatbot, educational or
-not. Further, 18/42 having used a chatbot at least once for between 0-4
-hours of use in total. Two individuals had spent much longer time with
-usage- these were a learning technologist associated with the CEPEH
-team, and a mature student. 
-
-
+When participants were asked the amount of time they have used a chatbot in any
+form or subject, 23 stated they had never used a chatbot. Further, 19/42 stated having used a chatbot at least once for between 0-4 hours of use in total. These are likely commercial/website- based assistant chatbots however there are some medical/healthcare resources known to be used in anatomy and/or patient interactions.
+One individual had spent much longer time with usage- this was the mature student. 
 
 
 ```{r previous chatbot use, echo=FALSE, message=FALSE, warning=FALSE}
@@ -85,9 +81,9 @@ knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never
 ```
 Table: Previous Chatbot Usage of Participants 
 
-In short, this sample of participants did not regularly use chatbots for their course learning, but 1/3 had used one in some form previously.
+In short, approximately 50% had never used a chatbot, and 45% had used a chatbot, at some period over the years, for a short period of time.
 
-```{r Boxplotsplits2, echo=FALSE, fig.cap="Usage Frequency-Pre", message=FALSE, warning=FALSE}
+```{r Boxplotsplits2, echo=FALSE, fig.cap="Chatbot Usage History- Pre", message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -97,10 +93,9 @@ Boxplotsplits2 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.cs
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits2 %>%
   
-  filter(Profession %in% c("Healthcare_Student","Doctor", "Learning Technologist", "College student", "Postgraduate student", "Medical doctor", "Lecturer", "Mature Student")) %>%
+  filter(Profession %in% c("Healthcare_Student","Doctor","Learning Technologist","College student","Postgraduate student", "Medical doctor","Lecturer","Mature Student")) %>%
            
-           drop_na(Use_chatbots_frequently_pre) %>%
-  drop_na(Profession)%>%
+           
 #------then pipe into ggplot
   #the first aesthetic label is always the x axis
   ggplot(aes(Profession))+
@@ -112,51 +107,54 @@ Boxplotsplits2 %>%
         axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+
-                 labs(title="I would like to use chatbots frequently-Pre",
+                 labs(title="I would like to use chatbots frequently- Pre",
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
 ```
 
-Most learners use books or online books as resources. They may use
-multiple sources however they were asked to note the primary source.
-Only 6 stated their primary sources were *Online videos/interactive
-materials* which includes such tools as chatbots. 
+Most learners use books or online books as resources. They may use multiple sources however they were asked to note the primary source. Only 6 stated their primary sources were *Online videos/interactive materials* which includes such tools as chatbots. 
 
 The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of easy of use of mobile app and other educational mobile resources
 
-```{r BoxplotUsefulPre, eval=FALSE, fig.cap="Useful Opinion-Pre", message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+```{r BoxplotUsefulPre, eval=FALSE, fig.cap="Chatbots are Useful Opinion- Pre", message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
 
 library(tidyverse)
 library(readr)
+library(ggcharts)
 
 try(Boxplotsplits2 <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))
 
-Boxplotsplits2<- na.omit(Boxplotsplits2)
 
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits2 %>%
   
   filter(UsefulPE1PRE %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
            
-           drop_na(UsefulPE1PRE) %>%
-  drop_na(ChatbotUsed)%>%
-#------then pipe into ggplot
+#------then pipe into ggplotggplot(aes(ChatbotUsed))+
+  
   #the first aesthetic label is always the x axis
-  ggplot(aes(ChatbotUsed))+
-  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
- 
-  theme_get()+
+  ggplot(aes(UsefulPE1PRE))+
+  geom_bar(aes(fill = Profession), alpha = 0.8)+
+  scale_y_continuous(labels = function(x) paste0(x * 2.5, '%'))+
+ facet_wrap(~UsefulPE1PRE)+
+  theme_get()+ 
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x=element_blank(),
         axis.text.x=element_blank())+
-                 labs(title="I think chatbots are useful -Pre",
+                 labs(title="     I think healthcare chatbots are useful- Pre",
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
 
 ```
 
-* The participants then used the 4 chatbots, and completed the post-usage survey after each chatbot. Pre-and post differences are as followed: 
+\@ref(fig:BoxplotUsefulPre) shows the opinions of all participants on the usefulness of chatbots. Many had not had experience with them yet had positive rating. This positive opinions of chatbots may be from colleagues, friends, media, tutors, or other social information of the benefits in healthcare education. 
+Around 25% were neutral or disagreed that healthcare chatbots were useful. 
+
+
+
+*The participants then used the 4 chatbots, and completed the post-usage survey after each chatbot. Pre-and post differences are as followed:*
+
 
 ## System Usability Scale (SUS) Scores
 
@@ -182,13 +180,13 @@ terms of feasibility of reuse and acceptability in healthcare curricula.
 
 SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
 SUS2 <- na.omit(SUS2)
-colnames(SUS2)[1] = "KeepUsing"
+colnames(SUS2)[1] = "Keep Using"
 colnames(SUS2)[2] = "Confident"
 
 library(plyr)
 
 counts <- ddply(SUS2, .(SUS2$Confident), nrow)
-names(counts) <- c("KeepUsing", "V1")
+names(counts) <- c("Keep Using", "V1")
 
 colnames(counts)[1] = "I will continue to use CEPEH chatbot(s)"
 colnames(counts)[2] = "Responces"
@@ -196,7 +194,7 @@ colnames(counts)[2] = "Responces"
 knitr::kable((counts),"pipe")
 
 counts <- ddply(SUS2, .(SUS2$Confident), nrow)
-names(counts) <- c("KeepUsing", "V1")
+names(counts) <- c("Keep Using", "V1")
 
 colnames(counts)[1] = "Confidence using CEPEH Chatbot(s)"
 colnames(counts)[2] = "Responces"
