@@ -16,11 +16,7 @@ documentclass: book
 
 ##Summary of Findings
 
-The Chatbots were beneficial.
-
-Learners have lots of other choices such as YouTube, but there is a certain need for personalised information gathering , this can save time and prevent learning incorrect information.
-
-This was one reason why they were rated positive as they are able to streamline data finding for learners in a format that is understandable and easy to them.
+The Chatbots were beneficial. Learners have lots of other choices such as YouTube, but there is a certain need for personalised information gathering , this can save time and prevent learning incorrect information. This was one reason why they were rated positive as they are able to streamline data finding for learners in a format that is understandable and easy to them.
 
 ## Quantatative Results
 

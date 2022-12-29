@@ -292,7 +292,7 @@ frequencies are - darker items are more similar in terms of their
 frequencies, lighter-coloured ones more frequent in one text compared to
 the other.
 
-```{r echo=FALSE, message=FALSE,fig.align='center', warning=FALSE}
+```{r echo=FALSE, message=FALSE,fig.align='left', warning=FALSE}
 ggplot(comp_2, 
        aes(x = `1`, y = `1`, 
            color = abs(`1` - `1`))) +
@@ -365,20 +365,24 @@ CEPEHQ_tidy_bing %>%
 
 ```
 
-```{r Sentiment score, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::kable(CEPEHQ_tidy_bing) 
-```
 
-As the table above shows. the FGD data has been analysed for sentiment
+As the table below shows. the FGD data has been analysed for sentiment
 of each word, and has been calculated to have 62 positive emotional
 valence of words, with 24 negative valence of words. These are from a
 **Bing sentiment lexicon** which is the most popular English language
 dictionary.
 
+
+```{r Sentiment score, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::kable(CEPEHQ_tidy_bing) 
+```
+
+
+
 Unfortunately, there is little research using sentiment analysis for
 chatbot related focus group results that can help to understand the
 scoring found. However, on a basic interpretation the higher the score
-the better the chatbots were discussed in the FGDs. A score of 72%
+the better the chatbots were discussed in the FGD's. A score of 72%
 (62/(24+62))) would be in 3/4th quartile in distribution of sentiment
 distribution. Alternatively, 62/24 = 2.58 would state the ratio that for
 every 1 negative word recorded, there were 2.58 positive words recorded.
