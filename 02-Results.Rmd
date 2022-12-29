@@ -71,9 +71,21 @@ form or subject: 23 stated they had never used a chatbot, educational or
 not. Further, 18/42 having used a chatbot at least once for between 0-4
 hours of use in total. Two individuals had spent much longer time with
 usage- these were a learning technologist associated with the CEPEH
-team, and a mature student. In short, this sample of participants did
-not regularly use chatbots for their course learning, but 1/3 had used
-one in some form previously.
+team, and a mature student. 
+
+
+
+
+```{r previous chatbot use, echo=FALSE, message=FALSE, warning=FALSE}
+
+# table for previous chatbot usage
+prevchat <- subset(data, select = c("Previous_Chatbot_Usage"))
+
+knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never","1-4 hours","5-9 hours","20+ hours","10-19 hours",format('html'))) %>% group_by(Previous_Chatbot_Usage)%>% count(),"pipe",decreasing = TRUE)
+```
+Table: Previous Chatbot Usage of Participants 
+
+In short, this sample of participants did not regularly use chatbots for their course learning, but 1/3 had used one in some form previously.
 
 ```{r Boxplotsplits2, echo=FALSE, fig.cap="Usage Frequency-Pre", message=FALSE, warning=FALSE}
 
@@ -85,15 +97,15 @@ Boxplotsplits2 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.cs
 #------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
 Boxplotsplits2 %>%
   
-  filter(Use_chatbots_frequently_pre %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+  filter(Profession %in% c("Healthcare_Student","Doctor", "Learning Technologist", "College student", "Postgraduate student", "Medical doctor", "Lecturer", "Mature Student")) %>%
            
            drop_na(Use_chatbots_frequently_pre) %>%
   drop_na(Profession)%>%
 #------then pipe into ggplot
   #the first aesthetic label is always the x axis
   ggplot(aes(Profession))+
-  geom_bar(aes(fill = Use_chatbots_frequently_pre), alpha = 0.8)+
-  facet_wrap(~Profession)+
+  geom_bar(aes(fill = Profession), alpha = 0.8)+
+  facet_wrap(~Use_chatbots_frequently_pre)+
   theme_get()+
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
@@ -111,16 +123,6 @@ Only 6 stated their primary sources were *Online videos/interactive
 materials* which includes such tools as chatbots. 
 
 The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of easy of use of mobile app and other educational mobile resources
-
-
-```{r previous chatbot use, echo=FALSE, message=FALSE, warning=FALSE}
-
-# table for previous chatbot usage
-prevchat <- subset(data, select = c("Previous_Chatbot_Usage"))
-
-knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never","1-4 hours","5-9 hours","20+ hours","10-19 hours",format('html'))) %>% group_by(Previous_Chatbot_Usage)%>% count(),"pipe",decreasing = TRUE)
-```
-Table: Previous Chatbot Usage of Participants 
 
 ```{r BoxplotUsefulPre, eval=FALSE, fig.cap="Useful Opinion-Pre", message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
 
@@ -154,6 +156,7 @@ Boxplotsplits2 %>%
 
 ```
 
+* The participants then used the 4 chatbots, and completed the post-usage survey after each chatbot. Pre-and post differences are as followed: 
 
 ## System Usability Scale (SUS) Scores
 

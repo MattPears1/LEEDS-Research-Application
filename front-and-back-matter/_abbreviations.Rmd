@@ -12,4 +12,10 @@
 
 \item[A.I] Artificial Intelligence
 
+\item[TAM] Technology Acceptance Model
+
+\item[SUS] System Usability Scale
+
+\item[CUQ] Chatbot Usability Questionnaire
+
 \item[HIG] HELM is Great
