@@ -111,8 +111,8 @@ malessweden <-data %>%
 
 This dataset had `r count(Males)` males and `r count(Females)` females therefore a total of 42 participants.
 It was a repeated measure design whereby each participant used the 4 chatbots developed by the CEPEH team.
-Therefore, there are 42 points of data in the condition before testing, and 126 data points after testing the chatbots- for a total of `r count(data)` row of data, 5 per participant.
-There were 78 questions asked in total, therefore the full dataset has over 4000 cells recorded.
+Therefore, there are 42 points of data in the condition before testing, and 126 data points after testing the chatbots- for a total of `r count(data)` row of data.
+There were 78 questions asked in total, therefore the full dataset had approximately 6000 cells recorded.
 
 
 There were `r count(Femalesgreece)` females and `r count(malesgreece)` males from Greece.

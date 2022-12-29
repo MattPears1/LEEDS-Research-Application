@@ -445,8 +445,8 @@ The next section will now present the evaluation of all CEPEH chatbot resources.
 
 This dataset had 14 males and 28 females therefore a total of 42 participants.
 It was a repeated measure design whereby each participant used the 4 chatbots developed by the CEPEH team.
-Therefore, there are 42 points of data in the condition before testing, and 126 data points after testing the chatbots- for a total of 168 row of data, 5 per participant.
-There were 78 questions asked in total, therefore the full dataset has over 4000 cells recorded.
+Therefore, there are 42 points of data in the condition before testing, and 126 data points after testing the chatbots- for a total of 168 row of data.
+There were 78 questions asked in total, therefore the full dataset had approximately 6000 cells recorded.
 
 There were 22 females and 7 males from Greece.
 There were 3 females and 4 males from Cyprus.
@@ -1043,22 +1043,14 @@ Analysis} section), in addition to frequency of words.
 \hypertarget{plotting-word-frequencies---bar-graphs}{%
 \section{Plotting word frequencies - bar graphs}\label{plotting-word-frequencies---bar-graphs}}
 
-With this information a Bar graph of top words from the participants in
-the FGD can be rendered and after some modifications, a graph of the top
-35 words is produced, with better aesthetics.The most frequent words
-present in focus group discussions after using the 4 chatbots, are in
-the Figure below.
-
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-7-1} \end{center}
-
-We are able to get a general picture of the sentiments, intensities, and
-concerns which would be immediately occurring when plotted. However, the
-
 \hypertarget{normalised-frequency}{%
 \subsection{Normalised frequency}\label{normalised-frequency}}
 
-A better way to understand this data is to normalise the frequency of
-occurrences in accordance with the source text. The raw text had 2827
+With this information a list of top words from the participants in the
+FGD can be rendered and after some modifications, a graph of the top 20
+words is produced, with better aesthetics. This is a better way to
+understand this data, and the axis can be normalised for the frequency
+of occurrences in accordance with the source text. The raw text had 2827
 words in total. Therefore we can mutate the ratios to reflect this.
 
 \hypertarget{plotting-normalised-frequency}{%
@@ -1083,7 +1075,7 @@ occur more often being displayed in a larger font size. This has a
 normalised data frequency in accordance to the FGD source document
 analysed.
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-9-1.pdf}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-9-1} \end{center}
 
 We understand the context has been reduced for each word. However, in
 general there can be categorised positive/negative words from the word
@@ -1101,7 +1093,7 @@ frequencies are - darker items are more similar in terms of their
 frequencies, lighter-coloured ones more frequent in one text compared to
 the other.
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-11-1.pdf}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-11-1} \end{center}
 
 \hypertarget{sentiment-analysis}{%
 \section{Sentiment analysis}\label{sentiment-analysis}}
@@ -1113,11 +1105,6 @@ compared. The table above has the word \emph{`helpful'} which has a positive
 connotation, however there are 386 words, with many having several
 occurrences.
 
-\begin{verbatim}
-##   max(total_score) min(total_score)
-## 1               38               38
-\end{verbatim}
-
 \begin{tabular}{r|r|r}
 \hline
 negative & positive & total\_score\\
@@ -1125,6 +1112,20 @@ negative & positive & total\_score\\
 24 & 62 & 38\\
 \hline
 \end{tabular}
+
+As the table above shows. the FGD data has been analysed for sentiment
+of each word, and has been calculated to have 62 positive emotional
+valence of words, with 24 negative valence of words. These are from a
+\textbf{Bing sentiment lexicon} which is the most popular English language
+dictionary.
+
+Unfortunately, there is little research using sentiment analysis for
+chatbot related focus group results that can help to understand the
+scoring found. However, on a basic interpretation the higher the score
+the better the chatbots were discussed in the FGDs. A score of 72\%
+(62/(24+62))) would be in 3/4th quartile in distribution of sentiment
+distribution. Alternatively, 62/24 = 2.58 would state the ratio that for
+every 1 negative word recorded, there were 2.58 positive words recorded.
 
 \hypertarget{Discussion}{%
 \chapter{Discussion}\label{Discussion}}
