@@ -42,8 +42,8 @@ library(leaflet)
 
 try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh.xlsx"))
 
-Sex <- data$Sex
-Sex <- data.frame(Sex)
+sex <- data$sex
+sex <- data.frame(sex)
 
 disc <- subset(data, select = "Location")
 disc <- na.omit(disc)
@@ -115,7 +115,6 @@ Therefore, there are 42 points of data in the condition before testing, and 126 
 There were 78 questions asked in total, therefore the full dataset has over 4000 cells recorded.
 
 
-
 There were `r count(Femalesgreece)` females and `r count(malesgreece)` males from Greece.
 There were `r count(Femalescyprus)` females and `r count(malescyprus)` males from Cyprus.
 There were `r count(Femalessweden)` females and `r count(malessweden)` males from Sweden,
@@ -124,7 +123,6 @@ and there were 2 participants from the United Kingdom (see(\@ref(fig:location1))
 
 ```{r location1, fig.cap="Location and Profession of Participants", echo=FALSE, message=FALSE, warning=FALSE}
 
-library(tidyverse)
 library(readr)
 
 Boxplotsplits1 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
@@ -147,7 +145,7 @@ Boxplotsplits1 %>%
         axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+
-                 labs(title="Location and Profession of Participants",
+                 labs(title="               Location and Profession of Participants",
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
 
