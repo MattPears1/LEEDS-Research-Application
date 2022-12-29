@@ -193,7 +193,7 @@ plot(CUQ,
       legend("bottomright",
        legend = levels(factor(ChatbotUsed)),
        pch = 19,
-       col = factor(levels(factor(ChatbotUsed)))
+       col = factor(levels(factor(ChatbotUsed))))
 ```
 
 Figure \@ref(fig:CUQ scatter plot) shows the CUQ scores as a scatter plot to highlight how there was a moderate distribution of results. Further exploration is required to understand which elements are causing this spread, and if it was due to problems within a small group of learners.
