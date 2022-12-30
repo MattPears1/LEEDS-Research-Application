@@ -250,7 +250,7 @@ knitr::kable((counts),"pipe")
 
 ```
 
-The table \@ref(tab:SUS keepusing) above shows the results for agreement participants may
+The table (\@ref(tab:SUS keepusing)) above shows the results for agreement participants may
 continue to use the CEPEH chatbots: 89/126 (70%) agreed or strongly
 agreed. However, there were 23 records that learners were neutral or
 disagree they would continue use.
@@ -267,7 +267,7 @@ knitr::kable((counts),"pipe")
 
 ```
 
-Confidence when using the chatbots is in table \@ref(tab:confidence)- it shows the distribution of agreement for participants for all
+Confidence when using the chatbots is in table (\@ref(tab:confidence))- it shows the distribution of agreement for participants for all
 4 chatbots. The table shows 90/126 records that participants feel they
 are confident in using the chatbots. However, 21/126 (16%) were neutral
 and 11/126 (8.5%) disagreed and this was explored in the qualitative
@@ -296,8 +296,7 @@ Perceived Easy of Use (PEU)
 
 *Results*
 
-The scores as a percentage of agreement, were calculated by averaging
-the subsets and interpreted as:
+The scores as a percentage of agreement, were calculated by averaging the subsets and interpreted as:
 
 -   Before using the CEPEH chatbots, there was 66% (2.2/5) agreement for
     the Perceived Usefulness of chatbots in healthcare education, and
@@ -307,21 +306,15 @@ the subsets and interpreted as:
     Perceived Ease of Use of chatbots in healthcare education, and after
     51% (2.56) agreed.
 
-The justification for this may be due to being early versions of
-applications with limited functionality and functions which can be
-difficult for user to experience the intended further range of features
-and learning exercises.
+The justification for this may be due to being early versions of applications with limited functionality and functions which can be difficult for user to experience the intended further range of features and learning exercises.  
 
-```{r tam, echo=FALSE, fig.align='center', fig.cap="TAM Model processes", message=FALSE, warning=FALSE, out.width="75%", paged.print=TRUE}
+  
 
-knitr::include_graphics("tam1.png")
-```
+### Knowledge and Trust after Use
 
-## Other Measures
+CYENS chatbot had around 10 more participants stating that they were neutral on gaining knowledge of the topic
 
-### Knowledge of Topics after Use
-
-```{r Boxplotsplits5, fig.cap="Improvements in Knowledge", echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplot knowledge, echo=FALSE, fig.cap="Improvements in Knowledge", message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -351,12 +344,9 @@ Boxplotsplits5 %>%
                       y= "Frequency")
 ```
 
-CYENS chatbot had around 10 more participants stating that they were
-neutral on gaining knowledge of the topic
 
-### Trust in CEPEH chatbots after Use
-
-```{r Boxplotsplits6, echo=FALSE, fig.cap="Trust Chatbots POST use", message=FALSE, warning=FALSE}
+The figure (\@ref(fig:Boxplot trust)) shows the ratings by participants of the CEPEH Chatbots to provide them with the necessary course information.
+```{r Boxplot trust, echo=FALSE, fig.cap="Trust Chatbots POST use", message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -386,14 +376,10 @@ Boxplotsplits6 %>%
                       y= "Frequency")
 ```
 
-The figure above, (\@ref(fig:Boxplotsplits6)) shows the ratings by
-participants of the CEPEH Chatbots to provide them with the necessary
-course information. This is a integral element in learners' motivational
-and educational choices to reuse the learning resources. As previously
-described, the trust of the information is also a factor in these
-responses.
 
-```{r Boxplotsplits7, echo=FALSE, message=FALSE, warning=FALSE}
+This is a integral element in learners' motivational and educational choices to reuse the learning resources. As previously described, the trust of the information is also a factor in these responses.
+
+```{r Boxplot personality, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -423,13 +409,9 @@ Boxplotsplits7 %>%
                       y= "Frequency")
 ```
 
-There was mixed results for the chatbot used being realistic and
-engaging. This question has two descriptive terms however based on the
-other results we understand that the chatbots' NLP logic, or ability to
-respond required improvement to be more 'smooth' in replying. The
-primary limitation was found in the 'robotic' interactions(See Figure
-10). This was investigated further in the 'Text Mining' and 'Sentiment
-Analysis' sections.
+There was mixed results for the chatbot used being realistic and engaging. This question has two descriptive terms however based on the other results we understand that the chatbots' NLP logic, or ability to respond required improvement to be more 'smooth' in replying. The
+primary limitation was found in the 'robotic' interactions(See Figure x). This was investigated further in the 'Text Mining' and 'Sentiment Analysis' sections.  
+
 
 ### Personality and Interactions
 
