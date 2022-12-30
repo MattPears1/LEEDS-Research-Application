@@ -54,7 +54,7 @@ library(leaflet)
 library(excelR)
 
 
-try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH moh.xlsx"))
+try(data <- read_excel("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.xlsx"))
 
 sex <- data$sex
 sex <- data.frame(sex)
@@ -607,7 +607,7 @@ counted for the majority of the data.
 
 ## Other Findings
 
-```{r bigtable, echo=FALSE, fig.align='center', fig.cap= "Table of Results", message=FALSE, warning=FALSE, out.width="75%", paged.print=TRUE}
+```{r bigtable, echo=FALSE, fig.align='center', fig.cap="Table of Results", message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
 knitr::include_graphics("bigtable.png")
 ```
 
