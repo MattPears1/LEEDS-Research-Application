@@ -300,10 +300,11 @@ ggplot(comp_2,
   geom_jitter(alpha = 0.3, size = 3.5, width = 0.4, height = 0.8,color = "Purple") +
   geom_text(aes(label = word), check_overlap = TRUE, vjust = 1.9,color = "Black") +
   scale_x_log10(labels = percent_format()) +
-  scale_y_log10(labels = percent_format()) +
+  scale_y_log10(labels = percent_format())+
   theme_light() +
   theme(legend.position="none") +
-  labs(y = "1", x = "1")
+  labs(y = "Word Frequency as %", x = " ")
+
 ```
 
 ## Sentiment analysis
