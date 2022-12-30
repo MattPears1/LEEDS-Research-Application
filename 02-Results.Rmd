@@ -617,12 +617,12 @@ knitr::include_graphics("clear.png")
 ```
 
 
-```{r bigtable, echo=FALSE, fig.align='center', fig.cap="Table of Results", message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
+```{r bigtable, echo=FALSE, fig.align='center', fig.cap="Table of Results", fig.height=6, fig.width=5, message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
 knitr::include_graphics("bigtable.png")
 ```
 
 
-```{r accomplishquickly, echo=FALSE, fig.align='center', fig.cap="Pre-post accomplish quickly", message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r accomplishquickly, echo=FALSE, fig.align='center', fig.cap="Pre-post accomplish quickly", message=FALSE, warning=FALSE, paged.print=FALSE}
 knitr::include_graphics("clear.png")
 ```
 
