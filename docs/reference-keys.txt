@@ -14,6 +14,7 @@ method
 participants
 procedure
 design
+materials-and-measures
 chatbot-usability-questionnaire-cuq
 utaut2-unified-theory-of-acceptance-and-use-of-technology
 system-usability-scale

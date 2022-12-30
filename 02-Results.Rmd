@@ -82,10 +82,15 @@ prevchat <- subset(data, select = c("Previous_Chatbot_Usage"))
 knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never","1-4 hours","5-9 hours","20+ hours","10-19 hours",format('html'))) %>% group_by(Previous_Chatbot_Usage)%>% count(),"pipe",decreasing = TRUE)
 ```
 
-Table: Previous Chatbot Usage of Participants
+Table: Previous Chatbot Usage of Participants  
+<br><br>  
+
 
 In short, approximately 50% had never used a chatbot, and 45% had used a
-chatbot, at some period over the years, for a short period of time.
+chatbot, at some period over the years, for a short period of time.  
+
+Most learners use books or online books as resources. They may use multiple sources however they were asked to note the primary source. Only 6 stated their primary sources were *Online videos/interactive materials* which includes such tools as chatbots.  
+
 
 ```{r Boxplotsplits2, echo=FALSE, fig.cap="Chatbot Usage History- Pre", message=FALSE, warning=FALSE}
 
@@ -116,10 +121,6 @@ Boxplotsplits2 %>%
                       y= "Frequency")
 ```
 
-Most learners use books or online books as resources. They may use
-multiple sources however they were asked to note the primary source.
-Only 6 stated their primary sources were *Online videos/interactive
-materials* which includes such tools as chatbots.
 
 The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions
 of easy of use of mobile app and other educational mobile resources
@@ -156,12 +157,9 @@ Boxplotsplits2 %>%
 
 ```
 
-(\@ref(fig:BoxplotUsefulPre)) shows the opinions of all participants on
-the usefulness of chatbots. Many had not had experience with them yet
-had positive rating. This positive opinions of chatbots may be from
-colleagues, friends, media, tutors, or other social information of the
-benefits in healthcare education. Around 25% were neutral or disagreed
-that healthcare chatbots were useful.
+(\@ref(fig:BoxplotUsefulPre)) shows the opinions of all participants on the usefulness of chatbots. Many had not had experience with them yet had positive rating. 
+
+This positive opinions of chatbots may be from colleagues, friends, media, tutors, or other social information of the benefits in healthcare education. Around 25% were neutral or disagreed that healthcare chatbots were useful.
 
 ***The participants then used the 4 chatbots, and completed the
 post-usage survey after each chatbot. Results after use are as

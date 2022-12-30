@@ -176,6 +176,8 @@ Finally, post-intervention measures were recorded.
 Some of the participants were invited to participate in Focus Group Discussions (FGD), and each FGD lasted between 15 to 25 minutes, with 5-10 participants.
 Participants were asked if they would like to be informed of the findings of the study.
 
+
+
 ## Design
 
 ```{r Design, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
@@ -193,7 +195,8 @@ Repeated measures t-tests were the appropriate test to use as this explores diff
 There was one Independent factor being Chatbot use having 2 levels (pre/post).
 There were 3 chatbots therefore there was option for ANOVA to determine where differences lie if statistical differences were found however this was not wholly appropriate for the data type and not necessary for pre-post comparison.
 
-  ## Materials and Measures
+
+## Materials and Measures
 
 The measures used fit within a newly developed Chatbot Evaluation Framework- which takes the best measures of 5 previous frameworks.
 Denecke and Warren ​[2]​ derived several quality dimensions and attributes from previous chatbot literature.
@@ -260,7 +263,7 @@ Focus groups are a pervasive means of market research and provides credible acce
 Questions are asked in an interactive group setting where participants are free to talk with other group members.During this process, the researcher either takes notes or records the vital points he or she is getting from the group.
 Researchers select members of the focus group carefully for effective and authoritative responses.Relevant stakeholders, then, can use the information collected through focus groups to receive insights on a specific product, issue, or topic focus [7].
 
-A series of short focus group sessions identified the feasibility of CEPEH resources for formal curricular integration.These sessions, spanning no more than 1-1.5 hours and consisting of no more than 5-7 persons each explored all axes of curricular integration such as accessibility in the classroom, use case scenarios, technology requirements for curricular integration etc.These axes were formalized by the research team, in each evaluation site, to consider the curricular details of each institution.
+A series of short focus group sessions identified the feasibility of CEPEH resources for formal curricular integration. These sessions, spanning no more than 1-1.5 hours and consisting of no more than 5-7 persons each explored all axes of curricular integration such as accessibility in the classroom, use case scenarios, technology requirements for curricular integration etc.These axes were formalized by the research team, in each evaluation site, to consider the curricular details of each institution.
 
 ```{r echo=FALSE}
 

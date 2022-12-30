@@ -16,17 +16,17 @@ knit: (function(input, ...) {
 ##  metadata ##
 #####################
 title: |
-  `Feasibility and Acceptance of chatbots embedded in healthcare curricula`: 
+  `Feasibility and Acceptance of Chatbots Embedded in Healthcare Curricula`: 
     
-author: Matthew Pears,Eirini Schiza, James Henderson, Natalia Stathakarou, Klas Karlgren, Panagiotis D Bamidis, Iraklis Tsoupouroglou, Constantinos S Pattichis, and Stathis Th Konstantinidis
-college: CEPEH report 
-university:  --
+author: Matthew Pears, Eirini Schiza, James Henderson, Natalia Stathakarou, Klas Karlgren, Panagiotis. D. Bamidis, Iraklis Tsoupouroglou, Constantinos. S. Pattichis, and Stathis. Th. Konstantinidis
+college: CEPEH Report 
+university:  ------------
 university-logo: templates/download.png
 university-logo-width: 5cm
 submitted-text:
 degree:  December
 degreedate: 2022
-dedication: see [Link](cepeh-analytics.netlify.app) for more information
+dedication: see CEPEH.eu for more information
 acknowledgements: |
   `r paste(readLines("front-and-back-matter/_acknowledgements.Rmd"), collapse = '\n  ')`
 show-acknowledgements-in-toc: false

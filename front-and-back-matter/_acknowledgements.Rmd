@@ -1,7 +1,11 @@
 This work is supported by the ERASMUS+ Strategic Partnership in Higher Education “Chatbot Enhance Personalise European Healthcare Curricula (CEPEH)” (www.cepeh.eu) (2019-1-UK01- KA203-062091) project of the European Union.
 
+
+
 *Thank you to Mohammed Roshan for assistance in R data processing.*
 
+
+
 \begin{flushright}
-CEPEH Team \\
+The CEPEH Team \\
 \end{flushright}
