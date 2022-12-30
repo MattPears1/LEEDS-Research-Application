@@ -19,13 +19,13 @@ title: |
   `Feasibility and Acceptance of chatbots embedded in healthcare curricula`: 
     
 author: Matthew Pears,Eirini Schiza, James Henderson, Natalia Stathakarou, Klas Karlgren, Panagiotis D Bamidis, Iraklis Tsoupouroglou, Constantinos S Pattichis, and Stathis Th Konstantinidis
-college: CEPEH report 2023
+college: CEPEH report 
 university:  --
 university-logo: templates/download.png
 university-logo-width: 5cm
 submitted-text:
 degree:  December
-degreedate: 2023
+degreedate: 2022
 dedication: see cepeh.eu for more information
 acknowledgements: |
   `r paste(readLines("front-and-back-matter/_acknowledgements.Rmd"), collapse = '\n  ')`
