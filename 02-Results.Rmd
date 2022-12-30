@@ -607,12 +607,24 @@ counted for the majority of the data.
 
 ## Other Findings
 
+```{r ttest, echo=FALSE, fig.align='center', fig.cap="Table of T-test results", message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
+knitr::include_graphics("table ttest.png")
+```
+
+
+```{r clearpic, echo=FALSE, fig.align='center', fig.cap="pre-post clear_understandable example", message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
+knitr::include_graphics("clear.png")
+```
+
+
 ```{r bigtable, echo=FALSE, fig.align='center', fig.cap="Table of Results", message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
 knitr::include_graphics("bigtable.png")
 ```
 
 
-
+```{r accomplishquickly, echo=FALSE, fig.align='center', fig.cap="Pre-post accomplish quickly", message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
+knitr::include_graphics("clear.png")
+```
 
 ```{r second setup stuff 3, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=FALSE}
 
