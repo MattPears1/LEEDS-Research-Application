@@ -7,6 +7,7 @@ fig:Boxplotsplits9
 fig:Boxplotsplits10
 fig:Boxplotsplits4
 fig:Boxplotsplits3
+fig:bigtable
 fig:tam
 method
 participants
@@ -43,6 +44,7 @@ sentiment-analysis
 Discussion
 quantatative-results
 cuq
+tam
 qualatative-results
 limitations
 conclusions

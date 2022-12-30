@@ -29,10 +29,10 @@ A score of 68 is at the centre of the range is thought of as "C".
 The average benchmark for CUQ is 68, and in initial/pilot studies 68 may be considered higher than expected when considering technical issues, less developed user interfaces etc.
 
 Previous studies evaluating chatbots have had similar score.
-For example, in 2022 [Link](a%3C%20href= "https://pubmed.ncbi.nlm.nih.gov/35629252/") found a physical activity promotion chatbot received 64.5/100, with lowest score at 40.6
+For example, in 2022 [Link](a%3C%20href= "https://pubmed.ncbi.nlm.nih.gov/35629252/") found a physical activity promotion chatbot received 64.5/100, with lowest score at 40.6  
 
-###TAM
 
+### TAM
 
 
 ```{r tam, echo=FALSE, fig.align='center', fig.cap="TAM Model processes", message=FALSE, warning=FALSE, out.width="75%", paged.print=TRUE}
