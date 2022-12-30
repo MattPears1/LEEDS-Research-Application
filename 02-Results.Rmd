@@ -235,7 +235,7 @@ The SUS score should consist of 10 items. However, some SUS questions were impro
 
 This meant the score of the SUS was not created, however the CUQ score better represented the Learners' perceptions of the CEPEH chatbot in terms of feasibility of use and acceptability in healthcare curricula.
 
-```{r SUS keepusing,tab.cap="Keep using CEPEH chatbots", echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r SUS keepusing,tab.cap="Keep using CEPEH chatbots", echo=FALSE,fig.align='center', message=FALSE, warning=FALSE, paged.print=FALSE}
 # table for sus results
 SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
 SUS2 <- na.omit(SUS2)
@@ -255,7 +255,7 @@ continue to use the CEPEH chatbots: 89/126 (70%) agreed or strongly
 agreed. However, there were 23 records that learners were neutral or
 disagree they would continue use.
 
-```{r confidence, tab.cap="confidence using CEPEH chatbots", echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r confidence, tab.cap="confidence using CEPEH chatbots", fig.align='center', echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 counts <- ddply(SUS2, .(SUS2$Confident), nrow)
 names(counts) <- c("Keep Using", "V1")
@@ -314,7 +314,7 @@ The justification for this may be due to being early versions of applications wi
 
 CYENS chatbot had around 10 more participants stating that they were neutral on gaining knowledge of the topic
 
-```{r Boxplot knowledge, echo=FALSE, fig.cap="Improvements in Knowledge", message=FALSE, warning=FALSE}
+```{r Boxplot knowledge, echo=FALSE, fig.cap="Improvements in Knowledge", fig.align='center',message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -346,7 +346,7 @@ Boxplotsplits5 %>%
 
 
 The figure (\@ref(fig:Boxplot trust)) shows the ratings by participants of the CEPEH Chatbots to provide them with the necessary course information.
-```{r Boxplot trust, echo=FALSE, fig.cap="Trust Chatbots POST use", message=FALSE, warning=FALSE}
+```{r Boxplot trust, echo=FALSE, fig.cap="Trust Chatbots POST use",fig.align='center', message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -379,7 +379,7 @@ Boxplotsplits6 %>%
 
 This is a integral element in learners' motivational and educational choices to reuse the learning resources. As previously described, the trust of the information is also a factor in these responses.
 
-```{r Boxplot personality, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplot personality, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -415,7 +415,7 @@ primary limitation was found in the 'robotic' interactions(See Figure x). This w
 
 ### Personality and Interactions
 
-```{r Boxplotsplits8, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits8, echo=FALSE, message=FALSE, fig.align='center', warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -454,7 +454,7 @@ agreement was not desired.
 
 ### Ease of Use and Seeking Support
 
-```{r Boxplotsplits9, echo=FALSE, fig.cap="Ease of Use Comparison", message=FALSE, warning=FALSE}
+```{r Boxplotsplits9, echo=FALSE, fig.cap="Ease of Use Comparison", fig.align='center', message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
