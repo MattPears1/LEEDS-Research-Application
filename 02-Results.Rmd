@@ -85,12 +85,10 @@ knitr::kable(prevchat <-prevchat %>% filter(Previous_Chatbot_Usage %in% c("Never
 Table: Previous Chatbot Usage of Participants  
 <br><br>  
 
-
 In short, approximately 50% had never used a chatbot, and 45% had used a
 chatbot, at some period over the years, for a short period of time.  
 
 Most learners use books or online books as resources. They may use multiple sources however they were asked to note the primary source. Only 6 stated their primary sources were *Online videos/interactive materials* which includes such tools as chatbots.  
-
 
 ```{r Boxplotsplits2, echo=FALSE, fig.cap="Chatbot Usage History- Pre", message=FALSE, warning=FALSE}
 
@@ -121,9 +119,7 @@ Boxplotsplits2 %>%
                       y= "Frequency")
 ```
 
-
-The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions
-of easy of use of mobile app and other educational mobile resources
+The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of easy of use of mobile app and other educational mobile resources
 
 ```{r BoxplotUsefulPre, echo=FALSE, fig.cap="Chatbots are Useful Opinion- Pre", message=FALSE, warning=FALSE, paged.print=TRUE}
 
@@ -161,9 +157,19 @@ Boxplotsplits2 %>%
 
 This positive opinions of chatbots may be from colleagues, friends, media, tutors, or other social information of the benefits in healthcare education. Around 25% were neutral or disagreed that healthcare chatbots were useful.
 
+<br><br>
+
 ***The participants then used the 4 chatbots, and completed the
 post-usage survey after each chatbot. Results after use are as
-followed:***
+followed:***  
+
+
+  
+<br><br>  
+<br><br>  
+  
+
+
 
 ## Chatbot Usability Questionnaire (CUQ)
 
@@ -171,11 +177,9 @@ followed:***
 
 The CUQ was developed by researchers at Ulster University,
 [Link](https://www.ulster.ac.uk/research/topic/computer-science/artificial-intelligence/projects/cuq)
-and as the calculation can be complex, a dedicated calculation tool has
-been created.
+and as the calculation can be complex, a dedicated calculation tool has been created.
 
-Please download the CEPEH CUQ calculation tool which has all of the data
-entered, so you can see the CEPEH CUQ scoring
+Please download the CEPEH CUQ calculation tool which has all of the data entered, so you can see the CEPEH CUQ scoring
 
 [Click here to download CUQ calc tool](CUQ-Calculation-Tool.xlsx)
 
@@ -185,15 +189,15 @@ entered, so you can see the CEPEH CUQ scoring
 knitr::include_graphics("cuq.png")
 ```
 
-Although the design and development was similar, each chatbot CUQ score
-was calculated to understand how the topic content may affect usability:
+Although the design and development was similar, each chatbot CUQ score was calculated to understand how the topic content may affect usability:
 
 The breakdown of the chatbots was:
 
 -   Aristotle University of Thessaloniki CUQ score = 63/100
 -   CYENS Centre of Excellence CUQ score = 67/100
 -   Karolinska Institute CUQ score = 63/100
--   University of Nottingham CUQ score = 68/100
+-   University of Nottingham CUQ score = 68/100  
+
 
 The score for all 3 chatbots grouped was 65/100. See Discussion CUQ
 section for interpretation
@@ -214,51 +218,44 @@ plot(CUQ,
        col = factor(levels(factor(ChatbotUsed))))
 ```
 
-Figure (\@ref(fig:CUQscatterplot)) shows the CUQ scores as a scatter
-plot to highlight how there was a moderate distribution of results.
-Further exploration is required to understand which elements are causing
-this spread, and if it was due to problems within a small group of
-learners.
+Figure (\@ref(fig:CUQscatterplot)) shows the CUQ scores as a scatter plot to highlight how there was a moderate distribution of results.
+Further exploration is required to understand which elements are causing this spread, and if it was due to problems within a small group of learners.
 
 ## System Usability Scale (SUS) Scores
 
 *Note= The amount of 'agreement' is defined as the addition of 'Agree'
 and 'Strongly agree' responses.*
 
-The SUS score should consist of 10 items. However, some SUS questions
-were improved upon by 1 or more CUQ questions, specifically to this
-Chatbot study. The SUS results would be obscured by the CUQ scores,
-expect 2 that did not have cross-over. The two questions were:
+The SUS score should consist of 10 items. However, some SUS questions were improved upon by 1 or more CUQ questions, specifically to this Chatbot study. The SUS results would be obscured by the CUQ scores, expect 2 that did not have cross-over. The two questions were:
 
 -   I would like to use the CEPEH chatbot I tested, more frequently
     (SUS1)(post)
--   I felt confident using the CEPEH chatbot (SUS2)(post)
+-   I felt confident using the CEPEH chatbot (SUS2)(post)  
 
-This meant the score of the SUS was not created, however the CUQ score
-better represented the Learners' perceptions of the CEPEH chatbot in
-terms of feasibility of use and acceptability in healthcare curricula.
 
-```{r SUS table 2 questions, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+This meant the score of the SUS was not created, however the CUQ score better represented the Learners' perceptions of the CEPEH chatbot in terms of feasibility of use and acceptability in healthcare curricula.
+
+```{r SUS keepusing,tab.cap="Keep using CEPEH chatbots", echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 # table for sus results
 SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
 SUS2 <- na.omit(SUS2)
-colnames(SUS2)[1] = "KeepUsing"
+colnames(SUS2)[1] = "Keep Using CEPEH Chatbot"
 colnames(SUS2)[2] = "Confident"
 
 library(plyr)
 
-counts <- ddply(SUS2, .(SUS2$KeepUsing), nrow)
-names(counts) <- c("Confident", "Responces")
+counts <- ddply(SUS2, .(SUS2$"Keep Using CEPEH Chatbot"), nrow)
+names(counts) <- c("Keep Using CEPEH Chatbot", "Responces")
 knitr::kable((counts),"pipe")
 
 ```
 
-The table above shows the results for agreement participants may
+The table \@ref(tab:SUS keepusing) above shows the results for agreement participants may
 continue to use the CEPEH chatbots: 89/126 (70%) agreed or strongly
 agreed. However, there were 23 records that learners were neutral or
 disagree they would continue use.
 
-```{r confidence}
+```{r confidence, tab.cap="confidence using CEPEH chatbots", echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 counts <- ddply(SUS2, .(SUS2$Confident), nrow)
 names(counts) <- c("Keep Using", "V1")
@@ -270,7 +267,7 @@ knitr::kable((counts),"pipe")
 
 ```
 
-This table shows the distribution of agreement for participants for all
+Confidence when using the chatbots is in table \@ref(tab:confidence)- it shows the distribution of agreement for participants for all
 4 chatbots. The table shows 90/126 records that participants feel they
 are confident in using the chatbots. However, 21/126 (16%) were neutral
 and 11/126 (8.5%) disagreed and this was explored in the qualitative
