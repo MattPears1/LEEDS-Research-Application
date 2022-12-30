@@ -612,7 +612,7 @@ knitr::include_graphics("table ttest.png")
 ```
 
 
-```{r clearpic, echo=FALSE, fig.align='center', fig.cap="pre-post clear_understandable example", message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
+```{r clearpic, echo=FALSE, fig.align='center', fig.cap="pre-post clear", message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
 knitr::include_graphics("clear.png")
 ```
 
