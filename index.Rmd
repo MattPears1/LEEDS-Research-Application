@@ -26,7 +26,7 @@ university-logo-width: 5cm
 submitted-text:
 degree:  December
 degreedate: 2022
-dedication: see cepeh.eu for more information
+dedication: see [Link](cepeh-analytics.netlify.app) for more information
 acknowledgements: |
   `r paste(readLines("front-and-back-matter/_acknowledgements.Rmd"), collapse = '\n  ')`
 show-acknowledgements-in-toc: false
