@@ -294,12 +294,9 @@ The questions were: Perceived Usefulness (PU)
 Perceived Easy of Use (PEU)
 
 5.  Learning to use CEPEH chatbots would be easy to me
-
 6.  It would be easy for me to be skilful at using CEPEH chatbots
-
 7.  My interactions with CEPEH chatbots would be clear and
     understandable
-
 8.  I would find CEPEH chatbots easy to use
 
 *Results*
@@ -325,7 +322,7 @@ and learning exercises.
 knitr::include_graphics("tam1.png")
 ```
 
-## Other Measeures
+## Other Measures
 
 ### Knowledge of Topics after Use
 
@@ -439,7 +436,7 @@ primary limitation was found in the 'robotic' interactions(See Figure
 10). This was investigated further in the 'Text Mining' and 'Sentiment
 Analysis' sections.
 
-### Personailty and Interactions
+### Personality and Interactions
 
 ```{r Boxplotsplits8, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -478,12 +475,9 @@ exploitation of the NLP modelling to provide illusion of realism. This
 may explain why there was less agreement. However, Neutrality and/or
 agreement was not desired.
 
-The CYENS medical patient chatbot had more complex pathways of
-interactions,
-
 ### Ease of Use and Seeking Support
 
-```{r Boxplotsplits9, fig.cap="Ease of Use Comparison", echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits9, echo=FALSE, fig.cap="Ease of Use Comparison", message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -517,7 +511,7 @@ After usage, there was only agreement in Ease of Use- as shown in
 columns. Any learners with disagreement before using the CEPEH chatbots,
 after believed they were easy to use.
 
-```{r Boxplotsplits10, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Boxplotsplits10, echo=FALSE, fig.cap="Ease of Use Comparison", message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)

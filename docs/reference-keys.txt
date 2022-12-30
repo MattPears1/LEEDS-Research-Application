@@ -7,6 +7,7 @@ fig:tam
 fig:Boxplotsplits5
 fig:Boxplotsplits6
 fig:Boxplotsplits9
+fig:Boxplotsplits10
 fig:Boxplotsplits4
 fig:Boxplotsplits3
 method
@@ -25,10 +26,10 @@ chatbot-usability-questionnaire-cuq-1
 cuq-calculation-tool
 system-usability-scale-sus-scores
 technology-acceptance-model
-other-measeures
+other-measures
 knowledge-of-topics-after-use
 trust-in-cepeh-chatbots-after-use
-personailty-and-interactions
+personality-and-interactions
 ease-of-use-and-seeking-support
 inferential-statistics
 repeated-measures-t-test-results
