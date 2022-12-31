@@ -5,12 +5,12 @@ fig:cuqimage
 fig:CUQscatterplot
 fig:Boxplotsplits9
 fig:Boxplotsplits10
-fig:Boxplotsplits4
-fig:Boxplotsplits3
 fig:ttest
 fig:clearpic
 fig:bigtable
 fig:accomplishquickly
+fig:Boxplotsplits4
+fig:Boxplotsplits3
 fig:tam
 method
 participants
@@ -32,9 +32,9 @@ technology-acceptance-model
 knowledge-and-trust-after-use
 personality-and-interactions
 ease-of-use-and-seeking-support
+other-findings
 inferential-statistics
 repeated-measures-t-test-results
-other-findings
 cepeh-focus-group-discussion-analysis
 tokenising
 stop-words
