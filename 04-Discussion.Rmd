@@ -35,12 +35,19 @@ For example, in 2022 [Link](a%3C%20href= "https://pubmed.ncbi.nlm.nih.gov/356292
 ### TAM
 
 
+
+
+
+
+
+
 ```{r tam, echo=FALSE, fig.align='center', fig.cap="TAM Model processes", message=FALSE, warning=FALSE, out.width="75%", paged.print=TRUE}
 
 knitr::include_graphics("tam1.png")
 ```
 
 ## Qualatative Results
+
 
 ## Limitations
 

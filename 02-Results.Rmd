@@ -211,7 +211,7 @@ plot(CUQ,
 
 Figure (\@ref(fig:CUQscatterplot)) shows the CUQ scores as a scatter plot to highlight how there was a moderate distribution of results.
 Further exploration is required to understand which elements are causing this spread, and if it was due to problems within a small group of learners.
-
+<br><br>
 
 
 ## System Usability Scale (SUS) Scores
@@ -293,7 +293,8 @@ The justification for this may be due to being early versions of applications wi
 
 ### Knowledge and Trust after Use
 
-CYENS chatbot had around 10 more participants stating that they were neutral on gaining knowledge of the topic
+
+CYENS chatbot had around 10 more participants stating that they were neutral on gaining knowledge of the topic. The ﬁgure 2.6 shows the ratings by participants of the CEPEH Chatbots to provide them with the necessary course information.
 
 ```{r Boxplot knowledge, echo=FALSE, fig.cap="Improvements in Knowledge", fig.align='center',message=FALSE, warning=FALSE}
 
@@ -327,6 +328,7 @@ Boxplotsplits5 %>%
 
 
 The figure (\@ref(fig:Boxplot trust)) shows the ratings by participants of the CEPEH Chatbots to provide them with the necessary course information.
+
 ```{r Boxplot trust, echo=FALSE, fig.cap="Trust Chatbots POST use",fig.align='center', message=FALSE, warning=FALSE}
 
 library(tidyverse)
@@ -357,46 +359,14 @@ Boxplotsplits6 %>%
                       y= "Frequency")
 ```
 
-
 This is a integral element in learners' motivational and educational choices to reuse the learning resources. As previously described, the trust of the information is also a factor in these responses.
 
-```{r Boxplot personality, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
-
-library(tidyverse)
-library(readr)
-
-Boxplotsplits7 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
-
-#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
-Boxplotsplits7 %>%
-  
-  filter(Personailty_real_engage %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
-           
-           drop_na(Personailty_real_engage) %>%
-  drop_na(Personailty_real_engage)%>%
-#------then pipe into ggplot
-  #the first aesthetic label is always the x axis
-  ggplot(aes(ChatbotUsed))+
-  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
-  facet_wrap(~Personailty_real_engage)+
-  theme_get()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank())+
-                 labs(title="CEPEH Chatbot Personailty was Realistic and Engaging",
-                      x= "",
-                      y= "Frequency")
-```
-
- 
-There were mixed results for the chatbot used being
-realistic and engaging. This question has two descriptive terms however based on the other results we understand that the chatbots’ NLP logic, or ability to respond required improvement to be more ‘smooth’ in  replying. The primary limitation was found in the ‘robotic’ interactions (See Figure x). This was
-investigated further in the ‘Text Mining’ and ‘Sentiment Analysis’ sections.
 
 
-### Personality and Interactions
+
+
+
+## Personality and Interactions
 
 ```{r Boxplotsplits8, echo=FALSE, message=FALSE, fig.align='center', warning=FALSE}
 
@@ -434,6 +404,42 @@ Nottingham Cybersecurity chatbot had more deterministic pathways with
 exploitation of the NLP modelling to provide illusion of realism. This
 may explain why there was less agreement. However, Neutrality and/or
 agreement was not desired.
+
+
+```{r Boxplot personality, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits7 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits7 %>%
+  
+  filter(Personailty_real_engage %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
+           
+           drop_na(Personailty_real_engage) %>%
+  drop_na(Personailty_real_engage)%>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(ChatbotUsed))+
+  geom_bar(aes(fill = ChatbotUsed), alpha = 0.8)+
+  facet_wrap(~Personailty_real_engage)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+                 labs(title="CEPEH Chatbot Personailty was Realistic and Engaging",
+                      x= "",
+                      y= "Frequency")
+```
+
+ 
+There were mixed results for the chatbot used being realistic and engaging. This question has two descriptive terms however based on the other results we understand that the chatbots’ NLP logic, or ability to respond required improvement to be more ‘smooth’ in  replying. The primary limitation was found in the ‘robotic’ interactions (See Figure x). This was
+investigated further in the ‘Text Mining’ and ‘Sentiment Analysis’ sections.
+
 
 ### Ease of Use and Seeking Support
 
@@ -506,7 +512,14 @@ their understanding that help was available with the CEPEH chatbots.
 After usage, 40 participants agreed they could get help if they had
 difficulty using the resources.
 
-## Other Findings
+
+
+
+
+```{r accomplishquickly, echo=FALSE, fig.align='center', fig.cap="Pre-post accomplish quickly", message=FALSE, warning=FALSE, paged.print=FALSE}
+knitr::include_graphics("clear.png")
+```
+
 
 ```{r ttest, echo=FALSE, fig.align='center', fig.cap="Table of T-test results", message=FALSE, warning=FALSE, paged.print=FALSE}
 knitr::include_graphics("table ttest.png")
@@ -521,11 +534,7 @@ knitr::include_graphics("clear.png")
 ```{r bigtable, echo=FALSE, fig.align='center', fig.cap="Table of Results", fig.height=6, fig.width=5, message=FALSE, warning=FALSE, out.height="125%", paged.print=FALSE}
 knitr::include_graphics("bigtable.png")
 ```
-
-
-```{r accomplishquickly, echo=FALSE, fig.align='center', fig.cap="Pre-post accomplish quickly", message=FALSE, warning=FALSE, paged.print=FALSE}
-knitr::include_graphics("clear.png")
-```
+This rather large table presents all of the descriptive statistic measures AFTER chatbot usage. The Mode is important to show that the majority of participants stated their perceptions, experience, and acceptance increased. 
 
 
 ```{r second setup stuff 3, message=FALSE, warning=FALSE, comment=NA, include=FALSE, paged.print=FALSE}
@@ -548,7 +557,51 @@ library(tidyverse)
 
 ## Inferential Statistics
 
-### Repeated Measures T-test results
+
+Paired t-test involves matching the same participants on a variable before intervention with, ideally, the equal measure of variable after intervention. For this study, we used several metrics from the various questionnaires to facilitate pre-post comparisons. The CUQ was only asked after chatbot usage, however most other questions were able to have a pre-post comparison.
+
+Importantly, there is value in the modes which indicate majority consensus, rather than mean driven t-tests. Being an initial single session with technical orientation for Users as well as practical usage, there is high change that a minority will experience technical or functional problems. Although the majority may benefit, the measures from this minority can significantly impact the measures. For example, if a sample of 42 have the results 5/5 (27), 4/5 (11), and 1/5 (5), the mode and median are 5 however the mean is 4.38. This can affect parametric or non-parametric results that infer equal experience from participant. We are not overlooking participants but factoring in their experiences as a minority and assessing their results in other ways- i.e., the focus group discussions. This better reflects each participants experience and the accuracy of efficacy of the chatbots. 
+Because of the experimental set-up and the 4 different chatbots, the meaning of the t-tests has small power and effect size. We intended for all metrics to improve, but to have significant findings with the setup does not provide much more information in addition to increased means/scores. We performed paired t-tests, however many paired samples had significant Shapiro-Wilk results indicating the normality assumption were violated. The test is robust to violations, and the same participants are being tested over Time, rather than different participants. This also indicated that the meaning of the Wilcoxon has limited strength. 
+
+
+
+
+### Paired sample t-test and Wilcoxon signed rank test
+
+
+Two-tailed paired t-tests were conducted to examine whether the mean difference is of the following groups were significantly different:
+
+•	Confidence
+•	 Daily usefulness
+•	Increasing achievements
+•	Accomplishing things quickly
+•	Increased productivity
+•	Ease of use
+•	Clear and understandable interactions
+•	Use chatbots more frequently
+
+The results showed there were no significant differences in these comparisons. For each comparison the results were:
+
+•	Confidence- t(24) = -0.35, p = .731 (prem=1.96, postm=2.04)
+
+•	Daily usefulness- V = 48.50, z = -0.27, p = .790 (prem=2.04, postm=2.12)
+
+•	Increasing achievements- t(24) = -0.18, p = .857 (prem=2.28, postm=2.32)
+
+•	Accomplish tasks quickly- V = 36.00, z = -0.25, p = .805 (prem=2.12, postm=2.16)
+
+•	Increased productivity- V = 96.00, z = -1.51, p = .131 (prem=2.6, postm=2.24)
+
+•	Ease of use- V = 72.00, z = -1.32, p = .186 (prem=2.36, postm=2.12)
+
+•	Clear and understandable interactions- V = 101.50, z = -1.82, p = .068 (prem=2.2, postm=2.61)
+
+•	Use chatbots more frequently- t(24) = 0.45, p = .657 (prem=2.2, postm=2.08)
+
+
+As predicted, the sensitivity of the t-test meant Wilcoxon test was more appropriate for some measures. The results show minor increases in means for some, but minor decreases in others. These results have high standard deviations which are from a minority of participants scoring low, and explored in the focus group discussions.
+
+
 
 After using the CEPEH chatbots, majority of participants stated they
 would reuse the chatbots. However, there was 6 counts of *disagree* or

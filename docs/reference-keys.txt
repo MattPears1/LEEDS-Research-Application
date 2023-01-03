@@ -5,10 +5,10 @@ fig:cuqimage
 fig:CUQscatterplot
 fig:Boxplotsplits9
 fig:Boxplotsplits10
+fig:accomplishquickly
 fig:ttest
 fig:clearpic
 fig:bigtable
-fig:accomplishquickly
 fig:Boxplotsplits4
 fig:Boxplotsplits3
 fig:tam
@@ -32,9 +32,8 @@ technology-acceptance-model
 knowledge-and-trust-after-use
 personality-and-interactions
 ease-of-use-and-seeking-support
-other-findings
 inferential-statistics
-repeated-measures-t-test-results
+paired-sample-t-test-and-wilcoxon-signed-rank-test
 cepeh-focus-group-discussion-analysis
 tokenising
 stop-words
