@@ -228,7 +228,7 @@ The SUS score should consist of 10 items. However, some SUS questions were impro
 
 This meant the score of the SUS was not created, however the CUQ score better represented the Learners' perceptions of the CEPEH chatbot in terms of feasibility of use and acceptability in healthcare curricula.
 
-```{r SUSkeepusing,tab.cap="Keep using CEPEH chatbots", echo=FALSE,fig.align='center', message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r SUSkeepusing,fig.cap="Keep using CEPEH chatbots", echo=FALSE,fig.align='center', message=FALSE, warning=FALSE, paged.print=FALSE}
 # table for sus results
 SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
 SUS2 <- na.omit(SUS2)
@@ -243,10 +243,10 @@ knitr::kable((counts),"pipe")
 
 ```
 
-The table (\@ref(tab:SUSkeepusing)) above shows the results for agreement participants may
+The table \@ref(tab:SUSkeepusing) above shows the results for agreement participants may
 continue to use the CEPEH chatbots: 89/126 (70%) agreed or strongly agreed. However, there were 23 records that learners were neutral or disagree they would continue use.
 
-```{r confidence, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, paged.print=FALSE, tab.cap="confidence"}
+```{r confidence, echo=FALSE,fig.cap="Confidence in CEPEH chatbots", fig.align='center', message=FALSE, warning=FALSE, paged.print=FALSE, tab.cap="confidence"}
 
 counts <- ddply(SUS2, .(SUS2$Confident), nrow)
 names(counts) <- c("Keep Using", "V1")
