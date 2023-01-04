@@ -214,7 +214,7 @@ Further exploration is required to understand which elements are causing this sp
 <br><br>
 
 
-## System Usability Scale (SUS) Scores
+## System Usability Scale (SUS) Questions
 
 *Note= The amount of 'agreement' is defined as the addition of 'Agree'
 and 'Strongly agree' responses.*
@@ -222,13 +222,13 @@ and 'Strongly agree' responses.*
 The SUS score should consist of 10 items. However, some SUS questions were improved upon by 1 or more CUQ questions, specifically to this Chatbot study. The SUS results would be obscured by the CUQ scores, expect 2 that did not have cross-over. The two questions were:
 
 -   I would like to use the CEPEH chatbot I tested, more frequently
-    (SUS1)(post)
--   I felt confident using the CEPEH chatbot (SUS2)(post)  
+    
+-   I felt confident using the CEPEH chatbot 
 
 
 This meant the score of the SUS was not created, however the CUQ score better represented the Learners' perceptions of the CEPEH chatbot in terms of feasibility of use and acceptability in healthcare curricula.
 
-```{r SUS keepusing,tab.cap="Keep using CEPEH chatbots", echo=FALSE,fig.align='center', message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r SUSkeepusing,tab.cap="Keep using CEPEH chatbots", echo=FALSE,fig.align='center', message=FALSE, warning=FALSE, paged.print=FALSE}
 # table for sus results
 SUS2 <- subset(data, select = c("I would like to use the CEPEH chatbot i tested, more frequently (SUS1)(post)", "I felt confident using the CEPEH chatbot (SUS2)(post)"))
 SUS2 <- na.omit(SUS2)
@@ -243,7 +243,7 @@ knitr::kable((counts),"pipe")
 
 ```
 
-The table (\@ref(tab:SUS keepusing)) above shows the results for agreement participants may
+The table (\@ref(tab:SUSkeepusing)) above shows the results for agreement participants may
 continue to use the CEPEH chatbots: 89/126 (70%) agreed or strongly agreed. However, there were 23 records that learners were neutral or disagree they would continue use.
 
 ```{r confidence, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, paged.print=FALSE, tab.cap="confidence"}

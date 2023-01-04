@@ -49,9 +49,14 @@ knitr::include_graphics("tam1.png")
 ## Qualatative Results
 
 
+
 ## Limitations
 
+
+
 ## Conclusions
+
+This document details the evaluation of 4 Chatbots created using the ASPIRE model for healthcare pedagogy. The feasibility and acceptance from the end-users were the focus, to understand future uptake,impact, etc. Identifying the feasibility of such resources into formal training is essential and studies have promising results when following structured design principals. However, all these studies defined the need for further research in the area until the use of chatbots in healthcare education became common. Furthermore, the creation process of CEPEH resources was significantly different and had improvements to current methods, due to the co-creation process, and use of low cost but effective technology.
 
 Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement.
 As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants.

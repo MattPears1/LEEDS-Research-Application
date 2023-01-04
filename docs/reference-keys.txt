@@ -27,7 +27,7 @@ rmd-basics
 participants-characteristics
 chatbot-usability-questionnaire-cuq-1
 cuq-calculation-tool
-system-usability-scale-sus-scores
+system-usability-scale-sus-questions
 technology-acceptance-model
 knowledge-and-trust-after-use
 personality-and-interactions
