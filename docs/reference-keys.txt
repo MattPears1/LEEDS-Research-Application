@@ -9,6 +9,7 @@ fig:accomplishquickly
 fig:ttest
 fig:clearpic
 fig:bigtable
+fig:Boxplotsplits11
 fig:Boxplotsplits4
 fig:Boxplotsplits3
 fig:tam

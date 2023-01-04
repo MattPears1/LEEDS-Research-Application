@@ -16,8 +16,7 @@ editor_options:
 body {text-align: justify}
  body {background-color: lavenderblush;}
     pre, pre:not([class]) { background-color: lavenderblush;}
-   
-</style>
+  </style>
 
 
 # Results {#rmd-basics}
@@ -93,7 +92,7 @@ chatbot, at some period over the years, for a short period of time.
 
 Most learners use books or online books as resources. They may use multiple sources however they were asked to note the primary source. Only 6 stated their primary sources were *Online videos/interactive materials* which includes such tools as chatbots.  
 
-```{r Boxplotsplits2, echo=FALSE, fig.cap="Chatbot Usage History- Pre", message=FALSE, warning=FALSE}
+```{r Boxplotsplits2, echo=FALSE, fig.cap="Chatbot Usage agreements- Pre", message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(readr)
@@ -122,7 +121,7 @@ Boxplotsplits2 %>%
                       y= "Frequency")
 ```
 
-The first boxplot (\@ref(fig:Boxplotsplits2)) shows learners perceptions of ease of use of mobile app and other educational mobile resources
+The first boxplot (\@ref(fig:Boxplotsplits2)) shows the intention, or at least the learners interest in using chatbots by means of agreeing that they would like to use chatbots if they had the opportunity. 20 healthcare students agreed (16) and strongly agreed (4) which made about 50% of participants. 9 were neutral with 1 disagree.
 
 ```{r BoxplotUsefulPre, echo=FALSE, fig.cap="Chatbots are Useful Opinion- Pre", message=FALSE, warning=FALSE, paged.print=TRUE}
 
@@ -444,7 +443,7 @@ There were mixed results for the chatbot used being realistic and engaging. This
 investigated further in the ‘Text Mining’ and ‘Sentiment Analysis’ sections.
 
 
-### Ease of Use and Seeking Support
+## Ease of Use and Seeking Support
 
 ```{r Boxplotsplits9, echo=FALSE, fig.cap="Ease of Use Comparison", fig.align='center', message=FALSE, warning=FALSE}
 
@@ -606,6 +605,36 @@ As predicted, the sensitivity of the t-test meant Wilcoxon test was more appropr
 
 
 
+```{r Boxplotsplits11, echo=FALSE, fig.cap="Intend to Reuse by Profession-Post", message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(readr)
+
+Boxplotsplits40 <- read.csv("C:/Users/MattP/Desktop/Full DATA CEPEH Moh - Copy.csv", header=TRUE, na.strings=c("", "NA"))
+      
+
+#------make ggplot this way, instead of making a dataset, this is better as you can just filter and skips steps
+Boxplotsplits40 %>%
+  
+filter(Intend %in% c("Agree","Neutral","Disagree","Strongly Agree","Strongly Disagree")) %>%
+ drop_na(Profession) %>%
+#------then pipe into ggplot
+  #the first aesthetic label is always the x axis
+  ggplot(aes(Profession))+
+  geom_bar(aes(fill = Profession), alpha = 0.8)+
+  facet_wrap(~Intend)+
+  theme_get()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        
+        axis.ticks.x=element_blank())+
+                 labs(title="I Intend to again use the CEPEH Chatbots",
+                      x= "Like to use chatbots frequently (Pre)",
+                      y= "Frequency")
+```
+
 After using the CEPEH chatbots, majority of participants stated they
 would reuse the chatbots. However, there was 6 counts of *disagree* or
 *strongly disagree* for all 4 chatbots. Further, there were 17 counts of
@@ -625,7 +654,7 @@ Boxplotsplits4 %>%
   filter(Intend %in% c("Strongly Agree","Agree","Neutral","Disagree","Strongly Disagree")) %>%
            
            drop_na(Intend) %>%
-  drop_na(Intend)%>%
+  
 #------then pipe into ggplot
   #the first aesthetic label is always the x axis
   ggplot(aes(ChatbotUsed))+
