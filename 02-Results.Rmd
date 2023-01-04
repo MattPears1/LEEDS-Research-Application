@@ -5,7 +5,8 @@ output:
   bookdown::html_document2: default
   bookdown::word_document2: default
 documentclass: book
-#bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
+bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
+
 editor_options: 
   markdown: 
     wrap: 72
@@ -634,7 +635,7 @@ filter(Intend %in% c("Agree","Neutral","Disagree","Strongly Agree","Strongly Dis
                       x= "Like to use chatbots frequently (Pre)",
                       y= "Frequency")
 ```
-
+<br>
 After using the CEPEH chatbots, majority of participants stated they
 would reuse the chatbots. However, there was 6 counts of *disagree* or
 *strongly disagree* for all 4 chatbots. Further, there were 17 counts of
@@ -674,6 +675,7 @@ Boxplotsplits4 %>%
 For CYENS, even though the knowledge of the topic was not perceived to
 improve by some participants, this box plot shows how 34/42 stated they
 would reuse the chatbot developed by CYENS.
+<br><br>
 
 ```{r Boxplotsplits3, fig.cap="Easy to Use- Post", echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -709,7 +711,7 @@ There was only 1 'Strongly Disagree' response. The agreement options
 counted for the majority of the data.
 Repeated Measures t-test, aka paired t-test (before and after
 measurements)
-
+<br>
 ```{r T-test, message=FALSE, warning=FALSE, include=FALSE}
 
 library(readr)
