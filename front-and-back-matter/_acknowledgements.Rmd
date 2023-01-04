@@ -2,9 +2,6 @@ This work is supported by the ERASMUS+ Strategic Partnership in Higher Education
 
 
 
-*Thank you to Mohammed Roshan for assistance in R data processing.*
-
-
 
 \begin{flushright}
 The CEPEH Team \\
