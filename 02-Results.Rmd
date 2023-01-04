@@ -14,7 +14,8 @@ editor_options:
 
 ```{=html}
 <style>
-body {
+body { background-color: lightgreen; }
+    pre, pre:not([class]) { background-color: lightgreen; }text-align: justify}
 text-align: justify}
 </style>
 ```
@@ -50,6 +51,7 @@ library(wesanderson)
 library(viridis)
 library(knitr)
 library(tidyverse)
+library(tidytext)
 library(leaflet)
 library(excelR)
 
