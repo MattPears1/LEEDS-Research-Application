@@ -388,7 +388,6 @@ knitr::kable(CEPEHQ_tidy_bing)
 ```
 
 
-
 Unfortunately, there is little research using sentiment analysis for
 chatbot related focus group results that can help to understand the
 scoring found. However, on a basic interpretation the higher the score
