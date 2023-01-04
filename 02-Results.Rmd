@@ -12,13 +12,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{=html}
 <style>
-body { background-color: lightgreen; }
-    pre, pre:not([class]) { background-color: lightgreen; }text-align: justify}
-text-align: justify}
+body {text-align: justify}
+ body {background-color: lavenderblush;}
+    pre, pre:not([class]) { background-color: lavenderblush;}
+   
 </style>
-```
+
+
 # Results {#rmd-basics}
 
 \minitoc <!-- this will include a mini table of contents-->

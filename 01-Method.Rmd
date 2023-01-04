@@ -7,10 +7,16 @@ output:
 documentclass: book
 bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
 ---
+
+
 <style>
-body { background-color: lavenderblush; }
-    pre, pre:not([class]) { background-color: lavenderblush; }text-align: justify}
+ 
+ body {text-align: justify}
+ body {background-color: lavenderblush;}
+    pre, pre:not([class]) { background-color: lavenderblush;}
+   
 </style>
+
 
 ```{r Importing Data, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
 knitr::opts_chunk$set(
