@@ -21,7 +21,7 @@ title: |
 author: Matthew Pears
 college: Research Fellow application
 university:  ------------
-university-logo: templates/w.png
+university-logo: 
 university-logo-width: 5cm
 submitted-text:
 degree:  January
