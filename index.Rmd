@@ -18,15 +18,15 @@ knit: (function(input, ...) {
 title: |
   `Feasibility and Acceptance of Chatbots Embedded in Healthcare Curricula`: 
     
-author: Matthew Pears, Eirini Schiza, James Henderson, Natalia Stathakarou, Klas Karlgren, Panagiotis. D. Bamidis, Iraklis Tsoupouroglou, Constantinos. S. Pattichis, and Stathis. Th. Konstantinidis
-college: CEPEH Report 
+author: Matthew Pears
+college: Research Fellow application
 university:  ------------
-university-logo: templates/download.png
+university-logo: templates/w.png
 university-logo-width: 5cm
 submitted-text:
-degree:  December
-degreedate: 2022
-dedication: see CEPEH.eu for more information
+degree:  January
+degreedate: 2023
+dedication: Made in RMarkdown
 acknowledgements: |
   `r paste(readLines("front-and-back-matter/_acknowledgements.Rmd"), collapse = '\n  ')`
 show-acknowledgements-in-toc: false

@@ -67,16 +67,9 @@ disc <- na.omit(disc)
 colnames(disc)[1] = "Location"
 ```
 
-## Participants' Characteristics
+## Introduction
 
-When participants were asked the amount of time they have used a chatbot
-in any form or subject, 23 stated they had never used a chatbot.
-Further, 19/42 stated having used a chatbot at least once for between
-0-4 hours of use in total. These are likely commercial/website- based
-assistant chatbots however there are some medical/healthcare resources
-known to be used in anatomy and/or patient interactions. One individual
-had spent much longer time with usage- this was the mature student.
-
+Hi there, I thought to create this site using R, Github and a web builder just to show I have at least a basic understanding. 
 ```{r previous chatbot use, echo=FALSE, message=FALSE, warning=FALSE}
 
 # table for previous chatbot usage

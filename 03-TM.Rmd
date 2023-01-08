@@ -27,7 +27,7 @@ body {
 text-align: justify}
 </style>
 ```
-# CEPEH Focus Group Discussion Analysis
+# and here is a bit of text mining i am doing, basic frequency 
 
 ```{r setup packages, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(

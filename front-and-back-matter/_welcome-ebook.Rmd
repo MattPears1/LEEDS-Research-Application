@@ -2,19 +2,23 @@
 
 ::: {.row}
 :::::: {.col-sm-6}
-This site presents the CEPEH data analysis and PDF version. 
 
-The data is from the [](){<a href="https://cepeh.eu/" target="_blank">CEPEH.eu</a>} website.
 
+This also Knits the output in PDF, Word, and HTML!
 
 
 **To view/download the PDF output, [click here](_main.pdf) **
 
 
-
 or a not-as-good Word version [click here and accept 'update contents'](_main.docx).
 
-Please take a look as this site, its pages, and other interactive features- Enjoy!
+
+This is for the job opportunity [](){<a href="https://jobs.leeds.ac.uk/Vacancy.aspx?ref=MHLRM1206" target="_blank">here</a>}.
+
+
+
+I found the application today 8/01/23, so this was created quickly but shows the basic skills.
+
 
 ::::::::: {.byline}
  

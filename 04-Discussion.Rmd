@@ -14,50 +14,6 @@ documentclass: book
 
 \minitoc <!-- this will include a mini table of contents-->
 
-##Summary of Findings
+##Summary 
 
-The Chatbots were beneficial for the majority of users, on metrics which are indicative of uptake. Learners have lots of other choices such as YouTube, but there is a certain need for personalised information gathering, this can save time and prevent learning incorrect information. This was one reason why they were rated positive as they are able to streamline data finding for learners in a format that is understandable and easy to them.
-
-## Quantatative Results
-
-### CUQ
-
-Holmes et al. [<https://dl.acm.org/doi/10.1145/3335082.3335094>] designed the CUQ to be comparable with the system usability scale (SUS).
-
-We have calculated both these scores out of 100 to allow the same benchmark, which is 68.
-A score of 68 is at the centre of the range is thought of as "C".
-The average benchmark for CUQ is 68, and in initial/pilot studies 68 may be considered higher than expected when considering technical issues, less developed user interfaces etc.
-
-Previous studies evaluating chatbots have had similar score.
-For example, in 2022 [Link](a%3C%20href= "https://pubmed.ncbi.nlm.nih.gov/35629252/") found a physical activity promotion chatbot received 64.5/100, with lowest score at 40.6  
-
-
-### TAM
-
-
-
-
-
-
-
-
-```{r tam, echo=FALSE, fig.align='center', fig.cap="TAM Model processes", message=FALSE, warning=FALSE, out.width="75%", paged.print=TRUE}
-
-knitr::include_graphics("tam1.png")
-```
-
-## Qualatative Results
-
-
-
-## Limitations
-
-
-
-## Conclusions
-
-This document details the evaluation of 4 Chatbots created using the ASPIRE model for healthcare pedagogy. The feasibility and acceptance from the end-users were the focus, to understand future uptake,impact, etc. Identifying the feasibility of such resources into formal training is essential and studies have promising results when following structured design principals. However, all these studies defined the need for further research in the area until the use of chatbots in healthcare education became common. Furthermore, the creation process of CEPEH resources was significantly different and had improvements to current methods, due to the co-creation process, and use of low cost but effective technology.
-
-Those results can be interpreted that the learning objectives of the training event was chosen appropriately for the diverse audience including clinicians, academics, researchers, and learning technologists/IT specialist resulting to a successful training event that enable participants to take the acquired knowledge back to their organisations in order to co-design and implement.
-As it was expected and can be depicted from self-confidence statements that some participants being very confident before the event, not all the objectives expected to be reached by everyone, since the training was targeting both technical and non-technical participants.
-However, on both average and individual matched responses participants self-statements showed that they improved their knowledge and understanding in using co-creation approaches to develop digital education resources and in designing and developing chatbots as educational resources.
+A quick setup using r git and site pushing just to show basisc skill. thanks

@@ -1,4 +1,11 @@
-Healthcare education can be supported by machine learning conversation agents. However, there is rapid pace of technical development, complex subject areas in healthcare and sensitive design and development protocols which required expertise. With these issues, current outcomes have barriers in design, development, implementation, and in cases their evaluation. By utilizing a long-standing framework named the ASPIRE framework, the CEPEH team have reinvented parts of the process to streamline and dampen common problems. Stakeholder inclusion was facilitated by the ASPIRE process and the synergistic effect of development heuristics, learners' perspectives, and subject expertise validation. The resultant 4 chatbots, in differing healthcare topics, were evaluated to understand how this simplistic and inclusive approach changes learners' perspectives and experience of chatbots/conversational agents, to promote uptake and course performance. The results showed the majority of descriptive metrics (means, medians, modes) improved marginally, with minority showing no or reduced feedback. Majority consensus of improved experience and perspective is a great outcome considering learners' concerns and anxieties noted in previous literature. This heterogeneity was explored to understand the technical and usage limitations in some users. The CEPEH team concluded that the processes, frameworks, development tools, and evaluation metrics can improve and encourage researchers, learning technologists, educators, and students to produce similar supportive, intuitive, accessible, and easily sustainable learning resources.  
+i will not duplicate the application but this rmarkdown allows report writing and structured presentations.  
+
+this is the abstract if we were writing a report.
+
+
+
+
+
 
 
 
